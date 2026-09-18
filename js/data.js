@@ -521,6 +521,28 @@ const QUIZZES = {
     ],
     "a": 1,
     "fb": "Falacia = fallo en el razonamiento; sesgo = desviación en el modo de pensar."
+   },
+   {
+    "q": "¿Qué es el efecto halo?",
+    "o": [
+     "Que una impresión positiva contamina el juicio sobre todo lo demás.",
+     "Que el primer dato ancla la decisión.",
+     "Que seguimos a la mayoría.",
+     "Que nos confirma en lo que creemos."
+    ],
+    "a": 0,
+    "fb": "Si alguien me cae bien, doy por buenas sus ideas."
+   },
+   {
+    "q": "¿Cómo se defiende uno de los sesgos?",
+    "o": [
+     "Buscando información que contradiga nuestras ideas y desconfiando de las decisiones con prisa.",
+     "Evitando toda información.",
+     "Siguiendo la mayoría.",
+     "Reenviando sin comprobar."
+    ],
+    "a": 0,
+    "fb": "Vigilar los sesgos es buscar lo que nos contradice."
    }
   ]
  },
@@ -615,6 +637,28 @@ const QUIZZES = {
     ],
     "a": 1,
     "fb": "La emoción positiva se asocia a la marca y ayuda a recordarla, sin necesidad de dar razones."
+   },
+   {
+    "q": "¿Qué es la alfabetización mediática?",
+    "o": [
+     "Leer críticamente los medios, distinguiendo información, opinión y publicidad.",
+     "Creer todo lo que dice la prensa.",
+     "Evitar los medios.",
+     "Solo consumir publicidad."
+    ],
+    "a": 0,
+    "fb": "Saber leer los medios de forma crítica es la alfabetización mediática."
+   },
+   {
+    "q": "Estás a punto de compartir un mensaje viral. ¿Qué haces (pensamiento crítico)?",
+    "o": [
+     "Contrastar la fuente y las pruebas antes de compartir.",
+     "Reenviarlo ya.",
+     "Creerlo porque lo manda un amigo.",
+     "Ocultarlo sin mirar."
+    ],
+    "a": 0,
+    "fb": "Contrastar fuentes es clave para no difundir bulos."
    }
   ]
  }
