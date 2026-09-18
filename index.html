@@ -1,0 +1,338 @@
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pensamiento crítico · 2.º ESO</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Spectral:ital,wght@0,400;0,500;0,600;0,700;1,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<link rel="stylesheet" href="css/mobile.css">
+
+<a class="skiplink" href="#contenido">Saltar al contenido</a>
+<header class="bar">
+  <div class="wrap bar-in">
+    <div class="brand"><span class="owl" aria-hidden="true">🦉</span> Aula de Filosofía</div>
+    <nav class="tabs" id="tabs" aria-label="Secciones">
+      <button data-view="inicio" aria-current="true">Inicio</button>
+      <div class="navsec">
+        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Materias</span>
+        <div class="navmenu">
+          <button data-view="ipc">Pensamiento crítico</button>
+        </div>
+      </div>
+      <div class="navsec">
+        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Programación</span>
+        <div class="navmenu">
+          <button data-view="sesiones">Sesiones</button>
+          <button data-view="teoria">Teoría</button>
+          <button data-view="materiales">Materiales</button>
+        </div>
+      </div>
+      <div class="navsec">
+        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Estudiar</span>
+        <div class="navmenu">
+          <button data-view="tarjetas">Tarjetas</button>
+          <button data-view="cuestionarios">Cuestionarios</button>
+        </div>
+      </div>
+      <div class="navsec">
+        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Visual</span>
+        <div class="navmenu">
+          <button data-view="infografias">Infografías</button>
+          <button data-view="mapas">Mapas</button>
+        </div>
+      </div>
+      
+    </nav>
+    <button class="navtoggle" id="navtoggle" aria-label="Abrir menú de secciones" aria-expanded="false">☰</button>
+    <button class="theme" id="theme" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
+  </div>
+</header>
+
+<main class="wrap" id="contenido">
+
+  <!-- INICIO -->
+  <section class="view active" id="inicio">
+    <p class="eyebrow">IES Martín de Bertendona · 2.º ESO · Curso 2026-27</p>
+    <h1 class="title">Pensamiento crítico</h1>
+    <p class="lead">Iniciación al Pensamiento crítico (2.º de ESO). Aquí tienes la teoría, las fichas y las herramientas para pensar mejor: preguntar, argumentar, dialogar y detectar falacias y sesgos.</p>
+
+    <div class="courses">
+      <article class="course" style="--c:var(--ipc)">
+        <span class="kick">Pensamiento crítico · 2.º ESO</span>
+        <h3>Pensar por uno mismo</h3>
+        <p>Preguntar, argumentar, dialogar y detectar falacias. Diario de aprendizaje y trabajos por proyectos.</p>
+        <div class="meta"><span><b>Conceptos</b> y preevaluación</span><span>2.º ESO A/B/C/D</span></div>
+      </article>
+    </div>
+
+    <div class="sec-head"><h2 class="sec">Esta semana (14-18 sep)</h2><p>Tus dos horas de Pensamiento crítico: jueves 11:15 y viernes 9:50.</p></div>
+    <div class="weekwrap">
+      <table class="week">
+        <thead><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr></thead>
+        <tbody id="weekbody"></tbody>
+      </table>
+    </div>
+  </section>
+
+  <!-- MATERIAS (se rellenan desde js/app.js) -->
+  <section class="view" id="fil"></section>
+  <section class="view" id="hf"></section>
+  <section class="view" id="ipc"></section>
+
+  <!-- SESIONES -->
+  <section class="view" id="sesiones">
+    <p class="eyebrow">Programación</p>
+    <h1 class="title">Sesiones</h1>
+    <p class="lead">Secuenciación del curso semana a semana, con el <strong>contenido de cada sesión</strong> de la semana en curso y enlaces directos a los materiales de la web. Filtra por <strong>materia</strong> y <strong>semana</strong>.</p>
+    <div class="filterbar" id="sesfilter" role="group" aria-label="Filtrar sesiones"></div>
+    <div id="sesbody"></div>
+  </section>
+
+  <!-- CALENDARIO -->
+  <section class="view" id="calendario">
+    <p class="eyebrow">Programación</p>
+    <h1 class="title">Calendario del curso</h1>
+    <p class="lead">Listado de <strong>todos y cada uno de los días de clase</strong> del curso 2026-27, agrupados por mes y semana: el <strong>tema de cada materia</strong> y las <strong>asignaturas</strong> que se imparten cada día (según el horario). Fechas provisionales.</p>
+    <div id="calbody"></div>
+  </section>
+
+  <!-- TEORÍA -->
+  <section class="view" id="teoria">
+    <p class="eyebrow">Teoría</p>
+    <h1 class="title">Textos teóricos</h1>
+    <p class="lead">El texto completo de cada tema, para leer en clase o en casa. Se irán añadiendo los demás temas.</p>
+    <div class="filterbar" id="theoryfilter" role="group" aria-label="Filtrar temas"></div>
+    <div class="chips" id="theorychips" role="group" aria-label="Elegir tema"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="toc" aria-label="Índice del tema"></nav>
+      <article class="theory" id="theorybody"></article>
+    </div>
+  </section>
+
+  <!-- MATERIALES -->
+  <section class="view" id="materiales">
+    <p class="eyebrow">Materiales</p>
+    <h1 class="title">Materiales completos</h1>
+    <p class="lead">Las fichas de ejercicios (con soluciones), la presentación de la asignatura y las guías de las tres materias, para consultar en clase o en casa. Las hojas imprimibles del alumnado (sin soluciones) siguen en `.docx`.</p>
+    <div class="filterbar" id="materialfilter" role="group" aria-label="Filtrar materiales"></div>
+    <div class="chips" id="materialchips" role="group" aria-label="Elegir material"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="mtoc" aria-label="Índice del material"></nav>
+      <article class="theory" id="materialbody"></article>
+    </div>
+  </section>
+
+  <!-- LECTURAS -->
+  <section class="view" id="lecturas">
+    <p class="eyebrow">Lecturas</p>
+    <h1 class="title">Lecturas</h1>
+    <p class="lead">Los textos originales de la PAU —Platón, Descartes, Kant, Nietzsche y Beauvoir— con su guía de lectura, los fragmentos, los modelos de respuesta y el glosario. Para leer en clase o en casa y preparar el Ejercicio 1.</p>
+    <div class="filterbar" id="lecturafilter" role="group" aria-label="Filtrar lecturas"></div>
+    <div class="chips" id="lecturachips" role="group" aria-label="Elegir lectura"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="ltoc" aria-label="Índice de la lectura"></nav>
+      <article class="theory" id="lecturabody"></article>
+    </div>
+  </section>
+
+  <!-- DISERTACIONES -->
+  <section class="view" id="disertaciones">
+    <p class="eyebrow">PAU</p>
+    <h1 class="title">Disertaciones</h1>
+    <p class="lead">El ejercicio que <strong>vale 3 puntos</strong> en la PAU. Aquí tienes la metodología y la rúbrica, modelos completos resueltos (Platón, Kant, Nietzsche y un modelo medieval) y modelos comparativos por parejas para practicar la argumentación.</p>
+    <div class="filterbar" id="disertfilter" role="group" aria-label="Filtrar disertaciones"></div>
+    <div class="chips" id="disertchips" role="group" aria-label="Elegir disertación"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="diserttoc" aria-label="Índice de la disertación"></nav>
+      <article class="theory" id="disertbody"></article>
+    </div>
+  </section>
+
+  <!-- PAU -->
+  <section class="view" id="pau">
+    <p class="eyebrow">Selectividad</p>
+    <h1 class="title">Preparación PAU</h1>
+    <p class="lead">Todo lo necesario para el examen de Historia de la Filosofía: la <strong>estructura</strong> de la prueba, cómo afrontar el <strong>Ejercicio 1</strong> (comprensión de texto) y el <strong>Ejercicio 3</strong> (exposición), y los <strong>modelos oficiales</strong>. El Ejercicio 2, la disertación, tiene su propia pestaña.</p>
+    <div class="chips" id="pauchips" role="group" aria-label="Elegir guía PAU"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="pautoc" aria-label="Índice de la guía"></nav>
+      <article class="theory" id="paubody"></article>
+    </div>
+  </section>
+
+  <!-- RECURSOS -->
+  <section class="view" id="recursos">
+    <p class="eyebrow">Recursos</p>
+    <h1 class="title">Vídeos e infografías</h1>
+    <p class="lead">Catálogo de los recursos multimedia del departamento (vídeos e infografías), organizados por tema. Los archivos están en el Drive del departamento; aquí solo se listan para saber qué hay disponible en cada tema.</p>
+    <div class="filterbar" id="mediafilter" role="group" aria-label="Filtrar recursos"></div>
+    <div class="medialist" id="medialist"></div>
+    <div class="sec-head"><h2 class="sec">Vídeos de textos</h2></div>
+    <ul class="mlist" id="mediatextos"></ul>
+    <div class="sec-head"><h2 class="sec">Preparación PAU</h2></div>
+    <ul class="mlist" id="mediapau"></ul>
+  </section>
+
+  <!-- DIAPOSITIVAS -->
+  <section class="view" id="diapositivas">
+    <p class="eyebrow">Recursos</p>
+    <h1 class="title">Diapositivas</h1>
+    <p class="lead">Catálogo de las <strong>presentaciones del departamento</strong> por tema, para proyectar en clase. Los archivos (PDF; el bloque Antiguo también en PowerPoint editable) están en el Drive del departamento; aquí se listan para saber qué pase hay de cada tema. Complementa la pestaña <strong>Recursos</strong> (vídeos e infografías).</p>
+    <div class="filterbar" id="diaposfilter" role="group" aria-label="Filtrar diapositivas"></div>
+    <div class="medialist" id="diaposlist"></div>
+    <div class="sec-head"><h2 class="sec">Además</h2></div>
+    <ul class="mlist" id="diaposextra"></ul>
+  </section>
+
+  <!-- INFOGRAFÍAS -->
+  <section class="view" id="infografias">
+    <p class="eyebrow">Visual</p>
+    <h1 class="title">Infografías</h1>
+    <p class="lead">Láminas visuales por tema, en HTML: para <strong>proyectar en clase</strong> o repasar de un vistazo. Editables y siempre en crecimiento.</p>
+    <div class="filterbar" id="igfilter" role="group" aria-label="Filtrar infografías"></div>
+    <div class="chips" id="igchips" role="group" aria-label="Elegir infografía"></div>
+    <div id="igstage"></div>
+  </section>
+
+  <!-- RÚBRICAS -->
+  <section class="view" id="rubricas">
+    <p class="eyebrow">Evaluación</p>
+    <h1 class="title">Rúbricas de examen</h1>
+    <p class="lead">Rúbricas que puntúan comprobando si el alumnado <strong>identifica contenidos concretos</strong> de cada autor. Cada ítem vale unos puntos; la nota es la suma de los ítems identificados correctamente.</p>
+    <div class="rubricaslist" id="rubricaslist"></div>
+  </section>
+
+  <!-- MAPAS -->
+  <section class="view" id="mapas">
+    <p class="eyebrow">Herramienta</p>
+    <h1 class="title">Mapas conceptuales</h1>
+    <p class="lead">Mapas mentales interactivos: pulsa un nodo (o el círculo) para <strong>plegar o desplegar</strong> ramas, arrastra para moverte y usa la rueda para <strong>ampliar</strong>. Ideales para proyectar en clase o repasar de un vistazo.</p>
+    <div class="filterbar" id="mapfilter" role="group" aria-label="Filtrar mapas"></div>
+    <div class="chips" id="mapchips" role="group" aria-label="Elegir mapa"></div>
+    <div class="mapstage">
+      <div class="maphead" id="maphead"></div>
+      <svg id="mapsvg" role="img" aria-label="Mapa conceptual"></svg>
+    </div>
+  </section>
+
+  <!-- ESQUEMAS -->
+  <section class="view" id="esquemas">
+    <p class="eyebrow">Herramienta</p>
+    <h1 class="title">Esquemas</h1>
+    <p class="lead">Esquemas conceptuales del libro: <strong>grafos de conceptos con sus relaciones</strong> (sobre todo de la filosofía contemporánea). Complementan los <strong>Mapas</strong> mentales. Elige un esquema para verlo.</p>
+    <div class="filterbar" id="esqfilter" role="group" aria-label="Filtrar esquemas"></div>
+    <div class="chips" id="esqchips" role="group" aria-label="Elegir esquema"></div>
+    <div class="mapstage">
+      <div class="maphead" id="esqhead"></div>
+      <div id="esqsvg"></div>
+    </div>
+  </section>
+
+  <!-- GALERÍA -->
+  <section class="view" id="galeria">
+    <p class="eyebrow">Visual</p>
+    <h1 class="title">Galería</h1>
+    <p class="lead"><strong>49 ilustraciones</strong> generadas para el libro del departamento —escenas didácticas por autor y tema—, para proyectar en clase o ilustrar los apuntes. Pulsa una para verla a pantalla completa; usa ‹ › para pasar. Filtra por bloque.</p>
+    <div class="filterbar" id="galfilter" role="group" aria-label="Filtrar galería"></div>
+    <div class="galcount" id="galcount"></div>
+    <div class="galgrid" id="galgrid"></div>
+  </section>
+
+  <!-- GLOSARIO -->
+  <section class="view" id="glosario">
+    <p class="eyebrow">Referencia</p>
+    <h1 class="title">Glosario</h1>
+    <p class="lead">Diccionario de la asignatura: <strong>301 términos</strong> de Historia de la Filosofía con su definición, extraídos del libro del departamento. Busca por palabra o filtra por <strong>bloque</strong> y <strong>área</strong>.</p>
+    <div class="filterbar" id="glofilter" role="group" aria-label="Filtrar glosario"></div>
+    <div class="glocount" id="glocount"></div>
+    <div class="glolist" id="glolist"></div>
+  </section>
+
+  <!-- TARJETAS -->
+  <section class="view" id="tarjetas">
+    <p class="eyebrow">Herramienta</p>
+    <h1 class="title">Tarjetas</h1>
+    <p class="lead">Repaso con tarjetas: pulsa la tarjeta (o la barra espaciadora) para darle la vuelta. Marca las que ya dominas; tu avance se guarda en este navegador.</p>
+    <div class="filterbar" id="deckfilter" role="group" aria-label="Filtrar barajas"></div>
+    <div class="chips" id="deckchips" role="group" aria-label="Elegir baraja"></div>
+    <div class="fc-stage">
+      <div class="fc-meta"><span id="deckname"></span><span class="count" id="fccount"></span></div>
+      <button class="card" id="card" aria-label="Tarjeta: pulsa para girar">
+        <div class="card-inner" id="cardinner">
+          <div class="face front">
+            <span class="side">Anverso</span>
+            <div class="emoji" id="fcemoji" aria-hidden="true"></div>
+            <div class="front-t" id="fcfront"></div>
+            <div class="hint">Pulsa para ver la respuesta</div>
+          </div>
+          <div class="face back">
+            <span class="side">Reverso</span>
+            <div class="back-t" id="fcback"></div>
+          </div>
+        </div>
+      </button>
+      <div class="progress"><i id="fcprog"></i></div>
+      <div class="fc-ctrl">
+        <button class="icon-btn" id="fcprev" aria-label="Anterior">‹</button>
+        <button class="known-btn" id="fcknown">Ya la sé</button>
+        <button class="icon-btn" id="fcshuf" aria-label="Barajar" title="Barajar">⇄</button>
+        <button class="icon-btn" id="fcnext" aria-label="Siguiente">›</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- CUESTIONARIOS -->
+  <section class="view" id="cuestionarios">
+    <p class="eyebrow">Herramienta</p>
+    <h1 class="title">Cuestionarios</h1>
+    <p class="lead">Autoevaluación con corrección al instante y explicación de cada respuesta. Se guarda tu mejor puntuación en este navegador.</p>
+    <div class="filterbar" id="quizfilter" role="group" aria-label="Filtrar cuestionarios"></div>
+    <div class="chips" id="quizchips" role="group" aria-label="Elegir cuestionario"></div>
+    <div class="quiz" id="quizbox"></div>
+  </section>
+
+  <footer class="wrap">
+    Aula de Filosofía · material del departamento del IES Martín de Bertendona. Las tarjetas y los cuestionarios se amplían editando <code>js/data.js</code>.
+  </footer>
+</main>
+
+<script src="js/store.js"></script>
+<script src="js/data.js"></script>
+<script src="js/flashcards.js"></script>
+<script src="js/quiz.js"></script>
+<script src="js/theory.js"></script>
+<script src="js/theoryview.js"></script>
+<script src="js/materials.js"></script>
+<script src="js/materialsview.js"></script>
+<script src="js/lecturas.js"></script>
+<script src="js/lecturasview.js"></script>
+<script src="js/disertaciones.js"></script>
+<script src="js/disertacionesview.js"></script>
+<script src="js/pau.js"></script>
+<script src="js/pauview.js"></script>
+<script src="js/diapositivas.js"></script>
+<script src="js/diapositivasview.js"></script>
+<script src="js/media.js"></script>
+<script src="js/mediaview.js"></script>
+<script src="js/rubricas.js"></script>
+<script src="js/rubricasview.js"></script>
+<script>window.markmap = { autoLoader: { manual: true } };</script>
+<script src="https://cdn.jsdelivr.net/npm/markmap-autoloader@0.18.10"></script>
+<script src="js/maps.js"></script>
+<script src="js/mapsview.js"></script>
+<script src="js/infografias.js"></script>
+<script src="js/infografiasview.js"></script>
+<script src="js/glosario.js"></script>
+<script src="js/glosarioview.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
+<script src="js/esquemas.js"></script>
+<script src="js/esquemasview.js"></script>
+<script src="js/sesiones.js"></script>
+<script src="js/sesionesview.js"></script>
+<script src="js/calendarioview.js"></script>
+<script src="js/galeria.js"></script>
+<script src="js/galeriaview.js"></script>
+<script src="js/mobile.js"></script>
+<script src="js/app.js"></script>
+<script src="js/navctx.js"></script>

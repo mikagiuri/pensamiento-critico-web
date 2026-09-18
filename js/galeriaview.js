@@ -1,0 +1,91 @@
+"use strict";
+/* ===== Vista Galería ===== depende de: galeria.js =====
+   Rejilla de ilustraciones del libro (material propio, generado). Filtro por bloque
+   y visor a pantalla (lightbox) con anterior/siguiente. Estilos propios con tokens de tema. */
+
+const GAL_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea" };
+let galBloque = ["A", "B", "C"].find(function (b){ return GALERIA.some(function (g){ return g.bloque === b; }); }) || "all";  /* bloque concreto por defecto, nunca «Todos» */
+let galList = [];
+let galPos = 0;
+
+const GAL_CSS = `
+#galeria .galgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:12px;margin-top:12px}
+#galeria .galcard{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:var(--surface);cursor:zoom-in;box-shadow:var(--shadow);text-align:left;padding:0;font:inherit;color:inherit}
+#galeria .galcard img{display:block;width:100%;height:150px;object-fit:cover;background:var(--surface-2)}
+#galeria .galcard .cap{padding:8px 11px;font-size:13px;line-height:1.35;color:var(--ink)}
+#galeria .galcard:hover{border-color:var(--accent)}
+#galeria .galcount{color:var(--muted);font-size:13px;margin:10px 0}
+.gallb{position:fixed;inset:0;background:rgba(0,0,0,.85);display:flex;align-items:center;justify-content:center;padding:16px;z-index:200}
+.gallb[hidden]{display:none}
+.gallb .box{position:relative;max-width:min(940px,96vw);max-height:94vh;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:14px;overflow:hidden}
+.gallb img{max-width:100%;max-height:72vh;object-fit:contain;background:var(--surface-2)}
+.gallb .meta{padding:12px 16px}
+.gallb .meta h4{margin:0 0 3px;font-family:var(--serif);font-size:18px;color:var(--ink)}
+.gallb .meta p{margin:0;color:var(--muted);font-size:13.5px}
+.gallb .close{position:absolute;top:8px;right:10px;width:40px;height:40px;font-size:24px;line-height:1;background:rgba(0,0,0,.35);border:0;color:#fff;border-radius:10px;cursor:pointer}
+.gallb .nav{position:absolute;top:50%;transform:translateY(-50%);width:46px;height:60px;font-size:26px;background:rgba(0,0,0,.35);border:0;color:#fff;cursor:pointer}
+.gallb .prev{left:6px;border-radius:0 10px 10px 0}
+.gallb .next{right:6px;border-radius:10px 0 0 10px}
+@media (max-width:520px){ #galeria .galgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))} #galeria .galcard img{height:120px} }
+`;
+let _galCss = false, _lb = null;
+function galInject(){
+  if (_galCss) return;
+  const s = document.createElement("style"); s.textContent = GAL_CSS; document.head.appendChild(s);
+  _lb = document.createElement("div"); _lb.className = "gallb"; _lb.hidden = true;
+  _lb.innerHTML = '<div class="box"><button class="nav prev" aria-label="Anterior">‹</button>' +
+    '<img id="gallbimg" alt=""><div class="meta"><h4 id="gallbt"></h4><p id="gallbp"></p></div>' +
+    '<button class="nav next" aria-label="Siguiente">›</button><button class="close" aria-label="Cerrar">×</button></div>';
+  document.body.appendChild(_lb);
+  _lb.querySelector(".close").addEventListener("click", galClose);
+  _lb.querySelector(".prev").addEventListener("click", function (e){ e.stopPropagation(); galStep(-1); });
+  _lb.querySelector(".next").addEventListener("click", function (e){ e.stopPropagation(); galStep(1); });
+  _lb.addEventListener("click", function (e){ if (e.target === _lb) galClose(); });
+  document.addEventListener("keydown", function (e){
+    if (_lb.hidden) return;
+    if (e.key === "Escape") galClose();
+    else if (e.key === "ArrowLeft") galStep(-1);
+    else if (e.key === "ArrowRight") galStep(1);
+  });
+  _galCss = true;
+}
+
+function galFiltered(){ return GALERIA.filter(function (g){ return galBloque === "all" || g.bloque === galBloque; }); }
+
+function renderGalFilter(){
+  const box = document.getElementById("galfilter");
+  if (!box) return;
+  galInject();
+  box.innerHTML = '<div class="fgroup"><span class="flabel">Bloque</span>' +
+    ["all", "A", "B", "C"].map(function (b){
+      return '<button class="fbtn" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' +
+        (b === "all" ? "Todos" : GAL_BLOCKS[b]) + '</button>'; }).join("") + '</div>';
+  box.querySelectorAll("[data-gb]").forEach(function (b){ b.addEventListener("click", function (){
+    galBloque = b.dataset.gb; renderGalFilter(); renderGalGrid(); }); });
+}
+
+function renderGalGrid(){
+  const grid = document.getElementById("galgrid");
+  const cnt = document.getElementById("galcount");
+  if (!grid) return;
+  galList = galFiltered();
+  if (cnt) cnt.textContent = galList.length + (galList.length === 1 ? " ilustración" : " ilustraciones") +
+    (galList.length !== GALERIA.length ? " (de " + GALERIA.length + ")" : "");
+  grid.innerHTML = galList.map(function (g, i){
+    return '<button class="galcard" data-i="' + i + '"><img loading="lazy" src="' + g.f + '" alt="' + g.t.replace(/"/g, "&quot;") + '"><div class="cap">' + g.t + '</div></button>';
+  }).join("");
+  grid.querySelectorAll(".galcard").forEach(function (b){ b.addEventListener("click", function (){ galOpen(+b.dataset.i); }); });
+}
+
+function galShow(){
+  const g = galList[galPos]; if (!g) return;
+  document.getElementById("gallbimg").src = g.f;
+  document.getElementById("gallbt").textContent = g.t;
+  document.getElementById("gallbp").textContent = (g.pie ? g.pie + " · " : "") + (g.unidad || "");
+}
+function galOpen(i){ galInject(); galPos = i; galShow(); _lb.hidden = false; }
+function galClose(){ if (_lb) _lb.hidden = true; }
+function galStep(d){ galPos = (galPos + d + galList.length) % galList.length; galShow(); }
+
+renderGalFilter();
+renderGalGrid();
