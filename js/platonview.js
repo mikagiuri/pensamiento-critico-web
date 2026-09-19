@@ -6,7 +6,7 @@
    3 virtudes: Sabiduría-Justicia (SJ ⚖️), Valentía (V 🛡️), Templanza (T 🍷).
    Perfiles: Guardián 4/4/4→5/5/5 · Guerrero (SJ≤3) x/4/4→3/5/5 · Productor (SJ,V≤3) x/x/4→3/3/5. */
 
-const REP_POP = 30, REP_TURNS = 6, REP_ARM0 = 8;
+const REP_POP = 30, REP_TURNS = 6, REP_ARM0 = 8, REP_PENALTY = 2;
 const REP_MODES = {
   facil: { name:"Fácil", budget:270, ratio:false, d:"Más puntos y sin la regla de proporción. Para aprender." },
   real:  { name:"Real",  budget:225, ratio:true,  d:"Presupuesto justo y regla de Platón: productores ≥ 2 × (guardianes + guerreros)." }
@@ -208,7 +208,7 @@ function repDrawTurn(ev){
   evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
     '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno</span><h3>'+ev.name+'</h3>'+
     '<div class="threat">'+ev.threat+'</div>'+
-    '<div class="rep-status '+(danger?"bad":"ok")+'">'+(danger?"⚠ "+(typeof ev.bad==="function"?ev.bad():ev.bad)+" −1,5 de armonía.":"✓ "+(typeof ev.ok==="function"?ev.ok():ev.ok))+'</div></div>';
+    '<div class="rep-status '+(danger?"bad":"ok")+'">'+(danger?"⚠ "+(typeof ev.bad==="function"?ev.bad():ev.bad)+" −"+REP_PENALTY+" de armonía.":"✓ "+(typeof ev.ok==="function"?ev.ok():ev.ok))+'</div></div>';
   if(rep.acciones==="si"){
     const acts=document.getElementById("repActs");
     acts.innerHTML=REP_ACTS.map(a=>{ const dis=rep.apTurn>=2||rep.used.has(a.id)||rep.ap<a.ap||(a.ok&&!a.ok());
@@ -227,7 +227,7 @@ function repDoAct(id,ev){
 }
 function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
-  if(ev.danger()) rep.armonia=Math.round((rep.armonia-1.5)*10)/10;
+  if(ev.danger()) rep.armonia=Math.round((rep.armonia-REP_PENALTY)*10)/10;
   rep.turn++;
   if(rep.turn>=REP_TURNS || rep.armonia<=0) repResult(); else repRenderTurn();
 }
