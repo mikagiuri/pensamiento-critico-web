@@ -14,6 +14,12 @@ function parBlocksPresent(){ return [...new Set(GLOSARIO.map(g => g.bloque))].fi
 function parPoolOf(b){ return GLOSARIO.filter(g => g.bloque === b && g.t && g.def); }
 function escPar(s){ return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
+/* ---------- historial de rondas (localStorage) ---------- */
+const PAR_HIST_KEY = "aula-parejas-hist", PAR_HIST_MAX = 12;
+function parHistLoad(){ const h = store.get(PAR_HIST_KEY, []); return Array.isArray(h) ? h : []; }
+function parHistPush(rec){ const h = parHistLoad(); h.unshift(rec); while (h.length > PAR_HIST_MAX) h.pop(); store.set(PAR_HIST_KEY, h); }
+function parNowStr(){ const d = new Date(), p = n => String(n).padStart(2, "0"); return p(d.getDate()) + "/" + p(d.getMonth()+1) + "/" + d.getFullYear() + " " + p(d.getHours()) + ":" + p(d.getMinutes()); }
+
 /* ---------- mejores marcas: panel + exportar/importar (JSON) ---------- */
 const PAR_BEST_KEY = "aula-parejas-best";
 function parBestLoad(){ const m = store.get(PAR_BEST_KEY, {}); return (m && typeof m === "object") ? m : {}; }
@@ -68,10 +74,24 @@ function renderParStart(){
     '</div>' +
     '<div class="par-best-list">' + bestItems + '</div>' +
     '</div>';
+  const hist = parHistLoad();
+  const histPanel = hist.length ? (
+    '<div class="par-hist">' +
+      '<div class="par-hist-top"><span class="par-hist-h">📜 Últimas rondas</span>' +
+        '<button class="btn2" id="parHistClear" title="Borra el historial de rondas guardado en este navegador">🗑️ Borrar historial</button></div>' +
+      '<div class="par-hist-list">' +
+        hist.map(r => '<div class="par-hist-item"><span class="par-hist-badge">' + (r.emoji || "🧩") + '</span> ' +
+          '<b>' + escPar((r.blockName || "").split(" · ")[0] || "Bloque " + (r.block || "")) + '</b> · ' +
+          '<span class="par-hist-score">' + (r.score || 0) + ' pts</span> · ' +
+          (r.pairs || PAR_N) + ' parejas · ' + (r.errors || 0) + ((r.errors === 1) ? ' error' : ' errores') + ' · ' + (r.secs || 0) + ' s' +
+          (r.record ? ' · 🎉 récord' : '') +
+          '<span class="par-hist-date">' + escPar(r.date || "") + '</span></div>').join("") +
+      '</div></div>'
+  ) : '';
   box.innerHTML = '<div class="par-wrap">' +
     '<div class="par-pick"><span class="flabel">Bloque</span>' + picks + '</div>' +
     '<button class="par-play" id="parPlay"><span>🧩</span><span><b>Jugar</b> · empareja ' + PAR_N + ' términos con su definición</span></button>' +
-    bestPanel +
+    bestPanel + histPanel +
     '</div>';
   box.querySelectorAll("[data-pblock]").forEach(b => b.addEventListener("click", () => { par.block = b.dataset.pblock; renderParStart(); }));
   document.getElementById("parPlay").addEventListener("click", parStart);
@@ -79,6 +99,7 @@ function renderParStart(){
   const pi = document.getElementById("parImport"), pf = document.getElementById("parBestFile");
   if (pi && pf){ pi.addEventListener("click", () => pf.click()); pf.addEventListener("change", () => { parImportBestFile(pf.files && pf.files[0]); pf.value = ""; }); }
   const pc = document.getElementById("parClear"); if (pc) pc.addEventListener("click", () => { if (confirm("¿Borrar todas tus mejores marcas de Parejas?")){ store.set(PAR_BEST_KEY, {}); renderParStart(); } });
+  const ph = document.getElementById("parHistClear"); if (ph) ph.addEventListener("click", () => { if (confirm("¿Borrar el historial de rondas de Parejas?")){ store.set(PAR_HIST_KEY, []); renderParStart(); } });
 }
 
 /* ---------- ronda ---------- */
@@ -158,6 +179,7 @@ function renderParResult(){
   const key = "aula-parejas-best";
   const bestMap = store.get(key, {}); const prev = bestMap[par.block] || 0;
   const record = par.score > prev; if (record){ bestMap[par.block] = par.score; store.set(key, bestMap); }
+  parHistPush({ block: par.block, blockName: PAR_BLOCK_NAME[par.block], emoji: emoji, rank: rank, score: par.score, errors: par.errors, secs: secs, pairs: par.pairs.length, record: record, date: parNowStr(), ts: Date.now() });
   parBox().innerHTML = '<div class="par-wrap"><div class="par-result">' +
     '<div class="par-badge">' + emoji + '</div>' +
     '<div class="par-rank">' + rank + '</div>' +

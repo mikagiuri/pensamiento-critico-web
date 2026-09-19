@@ -59,3 +59,12 @@
 #parejas .par-best-list{ display:flex; gap:.5rem; flex-wrap:wrap; }
 #parejas .par-best-item{ background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:.35rem .7rem; font-size:.9rem; }
 #parejas .par-best-item b{ font-family:var(--mono); color:var(--accent); }
+/* historial de rondas (pantalla de inicio) */
+#parejas .par-hist{ margin-top:1rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.9rem 1rem; }
+#parejas .par-hist-top{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin-bottom:.6rem; }
+#parejas .par-hist-h{ font-family:var(--serif); font-weight:700; flex:1; }
+#parejas .par-hist-list{ display:flex; flex-direction:column; gap:.4rem; }
+#parejas .par-hist-item{ background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:.4rem .7rem; font-size:.88rem; display:flex; align-items:baseline; gap:.35rem; flex-wrap:wrap; }
+#parejas .par-hist-badge{ font-size:1rem; }
+#parejas .par-hist-score{ font-family:var(--mono); color:var(--accent); }
+#parejas .par-hist-date{ color:var(--muted); font-size:.82rem; margin-left:auto; }
