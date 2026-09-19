@@ -186,3 +186,36 @@
 #republica .rep-act-art svg{ width:30px; height:30px; }
 #republica .rep-act-b{ display:flex; flex-direction:column; }
 #republica .rep-act:disabled .rep-act-art{ color:var(--muted); background:var(--surface-2); }
+
+/* ===== República v2: diseña tu ciudad ===== */
+#republica .rep-modes-pick{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin-bottom:1rem; }
+#republica .rep-modes-pick .flabel{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); }
+#republica .rep-modes-pick .pbtn{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface); color:var(--ink); padding:.4rem .85rem; border-radius:999px; }
+#republica .rep-modes-pick .pbtn[aria-pressed="true"]{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+#republica .rep-mode-d{ font-size:.85rem; color:var(--muted); flex:1 1 240px; }
+#republica .rep-design{ display:grid; grid-template-columns:1fr 240px; gap:1.2rem; align-items:start; }
+#republica .rep-roster{ display:grid; gap:1rem; }
+#republica .rep-rsec h3{ font-family:var(--serif); font-size:1.1rem; margin:0 0 .4rem; display:flex; align-items:baseline; gap:.5rem; flex-wrap:wrap; }
+#republica .rep-floor{ font-family:var(--sans); font-size:.72rem; font-weight:400; color:var(--muted); text-transform:none; letter-spacing:0; }
+#republica .rep-rrow{ display:flex; align-items:center; gap:.6rem; width:100%; text-align:left; border:1px solid var(--line); background:var(--surface); color:var(--ink); border-radius:10px; padding:.5rem .7rem; margin-bottom:.4rem; font:inherit; }
+#republica .rep-rrow.pick{ cursor:pointer; transition:border-color .15s, background .15s; }
+#republica .rep-rrow.pick:hover{ border-color:var(--accent); }
+#republica .rep-rrow.on{ border-color:var(--accent); background:color-mix(in srgb,var(--accent) 10%,var(--surface)); }
+#republica .rep-check{ flex:0 0 auto; width:1.3rem; height:1.3rem; display:flex; align-items:center; justify-content:center; border-radius:6px; border:1px solid var(--line); color:var(--accent); font-weight:700; }
+#republica .rep-rrow.on .rep-check{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+#republica .rep-rname{ font-weight:600; line-height:1.35; }
+#republica .rep-note{ font-weight:400; color:var(--muted); font-size:.85rem; }
+#republica .rep-pips{ font-family:var(--mono); font-size:.8rem; color:var(--muted); font-weight:400; } #republica .rep-pips em{ color:var(--accent); font-style:normal; }
+#republica .rep-rrow.prod{ justify-content:space-between; }
+#republica .rep-rrow .rep-step{ margin-left:auto; }
+/* resumen lateral */
+#republica .rep-summary{ position:sticky; top:80px; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1rem; box-shadow:var(--shadow); }
+#republica .rep-sum-h{ font-family:var(--serif); font-weight:700; font-size:1.1rem; margin-bottom:.6rem; }
+#republica .rep-sum-row{ display:flex; justify-content:space-between; align-items:baseline; margin:.25rem 0; font-size:.92rem; }
+#republica .rep-sum-row b{ font-family:var(--mono); }
+#republica .rep-sum-row b.ok{ color:var(--ok); } #republica .rep-sum-row b.bad{ color:var(--bad); }
+#republica .rep-sum-classes{ display:flex; justify-content:space-between; font-family:var(--mono); margin:.5rem 0; padding:.4rem 0; border-top:1px solid var(--line-soft); border-bottom:1px solid var(--line-soft); }
+#republica .rep-errs{ list-style:none; padding:0; margin:.6rem 0 0; display:flex; flex-direction:column; gap:.4rem; }
+#republica .rep-errs li{ font-size:.82rem; color:var(--bad); background:var(--bad-bg); border-radius:8px; padding:.4rem .5rem; }
+#republica .rep-summary .rep-play{ width:100%; margin-top:.6rem; }
+@media (max-width:720px){ #republica .rep-design{ grid-template-columns:1fr; } #republica .rep-summary{ position:static; } }

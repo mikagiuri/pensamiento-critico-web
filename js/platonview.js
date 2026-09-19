@@ -1,175 +1,183 @@
 "use strict";
-/* ===== La República ===== juego de gestión de Platón ===== depende de: store.js =====
-   Adaptado del material de gamificación del IES Gabriel Aresti (BATX 2), traducido.
-   Repartes la población en 3 clases; cada turno un evento amenaza la ARMONÍA si la
-   república está desequilibrada. Gastas acciones (AP) para corregirla. 6 turnos. */
+/* ===== La República ===== juego de diseño de la ciudad de Platón ===== depende de: store.js =====
+   Adaptado del material del IES Gabriel Aresti (BATX 2). Diseñas una ciudad de 30 ciudadanos
+   repartidos en 3 clases eligiendo personajes con nombre (cada uno cuesta la suma de sus virtudes),
+   dentro de un presupuesto de puntos. Luego 6 turnos de eventos ponen a prueba tu diseño.
+   3 virtudes: Sabiduría-Justicia (SJ ⚖️), Valentía (V 🛡️), Templanza (T 🍷).
+   Perfiles: Guardián 4/4/4→5/5/5 · Guerrero (SJ≤3) x/4/4→3/5/5 · Productor (SJ,V≤3) x/x/4→3/3/5. */
 
-const REP_TURNS = 6, REP_AP = 10, REP_ARM0 = 8;
-// virtudes base por clase (según la tabla del juego)
-const REP_BASE = {
-  Z: { tem:4, val:4, sab:5, jus:4 },   // Guardianes (filósofos-gobernantes)
-  G: { tem:4, val:4, sab:1, jus:1 },   // Guerreros (defensores)
-  E: { tem:4, val:1, sab:1, jus:1 }    // Productores
+const REP_POP = 30, REP_TURNS = 6, REP_ARM0 = 8;
+const REP_MODES = {
+  facil: { name:"Fácil", budget:270, ratio:false, d:"Más puntos y sin la regla de proporción. Para aprender." },
+  real:  { name:"Real",  budget:225, ratio:true,  d:"Presupuesto justo y regla de Platón: productores ≥ 2 × (guardianes + guerreros)." }
 };
 
-const rep = null_state();
-function null_state(){ return { nZ:10, nG:10, nE:10, bon:{ Zjus:0, Gsab:0, Gval:0, Etem:0 }, armonia:REP_ARM0, ap:REP_AP, turn:0, deck:[], apTurn:0, used:new Set(), hero:false, resolved:false }; }
-function repReset(){ Object.assign(rep, null_state()); }
+// Elenco con nombre. sj/v/t = stats; coste = sj+v+t. Guardianes y guerreros son individuos (una vez);
+// los productores son perfiles con cantidad (la masa anónima).
+const REP_ROSTER = {
+  Z: [ // Guardianes (filósofos-gobernantes): todas las virtudes ≥4
+    { id:"solon", name:"Solón", sj:4, v:4, t:4, note:"el legislador" },
+    { id:"pericles", name:"Pericles", sj:4, v:4, t:5, note:"el estadista" },
+    { id:"socrates", name:"Sócrates", sj:5, v:4, t:4, note:"el que examina" },
+    { id:"hipatia", name:"Hipatia", sj:5, v:4, t:5, note:"la sabia" },
+    { id:"platon", name:"Platón", sj:5, v:5, t:5, note:"el filósofo-rey" }
+  ],
+  G: [ // Guerreros (defensores): valentía y templanza ≥4, poca sabiduría-justicia
+    { id:"ayax", name:"Áyax", sj:1, v:5, t:4, note:"la fuerza bruta" },
+    { id:"aquiles", name:"Aquiles", sj:1, v:5, t:5, note:"el mejor de los aqueos" },
+    { id:"leonidas", name:"Leónidas", sj:2, v:5, t:4, note:"el espartano" },
+    { id:"odiseo", name:"Odiseo", sj:3, v:4, t:4, note:"el astuto" },
+    { id:"diomedes", name:"Diomedes", sj:3, v:4, t:5, note:"el equilibrado" },
+    { id:"hector", name:"Héctor", sj:2, v:5, t:5, note:"el defensor de Troya" }
+  ],
+  E: [ // Productores (la masa): templanza ≥4, resto bajo
+    { id:"labriego", name:"Labriegos", sj:1, v:1, t:4, note:"lo básico" },
+    { id:"artesanos", name:"Artesanos", sj:2, v:2, t:4, note:"oficio y orden" },
+    { id:"mercaderes", name:"Mercaderes", sj:3, v:3, t:5, note:"prósperos" }
+  ]
+};
+const REP_ART = { // arte SVG propio de las acciones (se conserva por si vuelven)
+};
+
+const rep = repFresh();
+function repFresh(){ return { mode:"real", selZ:new Set(), selG:new Set(), cntE:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0,sumSJ:0,sumV:0,sumT:0 }; }
 function repBox(){ return document.getElementById("repbox"); }
+function cost(c){ return c.sj + c.v + c.t; }
 function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
-function repPop(){ return rep.nZ + rep.nG + rep.nE; }
-function repGeff(){ return rep.hero ? rep.nG * 1.5 : rep.nG; }   // Heroísmo: los guerreros valen ×1,5 este turno
 
-const REP_IMG = "media/juegos/platon/";
-// EVENTOS: cada uno define una condición de PELIGRO; si es verdadera → −1,5 ARMONÍA
-const REP_EVENTS = [
-  { id:"corrupcion", name:"Corrupción", img:"ev-corrupcion", threat:"Si los guardianes no son justos (Justicia = 5), la corrupción cunde.",
-    danger:() => (REP_BASE.Z.jus + rep.bon.Zjus) < 5, ok:"Tus guardianes son justos.", bad:"Tus guardianes no alcanzan Justicia = 5." },
-  { id:"sabiduria", name:"Sabiduría olvidada", img:"ev-sabiduria", threat:"Si la sabiduría de guardianes y guerreros es escasa (suma < 40), se pierde el rumbo.",
-    danger:() => (rep.nZ*REP_BASE.Z.sab + rep.nG*(REP_BASE.G.sab + rep.bon.Gsab)) < 40,
-    ok:()=>"Sabiduría (guardianes+guerreros) = " + (rep.nZ*REP_BASE.Z.sab + rep.nG*(REP_BASE.G.sab+rep.bon.Gsab)) + " ≥ 40.",
-    bad:()=>"Sabiduría = " + (rep.nZ*REP_BASE.Z.sab + rep.nG*(REP_BASE.G.sab+rep.bon.Gsab)) + " < 40." },
-  { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Demasiados productores frente a los guerreros (productores > guerreros ×1,8) → revuelta.",
-    danger:() => rep.nE > rep.nG*1.8, ok:"El equilibrio productores/guerreros aguanta.", bad:"Hay demasiados productores para tan pocos guerreros." },
-  { id:"golpe", name:"Golpe de estado", img:"ev-golpe", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×3) → golpe.",
-    danger:() => repGeff() > rep.nZ*3, ok:"Los guerreros están bajo el gobierno de los guardianes.", bad:"El ejército supera con mucho a los guardianes." },
-  { id:"ataque", name:"Ataque exterior", img:"ev-ataque", threat:"Pocos guerreros para defender (guerreros < población / 3,5) → invasión.",
-    danger:() => repGeff() < repPop()/3.5, ok:"Hay defensores suficientes.", bad:"No hay guerreros suficientes para defender la ciudad." },
-  { id:"hambruna", name:"Hambruna", img:"ev-hambruna", threat:"Una clase productora desbordada (productores > (guardianes+guerreros) ×2) desorganiza el abastecimiento.",
-    danger:() => rep.nE > (rep.nZ+rep.nG)*2, ok:"El abastecimiento está organizado.", bad:"La clase productora está desbordada." }
-];
+// ---- cálculo del estado de la ciudad diseñada ----
+function repCompute(){
+  let nZ=0,nG=0,nE=0,pts=0,sj=0,v=0,t=0, sjZ=0, tE=0;
+  REP_ROSTER.Z.forEach(c=>{ if(rep.selZ.has(c.id)){ nZ++; pts+=cost(c); sj+=c.sj; v+=c.v; t+=c.t; sjZ+=c.sj; } });
+  REP_ROSTER.G.forEach(c=>{ if(rep.selG.has(c.id)){ nG++; pts+=cost(c); sj+=c.sj; v+=c.v; t+=c.t; } });
+  REP_ROSTER.E.forEach(c=>{ const n=rep.cntE[c.id]||0; if(n){ nE+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; tE+=c.t*n; } });
+  rep.nZ=nZ; rep.nG=nG; rep.nE=nE; rep.sumSJ=sj; rep.sumV=v; rep.sumT=t; rep._sjZ=sjZ; rep._tE=tE;
+  return { nZ,nG,nE, pop:nZ+nG+nE, pts };
+}
+function repLegal(){
+  const s=repCompute(); const m=REP_MODES[rep.mode]; const errs=[];
+  if(s.pop!==REP_POP) errs.push("La ciudad debe tener exactamente "+REP_POP+" ciudadanos (ahora "+s.pop+").");
+  if(s.pts>m.budget) errs.push("Te pasas del presupuesto ("+s.pts+"/"+m.budget+" puntos).");
+  if(s.nZ<1||s.nG<1||s.nE<1) errs.push("Debe haber al menos un ciudadano de cada clase.");
+  if(m.ratio && s.nE < 2*(s.nZ+s.nG)) errs.push("Regla de Platón: los productores ("+s.nE+") deben ser ≥ 2×(guardianes+guerreros) = "+2*(s.nZ+s.nG)+".");
+  return { ok:errs.length===0, errs, s };
+}
 
-// Arte SVG propio de las acciones (line-art, hereda el color del tema). viewBox 48×48.
-const REP_ART = {
-  politica: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 13h22M11 17h26"/><path d="M16 17v18M22 17v18M26 17v18M32 17v18"/><path d="M14 35h20M11 39h26"/></g></svg>',
-  ejemplo: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 15c-2-4 1-8 5-7M36 15c2-4-1-8-5-7"/><circle cx="19" cy="21" r="5"/><circle cx="29" cy="21" r="5"/><path d="M24 26v5M17 39c0-7 14-7 14 0"/></g><circle cx="19" cy="21" r="1.8" fill="currentColor"/><circle cx="29" cy="21" r="1.8" fill="currentColor"/></svg>',
-  agoge: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8v32M11 13l4-5 4 5"/><path d="M28 13h11v8c0 8-5.5 12-5.5 12S28 29 28 21z"/></g></svg>',
-  vida: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 37C22 35 31 24 36 9"/><path d="M21 27c-3 .5-5.5-1-6-4 3-.5 5.5 1 6 4zM27 20c-3 .5-5.5-1-6-4 3-.5 5.5 1 6 4zM32 12c-3 .5-5.5-1-6-4 3-.5 5.5 1 6 4z"/></g></svg>',
-  deporte: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="13" r="4"/><path d="M24 17v9M15 21l9 3 9-4M24 26l-5 13M24 26l5 13"/></g></svg>',
-  heroismo: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M24 7l15 5v9c0 11-8.5 16.5-15 19-6.5-2.5-15-8-15-19v-9z"/><path d="M24 16l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></g></svg>'
-};
-// ACCIONES: coste en AP; máx. 2 por turno; no repetir la misma acción en el turno
-const REP_ACTS = [
-  { id:"politica", name:"Prácticas políticas", ap:1, d:"Los guardianes elevan su Justicia a 5.", run:()=>{ rep.bon.Zjus = Math.max(rep.bon.Zjus, 1); } },
-  { id:"ejemplo", name:"Ejemplaridad de los guardianes", ap:1, d:"Los guerreros ganan +1 de Sabiduría.", run:()=>{ rep.bon.Gsab += 1; } },
-  { id:"agoge", name:"Agogé", ap:1, d:"Los guerreros elevan su Valor a 5.", run:()=>{ rep.bon.Gval = Math.max(rep.bon.Gval, 1); } },
-  { id:"vida", name:"Vida sencilla", ap:1, d:"Los productores elevan su Templanza a 5.", run:()=>{ rep.bon.Etem = Math.max(rep.bon.Etem, 1); } },
-  { id:"deporte", name:"Juegos deportivos", ap:2, d:"Un productor se forma como guerrero (1 productor → 1 guerrero).", run:()=>{ if(rep.nE>0){ rep.nE--; rep.nG++; } } },
-  { id:"heroismo", name:"Heroísmo", ap:1, d:"Este turno, los guerreros valen ×1,5 en las comprobaciones.", run:()=>{ rep.hero = true; } }
-];
-
-/* ---------- setup ---------- */
+/* ---------- setup: diseña tu ciudad ---------- */
 function renderRepStart(){
-  const box = repBox(); if(!box) return; repReset();
-  box.innerHTML = '<div class="rep-wrap">' +
-    '<div class="rep-col-h">Reparte la población en las tres clases</div>' +
-    '<div class="rep-setup" id="repSetup"></div>' +
-    '<p class="rep-pop" id="repPopLine"></p>' +
-    '<button class="rep-play" id="repPlay">Fundar la república →</button>' +
+  const box=repBox(); if(!box) return; Object.assign(rep, repFresh());
+  box.innerHTML='<div class="rep-wrap">'+
+    '<div class="rep-modes-pick" id="repModes"></div>'+
+    '<div class="rep-design"><div class="rep-roster" id="repRoster"></div>'+
+      '<aside class="rep-summary" id="repSummary"></aside></div>'+
     '</div>';
-  drawRepSetup();
-  document.getElementById("repPlay").addEventListener("click", repStart);
+  drawRepModes(); drawRepRoster(); drawRepSummary();
 }
-const REP_CLASSDEF = [
-  { k:"nZ", em:"🦉", name:"Guardianes", d:"Filósofos-gobernantes. Sabiduría y justicia." },
-  { k:"nG", em:"🛡️", name:"Guerreros", d:"Defensores de la ciudad. Valor." },
-  { k:"nE", em:"🌾", name:"Productores", d:"Agricultores, artesanos, comerciantes. Templanza." }
+function drawRepModes(){
+  document.getElementById("repModes").innerHTML='<span class="flabel">Modo</span>'+
+    Object.entries(REP_MODES).map(([k,m])=>'<button class="pbtn" data-mode="'+k+'" aria-pressed="'+(k===rep.mode)+'">'+m.name+'</button>').join("")+
+    '<span class="rep-mode-d">'+REP_MODES[rep.mode].d+'</span>';
+  document.querySelectorAll("#repModes [data-mode]").forEach(b=>b.addEventListener("click",()=>{ rep.mode=b.dataset.mode; drawRepModes(); drawRepSummary(); }));
+}
+function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' <em>· '+cost(c)+' pts</em></span>'; }
+function drawRepRoster(){
+  const sec=(title,cls,list,sel)=>'<div class="rep-rsec"><h3>'+title+'</h3>'+list.map(c=>{
+    if(cls==="E"){ const n=rep.cntE[c.id]||0; return '<div class="rep-rrow prod"><div class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</div>'+
+      '<div class="rep-step"><button data-decE="'+c.id+'">−</button><span class="n">'+n+'</span><button data-incE="'+c.id+'">+</button></div></div>'; }
+    const on=sel.has(c.id);
+    return '<button class="rep-rrow pick'+(on?" on":"")+'" data-pick="'+cls+':'+c.id+'"><span class="rep-check">'+(on?"✓":"")+'</span><span class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</span></button>';
+  }).join("")+'</div>';
+  document.getElementById("repRoster").innerHTML =
+    sec("🦉 Guardianes <span class=\"rep-floor\">todas las virtudes ≥4</span>","Z",REP_ROSTER.Z,rep.selZ)+
+    sec("🛡️ Guerreros <span class=\"rep-floor\">valentía y templanza ≥4</span>","G",REP_ROSTER.G,rep.selG)+
+    sec("🌾 Productores <span class=\"rep-floor\">templanza ≥4 · la masa</span>","E",REP_ROSTER.E,null);
+  document.querySelectorAll("#repRoster [data-pick]").forEach(b=>b.addEventListener("click",()=>{
+    const [cls,id]=b.dataset.pick.split(":"); const set=cls==="Z"?rep.selZ:rep.selG; set.has(id)?set.delete(id):set.add(id); drawRepRoster(); drawRepSummary(); }));
+  document.querySelectorAll("#repRoster [data-incE]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.incE; const s=repCompute(); if(s.pop<REP_POP){ rep.cntE[id]=(rep.cntE[id]||0)+1; drawRepRoster(); drawRepSummary(); } }));
+  document.querySelectorAll("#repRoster [data-decE]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.decE; if(rep.cntE[id]>0){ rep.cntE[id]--; drawRepRoster(); drawRepSummary(); } }));
+}
+function drawRepSummary(){
+  const { ok, errs, s }=repLegal(); const m=REP_MODES[rep.mode];
+  document.getElementById("repSummary").innerHTML=
+    '<div class="rep-sum-h">Tu ciudad</div>'+
+    '<div class="rep-sum-row"><span>Población</span><b class="'+(s.pop===REP_POP?"ok":"")+'">'+s.pop+' / '+REP_POP+'</b></div>'+
+    '<div class="rep-sum-row"><span>Puntos</span><b class="'+(s.pts<=m.budget?"ok":"bad")+'">'+s.pts+' / '+m.budget+'</b></div>'+
+    '<div class="rep-sum-classes"><span>🦉 '+s.nZ+'</span><span>🛡️ '+s.nG+'</span><span>🌾 '+s.nE+'</span></div>'+
+    (m.ratio?'<div class="rep-sum-row"><span>Proporción</span><b class="'+(s.nE>=2*(s.nZ+s.nG)?"ok":"bad")+'">prod ≥ 2×élite</b></div>':'')+
+    (ok?'<button class="rep-play" id="repPlay">Fundar la república →</button>'
+       :'<ul class="rep-errs">'+errs.map(e=>'<li>'+e+'</li>').join("")+'</ul>');
+  const p=document.getElementById("repPlay"); if(p) p.addEventListener("click",repStart);
+}
+
+// ---- eventos: se comprueban sobre la ciudad diseñada ----
+const REP_EVENTS = [
+  { id:"corrupcion", name:"Corrupción", img:"ev-corrupcion", threat:"Sin guardianes verdaderamente justos, la corrupción cunde.",
+    danger:()=> (rep._sjZ/Math.max(1,rep.nZ)) < 4.5, bad:()=>"La justicia media de tus guardianes es baja.", ok:"Tus guardianes son sabios y justos." },
+  { id:"golpe", name:"Golpe de estado", img:"ev-golpe", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×4) → golpe.",
+    danger:()=> rep.nG > rep.nZ*4, bad:"El ejército desborda al gobierno.", ok:"El ejército respeta a los guardianes." },
+  { id:"ataque", name:"Ataque exterior", img:"ev-ataque", threat:"Pocos brazos o poco valor para defender la ciudad.",
+    danger:()=> rep.nG < 5 || rep.sumV < 55, bad:()=>"Faltan defensores o falta valentía (total "+rep.sumV+").", ok:"Hay defensa suficiente." },
+  { id:"hambruna", name:"Hambruna", img:"ev-hambruna", threat:"Pocos productores para alimentar a la ciudad.",
+    danger:()=> rep.nE < 16, bad:()=>"Solo hay "+rep.nE+" productores.", ok:"El abastecimiento está cubierto." },
+  { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Productores descontentos (poca templanza) se rebelan.",
+    danger:()=> (rep._tE/Math.max(1,rep.nE)) < 4.4, bad:"Tus productores son pobres y descontentos.", ok:"Tus productores viven con templanza." },
+  { id:"sabiduria", name:"Deriva moral", img:"ev-sabiduria", threat:"Si a la ciudad le falta virtud en conjunto, pierde el rumbo.",
+    danger:()=> (rep.sumSJ+rep.sumV+rep.sumT) < 225, bad:()=>"La virtud total de la ciudad es baja ("+(rep.sumSJ+rep.sumV+rep.sumT)+").", ok:"La ciudad rebosa virtud." }
 ];
-function drawRepSetup(){
-  const s = document.getElementById("repSetup");
-  s.innerHTML = REP_CLASSDEF.map(c =>
-    '<div class="rep-classrow"><div><div class="rep-cl-name"><span class="em">' + c.em + '</span>' + c.name + '</div><div class="rep-cl-desc">' + c.d + '</div></div>' +
-    '<div class="rep-step"><button data-dec="' + c.k + '">−</button><span class="n">' + rep[c.k] + '</span><button data-inc="' + c.k + '">+</button></div></div>').join("");
-  s.querySelectorAll("[data-inc]").forEach(b => b.addEventListener("click", () => { const k=b.dataset.inc; if(rep[k]<25) rep[k]++; drawRepSetup(); }));
-  s.querySelectorAll("[data-dec]").forEach(b => b.addEventListener("click", () => { const k=b.dataset.dec; if(rep[k]>1) rep[k]--; drawRepSetup(); }));
-  const warn = repDangers();
-  document.getElementById("repPopLine").innerHTML = 'Población: <b>' + repPop() + '</b>' +
-    (warn.length ? ' · <span class="rep-warn">riesgo ahora: ' + warn.join(", ") + '</span>' : ' · <span style="color:var(--ok)">de momento, equilibrada</span>');
-}
-function repDangers(){ return REP_EVENTS.filter(e => e.danger()).map(e => e.name); }
+const REP_IMG = "media/juegos/platon/";
 
-/* ---------- partida ---------- */
-function repStart(){ rep.armonia = REP_ARM0; rep.ap = REP_AP; rep.turn = 0; rep.deck = repShuffle(REP_EVENTS.map(e=>e.id)); repRenderTurn(); }
-
-function repFmt(n){ return Number.isInteger(n) ? n : n.toFixed(1).replace(/\.0$/,""); }
+/* ---------- turnos ---------- */
+function repStart(){ repCompute(); rep.armonia=REP_ARM0; rep.turn=0; rep.deck=repShuffle(REP_EVENTS.map(e=>e.id)); repRenderTurn(); }
+function repFmt(n){ return Number.isInteger(n)?n:n.toFixed(1).replace(/\.0$/,""); }
 function repRenderTurn(){
-  rep.apTurn = 0; rep.used = new Set(); rep.hero = false; rep.resolved = false;
-  const ev = REP_EVENTS.find(e => e.id === rep.deck[rep.turn]);
-  repBox().innerHTML = '<div class="rep-wrap">' +
-    '<div class="rep-hud"><span class="stat">Turno <b>' + (rep.turn+1) + '</b>/' + REP_TURNS + '</span>' +
-      '<span class="stat">⚖️ Armonía <b id="repArm">' + repFmt(rep.armonia) + '</b></span>' +
-      '<span class="stat">🔧 AP <b id="repAp">' + rep.ap + '</b></span></div>' +
-    '<div class="rep-arm' + (rep.armonia<=3?' low':'') + '"><i style="width:' + Math.max(0,rep.armonia/REP_ARM0*100) + '%"></i></div>' +
-    '<div class="rep-classes" id="repClasses"></div>' +
-    '<div class="rep-event reveal" id="repEvent"></div>' +
-    '<div class="rep-actions-h">Acciones (máx. 2 este turno · no repetir)</div>' +
-    '<div class="rep-acts" id="repActs"></div>' +
-    '<div class="rep-resolve"><button id="repResolve">Resolver turno →</button></div>' +
+  rep.resolved=false;
+  const ev=REP_EVENTS.find(e=>e.id===rep.deck[rep.turn]);
+  repBox().innerHTML='<div class="rep-wrap">'+
+    '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+REP_TURNS+'</span>'+
+      '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b></span></div>'+
+    '<div class="rep-arm'+(rep.armonia<=3?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
+    '<div class="rep-classes" id="repClasses"></div>'+
+    '<div class="rep-event reveal" id="repEvent"></div>'+
+    '<div class="rep-resolve"><button id="repResolve">Afrontar el evento →</button></div>'+
     '</div>';
-  repDrawState(ev);
-  document.getElementById("repResolve").addEventListener("click", () => repResolve(ev));
-}
-function repDrawState(ev){
-  document.getElementById("repClasses").innerHTML = [
-    { em:"🦉", l:"Guardianes", c:rep.nZ, v:"Justicia " + (REP_BASE.Z.jus+rep.bon.Zjus) + " · Sabiduría " + REP_BASE.Z.sab },
-    { em:"🛡️", l:"Guerreros", c:rep.nG + (rep.hero?" ×1,5":""), v:"Valor " + (REP_BASE.G.val+rep.bon.Gval) + " · Sabiduría " + (REP_BASE.G.sab+rep.bon.Gsab) },
-    { em:"🌾", l:"Productores", c:rep.nE, v:"Templanza " + (REP_BASE.E.tem+rep.bon.Etem) }
-  ].map(x => '<div class="rep-class"><div class="c">' + x.em + ' ' + x.c + '</div><div class="l">' + x.l + '</div><div class="v">' + x.v + '</div></div>').join("");
-  const danger = ev.danger();
-  const evBox = document.getElementById("repEvent");
-  evBox.classList.toggle("danger", danger); evBox.classList.toggle("safe", !danger);
-  evBox.innerHTML =
-    '<img class="rep-ev-img" src="' + REP_IMG + ev.img + '.jpg" alt="">' +
-    '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno</span>' +
-      '<h3>' + ev.name + '</h3><div class="threat">' + ev.threat + '</div>' +
-      '<div class="rep-status ' + (danger?"bad":"ok") + '">' + (danger ? "⚠ Peligro: " + (typeof ev.bad==="function"?ev.bad():ev.bad) + " Si no lo corriges, −1,5 de armonía." : "✓ " + (typeof ev.ok==="function"?ev.ok():ev.ok)) + '</div></div>';
-  const acts = document.getElementById("repActs");
-  acts.innerHTML = REP_ACTS.map(a => { const dis = rep.apTurn>=2 || rep.used.has(a.id) || rep.ap<a.ap;
-    return '<button class="rep-act" data-act="' + a.id + '"' + (dis?" disabled":"") + '><span class="rep-act-art">' + (REP_ART[a.id]||"") + '</span>' +
-      '<span class="rep-act-b"><b>' + a.name + ' <span class="ap">' + a.ap + ' AP</span></b><span class="d">' + a.d + '</span></span></button>'; }).join("");
-  acts.querySelectorAll("[data-act]").forEach(b => b.addEventListener("click", () => repDoAct(b.dataset.act, ev)));
-}
-function repDoAct(id, ev){
-  const a = REP_ACTS.find(x => x.id===id);
-  if(rep.apTurn>=2 || rep.used.has(id) || rep.ap<a.ap) return;
-  a.run(); rep.ap -= a.ap; rep.apTurn++; rep.used.add(id);
-  document.getElementById("repAp").textContent = rep.ap;
-  repDrawState(ev);
+  document.getElementById("repClasses").innerHTML=[
+    { em:"🦉", l:"Guardianes", c:rep.nZ }, { em:"🛡️", l:"Guerreros", c:rep.nG }, { em:"🌾", l:"Productores", c:rep.nE }
+  ].map(x=>'<div class="rep-class"><div class="c">'+x.em+' '+x.c+'</div><div class="l">'+x.l+'</div></div>').join("");
+  const danger=ev.danger(); const evb=document.getElementById("repEvent"); evb.classList.toggle("danger",danger); evb.classList.toggle("safe",!danger);
+  evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
+    '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno</span><h3>'+ev.name+'</h3>'+
+    '<div class="threat">'+ev.threat+'</div>'+
+    '<div class="rep-status '+(danger?"bad":"ok")+'">'+(danger?"⚠ "+(typeof ev.bad==="function"?ev.bad():ev.bad)+" −1,5 de armonía.":"✓ "+(typeof ev.ok==="function"?ev.ok():ev.ok))+'</div></div>';
+  document.getElementById("repResolve").addEventListener("click",()=>repResolve(ev));
 }
 function repResolve(ev){
-  if(rep.resolved) return; rep.resolved = true;
-  if(ev.danger()) rep.armonia = Math.round((rep.armonia - 1.5)*10)/10;
+  if(rep.resolved) return; rep.resolved=true;
+  if(ev.danger()) rep.armonia=Math.round((rep.armonia-1.5)*10)/10;
   rep.turn++;
-  if(rep.turn >= REP_TURNS || rep.armonia <= 0) repResult();
-  else repRenderTurn();
+  if(rep.turn>=REP_TURNS || rep.armonia<=0) repResult(); else repRenderTurn();
 }
-
-/* ---------- resultado ---------- */
 function repResult(){
-  const a = rep.armonia; let emoji, rank;
-  if(a <= 0){ emoji="💥"; rank="La república colapsa"; }
-  else if(a >= 6.5){ emoji="🏛️"; rank="República armónica"; }
-  else if(a >= 3.5){ emoji="⚖️"; rank="República estable"; }
+  const a=rep.armonia; let emoji,rank;
+  if(a<=0){ emoji="💥"; rank="La república colapsa"; }
+  else if(a>=6.5){ emoji="🏛️"; rank="República armónica"; }
+  else if(a>=3.5){ emoji="⚖️"; rank="República estable"; }
   else { emoji="⚠️"; rank="República frágil, pero en pie"; }
-  const key="aula-republica-best"; const best=store.get(key,0); const record = a>best; if(record) store.set(key, a);
-  const qs = [
-    "¿Qué muestra este juego sobre la necesidad de equilibrio en la sociedad de Platón?",
+  const key="aula-republica-best"; const best=store.get(key,0); const record=a>best; if(record) store.set(key,a);
+  const qs=["¿Qué muestra este juego sobre la necesidad de equilibrio en la sociedad de Platón?",
     "¿Qué riesgos trae el poder excesivo de cada clase social?",
-    "¿Dónde ves el paralelismo con la vida cotidiana?",
-    "¿Es cierto, como decía Platón, que sin gobernantes filósofos no puede salvarse la sociedad?"
-  ];
-  repBox().innerHTML = '<div class="rep-wrap"><div class="rep-result">' +
-    '<div class="rep-badge">' + emoji + '</div><div class="rep-rank">' + rank + '</div>' +
-    '<div class="rep-final">' + repFmt(Math.max(0,a)) + ' <span>/ 8 de armonía</span></div>' +
-    '<p class="rep-pop">' + REP_TURNS + ' turnos superados · población ' + repPop() +
-      ' · ' + (record ? '¡tu mejor república! 🎉' : 'mejor marca: ' + repFmt(Math.max(best,a))) + '</p>' +
-    '<blockquote class="rep-reflect">Para pensar: ' + qs[Math.floor(Math.random()*qs.length)] + '</blockquote>' +
-    '<div class="rep-actions2"><button class="btn2 primary" id="repAgain">Otra república</button></div>' +
+    "¿Es cierto, como decía Platón, que sin gobernantes filósofos no puede salvarse la sociedad?",
+    "¿Merece la pena una ciudad justa si para lograrla hay que renunciar a la igualdad entre clases?"];
+  repBox().innerHTML='<div class="rep-wrap"><div class="rep-result">'+
+    '<div class="rep-badge">'+emoji+'</div><div class="rep-rank">'+rank+'</div>'+
+    '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ 8 de armonía</span></div>'+
+    '<p class="rep-pop">'+REP_TURNS+' turnos · ciudad '+rep.nZ+'/'+rep.nG+'/'+rep.nE+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
+    '<blockquote class="rep-reflect">Para pensar: '+qs[Math.floor(Math.random()*qs.length)]+'</blockquote>'+
+    '<div class="rep-actions2"><button class="btn2 primary" id="repAgain">Diseñar otra ciudad</button></div>'+
     '</div></div>';
-  document.getElementById("repAgain").addEventListener("click", renderRepStart);
+  document.getElementById("repAgain").addEventListener("click",renderRepStart);
 }
 
 /* ---------- init ---------- */
 function initRep(){ renderRepStart(); }
 document.addEventListener("DOMContentLoaded", initRep);
-(function(){ const nav=document.getElementById("tabs"); if(nav) nav.addEventListener("click", e => { const b=e.target.closest("button"); if(b && b.dataset.view==="republica") renderRepStart(); }); })();
+(function(){ const nav=document.getElementById("tabs"); if(nav) nav.addEventListener("click", e=>{ const b=e.target.closest("button"); if(b && b.dataset.view==="republica") renderRepStart(); }); })();
