@@ -8,11 +8,16 @@
    La PRODUCCIÓN 🌾 NO es una virtud: es un stat DE LA CIUDAD. Solo la generan los
    productores (cada uno alimenta a 2 personas) y debe cubrir a toda la población.
    Luego, tantos turnos como cartas del mazo (Real 8 / Fácil 7), fundados en
-   Platón/Aristóteles, con penalizaciones
-   graduadas, eventos positivos, eventos que MATAN ciudadanos, y penalización
-   creciente a las ciudades de menos de 30 habitantes. */
+   Platón/Aristóteles, con penalizaciones graduadas y ULTRAEXIGENTES (un diseño
+   casi perfecto también cae), eventos positivos, eventos que MATAN ciudadanos,
+   penalización creciente a las ciudades de menos de 30 habitantes y CARTAS DEL
+   DESTINO (peste, guerra, terremoto, muerte del fundador): sucesos inevitables
+   que golpean a cualquier ciudad — la fortuna/necesidad que ni la polis justa
+   evita. El mazo siempre incluye varias (Real 3 / Fácil 2). Las acciones son
+   la tabla de salvación de quien diseñó mal. */
 
-const REP_ARM0 = 10, REP_START = 9, REP_TARGET = 30;   // armonía: empieza en 9, tope 10
+const REP_ARM0 = 10, REP_START = 10, REP_TARGET = 30;   // armonía: empieza llena (10)
+const REP_FATE = ["peste","guerra","terremoto","fundador"];   // cartas del destino (daño inevitable)
 const REP_AP0 = 6;
 const REP_OUT = 2;   // cada productor alimenta (produce para) 2 personas
 const REP_MODES = {
@@ -80,8 +85,8 @@ const F=Math.floor;
 const REP_EVENTS = [
   // — negativos graduados (Platón, República) —
   { id:"rebelion", name:"Rebelión de los productores", src:"Rep. IV", img:"ev-matxinada",
-    threat:"Demasiados productores frente a los guerreros: X = (productores − guerreros) ÷ 5.",
-    effect:()=>{ const x=F(Math.max(0,rep.t.E.n-rep.t.G.n)/5); return { d:-x, msg:x?("Revuelta: −"+x):"La masa está contenida." }; } },
+    threat:"Demasiados productores frente a los guerreros: X = (productores − guerreros) ÷ 4.",
+    effect:()=>{ const x=F(Math.max(0,rep.t.E.n-rep.t.G.n)/4); return { d:-x, msg:x?("Revuelta: −"+x):"La masa está contenida." }; } },
   { id:"golpe", name:"Golpe de estado", src:"Rep. VIII", img:"ev-golpe",
     threat:"Un ejército muy superior al gobierno da un golpe (mata a un guardián).",
     effect:()=>{ if(repNGeff()>rep.t.Z.n*3){ const k=repKill("Z",1); return { d:-3, msg:"¡Golpe! −3 y muere "+k+" guardián." }; }
@@ -90,21 +95,21 @@ const REP_EVENTS = [
     threat:"Pierdes 1 punto por cada guardián que no sea plenamente justo (SJ<5).",
     effect:()=>{ const x=rep.t.Z.n-rep.t.Z.just; return { d:-x, msg:x?("−"+x+" por guardianes poco justos"):"Todos tus guardianes son justos." }; } },
   { id:"caverna", name:"Sombras en la caverna", src:"Rep. VII", img:"ev-sabiduria",
-    threat:"Si la sabiduría-justicia media de la polis es baja (<3,2), sigue entre sombras.",
-    effect:()=>{ const avg=repSum("sj")/Math.max(1,repPop()); return avg<3.2 ? { d:-2, msg:"Ignorancia: −2." } : { d:0, msg:"La ciudad busca la luz." }; } },
+    threat:"Si la sabiduría-justicia media de la polis es baja (<3,8), sigue entre sombras.",
+    effect:()=>{ const avg=repSum("sj")/Math.max(1,repPop()); return avg<3.8 ? { d:-2, msg:"Ignorancia: −2." } : { d:0, msg:"La ciudad busca la luz." }; } },
   // — Aristóteles / muertes / tamaño —
   { id:"ataque", name:"Ataque exterior", src:"Pol. VII", img:"ev-ataque",
-    threat:"Si hay pocos defensores (guerreros < productores ÷ 3), el enemigo entra y mata.",
-    effect:()=>{ if(repNGeff() < rep.t.E.n/3){ const k=repKill("G",F(rep.t.G.n/4))+repKill("E",F(rep.t.E.n/12)); return { d:-2, msg:"Invasión: −2"+(k?" y mueren "+k+" ciudadanos.":".") }; } return { d:0, msg:"La defensa aguanta." }; } },
+    threat:"Si hay pocos defensores (guerreros < productores ÷ 2,5), el enemigo entra y mata.",
+    effect:()=>{ if(repNGeff() < rep.t.E.n/2.5){ const k=repKill("G",F(rep.t.G.n/4))+repKill("E",F(rep.t.E.n/12)); return { d:-2, msg:"Invasión: −2"+(k?" y mueren "+k+" ciudadanos.":".") }; } return { d:0, msg:"La defensa aguanta." }; } },
   { id:"peste", name:"La peste", src:"—", img:"ev-hambruna",
     threat:"Una epidemia se ceba en la masa: mata a parte de los productores y guerreros.",
     effect:()=>{ const k=repKill("E",F(rep.t.E.n/5))+repKill("G",F(rep.t.G.n/8)); return { d:-2, msg:"Peste: −2 y mueren "+k+" ciudadanos." }; } },
   { id:"hambruna", name:"Hambruna", src:"Pol. I", img:"ev-hambruna",
-    threat:"Si la producción de la ciudad no alimenta a toda la población, hay hambre y muertes.",
-    effect:()=>{ const surplus=repProd()-repPop(); if(surplus<0){ const x=F(-surplus/3), k=repKill("E",F(-surplus/6)); return { d:-x, msg:"Hambre: −"+x+(k?" y mueren "+k+" productores.":".") }; } return { d:0, msg:"La producción alimenta a la ciudad." }; } },
+    threat:"Sin un margen de producción holgado (excedente < 10% de la población), hay hambre y muertes.",
+    effect:()=>{ const margin=repPop()*0.1, surplus=repProd()-repPop(); if(surplus<margin){ const x=F((margin-surplus)/3)||1, k=repKill("E",F(Math.max(0,-surplus)/6)); return { d:-x, msg:"Hambre: −"+x+(k?" y mueren "+k+" productores.":".") }; } return { d:0, msg:"La producción alimenta a la ciudad." }; } },
   { id:"menguada", name:"Ciudad menguada", src:"Pol. I", img:"ev-ataque",
-    threat:"Una polis pequeña no se basta a sí misma: cuanto menos de 30 habitantes, peor.",
-    effect:()=>{ const x=F(Math.max(0,REP_TARGET-repPop())/3); return { d:-x, msg:x?("Debilidad ("+repPop()+" hab.): −"+x):"Ciudad autosuficiente." }; } },
+    threat:"Una polis pequeña no se basta a sí misma: cuanto menos de 30 habitantes, peor (÷2).",
+    effect:()=>{ const x=F(Math.max(0,REP_TARGET-repPop())/2); return { d:-x, msg:x?("Debilidad ("+repPop()+" hab.): −"+x):"Ciudad autosuficiente." }; } },
   // — positivos —
   { id:"alianza", name:"Alianza comercial", src:"Rep.", img:"ev-corrupcion",
     threat:"Si los productores son la mayoría (≥60%), florece el comercio.",
@@ -120,11 +125,11 @@ const REP_EVENTS = [
     effect:()=>{ return (repProd()-repPop()) >= repPop()*0.4 ? { d:2, msg:"Excedente: +2." } : { d:0, msg:"Sin excedente notable." }; } },
   // — Atenas y su historia (contexto de Platón y Aristóteles) —
   { id:"delos", name:"Liga de Delos", src:"Historia", img:"ev-delos",
-    threat:"Con una flota fuerte (guerreros ≥ productores ÷ 3), los aliados pagan tributo; si no, se sublevan.",
-    effect:()=>{ return repNGeff() >= rep.t.E.n/3 ? { d:2, msg:"Tributo de los aliados: +2." } : { d:-1, msg:"Los aliados se sublevan: −1." }; } },
+    threat:"Con una flota fuerte (guerreros ≥ productores ÷ 2,5), los aliados pagan tributo; si no, se sublevan.",
+    effect:()=>{ return repNGeff() >= rep.t.E.n/2.5 ? { d:2, msg:"Tributo de los aliados: +2." } : { d:-1, msg:"Los aliados se sublevan: −1." }; } },
   { id:"esparta", name:"Invasión de Esparta", src:"Guerra del Peloponeso", img:"ev-esparta",
-    threat:"Esparta arrasa los campos. Si los defensores son escasos (guerreros < productores ÷ 4), es una masacre.",
-    effect:()=>{ if(repNGeff() < rep.t.E.n/4){ const k=repKill("E",F(rep.t.E.n/8))+repKill("G",F(rep.t.G.n/6)); return { d:-3, msg:"Devastación: −3 y mueren "+k+" ciudadanos." }; } return { d:-1, msg:"Resistes tras las murallas: −1." }; } },
+    threat:"Esparta arrasa los campos. Si los defensores son escasos (guerreros < productores ÷ 3), es una masacre.",
+    effect:()=>{ if(repNGeff() < rep.t.E.n/3){ const k=repKill("E",F(rep.t.E.n/8))+repKill("G",F(rep.t.G.n/6)); return { d:-3, msg:"Devastación: −3 y mueren "+k+" ciudadanos." }; } return { d:-1, msg:"Resistes tras las murallas: −1." }; } },
   { id:"socrates", name:"Juicio a Sócrates", src:"Apología", img:"ev-socrates",
     threat:"La ciudad juzga a su hombre más sabio. Sin un guardián plenamente sabio (SJ 5), lo condena.",
     effect:()=>{ return rep.t.Z.max>=5 ? { d:1, msg:"La sabiduría lo absuelve: +1." } : { d:-2, msg:"Condenan al más sabio: −2." }; } },
@@ -132,14 +137,24 @@ const REP_EVENTS = [
     threat:"Un líder brillante emprende grandes obras. Con guardianes templados (templanza media ≥4,5) es un siglo de oro; sin mesura, hybris.",
     effect:()=>{ const tavg=rep.t.Z.t/Math.max(1,rep.t.Z.n); return tavg>=4.5 ? { d:2, msg:"Siglo de oro de Pericles: +2." } : { d:-2, msg:"Ambición desmedida (hybris): −2." }; } },
   { id:"sofistas", name:"Auge de los sofistas", src:"Gorgias", img:"ev-sofistas",
-    threat:"Maestros de la retórica seducen a la juventud. Si menos de la mitad de tus guardianes son plenamente justos, vencen.",
-    effect:()=>{ return rep.t.Z.just >= rep.t.Z.n/2 ? { d:1, msg:"Los filósofos los refutan: +1." } : { d:-2, msg:"El relativismo corrompe: −2." }; } },
+    threat:"Maestros de la retórica seducen a la juventud. Si menos de 3/4 de tus guardianes son plenamente justos, vencen.",
+    effect:()=>{ return rep.t.Z.just >= rep.t.Z.n*0.75 ? { d:1, msg:"Los filósofos los refutan: +1." } : { d:-2, msg:"El relativismo corrompe: −2." }; } },
   { id:"timocracia", name:"Timocracia", src:"Rep. VIII", img:"ev-timocracia",
-    threat:"Si los guerreros dominan a los guardianes (guerreros > guardianes ×2), el honor sustituye a la razón.",
-    effect:()=>{ return rep.t.G.n > rep.t.Z.n*2 ? { d:-2, msg:"La ciudad degenera en timocracia: −2." } : { d:1, msg:"La razón sigue al mando: +1." }; } },
+    threat:"Si los guerreros superan en 1,5× a los guardianes, el honor sustituye a la razón.",
+    effect:()=>{ return rep.t.G.n > rep.t.Z.n*1.5 ? { d:-2, msg:"La ciudad degenera en timocracia: −2." } : { d:1, msg:"La razón sigue al mando: +1." }; } },
   { id:"oraculo", name:"Oráculo inquietante", src:"Delfos", img:"ev-oraculo",
     threat:"La Pitia pronuncia un presagio ambiguo. El destino, esta vez, no depende de tu ciudad.",
-    effect:()=>{ return rep.rng<0.55 ? { d:-2, msg:"Presagio funesto: −2." } : { d:1, msg:"Presagio favorable: +1." }; } }
+    effect:()=>{ return rep.rng<0.55 ? { d:-2, msg:"Presagio funesto: −2." } : { d:1, msg:"Presagio favorable: +1." }; } },
+  // — CARTAS DEL DESTINO (inevitables: golpean a cualquier ciudad, se diseñe como se diseñe) —
+  { id:"guerra", name:"Guerra prolongada", src:"Destino", img:"ev-ataque", fate:true,
+    threat:"Ninguna ciudad se libra de la guerra: desgasta a la polis y cuesta vidas de guerreros.",
+    effect:()=>{ const k=repKill("G",F(rep.t.G.n/8)); return { d:-2, msg:"La guerra desangra la ciudad: −2"+(k?" y caen "+k+" guerreros.":".") }; } },
+  { id:"terremoto", name:"Terremoto", src:"Destino", img:"ev-golpe", fate:true,
+    threat:"La tierra tiembla sin avisar: derriba y mata sin distinguir clases.",
+    effect:()=>{ const k=repKill("E",F(rep.t.E.n/10))+repKill("Z",F(rep.t.Z.n/12)); return { d:-2, msg:"Se derrumba la ciudad: −2"+(k?" y mueren "+k+" personas.":".") }; } },
+  { id:"fundador", name:"Muerte del fundador", src:"Destino", img:"ev-sabiduria", fate:true,
+    threat:"Muere quien fundó la ciudad: la sucesión abre una crisis que a nadie perdona.",
+    effect:()=>{ return { d:-2, msg:"Crisis de sucesión: −2." }; } }
 ];
 
 /* ---------- setup ---------- */
@@ -179,6 +194,7 @@ function drawRepSummary(){
     '<div class="rep-sum-classes"><span>🦉 '+s.nZ+'</span><span>🛡️ '+s.nG+'</span><span>🌾 '+s.nE+'</span></div>'+
     '<div class="rep-sum-row"><span>🌾 Producción</span><b class="'+(fed?"ok":"bad")+'">'+s.prod+' <small>vs '+s.pop+' comen</small></b></div>'+
     (m.ratio?'<div class="rep-sum-row"><span>Proporción</span><b class="'+(s.nE>=2*(s.nZ+s.nG)?"ok":"bad")+'">prod ≥ 2×élite</b></div>':'')+
+    '<div class="rep-fate-note">🎴 Ojo: el mundo es exigente. Además de los eventos que castigan un mal diseño (ahora más duros), el mazo trae <b>cartas del destino</b> —peste, guerra, terremoto, muerte del fundador— que golpean a cualquier ciudad. Ni el diseño perfecto está a salvo; las <b>acciones</b> son tu tabla de salvación.</div>'+
     (ok?'<button class="rep-play" id="repPlay">Fundar la república →</button>':'<ul class="rep-errs">'+errs.map(e=>'<li>'+e+'</li>').join("")+'</ul>');
   const p=document.getElementById("repPlay"); if(p) p.addEventListener("click",repStart);
 }
@@ -199,8 +215,12 @@ function repStart(){
   repCompute(); const c=rep._cls; rep.armonia=REP_START; rep.turn=0; rep.ap=(rep.acciones==="si")?REP_AP0:0;
   const n=REP_MODES[rep.mode].deck;   // Real 8 · Fácil 7 — cada carta es un turno
   rep.turns=n;
-  const rest=repShuffle(REP_EVENTS.filter(e=>e.id!=="menguada").map(e=>e.id)).slice(0,n-1);
-  rep.deck=repShuffle(rest.concat("menguada"));   // «Ciudad menguada» siempre presente y siempre jugada (castiga el tamaño pequeño)
+  const nFate=(rep.mode==="real")?3:2;                                  // cartas del destino inevitables por partida
+  const forced=repShuffle(REP_FATE).slice(0,nFate).concat("menguada");  // + «Ciudad menguada» siempre presente
+  const forcedSet=new Set(forced);
+  const pool=REP_EVENTS.filter(e=>!forcedSet.has(e.id)).map(e=>e.id);   // el resto: eventos condicionales variados
+  const rest=repShuffle(pool).slice(0, Math.max(0, n-forced.length));
+  rep.deck=repShuffle(rest.concat(forced));
   rep.t={ Z:Object.assign({},c.Z), G:Object.assign({},c.G), E:Object.assign({},c.E), hero:false, prodBonus:0 };
   repRenderTurn();
 }
@@ -237,7 +257,7 @@ function repDrawTurn(ev){
   const good=pre.d>0, bad=pre.d<0; const evb=document.getElementById("repEvent");
   evb.classList.toggle("danger",bad); evb.classList.toggle("safe",!bad);
   evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
-    '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno'+(ev.src&&ev.src!=="—"?' · '+ev.src:'')+'</span><h3>'+ev.name+'</h3>'+
+    '<div class="rep-ev-body"><span class="rep-ev-tag'+(ev.fate?' fate':'')+'">'+(ev.fate?'🎴 Carta del destino · inevitable':'🃏 Evento del turno'+(ev.src&&ev.src!=="—"?' · '+ev.src:''))+'</span><h3>'+ev.name+'</h3>'+
     '<div class="threat">'+ev.threat+'</div>'+
     '<div class="rep-status '+(bad?"bad":good?"good":"ok")+'">'+(bad?"⚠ ":good?"✓ ":"• ")+pre.msg+'</div></div>';
   if(rep.acciones==="si"){ const acts=document.getElementById("repActs");
