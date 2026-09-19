@@ -310,7 +310,11 @@ function repDownloadText(txt,name){
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000);
   }catch(e){}
 }
-function repDownloadChronicle(){ repDownloadText(repChronicleText(),"mi-republica-"+new Date().toISOString().slice(0,10)); }
+/* nombre de archivo único y legible: mi-republica-<ciudad>-AAAA-MM-DD-HHMM */
+function repFileSlug(s){ return String(s||"").normalize("NFKD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/[^a-z0-9]+/g,"-").replace(/^-+|-+$/g,"").slice(0,40); }
+function repStamp(ts){ const d=ts?new Date(ts):new Date(); const p=n=>String(n).padStart(2,"0"); return d.getFullYear()+"-"+p(d.getMonth()+1)+"-"+p(d.getDate())+"-"+p(d.getHours())+p(d.getMinutes()); }
+function repChronicleFilename(name,ts){ const s=repFileSlug(name); return "mi-republica"+(s?"-"+s:"")+"-"+repStamp(ts); }
+function repDownloadChronicle(){ repDownloadText(repChronicleText(),repChronicleFilename(rep.gameName||rep._defaultName)); }
 /* ---------- historial de partidas (localStorage) ---------- */
 const REP_HIST_KEY="aula-republica-hist", REP_HIST_MAX=12;
 function repHistLoad(){ try{ const h=store.get(REP_HIST_KEY,[]); return Array.isArray(h)?h:[]; }catch(e){ return []; } }
@@ -374,7 +378,7 @@ function renderRepHistory(){
   const imp=document.getElementById("repHistImport"), fi=document.getElementById("repHistFile");
   if(imp&&fi){ imp.addEventListener("click",()=>fi.click()); fi.addEventListener("change",()=>{ repImportHistoryFile(fi.files&&fi.files[0]); fi.value=""; }); }
   box.querySelectorAll("[data-hcopy]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hcopy]; if(r&&navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(r.text).then(()=>{ const o=b.textContent; b.textContent="✓ ¡Copiada!"; setTimeout(()=>{b.textContent=o;},1400); }).catch(()=>{}); } }));
-  box.querySelectorAll("[data-hdl]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hdl]; if(r) repDownloadText(r.text,"mi-republica-"+(r.ts||Date.now())); }));
+  box.querySelectorAll("[data-hdl]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hdl]; if(r) repDownloadText(r.text,repChronicleFilename(r.name,r.ts)); }));
 }
 function repCopyChronicle(btn){
   const txt=repChronicleText();

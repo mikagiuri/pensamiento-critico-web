@@ -14,6 +14,39 @@ function parBlocksPresent(){ return [...new Set(GLOSARIO.map(g => g.bloque))].fi
 function parPoolOf(b){ return GLOSARIO.filter(g => g.bloque === b && g.t && g.def); }
 function escPar(s){ return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
 
+/* ---------- mejores marcas: panel + exportar/importar (JSON) ---------- */
+const PAR_BEST_KEY = "aula-parejas-best";
+function parBestLoad(){ const m = store.get(PAR_BEST_KEY, {}); return (m && typeof m === "object") ? m : {}; }
+function parExportBest(){
+  const m = parBestLoad();
+  if (!Object.keys(m).length){ alert("Todavía no tienes ninguna mejor marca que exportar."); return; }
+  const data = { app: "aula-parejas", version: 1, exportado: new Date().toISOString(), marcas: m };
+  try{ const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob); const a = document.createElement("a");
+    const d = new Date(), p = n => String(n).padStart(2, "0");
+    a.href = url; a.download = "parejas-marcas-" + d.getFullYear() + "-" + p(d.getMonth()+1) + "-" + p(d.getDate()) + "-" + p(d.getHours()) + p(d.getMinutes()) + ".json";
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }catch(e){ alert("No se ha podido generar el archivo."); }
+}
+function parImportBestFile(file){
+  if (!file) return;
+  const rd = new FileReader();
+  rd.onload = function(){
+    let data; try{ data = JSON.parse(rd.result); }catch(e){ alert("El archivo no es un JSON válido."); return; }
+    const m = data && data.marcas && typeof data.marcas === "object" ? data.marcas
+            : (data && typeof data === "object" && !Array.isArray(data) ? data : null);
+    if (!m){ alert("El archivo no contiene marcas de Parejas."); return; }
+    const cur = parBestLoad(); let mejoradas = 0;
+    Object.keys(m).forEach(b => { const v = Number(m[b]); if (isFinite(v) && v > (cur[b] || 0)){ cur[b] = v; mejoradas++; } });
+    if (!mejoradas){ alert("Las marcas del archivo no superan a las de este equipo. No se ha cambiado nada."); return; }
+    store.set(PAR_BEST_KEY, cur);
+    alert("Actualizadas " + mejoradas + " marca(s) con las del archivo.");
+    renderParStart();
+  };
+  rd.onerror = function(){ alert("No se ha podido leer el archivo."); };
+  rd.readAsText(file);
+}
+
 /* ---------- inicio ---------- */
 function renderParStart(){
   const box = parBox(); if (!box) return;
@@ -22,12 +55,30 @@ function renderParStart(){
   if (!present.length){ box.innerHTML = '<p class="lead">No hay glosario para jugar en esta web.</p>'; return; }
   if (!present.includes(par.block)) par.block = present[0];
   const picks = present.map(b => '<button class="pbtn" data-pblock="' + b + '" aria-pressed="' + (b === par.block) + '">' + PAR_BLOCK_NAME[b] + '</button>').join("");
+  const best = parBestLoad(); const anyBest = present.some(b => best[b]);
+  const bestItems = present.map(b => '<span class="par-best-item">' + PAR_BLOCK_NAME[b].split(" · ")[0] + ' <b>' + (best[b] ? best[b] + ' pts' : '—') + '</b></span>').join("");
+  const bestPanel = '<div class="par-best">' +
+    '<div class="par-best-top"><span class="par-best-h">🏅 Mejores marcas</span>' +
+      '<span class="par-best-io">' +
+        (anyBest ? '<button class="btn2" id="parExport" title="Descarga tus mejores marcas en un archivo JSON para guardarlas o llevarlas a otro equipo">⬆️ Exportar</button>' : '') +
+        '<button class="btn2" id="parImport" title="Carga marcas desde un archivo JSON exportado (solo sustituyen a las tuyas si son mejores)">⬇️ Importar</button>' +
+        (anyBest ? '<button class="btn2" id="parClear" title="Borra las mejores marcas guardadas en este navegador (no afecta a los archivos exportados)">🗑️ Borrar</button>' : '') +
+      '</span>' +
+      '<input type="file" id="parBestFile" accept="application/json,.json" style="display:none">' +
+    '</div>' +
+    '<div class="par-best-list">' + bestItems + '</div>' +
+    '</div>';
   box.innerHTML = '<div class="par-wrap">' +
     '<div class="par-pick"><span class="flabel">Bloque</span>' + picks + '</div>' +
     '<button class="par-play" id="parPlay"><span>🧩</span><span><b>Jugar</b> · empareja ' + PAR_N + ' términos con su definición</span></button>' +
+    bestPanel +
     '</div>';
   box.querySelectorAll("[data-pblock]").forEach(b => b.addEventListener("click", () => { par.block = b.dataset.pblock; renderParStart(); }));
   document.getElementById("parPlay").addEventListener("click", parStart);
+  const pe = document.getElementById("parExport"); if (pe) pe.addEventListener("click", parExportBest);
+  const pi = document.getElementById("parImport"), pf = document.getElementById("parBestFile");
+  if (pi && pf){ pi.addEventListener("click", () => pf.click()); pf.addEventListener("change", () => { parImportBestFile(pf.files && pf.files[0]); pf.value = ""; }); }
+  const pc = document.getElementById("parClear"); if (pc) pc.addEventListener("click", () => { if (confirm("¿Borrar todas tus mejores marcas de Parejas?")){ store.set(PAR_BEST_KEY, {}); renderParStart(); } });
 }
 
 /* ---------- ronda ---------- */

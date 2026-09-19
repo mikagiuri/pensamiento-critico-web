@@ -47,3 +47,15 @@
 #parejas .par-actions{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
 #parejas .par-actions .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; }
 #parejas .par-actions .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+
+/* panel de mejores marcas (pantalla de inicio) */
+#parejas .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.45rem .8rem; border-radius:9px; transition:background .15s, border-color .15s; }
+#parejas .btn2:hover{ background:var(--surface); border-color:var(--accent); }
+#parejas .btn2:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
+#parejas .par-best{ margin-top:1.1rem; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.9rem 1rem; }
+#parejas .par-best-top{ display:flex; align-items:center; gap:.6rem; flex-wrap:wrap; margin-bottom:.6rem; }
+#parejas .par-best-h{ font-family:var(--serif); font-weight:700; flex:1; }
+#parejas .par-best-io{ display:flex; gap:.5rem; flex-wrap:wrap; }
+#parejas .par-best-list{ display:flex; gap:.5rem; flex-wrap:wrap; }
+#parejas .par-best-item{ background:var(--surface-2); border:1px solid var(--line); border-radius:9px; padding:.35rem .7rem; font-size:.9rem; }
+#parejas .par-best-item b{ font-family:var(--mono); color:var(--accent); }
