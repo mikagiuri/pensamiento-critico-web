@@ -12,25 +12,20 @@ const REP_MODES = {
   real:  { name:"Real",  budget:225, ratio:true,  d:"Presupuesto justo y regla de Platón: productores ≥ 2 × (guardianes + guerreros)." }
 };
 
-// Elenco con nombre. sj/v/t = stats; coste = sj+v+t. Guardianes y guerreros son individuos (una vez);
-// los productores son perfiles con cantidad (la masa anónima).
+// Elenco por PERFILES (sin nombres propios). Cada clase tiene varios perfiles y se ponen con +/−.
+// sj/v/t = stats; coste = sj+v+t. Guardián: todas ≥4 · Guerrero: SJ≤3, V/T≥4 · Productor: SJ,V≤3, T≥4.
 const REP_ROSTER = {
-  Z: [ // Guardianes (filósofos-gobernantes): todas las virtudes ≥4
-    { id:"solon", name:"Solón", sj:4, v:4, t:4, note:"el legislador" },
-    { id:"pericles", name:"Pericles", sj:4, v:4, t:5, note:"el estadista" },
-    { id:"socrates", name:"Sócrates", sj:5, v:4, t:4, note:"el que examina" },
-    { id:"hipatia", name:"Hipatia", sj:5, v:4, t:5, note:"la sabia" },
-    { id:"platon", name:"Platón", sj:5, v:5, t:5, note:"el filósofo-rey" }
+  Z: [ // Guardianes (filósofos-gobernantes)
+    { id:"z_recto", name:"Guardianes rectos", sj:4, v:4, t:4, note:"lo justo" },
+    { id:"z_sabio", name:"Guardianes sabios", sj:5, v:4, t:4, note:"más sabiduría" },
+    { id:"z_pleno", name:"Guardianes plenos", sj:5, v:5, t:5, note:"virtud máxima" }
   ],
-  G: [ // Guerreros (defensores): valentía y templanza ≥4, poca sabiduría-justicia
-    { id:"ayax", name:"Áyax", sj:1, v:5, t:4, note:"la fuerza bruta" },
-    { id:"aquiles", name:"Aquiles", sj:1, v:5, t:5, note:"el mejor de los aqueos" },
-    { id:"leonidas", name:"Leónidas", sj:2, v:5, t:4, note:"el espartano" },
-    { id:"odiseo", name:"Odiseo", sj:3, v:4, t:4, note:"el astuto" },
-    { id:"diomedes", name:"Diomedes", sj:3, v:4, t:5, note:"el equilibrado" },
-    { id:"hector", name:"Héctor", sj:2, v:5, t:5, note:"el defensor de Troya" }
+  G: [ // Guerreros (defensores)
+    { id:"g_tropa", name:"Guerreros", sj:1, v:4, t:4, note:"lo básico" },
+    { id:"g_vet", name:"Veteranos", sj:2, v:5, t:4, note:"curtidos" },
+    { id:"g_heroe", name:"Héroes", sj:3, v:5, t:5, note:"los mejores" }
   ],
-  E: [ // Productores (la masa): templanza ≥4, resto bajo
+  E: [ // Productores (la masa)
     { id:"labriego", name:"Labriegos", sj:1, v:1, t:4, note:"lo básico" },
     { id:"artesanos", name:"Artesanos", sj:2, v:2, t:4, note:"oficio y orden" },
     { id:"mercaderes", name:"Mercaderes", sj:3, v:3, t:5, note:"prósperos" }
@@ -54,7 +49,7 @@ function repNGeff(){ return rep.t.hero ? rep.t.nG*1.5 : rep.t.nG; }
 
 const REP_AP0 = 6;   // puntos de acción para los 6 turnos (modo con acciones)
 const rep = repFresh();
-function repFresh(){ return { mode:"real", acciones:"si", selZ:new Set(), selG:new Set(), cntE:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0,sumSJ:0,sumV:0,sumT:0, t:null, ap:0, apTurn:0, used:new Set() }; }
+function repFresh(){ return { mode:"real", acciones:"si", cnt:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0,sumSJ:0,sumV:0,sumT:0, t:null, ap:0, apTurn:0, used:new Set() }; }
 function repBox(){ return document.getElementById("repbox"); }
 function cost(c){ return c.sj + c.v + c.t; }
 function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -62,17 +57,16 @@ function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.
 // ---- cálculo del estado de la ciudad diseñada ----
 function repCompute(){
   let nZ=0,nG=0,nE=0,pts=0,sj=0,v=0,t=0, sjZ=0, tE=0;
-  REP_ROSTER.Z.forEach(c=>{ if(rep.selZ.has(c.id)){ nZ++; pts+=cost(c); sj+=c.sj; v+=c.v; t+=c.t; sjZ+=c.sj; } });
-  REP_ROSTER.G.forEach(c=>{ if(rep.selG.has(c.id)){ nG++; pts+=cost(c); sj+=c.sj; v+=c.v; t+=c.t; } });
-  REP_ROSTER.E.forEach(c=>{ const n=rep.cntE[c.id]||0; if(n){ nE+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; tE+=c.t*n; } });
+  REP_ROSTER.Z.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nZ+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; sjZ+=c.sj*n; } });
+  REP_ROSTER.G.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nG+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; } });
+  REP_ROSTER.E.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nE+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; tE+=c.t*n; } });
   rep.nZ=nZ; rep.nG=nG; rep.nE=nE; rep.sumSJ=sj; rep.sumV=v; rep.sumT=t; rep._sjZ=sjZ; rep._tE=tE;
   return { nZ,nG,nE, pop:nZ+nG+nE, pts };
 }
 function repLegal(){
   const s=repCompute(); const m=REP_MODES[rep.mode]; const errs=[];
-  if(s.pop!==REP_POP) errs.push("La ciudad debe tener exactamente "+REP_POP+" ciudadanos (ahora "+s.pop+").");
+  if(s.nZ<1||s.nG<1||s.nE<1) errs.push("Debe haber al menos un guardián, un guerrero y un productor.");
   if(s.pts>m.budget) errs.push("Te pasas del presupuesto ("+s.pts+"/"+m.budget+" puntos).");
-  if(s.nZ<1||s.nG<1||s.nE<1) errs.push("Debe haber al menos un ciudadano de cada clase.");
   if(m.ratio && s.nE < 2*(s.nZ+s.nG)) errs.push("Regla de Platón: los productores ("+s.nE+") deben ser ≥ 2×(guardianes+guerreros) = "+2*(s.nZ+s.nG)+".");
   return { ok:errs.length===0, errs, s };
 }
@@ -102,55 +96,42 @@ function drawRepModes(){
 
 // Rellena una ciudad legal al azar respetando el modo (presupuesto y ratio). Rechazo con reintentos.
 function repRandom(){
-  const m=REP_MODES[rep.mode], Zids=REP_ROSTER.Z.map(c=>c.id), Gids=REP_ROSTER.G.map(c=>c.id);
-  const eliteCap = m.ratio ? Math.floor(REP_POP/3) : 11;   // real: guardianes+guerreros ≤ 10
-  const costOf=cid=>{ for(const k of ["Z","G","E"]) { const c=REP_ROSTER[k].find(x=>x.id===cid); if(c) return cost(c); } return 0; };
-  for(let t=0;t<600;t++){
-    const nZ=1+Math.floor(Math.random()*Math.min(Zids.length, Math.max(1,eliteCap-1)));
-    const maxG=Math.min(Gids.length, eliteCap-nZ); if(maxG<1) continue;
-    const nG=1+Math.floor(Math.random()*maxG);
-    const nE=REP_POP-nZ-nG; if(nE<1) continue;
-    if(m.ratio && nE<2*(nZ+nG)) continue;
-    const selZ=repShuffle(Zids).slice(0,nZ), selG=repShuffle(Gids).slice(0,nG);
-    let pts=selZ.reduce((s,i)=>s+costOf(i),0)+selG.reduce((s,i)=>s+costOf(i),0);
-    // productores: empezar todos labriegos (6) y subir algunos si sobra presupuesto
-    const cntE={ labriego:nE }; pts+=nE*6;
-    let left=m.budget-pts; if(left<0) continue;   // demasiada élite cara
-    while(left>0 && cntE.labriego>0 && Math.random()<0.8){
-      if(left>=5 && Math.random()<0.5){ cntE.labriego--; cntE.mercaderes=(cntE.mercaderes||0)+1; left-=5; }
-      else if(left>=2){ cntE.labriego--; cntE.artesanos=(cntE.artesanos||0)+1; left-=2; }
-      else break;
+  const m=REP_MODES[rep.mode], pick=arr=>arr[Math.floor(Math.random()*arr.length)];
+  for(let attempt=0; attempt<200; attempt++){
+    rep.cnt={};
+    // uno de cada clase (perfil al azar) para cumplir el mínimo
+    [REP_ROSTER.Z, REP_ROSTER.G, REP_ROSTER.E].forEach(arr=>{ const c=pick(arr); rep.cnt[c.id]=1; });
+    // añadir ciudadanos al azar (sesgo a productores) mientras quepa en el presupuesto
+    for(let g=0; g<300; g++){
+      const s=repCompute(); if(s.pts >= m.budget-5) break;
+      const r=Math.random(), cls = r<0.7 ? REP_ROSTER.E : (r<0.86 ? REP_ROSTER.G : REP_ROSTER.Z);
+      const c=pick(cls); if(s.pts+cost(c) > m.budget) continue;
+      rep.cnt[c.id]=(rep.cnt[c.id]||0)+1;
     }
-    if(!cntE.labriego) delete cntE.labriego;
-    rep.selZ=new Set(selZ); rep.selG=new Set(selG); rep.cntE=cntE;
     if(repLegal().ok){ drawRepRoster(); drawRepSummary(); return; }
   }
-  // fallback garantizado: 1 guardián + 1 guerrero + 28 labriegos
-  rep.selZ=new Set([Zids[0]]); rep.selG=new Set([Gids[0]]); rep.cntE={ labriego:28 };
+  // fallback garantizado
+  rep.cnt={}; rep.cnt[REP_ROSTER.Z[0].id]=1; rep.cnt[REP_ROSTER.G[0].id]=1; rep.cnt[REP_ROSTER.E[0].id]=4;
   drawRepRoster(); drawRepSummary();
 }
 function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' <em>· '+cost(c)+' pts</em></span>'; }
 function drawRepRoster(){
-  const sec=(title,cls,list,sel)=>'<div class="rep-rsec"><h3>'+title+'</h3>'+list.map(c=>{
-    if(cls==="E"){ const n=rep.cntE[c.id]||0; return '<div class="rep-rrow prod"><div class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</div>'+
-      '<div class="rep-step"><button data-esub="'+c.id+'">−</button><span class="n">'+n+'</span><button data-eadd="'+c.id+'">+</button></div></div>'; }
-    const on=sel.has(c.id);
-    return '<button class="rep-rrow pick'+(on?" on":"")+'" data-pick="'+cls+':'+c.id+'"><span class="rep-check">'+(on?"✓":"")+'</span><span class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</span></button>';
+  const sec=(title,list)=>'<div class="rep-rsec"><h3>'+title+'</h3>'+list.map(c=>{ const n=rep.cnt[c.id]||0;
+    return '<div class="rep-rrow prod"><div class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</div>'+
+      '<div class="rep-step"><button data-esub="'+c.id+'">−</button><span class="n">'+n+'</span><button data-eadd="'+c.id+'">+</button></div></div>';
   }).join("")+'</div>';
   document.getElementById("repRoster").innerHTML =
-    sec("🦉 Guardianes <span class=\"rep-floor\">todas las virtudes ≥4</span>","Z",REP_ROSTER.Z,rep.selZ)+
-    sec("🛡️ Guerreros <span class=\"rep-floor\">valentía y templanza ≥4</span>","G",REP_ROSTER.G,rep.selG)+
-    sec("🌾 Productores <span class=\"rep-floor\">templanza ≥4 · la masa</span>","E",REP_ROSTER.E,null);
-  document.querySelectorAll("#repRoster [data-pick]").forEach(b=>b.addEventListener("click",()=>{
-    const [cls,id]=b.dataset.pick.split(":"); const set=cls==="Z"?rep.selZ:rep.selG; set.has(id)?set.delete(id):set.add(id); drawRepRoster(); drawRepSummary(); }));
-  document.querySelectorAll("#repRoster [data-eadd]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.eadd; const s=repCompute(); if(s.pop<REP_POP){ rep.cntE[id]=(rep.cntE[id]||0)+1; drawRepRoster(); drawRepSummary(); } }));
-  document.querySelectorAll("#repRoster [data-esub]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.esub; if(rep.cntE[id]>0){ rep.cntE[id]--; drawRepRoster(); drawRepSummary(); } }));
+    sec("🦉 Guardianes <span class=\"rep-floor\">todas las virtudes ≥4 · gobiernan</span>",REP_ROSTER.Z)+
+    sec("🛡️ Guerreros <span class=\"rep-floor\">valentía y templanza ≥4 · defienden</span>",REP_ROSTER.G)+
+    sec("🌾 Productores <span class=\"rep-floor\">templanza ≥4 · la masa</span>",REP_ROSTER.E);
+  document.querySelectorAll("#repRoster [data-eadd]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.eadd; rep.cnt[id]=(rep.cnt[id]||0)+1; drawRepRoster(); drawRepSummary(); }));
+  document.querySelectorAll("#repRoster [data-esub]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.esub; if(rep.cnt[id]>0){ rep.cnt[id]--; drawRepRoster(); drawRepSummary(); } }));
 }
 function drawRepSummary(){
   const { ok, errs, s }=repLegal(); const m=REP_MODES[rep.mode];
   document.getElementById("repSummary").innerHTML=
     '<div class="rep-sum-h">Tu ciudad</div>'+
-    '<div class="rep-sum-row"><span>Población</span><b class="'+(s.pop===REP_POP?"ok":"")+'">'+s.pop+' / '+REP_POP+'</b></div>'+
+    '<div class="rep-sum-row"><span>Población</span><b>'+s.pop+'</b></div>'+
     '<div class="rep-sum-row"><span>Puntos</span><b class="'+(s.pts<=m.budget?"ok":"bad")+'">'+s.pts+' / '+m.budget+'</b></div>'+
     '<div class="rep-sum-classes"><span>🦉 '+s.nZ+'</span><span>🛡️ '+s.nG+'</span><span>🌾 '+s.nE+'</span></div>'+
     (m.ratio?'<div class="rep-sum-row"><span>Proporción</span><b class="'+(s.nE>=2*(s.nZ+s.nG)?"ok":"bad")+'">prod ≥ 2×élite</b></div>':'')+
