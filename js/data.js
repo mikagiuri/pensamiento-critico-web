@@ -85,6 +85,12 @@ const SUBJECTS = {
     "Sí / A medias / No, en cuatro dimensiones.",
     "ipc\\rubricas",
     "ipc-lista-dialogo"
+   ],
+   [
+    "Lecturas para pensar",
+    "Cuatro cuentos filosóficos con dibujo y preguntas: Sócrates, la serpiente, Hakuin y los dos monjes.",
+    "ipc\\fichas",
+    "ipc-lec-tamices"
    ]
   ],
   "tools": [
