@@ -129,6 +129,10 @@
 #republica .rep-hist-top{ display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; margin-bottom:1rem; }
 #republica .rep-hist-top h3{ margin:0; flex:1; }
 #republica .rep-hist-io{ display:flex; gap:.5rem; flex-wrap:wrap; }
+/* Estilo base para los botones de La República fuera de .rep-actions2 (cabecera del historial, etc.) */
+#republica .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.45rem .8rem; border-radius:9px; transition:background .15s, border-color .15s; }
+#republica .btn2:hover{ background:var(--surface); border-color:var(--accent); }
+#republica .btn2:focus-visible{ outline:2px solid var(--accent); outline-offset:2px; }
 #republica .rep-hist-item{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:.55rem .75rem; margin-bottom:.5rem; }
 #republica .rep-hist-item summary{ cursor:pointer; font-size:.9rem; }
 #republica .rep-hist-badge{ font-size:1.05rem; }

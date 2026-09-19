@@ -360,7 +360,7 @@ function renderRepHistory(){
   const box=repBox(); if(!box) return; const h=repHistLoad();
   box.innerHTML='<div class="rep-wrap"><div class="rep-hist">'+
     '<div class="rep-hist-top"><button class="btn2" id="repHistBack">← Volver a diseñar</button><h3>📚 Partidas guardadas</h3>'+
-      '<span class="rep-hist-io">'+(h.length?'<button class="btn2" id="repHistExport">⬆️ Exportar</button>':'')+'<button class="btn2" id="repHistImport">⬇️ Importar</button>'+(h.length?'<button class="btn2" id="repHistClear">Borrar todo</button>':'')+'</span>'+
+      '<span class="rep-hist-io">'+(h.length?'<button class="btn2" id="repHistExport" title="Descarga todas tus partidas en un archivo JSON para guardarlas o llevarlas a otro equipo">⬆️ Exportar</button>':'')+'<button class="btn2" id="repHistImport" title="Carga partidas desde un archivo JSON exportado (se añaden a las de este equipo, sin borrarlas)">⬇️ Importar</button>'+(h.length?'<button class="btn2" id="repHistClear" title="Borra todas las partidas guardadas en este navegador (no afecta a los archivos exportados)">🗑️ Borrar todo</button>':'')+'</span>'+
       '<input type="file" id="repHistFile" accept="application/json,.json" style="display:none">'+
       '</div>'+
     (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> '+(r.name?'<b class="rep-hist-name">'+repEsc(r.name)+'</b> · ':'')+r.rank+' · ⚖ '+r.arm+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
