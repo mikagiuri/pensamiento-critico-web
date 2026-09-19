@@ -146,13 +146,13 @@ const REP_EVENTS = [
     threat:"La Pitia pronuncia un presagio ambiguo. El destino, esta vez, no depende de tu ciudad.",
     effect:()=>{ return rep.rng<0.55 ? { d:-2, msg:"Presagio funesto: −2." } : { d:1, msg:"Presagio favorable: +1." }; } },
   // — CARTAS DEL DESTINO (inevitables: golpean a cualquier ciudad, se diseñe como se diseñe) —
-  { id:"guerra", name:"Guerra prolongada", src:"Destino", img:"ev-ataque", fate:true,
+  { id:"guerra", name:"Guerra prolongada", src:"Destino", img:"ev-guerra", fate:true,
     threat:"Ninguna ciudad se libra de la guerra: desgasta a la polis y cuesta vidas de guerreros.",
     effect:()=>{ const k=repKill("G",F(rep.t.G.n/8)); return { d:-2, msg:"La guerra desangra la ciudad: −2"+(k?" y caen "+k+" guerreros.":".") }; } },
-  { id:"terremoto", name:"Terremoto", src:"Destino", img:"ev-golpe", fate:true,
+  { id:"terremoto", name:"Terremoto", src:"Destino", img:"ev-terremoto", fate:true,
     threat:"La tierra tiembla sin avisar: derriba y mata sin distinguir clases.",
     effect:()=>{ const k=repKill("E",F(rep.t.E.n/10))+repKill("Z",F(rep.t.Z.n/12)); return { d:-2, msg:"Se derrumba la ciudad: −2"+(k?" y mueren "+k+" personas.":".") }; } },
-  { id:"fundador", name:"Muerte del fundador", src:"Destino", img:"ev-sabiduria", fate:true,
+  { id:"fundador", name:"Muerte del fundador", src:"Destino", img:"ev-fundador", fate:true,
     threat:"Muere quien fundó la ciudad: la sucesión abre una crisis que a nadie perdona.",
     effect:()=>{ return { d:-2, msg:"Crisis de sucesión: −2." }; } }
 ];
