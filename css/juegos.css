@@ -167,3 +167,14 @@
 /* resultado con retrato */
 #eudaimonia .ari-result-img{ width:120px; height:120px; object-fit:cover; object-position:center 20%; border-radius:50%; border:3px solid var(--accent); margin-bottom:.4rem; }
 #eudaimonia .ari-result.dead .ari-result-img{ filter:grayscale(1) brightness(.7); border-color:var(--bad); }
+
+/* ===== República: carta de evento ilustrada ===== */
+#republica .rep-event{ display:flex; gap:1rem; align-items:stretch; border-left:1px solid var(--line); }
+#republica .rep-event.reveal{ animation:ari-reveal .45s cubic-bezier(.2,.9,.3,1.2); }
+#republica .rep-event.danger{ border:2px solid var(--bad); box-shadow:0 0 0 4px color-mix(in srgb,var(--bad) 16%,transparent); }
+#republica .rep-event.safe{ border:2px solid var(--ok); box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 14%,transparent); }
+#republica .rep-ev-img{ width:110px; min-width:110px; height:150px; object-fit:cover; border-radius:10px; align-self:center; }
+#republica .rep-ev-body{ display:flex; flex-direction:column; justify-content:center; gap:.15rem; }
+#republica .rep-ev-tag{ font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--hf); }
+#republica .rep-event.danger .rep-ev-tag{ color:var(--bad); } #republica .rep-event.safe .rep-ev-tag{ color:var(--ok); }
+@media (max-width:560px){ #republica .rep-event{ flex-direction:column; } #republica .rep-ev-img{ width:100%; height:120px; } }

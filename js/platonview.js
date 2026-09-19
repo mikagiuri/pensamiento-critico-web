@@ -20,21 +20,22 @@ function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.
 function repPop(){ return rep.nZ + rep.nG + rep.nE; }
 function repGeff(){ return rep.hero ? rep.nG * 1.5 : rep.nG; }   // Heroísmo: los guerreros valen ×1,5 este turno
 
+const REP_IMG = "media/juegos/platon/";
 // EVENTOS: cada uno define una condición de PELIGRO; si es verdadera → −1,5 ARMONÍA
 const REP_EVENTS = [
-  { id:"corrupcion", name:"Corrupción", threat:"Si los guardianes no son justos (Justicia = 5), la corrupción cunde.",
+  { id:"corrupcion", name:"Corrupción", img:"ev-corrupcion", threat:"Si los guardianes no son justos (Justicia = 5), la corrupción cunde.",
     danger:() => (REP_BASE.Z.jus + rep.bon.Zjus) < 5, ok:"Tus guardianes son justos.", bad:"Tus guardianes no alcanzan Justicia = 5." },
-  { id:"sabiduria", name:"Sabiduría olvidada", threat:"Si la sabiduría de guardianes y guerreros es escasa (suma < 40), se pierde el rumbo.",
+  { id:"sabiduria", name:"Sabiduría olvidada", img:"ev-sabiduria", threat:"Si la sabiduría de guardianes y guerreros es escasa (suma < 40), se pierde el rumbo.",
     danger:() => (rep.nZ*REP_BASE.Z.sab + rep.nG*(REP_BASE.G.sab + rep.bon.Gsab)) < 40,
     ok:()=>"Sabiduría (guardianes+guerreros) = " + (rep.nZ*REP_BASE.Z.sab + rep.nG*(REP_BASE.G.sab+rep.bon.Gsab)) + " ≥ 40.",
     bad:()=>"Sabiduría = " + (rep.nZ*REP_BASE.Z.sab + rep.nG*(REP_BASE.G.sab+rep.bon.Gsab)) + " < 40." },
-  { id:"matxinada", name:"Rebelión de los productores", threat:"Demasiados productores frente a los guerreros (productores > guerreros ×1,8) → revuelta.",
+  { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Demasiados productores frente a los guerreros (productores > guerreros ×1,8) → revuelta.",
     danger:() => rep.nE > rep.nG*1.8, ok:"El equilibrio productores/guerreros aguanta.", bad:"Hay demasiados productores para tan pocos guerreros." },
-  { id:"golpe", name:"Golpe de estado", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×3) → golpe.",
+  { id:"golpe", name:"Golpe de estado", img:"ev-golpe", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×3) → golpe.",
     danger:() => repGeff() > rep.nZ*3, ok:"Los guerreros están bajo el gobierno de los guardianes.", bad:"El ejército supera con mucho a los guardianes." },
-  { id:"ataque", name:"Ataque exterior", threat:"Pocos guerreros para defender (guerreros < población / 3,5) → invasión.",
+  { id:"ataque", name:"Ataque exterior", img:"ev-ataque", threat:"Pocos guerreros para defender (guerreros < población / 3,5) → invasión.",
     danger:() => repGeff() < repPop()/3.5, ok:"Hay defensores suficientes.", bad:"No hay guerreros suficientes para defender la ciudad." },
-  { id:"hambruna", name:"Hambruna", threat:"Una clase productora desbordada (productores > (guardianes+guerreros) ×2) desorganiza el abastecimiento.",
+  { id:"hambruna", name:"Hambruna", img:"ev-hambruna", threat:"Una clase productora desbordada (productores > (guardianes+guerreros) ×2) desorganiza el abastecimiento.",
     danger:() => rep.nE > (rep.nZ+rep.nG)*2, ok:"El abastecimiento está organizado.", bad:"La clase productora está desbordada." }
 ];
 
@@ -91,7 +92,7 @@ function repRenderTurn(){
       '<span class="stat">🔧 AP <b id="repAp">' + rep.ap + '</b></span></div>' +
     '<div class="rep-arm' + (rep.armonia<=3?' low':'') + '"><i style="width:' + Math.max(0,rep.armonia/REP_ARM0*100) + '%"></i></div>' +
     '<div class="rep-classes" id="repClasses"></div>' +
-    '<div class="rep-event" id="repEvent"></div>' +
+    '<div class="rep-event reveal" id="repEvent"></div>' +
     '<div class="rep-actions-h">Acciones (máx. 2 este turno · no repetir)</div>' +
     '<div class="rep-acts" id="repActs"></div>' +
     '<div class="rep-resolve"><button id="repResolve">Resolver turno →</button></div>' +
@@ -106,8 +107,13 @@ function repDrawState(ev){
     { em:"🌾", l:"Productores", c:rep.nE, v:"Templanza " + (REP_BASE.E.tem+rep.bon.Etem) }
   ].map(x => '<div class="rep-class"><div class="c">' + x.em + ' ' + x.c + '</div><div class="l">' + x.l + '</div><div class="v">' + x.v + '</div></div>').join("");
   const danger = ev.danger();
-  document.getElementById("repEvent").innerHTML = '<h3>🃏 ' + ev.name + '</h3><div class="threat">' + ev.threat + '</div>' +
-    '<div class="rep-status ' + (danger?"bad":"ok") + '">' + (danger ? "⚠ Peligro: " + (typeof ev.bad==="function"?ev.bad():ev.bad) + " Si no lo corriges, −1,5 de armonía." : "✓ " + (typeof ev.ok==="function"?ev.ok():ev.ok)) + '</div>';
+  const evBox = document.getElementById("repEvent");
+  evBox.classList.toggle("danger", danger); evBox.classList.toggle("safe", !danger);
+  evBox.innerHTML =
+    '<img class="rep-ev-img" src="' + REP_IMG + ev.img + '.jpg" alt="">' +
+    '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno</span>' +
+      '<h3>' + ev.name + '</h3><div class="threat">' + ev.threat + '</div>' +
+      '<div class="rep-status ' + (danger?"bad":"ok") + '">' + (danger ? "⚠ Peligro: " + (typeof ev.bad==="function"?ev.bad():ev.bad) + " Si no lo corriges, −1,5 de armonía." : "✓ " + (typeof ev.ok==="function"?ev.ok():ev.ok)) + '</div></div>';
   const acts = document.getElementById("repActs");
   acts.innerHTML = REP_ACTS.map(a => { const dis = rep.apTurn>=2 || rep.used.has(a.id) || rep.ap<a.ap;
     return '<button class="rep-act" data-act="' + a.id + '"' + (dis?" disabled":"") + '><b>' + a.name + ' <span class="ap">' + a.ap + ' AP</span></b><span class="d">' + a.d + '</span></button>'; }).join("");
