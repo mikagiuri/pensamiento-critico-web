@@ -101,7 +101,7 @@ const REP_EVENTS = [
   { id:"ataque", name:"Ataque exterior", src:"Pol. VII", img:"ev-ataque",
     threat:"Si hay pocos defensores (guerreros < productores ÷ 2,5), el enemigo entra y mata.",
     effect:()=>{ if(repNGeff() < rep.t.E.n/2.5){ const k=repKill("G",F(rep.t.G.n/4))+repKill("E",F(rep.t.E.n/12)); return { d:-2, msg:"Invasión: −2"+(k?" y mueren "+k+" ciudadanos.":".") }; } return { d:0, msg:"La defensa aguanta." }; } },
-  { id:"peste", name:"La peste", src:"—", img:"ev-hambruna",
+  { id:"peste", name:"La peste", src:"Destino", img:"ev-hambruna", fate:true,
     threat:"Una epidemia se ceba en la masa: mata a parte de los productores y guerreros.",
     effect:()=>{ const k=repKill("E",F(rep.t.E.n/5))+repKill("G",F(rep.t.G.n/8)); return { d:-2, msg:"Peste: −2 y mueren "+k+" ciudadanos." }; } },
   { id:"hambruna", name:"Hambruna", src:"Pol. I", img:"ev-hambruna",
@@ -284,24 +284,60 @@ function repResolve(ev){
   rep.turn++;
   if(rep.turn>=rep.turns || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
 }
+/* ---------- crónica de la partida ---------- */
+function repChronicleText(){
+  const m=REP_MODES[rep.mode]; const L=[
+    "CRÓNICA DE MI REPÚBLICA — Aula de Filosofía · IES Martín de Bertendona",
+    "Modo: "+m.name+" · "+(rep.acciones==="si"?"con acciones":"sin acciones"),
+    "Diseño inicial: "+rep.designText, ""];
+  rep.log.forEach(e=>{
+    L.push("Turno "+e.n+" — "+e.ev+(e.src&&e.src!=="—"?" ("+e.src+")":"")+(e.fate?" [carta del destino]":""));
+    L.push("   Resultado: "+e.msg);
+    if(e.acts.length) L.push("   Tus acciones: "+e.acts.join(", "));
+    L.push("   Armonía "+repFmt(e.before)+" → "+repFmt(e.after)+"  ·  ciudad "+e.Z+"/"+e.G+"/"+e.E+" (guardianes/guerreros/productores)");
+    L.push("");
+  });
+  L.push("DESENLACE: "+(rep._rank||"—")+" — "+repFmt(Math.max(0,rep.armonia))+"/"+REP_ARM0+" de armonía tras "+rep.log.length+" turnos vividos.");
+  return L.join("\n");
+}
+function repDownloadChronicle(){
+  try{ const blob=new Blob([repChronicleText()],{type:"text/plain;charset=utf-8"});
+    const url=URL.createObjectURL(blob); const a=document.createElement("a");
+    a.href=url; a.download="mi-republica-"+new Date().toISOString().slice(0,10)+".txt";
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000);
+  }catch(e){}
+}
+function repCopyChronicle(btn){
+  const txt=repChronicleText();
+  if(navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(txt).then(()=>{ const o=btn.textContent; btn.textContent="✓ ¡Copiada!"; setTimeout(()=>{btn.textContent=o;},1600); }).catch(()=>{}); }
+}
 function repResult(){
   const a=rep.armonia; let emoji,rank;
   if(a<=0||repPop()<3){ emoji="💥"; rank="La república colapsa"; }
   else if(a>=8){ emoji="🏛️"; rank="República armónica"; }
   else if(a>=5){ emoji="⚖️"; rank="República estable"; }
   else { emoji="⚠️"; rank="República frágil, pero en pie"; }
+  rep._rank=rank;
   const key="aula-republica-best"; const best=store.get(key,0); const record=a>best; if(record) store.set(key,a);
   const qs=["¿Qué muestra este juego sobre la necesidad de equilibrio en la sociedad de Platón?",
     "¿Qué riesgos trae el poder excesivo de cada clase social?",
     "¿Es cierto, como decía Platón, que sin gobernantes filósofos no puede salvarse la sociedad?",
     "¿Merece la pena una ciudad justa si para lograrla hay que renunciar a la igualdad entre clases?"];
+  const chronicle=rep.log.map(e=>{ const s=e.after-e.before, cls=s<0?"bad":s>0?"good":"ok";
+    return '<li class="rep-cr-item'+(e.fate?" fate":"")+'"><div class="rep-cr-h"><span class="rep-cr-n">T'+e.n+'</span><b>'+e.ev+'</b>'+(e.fate?' <span class="rep-cr-badge">destino</span>':'')+'<span class="rep-cr-arm '+cls+'">'+repFmt(e.before)+'→'+repFmt(e.after)+'</span></div>'+
+      '<div class="rep-cr-msg">'+e.msg+'</div>'+
+      (e.acts.length?'<div class="rep-cr-acts">🔧 '+e.acts.join(", ")+'</div>':'')+'</li>'; }).join("");
   repBox().innerHTML='<div class="rep-wrap"><div class="rep-result">'+
     '<div class="rep-badge">'+emoji+'</div><div class="rep-rank">'+rank+'</div>'+
     '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ '+REP_ARM0+' de armonía</span></div>'+
-    '<p class="rep-pop">'+rep.turns+' turnos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
+    '<p class="rep-pop">'+rep.log.length+' turnos vividos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
+    '<div class="rep-chronicle"><div class="rep-cr-title">📜 Crónica de tu república</div><ol class="rep-cr-list">'+chronicle+'</ol></div>'+
+    '<div class="rep-save"><button class="btn2" id="repSave">💾 Guardar crónica (.txt)</button><button class="btn2" id="repCopy">📋 Copiar crónica</button></div>'+
     '<blockquote class="rep-reflect">Para pensar: '+qs[Math.floor(Math.random()*qs.length)]+'</blockquote>'+
     '<div class="rep-actions2"><button class="btn2 primary" id="repAgain">Diseñar otra ciudad</button></div></div></div>';
   document.getElementById("repAgain").addEventListener("click",renderRepStart);
+  const sv=document.getElementById("repSave"); if(sv) sv.addEventListener("click",repDownloadChronicle);
+  const cp=document.getElementById("repCopy"); if(cp) cp.addEventListener("click",()=>repCopyChronicle(cp));
 }
 function initRep(){ renderRepStart(); }
 document.addEventListener("DOMContentLoaded", initRep);
