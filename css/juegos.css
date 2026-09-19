@@ -115,6 +115,12 @@
 #republica .rep-cr-msg{ font-size:.86rem; margin-top:.2rem; }
 #republica .rep-cr-acts{ font-size:.8rem; color:var(--muted); margin-top:.15rem; }
 #republica .rep-save{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
+/* nombre de la partida (pantalla final) */
+#republica .rep-name{ max-width:520px; margin:1rem auto 0; text-align:left; }
+#republica .rep-name label{ display:block; font-size:.82rem; color:var(--muted); margin-bottom:.3rem; }
+#republica .rep-name input{ width:100%; box-sizing:border-box; padding:.5rem .7rem; font-size:1rem; font-family:inherit; color:var(--ink); background:var(--surface); border:1px solid var(--line); border-radius:9px; }
+#republica .rep-name input:focus{ outline:2px solid var(--hf); outline-offset:1px; }
+#republica .rep-hist-name{ color:var(--hf); }
 /* historial de partidas */
 #republica .rep-hist-open{ margin-left:.4rem; }
 #republica .rep-hist{ text-align:left; }

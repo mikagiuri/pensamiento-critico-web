@@ -290,6 +290,7 @@ function repResolve(ev){
 function repChronicleText(){
   const m=REP_MODES[rep.mode]; const L=[
     "CRÓNICA DE MI REPÚBLICA — Aula de Filosofía · IES Martín de Bertendona",
+    "Partida: "+(rep.gameName||"(sin nombre)"),
     "Modo: "+m.name+" · "+(rep.acciones==="si"?"con acciones":"sin acciones"),
     "Diseño inicial: "+rep.designText, ""];
   rep.log.forEach(e=>{
@@ -314,12 +315,18 @@ function repDownloadChronicle(){ repDownloadText(repChronicleText(),"mi-republic
 const REP_HIST_KEY="aula-republica-hist", REP_HIST_MAX=12;
 function repHistLoad(){ try{ const h=store.get(REP_HIST_KEY,[]); return Array.isArray(h)?h:[]; }catch(e){ return []; } }
 function repHistPush(rec){ try{ const h=repHistLoad(); h.unshift(rec); while(h.length>REP_HIST_MAX) h.pop(); store.set(REP_HIST_KEY,h); }catch(e){} }
-function repEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function repEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+const REP_NAMES=["Calípolis","Magnesia","Nueva Atenas","Politeia","Eunomía","Kalonia","Aristópolis","Ciudad del Sol","Sofópolis","Areté"];
+function repDefaultName(){ return REP_NAMES[Math.floor(Math.random()*REP_NAMES.length)]; }
+function repHistSetLatestName(name){
+  const nm=(name||"").trim().slice(0,40)||rep._defaultName||"(sin nombre)"; rep.gameName=nm;
+  try{ const h=repHistLoad(); if(h.length){ h[0].name=nm; h[0].text=repChronicleText(); store.set(REP_HIST_KEY,h); } }catch(e){}
+}
 function renderRepHistory(){
   const box=repBox(); if(!box) return; const h=repHistLoad();
   box.innerHTML='<div class="rep-wrap"><div class="rep-hist">'+
     '<div class="rep-hist-top"><button class="btn2" id="repHistBack">← Volver a diseñar</button><h3>📚 Partidas guardadas</h3>'+(h.length?'<button class="btn2" id="repHistClear">Borrar todo</button>':'')+'</div>'+
-    (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> <b>'+r.rank+'</b> · '+r.arm+'/'+REP_ARM0+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
+    (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> '+(r.name?'<b class="rep-hist-name">'+repEsc(r.name)+'</b> · ':'')+r.rank+' · '+r.arm+'/'+REP_ARM0+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
         '<pre class="rep-hist-text">'+repEsc(r.text)+'</pre>'+
         '<div class="rep-hist-btns"><button class="btn2" data-hcopy="'+i+'">📋 Copiar</button><button class="btn2" data-hdl="'+i+'">💾 Descargar</button></div></details>').join("")
       : '<p class="rep-hist-empty">Aún no has terminado ninguna partida. Juega una y quedará guardada aquí (se conservan las últimas '+REP_HIST_MAX+').</p>')+
@@ -341,9 +348,10 @@ function repResult(){
   else { emoji="⚠️"; rank="República frágil, pero en pie"; }
   rep._rank=rank;
   const key="aula-republica-best"; const best=store.get(key,0); const record=a>best; if(record) store.set(key,a);
-  // guardar en el historial del navegador
+  // guardar en el historial del navegador (con nombre por defecto, editable después)
+  rep._defaultName=repDefaultName(); rep.gameName=rep._defaultName;
   const ts=Date.now(); let fecha; try{ fecha=new Date(ts).toLocaleString("es-ES",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}); }catch(e){ fecha=new Date(ts).toLocaleString(); }
-  repHistPush({ ts, date:fecha, emoji, rank, mode:REP_MODES[rep.mode].name, acc:rep.acciones, arm:repFmt(Math.max(0,a)), turns:rep.log.length, text:repChronicleText() });
+  repHistPush({ ts, date:fecha, name:rep.gameName, emoji, rank, mode:REP_MODES[rep.mode].name, acc:rep.acciones, arm:repFmt(Math.max(0,a)), turns:rep.log.length, text:repChronicleText() });
   const qs=["¿Qué muestra este juego sobre la necesidad de equilibrio en la sociedad de Platón?",
     "¿Qué riesgos trae el poder excesivo de cada clase social?",
     "¿Es cierto, como decía Platón, que sin gobernantes filósofos no puede salvarse la sociedad?",
@@ -356,6 +364,7 @@ function repResult(){
     '<div class="rep-badge">'+emoji+'</div><div class="rep-rank">'+rank+'</div>'+
     '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ '+REP_ARM0+' de armonía</span></div>'+
     '<p class="rep-pop">'+rep.log.length+' turnos vividos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
+    '<div class="rep-name"><label for="repName">🏷️ Nombre de esta partida</label><input id="repName" type="text" maxlength="40" value="'+repEsc(rep.gameName)+'" placeholder="Ponle nombre a tu república"></div>'+
     '<div class="rep-chronicle"><div class="rep-cr-title">📜 Crónica de tu república</div><ol class="rep-cr-list">'+chronicle+'</ol></div>'+
     '<div class="rep-save"><button class="btn2" id="repSave">💾 Guardar crónica (.txt)</button><button class="btn2" id="repCopy">📋 Copiar crónica</button><button class="btn2" id="repHistView">📚 Ver historial</button></div>'+
     '<blockquote class="rep-reflect">Para pensar: '+qs[Math.floor(Math.random()*qs.length)]+'</blockquote>'+
@@ -364,6 +373,7 @@ function repResult(){
   const sv=document.getElementById("repSave"); if(sv) sv.addEventListener("click",repDownloadChronicle);
   const cp=document.getElementById("repCopy"); if(cp) cp.addEventListener("click",()=>repCopyChronicle(cp));
   const hv=document.getElementById("repHistView"); if(hv) hv.addEventListener("click",renderRepHistory);
+  const nm=document.getElementById("repName"); if(nm){ nm.addEventListener("input",()=>repHistSetLatestName(nm.value)); nm.addEventListener("focus",()=>nm.select()); }
 }
 function initRep(){ renderRepStart(); }
 document.addEventListener("DOMContentLoaded", initRep);
