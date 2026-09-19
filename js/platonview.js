@@ -94,9 +94,40 @@ function drawRepModes(){
     '<span class="flabel" style="margin-left:.8rem">Acciones</span>'+
     '<button class="pbtn" data-acc="si" aria-pressed="'+(rep.acciones==="si")+'">Con acciones</button>'+
     '<button class="pbtn" data-acc="no" aria-pressed="'+(rep.acciones==="no")+'">Sin acciones</button>'+
-    '<span class="rep-mode-d">'+REP_MODES[rep.mode].d+(rep.acciones==="no"?" · Sin acciones: pones a prueba tu diseño inicial tal cual.":" · Con acciones: reaccionas a los eventos gastando AP.")+'</span>';
+    '<button class="pbtn rep-rnd" id="repRandom">🎲 Aleatoria</button>';
   document.querySelectorAll("#repModes [data-mode]").forEach(b=>b.addEventListener("click",()=>{ rep.mode=b.dataset.mode; drawRepModes(); drawRepSummary(); }));
   document.querySelectorAll("#repModes [data-acc]").forEach(b=>b.addEventListener("click",()=>{ rep.acciones=b.dataset.acc; drawRepModes(); }));
+  const rnd=document.getElementById("repRandom"); if(rnd) rnd.addEventListener("click",repRandom);
+}
+
+// Rellena una ciudad legal al azar respetando el modo (presupuesto y ratio). Rechazo con reintentos.
+function repRandom(){
+  const m=REP_MODES[rep.mode], Zids=REP_ROSTER.Z.map(c=>c.id), Gids=REP_ROSTER.G.map(c=>c.id);
+  const eliteCap = m.ratio ? Math.floor(REP_POP/3) : 11;   // real: guardianes+guerreros ≤ 10
+  const costOf=cid=>{ for(const k of ["Z","G","E"]) { const c=REP_ROSTER[k].find(x=>x.id===cid); if(c) return cost(c); } return 0; };
+  for(let t=0;t<600;t++){
+    const nZ=1+Math.floor(Math.random()*Math.min(Zids.length, Math.max(1,eliteCap-1)));
+    const maxG=Math.min(Gids.length, eliteCap-nZ); if(maxG<1) continue;
+    const nG=1+Math.floor(Math.random()*maxG);
+    const nE=REP_POP-nZ-nG; if(nE<1) continue;
+    if(m.ratio && nE<2*(nZ+nG)) continue;
+    const selZ=repShuffle(Zids).slice(0,nZ), selG=repShuffle(Gids).slice(0,nG);
+    let pts=selZ.reduce((s,i)=>s+costOf(i),0)+selG.reduce((s,i)=>s+costOf(i),0);
+    // productores: empezar todos labriegos (6) y subir algunos si sobra presupuesto
+    const cntE={ labriego:nE }; pts+=nE*6;
+    let left=m.budget-pts; if(left<0) continue;   // demasiada élite cara
+    while(left>0 && cntE.labriego>0 && Math.random()<0.8){
+      if(left>=5 && Math.random()<0.5){ cntE.labriego--; cntE.mercaderes=(cntE.mercaderes||0)+1; left-=5; }
+      else if(left>=2){ cntE.labriego--; cntE.artesanos=(cntE.artesanos||0)+1; left-=2; }
+      else break;
+    }
+    if(!cntE.labriego) delete cntE.labriego;
+    rep.selZ=new Set(selZ); rep.selG=new Set(selG); rep.cntE=cntE;
+    if(repLegal().ok){ drawRepRoster(); drawRepSummary(); return; }
+  }
+  // fallback garantizado: 1 guardián + 1 guerrero + 28 labriegos
+  rep.selZ=new Set([Zids[0]]); rep.selG=new Set([Gids[0]]); rep.cntE={ labriego:28 };
+  drawRepRoster(); drawRepSummary();
 }
 function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' <em>· '+cost(c)+' pts</em></span>'; }
 function drawRepRoster(){
