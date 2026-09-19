@@ -19,6 +19,38 @@ const PAR_HIST_KEY = "aula-parejas-hist", PAR_HIST_MAX = 12;
 function parHistLoad(){ const h = store.get(PAR_HIST_KEY, []); return Array.isArray(h) ? h : []; }
 function parHistPush(rec){ const h = parHistLoad(); h.unshift(rec); while (h.length > PAR_HIST_MAX) h.pop(); store.set(PAR_HIST_KEY, h); }
 function parNowStr(){ const d = new Date(), p = n => String(n).padStart(2, "0"); return p(d.getDate()) + "/" + p(d.getMonth()+1) + "/" + d.getFullYear() + " " + p(d.getHours()) + ":" + p(d.getMinutes()); }
+function parStamp(){ const d = new Date(), p = n => String(n).padStart(2, "0"); return d.getFullYear() + "-" + p(d.getMonth()+1) + "-" + p(d.getDate()) + "-" + p(d.getHours()) + p(d.getMinutes()); }
+function parExportHist(){
+  const h = parHistLoad();
+  if (!h.length){ alert("Todavía no hay rondas en el historial que exportar."); return; }
+  const data = { app: "aula-parejas-hist", version: 1, exportado: new Date().toISOString(), rondas: h };
+  try{ const blob = new Blob([JSON.stringify(data, null, 2)], { type: "application/json;charset=utf-8" });
+    const url = URL.createObjectURL(blob); const a = document.createElement("a");
+    a.href = url; a.download = "parejas-rondas-" + parStamp() + ".json";
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(() => URL.revokeObjectURL(url), 2000);
+  }catch(e){ alert("No se ha podido generar el archivo."); }
+}
+function parImportHistFile(file){
+  if (!file) return;
+  const rd = new FileReader();
+  rd.onload = function(){
+    let data; try{ data = JSON.parse(rd.result); }catch(e){ alert("El archivo no es un JSON válido."); return; }
+    const arr = Array.isArray(data) ? data : (data && Array.isArray(data.rondas) ? data.rondas : null);
+    if (!arr){ alert("El archivo no contiene rondas de Parejas."); return; }
+    const valid = arr.filter(r => r && typeof r === "object" && (typeof r.score === "number" || typeof r.block === "string"));
+    if (!valid.length){ alert("El archivo no contiene ninguna ronda válida."); return; }
+    const cur = parHistLoad(); const seen = {}; cur.forEach(r => { if (r && r.ts != null) seen[r.ts] = true; });
+    const nuevos = valid.filter(r => r.ts == null || !seen[r.ts]);
+    if (!nuevos.length){ alert("Esas rondas ya estaban en este equipo. No se ha añadido ninguna."); return; }
+    let merged = cur.concat(nuevos); merged.sort((a, b) => (b.ts || 0) - (a.ts || 0));
+    while (merged.length > PAR_HIST_MAX) merged.pop();
+    store.set(PAR_HIST_KEY, merged);
+    alert("Importadas " + nuevos.length + " ronda(s). Se conservan las " + PAR_HIST_MAX + " más recientes.");
+    renderParStart();
+  };
+  rd.onerror = function(){ alert("No se ha podido leer el archivo."); };
+  rd.readAsText(file);
+}
 
 /* ---------- mejores marcas: panel + exportar/importar (JSON) ---------- */
 const PAR_BEST_KEY = "aula-parejas-best";
@@ -78,7 +110,12 @@ function renderParStart(){
   const histPanel = hist.length ? (
     '<div class="par-hist">' +
       '<div class="par-hist-top"><span class="par-hist-h">📜 Últimas rondas</span>' +
-        '<button class="btn2" id="parHistClear" title="Borra el historial de rondas guardado en este navegador">🗑️ Borrar historial</button></div>' +
+        '<span class="par-best-io">' +
+          '<button class="btn2" id="parHistExport" title="Descarga el historial de rondas en un archivo JSON para guardarlo o llevarlo a otro equipo">⬆️ Exportar</button>' +
+          '<button class="btn2" id="parHistImport" title="Carga rondas desde un archivo JSON exportado (se añaden a las de este equipo, sin borrarlas)">⬇️ Importar</button>' +
+          '<button class="btn2" id="parHistClear" title="Borra el historial de rondas guardado en este navegador">🗑️ Borrar</button>' +
+        '</span>' +
+        '<input type="file" id="parHistFile" accept="application/json,.json" style="display:none"></div>' +
       '<div class="par-hist-list">' +
         hist.map(r => '<div class="par-hist-item"><span class="par-hist-badge">' + (r.emoji || "🧩") + '</span> ' +
           '<b>' + escPar((r.blockName || "").split(" · ")[0] || "Bloque " + (r.block || "")) + '</b> · ' +
@@ -100,6 +137,9 @@ function renderParStart(){
   if (pi && pf){ pi.addEventListener("click", () => pf.click()); pf.addEventListener("change", () => { parImportBestFile(pf.files && pf.files[0]); pf.value = ""; }); }
   const pc = document.getElementById("parClear"); if (pc) pc.addEventListener("click", () => { if (confirm("¿Borrar todas tus mejores marcas de Parejas?")){ store.set(PAR_BEST_KEY, {}); renderParStart(); } });
   const ph = document.getElementById("parHistClear"); if (ph) ph.addEventListener("click", () => { if (confirm("¿Borrar el historial de rondas de Parejas?")){ store.set(PAR_HIST_KEY, []); renderParStart(); } });
+  const he = document.getElementById("parHistExport"); if (he) he.addEventListener("click", parExportHist);
+  const hi = document.getElementById("parHistImport"), hf = document.getElementById("parHistFile");
+  if (hi && hf){ hi.addEventListener("click", () => hf.click()); hf.addEventListener("change", () => { parImportHistFile(hf.files && hf.files[0]); hf.value = ""; }); }
 }
 
 /* ---------- ronda ---------- */
