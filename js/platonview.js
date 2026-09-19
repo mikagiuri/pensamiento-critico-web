@@ -168,10 +168,12 @@ function drawRepModes(){
   document.getElementById("repModes").innerHTML=
     '<span class="flabel">Dificultad</span>'+Object.entries(REP_MODES).map(([k,m])=>'<button class="pbtn" data-mode="'+k+'" aria-pressed="'+(k===rep.mode)+'">'+m.name+'</button>').join("")+
     '<span class="flabel" style="margin-left:.8rem">Acciones</span><button class="pbtn" data-acc="si" aria-pressed="'+(rep.acciones==="si")+'">Con acciones</button><button class="pbtn" data-acc="no" aria-pressed="'+(rep.acciones==="no")+'">Sin acciones</button>'+
-    '<button class="pbtn rep-rnd" id="repRandom">🎲 Aleatoria</button>';
+    '<button class="pbtn rep-rnd" id="repRandom">🎲 Aleatoria</button>'+
+    (repHistLoad().length?'<button class="pbtn rep-hist-open" id="repHistOpen">📚 Partidas ('+repHistLoad().length+')</button>':'');
   document.querySelectorAll("#repModes [data-mode]").forEach(b=>b.addEventListener("click",()=>{ rep.mode=b.dataset.mode; drawRepModes(); drawRepSummary(); }));
   document.querySelectorAll("#repModes [data-acc]").forEach(b=>b.addEventListener("click",()=>{ rep.acciones=b.dataset.acc; drawRepModes(); }));
   const rnd=document.getElementById("repRandom"); if(rnd) rnd.addEventListener("click",repRandom);
+  const ho=document.getElementById("repHistOpen"); if(ho) ho.addEventListener("click",renderRepHistory);
 }
 function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' <em>· '+cost(c)+'</em></span>'; }
 function drawRepRoster(){
@@ -300,12 +302,32 @@ function repChronicleText(){
   L.push("DESENLACE: "+(rep._rank||"—")+" — "+repFmt(Math.max(0,rep.armonia))+"/"+REP_ARM0+" de armonía tras "+rep.log.length+" turnos vividos.");
   return L.join("\n");
 }
-function repDownloadChronicle(){
-  try{ const blob=new Blob([repChronicleText()],{type:"text/plain;charset=utf-8"});
+function repDownloadText(txt,name){
+  try{ const blob=new Blob([txt],{type:"text/plain;charset=utf-8"});
     const url=URL.createObjectURL(blob); const a=document.createElement("a");
-    a.href=url; a.download="mi-republica-"+new Date().toISOString().slice(0,10)+".txt";
+    a.href=url; a.download=(name||"cronica")+".txt";
     document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000);
   }catch(e){}
+}
+function repDownloadChronicle(){ repDownloadText(repChronicleText(),"mi-republica-"+new Date().toISOString().slice(0,10)); }
+/* ---------- historial de partidas (localStorage) ---------- */
+const REP_HIST_KEY="aula-republica-hist", REP_HIST_MAX=12;
+function repHistLoad(){ try{ const h=store.get(REP_HIST_KEY,[]); return Array.isArray(h)?h:[]; }catch(e){ return []; } }
+function repHistPush(rec){ try{ const h=repHistLoad(); h.unshift(rec); while(h.length>REP_HIST_MAX) h.pop(); store.set(REP_HIST_KEY,h); }catch(e){} }
+function repEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;"); }
+function renderRepHistory(){
+  const box=repBox(); if(!box) return; const h=repHistLoad();
+  box.innerHTML='<div class="rep-wrap"><div class="rep-hist">'+
+    '<div class="rep-hist-top"><button class="btn2" id="repHistBack">← Volver a diseñar</button><h3>📚 Partidas guardadas</h3>'+(h.length?'<button class="btn2" id="repHistClear">Borrar todo</button>':'')+'</div>'+
+    (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> <b>'+r.rank+'</b> · '+r.arm+'/'+REP_ARM0+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
+        '<pre class="rep-hist-text">'+repEsc(r.text)+'</pre>'+
+        '<div class="rep-hist-btns"><button class="btn2" data-hcopy="'+i+'">📋 Copiar</button><button class="btn2" data-hdl="'+i+'">💾 Descargar</button></div></details>').join("")
+      : '<p class="rep-hist-empty">Aún no has terminado ninguna partida. Juega una y quedará guardada aquí (se conservan las últimas '+REP_HIST_MAX+').</p>')+
+    '</div></div>';
+  document.getElementById("repHistBack").addEventListener("click",renderRepStart);
+  const clr=document.getElementById("repHistClear"); if(clr) clr.addEventListener("click",()=>{ if(confirm("¿Borrar todas las partidas guardadas?")){ store.set(REP_HIST_KEY,[]); renderRepHistory(); } });
+  box.querySelectorAll("[data-hcopy]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hcopy]; if(r&&navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(r.text).then(()=>{ const o=b.textContent; b.textContent="✓ ¡Copiada!"; setTimeout(()=>{b.textContent=o;},1400); }).catch(()=>{}); } }));
+  box.querySelectorAll("[data-hdl]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hdl]; if(r) repDownloadText(r.text,"mi-republica-"+(r.ts||Date.now())); }));
 }
 function repCopyChronicle(btn){
   const txt=repChronicleText();
@@ -319,6 +341,9 @@ function repResult(){
   else { emoji="⚠️"; rank="República frágil, pero en pie"; }
   rep._rank=rank;
   const key="aula-republica-best"; const best=store.get(key,0); const record=a>best; if(record) store.set(key,a);
+  // guardar en el historial del navegador
+  const ts=Date.now(); let fecha; try{ fecha=new Date(ts).toLocaleString("es-ES",{day:"2-digit",month:"2-digit",hour:"2-digit",minute:"2-digit"}); }catch(e){ fecha=new Date(ts).toLocaleString(); }
+  repHistPush({ ts, date:fecha, emoji, rank, mode:REP_MODES[rep.mode].name, acc:rep.acciones, arm:repFmt(Math.max(0,a)), turns:rep.log.length, text:repChronicleText() });
   const qs=["¿Qué muestra este juego sobre la necesidad de equilibrio en la sociedad de Platón?",
     "¿Qué riesgos trae el poder excesivo de cada clase social?",
     "¿Es cierto, como decía Platón, que sin gobernantes filósofos no puede salvarse la sociedad?",
@@ -332,12 +357,13 @@ function repResult(){
     '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ '+REP_ARM0+' de armonía</span></div>'+
     '<p class="rep-pop">'+rep.log.length+' turnos vividos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
     '<div class="rep-chronicle"><div class="rep-cr-title">📜 Crónica de tu república</div><ol class="rep-cr-list">'+chronicle+'</ol></div>'+
-    '<div class="rep-save"><button class="btn2" id="repSave">💾 Guardar crónica (.txt)</button><button class="btn2" id="repCopy">📋 Copiar crónica</button></div>'+
+    '<div class="rep-save"><button class="btn2" id="repSave">💾 Guardar crónica (.txt)</button><button class="btn2" id="repCopy">📋 Copiar crónica</button><button class="btn2" id="repHistView">📚 Ver historial</button></div>'+
     '<blockquote class="rep-reflect">Para pensar: '+qs[Math.floor(Math.random()*qs.length)]+'</blockquote>'+
     '<div class="rep-actions2"><button class="btn2 primary" id="repAgain">Diseñar otra ciudad</button></div></div></div>';
   document.getElementById("repAgain").addEventListener("click",renderRepStart);
   const sv=document.getElementById("repSave"); if(sv) sv.addEventListener("click",repDownloadChronicle);
   const cp=document.getElementById("repCopy"); if(cp) cp.addEventListener("click",()=>repCopyChronicle(cp));
+  const hv=document.getElementById("repHistView"); if(hv) hv.addEventListener("click",renderRepHistory);
 }
 function initRep(){ renderRepStart(); }
 document.addEventListener("DOMContentLoaded", initRep);

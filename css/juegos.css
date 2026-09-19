@@ -115,6 +115,18 @@
 #republica .rep-cr-msg{ font-size:.86rem; margin-top:.2rem; }
 #republica .rep-cr-acts{ font-size:.8rem; color:var(--muted); margin-top:.15rem; }
 #republica .rep-save{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin-top:1rem; }
+/* historial de partidas */
+#republica .rep-hist-open{ margin-left:.4rem; }
+#republica .rep-hist{ text-align:left; }
+#republica .rep-hist-top{ display:flex; align-items:center; gap:.7rem; flex-wrap:wrap; margin-bottom:1rem; }
+#republica .rep-hist-top h3{ margin:0; flex:1; }
+#republica .rep-hist-item{ background:var(--surface); border:1px solid var(--line); border-radius:10px; padding:.55rem .75rem; margin-bottom:.5rem; }
+#republica .rep-hist-item summary{ cursor:pointer; font-size:.9rem; }
+#republica .rep-hist-badge{ font-size:1.05rem; }
+#republica .rep-hist-date{ color:var(--muted); }
+#republica .rep-hist-text{ white-space:pre-wrap; font-family:var(--mono); font-size:.78rem; line-height:1.4; background:var(--bg); border:1px solid var(--line); border-radius:8px; padding:.6rem .7rem; margin:.6rem 0 .4rem; max-height:280px; overflow:auto; }
+#republica .rep-hist-btns{ display:flex; gap:.5rem; flex-wrap:wrap; }
+#republica .rep-hist-empty{ color:var(--muted); }
 
 /* evento */
 #republica .rep-event{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--hf); border-radius:12px; padding:.9rem 1.1rem; margin-bottom:1rem; box-shadow:var(--shadow); }
