@@ -91,6 +91,13 @@
 #republica .rep-class .l{ font-size:.8rem; color:var(--muted); }
 #republica .rep-class .v{ font-size:.72rem; color:var(--muted); margin-top:.2rem; }
 
+/* stat de ciudad: producción vs población */
+#republica .rep-city{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin:-.3rem 0 1rem; }
+#republica .rep-cstat{ background:var(--surface); border:1px solid var(--line); border-radius:999px; padding:.28rem .8rem; font-size:.86rem; }
+#republica .rep-cstat b{ font-family:var(--mono); }
+#republica .rep-sur.ok{ color:var(--ok); border-color:color-mix(in srgb,var(--ok) 45%,var(--line)); }
+#republica .rep-sur.bad{ color:var(--bad); border-color:color-mix(in srgb,var(--bad) 45%,var(--line)); }
+
 /* evento */
 #republica .rep-event{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--hf); border-radius:12px; padding:.9rem 1.1rem; margin-bottom:1rem; box-shadow:var(--shadow); }
 #republica .rep-event h3{ font-family:var(--serif); font-size:1.15rem; margin:0 0 .2rem; }

@@ -1,26 +1,32 @@
 "use strict";
-/* ===== La República ===== juego de diseño de la ciudad de Platón (v3) =====
-   Diseñas una ciudad con perfiles (+/−) y 4 virtudes: Sabiduría-Justicia (SJ ⚖️),
-   Valentía (V 🛡️), Templanza (T 🍷) y Producción (P 🌾). Coste = suma de las 4.
+/* ===== La República ===== juego de diseño de la ciudad de Platón (v4) =====
+   Diseñas una ciudad con perfiles (+/−). Cada persona tiene TRES VIRTUDES del alma:
+   Sabiduría-Justicia (SJ ⚖️), Valentía (V 🛡️) y Templanza (T 🍷). Coste = suma de las 3.
+     · Guardián: las tres virtudes ≥4  (444 → máx. 555)
+     · Guerrero: valentía y templanza ≥4  (x44 → máx. 355)
+     · Productor: templanza ≥4  (xx4 → máx. 335)
+   La PRODUCCIÓN 🌾 NO es una virtud: es un stat DE LA CIUDAD. Solo la generan los
+   productores (cada uno alimenta a 2 personas) y debe cubrir a toda la población.
    Luego, 6 turnos de eventos (fundados en Platón/Aristóteles) con penalizaciones
    graduadas, eventos positivos, eventos que MATAN ciudadanos, y penalización
-   creciente a las ciudades de menos de 30 habitantes.
-   Perfiles: Guardián SJ/V/T ≥4 · Guerrero V/T ≥4 · Productor T/P ≥4. */
+   creciente a las ciudades de menos de 30 habitantes. */
 
 const REP_ARM0 = 10, REP_TURNS = 6, REP_DECK_N = 7, REP_TARGET = 30;
 const REP_AP0 = 6;
+const REP_OUT = 2;   // cada productor alimenta (produce para) 2 personas
 const REP_MODES = {
-  facil: { name:"Fácil", budget:415, ratio:false },
-  real:  { name:"Real",  budget:345, ratio:true }
+  facil: { name:"Fácil", budget:265, ratio:false },
+  real:  { name:"Real",  budget:225, ratio:true }
 };
 const REP_ROSTER = {
-  Z: [ { id:"z_recto", name:"Guardianes rectos", sj:4,v:4,t:4,p:4, note:"los cuatro al mínimo" },
-       { id:"z_sabio", name:"Guardianes sabios", sj:5,v:4,t:4,p:4, note:"más sabiduría-justicia" },
-       { id:"z_pleno", name:"Guardianes plenos", sj:5,v:5,t:5,p:5, note:"virtud máxima" } ],
-  G: [ { id:"g_tropa", name:"Guerreros", sj:1,v:4,t:4,p:1, note:"lo básico" },
-       { id:"g_vet", name:"Veteranos", sj:2,v:5,t:4,p:2, note:"curtidos" },
-       { id:"g_heroe", name:"Héroes", sj:3,v:5,t:5,p:3, note:"los mejores" } ],
-  E: [ { id:"labriego", name:"Productores", sj:1,v:1,t:4,p:4, note:"labriegos, artesanos y mercaderes" } ]
+  Z: [ { id:"z_recto", name:"Guardianes rectos", sj:4,v:4,t:4, note:"las tres virtudes al mínimo" },
+       { id:"z_sabio", name:"Guardianes sabios", sj:5,v:4,t:4, note:"más sabiduría-justicia" },
+       { id:"z_pleno", name:"Guardianes plenos", sj:5,v:5,t:5, note:"virtud máxima" } ],
+  G: [ { id:"g_tropa", name:"Guerreros", sj:1,v:4,t:4, note:"lo básico" },
+       { id:"g_vet", name:"Veteranos", sj:2,v:5,t:4, note:"curtidos" },
+       { id:"g_heroe", name:"Héroes", sj:3,v:5,t:5, note:"los mejores" } ],
+  E: [ { id:"labriego", name:"Labriegos", sj:1,v:1,t:4, note:"el pueblo que trabaja" },
+       { id:"diligente", name:"Productores diligentes", sj:2,v:2,t:5, note:"templados y laboriosos" } ]
 };
 const REP_IMG = "media/juegos/platon/";
 const REP_ACTS = [
@@ -28,24 +34,25 @@ const REP_ACTS = [
     run:()=>{ repMove("E","G",1); } },
   { id:"heroismo", name:"Heroísmo", ap:1, d:"Este turno, los guerreros valen ×1,5.", ok:()=>!rep.t.hero, run:()=>{ rep.t.hero=true; } },
   { id:"educacion", name:"Reforma educativa", ap:1, d:"Los guardianes ganan sabiduría-justicia (+3).", run:()=>{ rep.t.Z.sj+=3; if(rep.t.Z.max<5)rep.t.Z.max=5; rep.t.Z.just=rep.t.Z.n; } },
-  { id:"cosecha", name:"Impulso a la producción", ap:1, d:"Los productores rinden más (+6 producción).", run:()=>{ rep.t.E.p+=6; } },
+  { id:"cosecha", name:"Impulso a la producción", ap:1, d:"La ciudad produce más alimento (+8 producción).", run:()=>{ rep.t.prodBonus=(rep.t.prodBonus||0)+8; } },
   { id:"purga", name:"Purga de corruptos", ap:2, d:"Recuperas 1 punto de armonía.", ok:()=>rep.armonia<REP_ARM0, run:()=>{ rep.armonia=Math.min(REP_ARM0, rep.armonia+1); } }
 ];
 
 const rep = repFresh();
 function repFresh(){ return { mode:"real", acciones:"si", cnt:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0, t:null, ap:0, apTurn:0, used:new Set() }; }
 function repBox(){ return document.getElementById("repbox"); }
-function cost(c){ return c.sj+c.v+c.t+c.p; }
+function cost(c){ return c.sj+c.v+c.t; }
 function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
 
 // ---- estado de la ciudad diseñada ----
 function repCompute(){
   const cls={}; let pts=0;
-  ["Z","G","E"].forEach(k=>{ let n=0,sj=0,v=0,t=0,p=0,max=0,just=0;
-    REP_ROSTER[k].forEach(c=>{ const q=rep.cnt[c.id]||0; if(q){ n+=q; pts+=cost(c)*q; sj+=c.sj*q; v+=c.v*q; t+=c.t*q; p+=c.p*q; max=Math.max(max,c.sj); if(c.sj>=5)just+=q; } });
-    cls[k]={n,sj,v,t,p,max,just}; });
+  ["Z","G","E"].forEach(k=>{ let n=0,sj=0,v=0,t=0,max=0,just=0;
+    REP_ROSTER[k].forEach(c=>{ const q=rep.cnt[c.id]||0; if(q){ n+=q; pts+=cost(c)*q; sj+=c.sj*q; v+=c.v*q; t+=c.t*q; max=Math.max(max,c.sj); if(c.sj>=5)just+=q; } });
+    cls[k]={n,sj,v,t,max,just}; });
   rep.nZ=cls.Z.n; rep.nG=cls.G.n; rep.nE=cls.E.n; rep._cls=cls;
-  return { nZ:cls.Z.n, nG:cls.G.n, nE:cls.E.n, pop:cls.Z.n+cls.G.n+cls.E.n, pts };
+  const pop=cls.Z.n+cls.G.n+cls.E.n, prod=REP_OUT*cls.E.n;
+  return { nZ:cls.Z.n, nG:cls.G.n, nE:cls.E.n, pop, pts, prod };
 }
 function repLegal(){
   const s=repCompute(); const m=REP_MODES[rep.mode]; const errs=[];
@@ -60,13 +67,14 @@ function T(){ return rep.t; }
 function repPop(){ return rep.t.Z.n+rep.t.G.n+rep.t.E.n; }
 function repNGeff(){ return rep.t.hero ? rep.t.G.n*1.5 : rep.t.G.n; }
 function repSum(stat){ return rep.t.Z[stat]+rep.t.G[stat]+rep.t.E[stat]; }
+function repProd(){ return REP_OUT*rep.t.E.n + (rep.t.prodBonus||0); }   // producción de la CIUDAD (solo productores)
 function repKill(cls,n){ const c=rep.t[cls]; if(c.n<=0)return 0; const k=Math.min(n,c.n); const f=(c.n-k)/c.n;
-  c.sj*=f; c.v*=f; c.t*=f; c.p*=f; c.just=Math.round(c.just*f); c.n-=k; return k; }
+  c.sj*=f; c.v*=f; c.t*=f; c.just=Math.round(c.just*f); c.n-=k; return k; }
 function repMove(a,b,n){ const A=rep.t[a],B=rep.t[b]; if(A.n<n)return; const proto=REP_ROSTER[b][0];
-  const fa=(A.n-n)/A.n; A.sj*=fa;A.v*=fa;A.t*=fa;A.p*=fa; A.n-=n;
-  B.n+=n; B.sj+=proto.sj*n; B.v+=proto.v*n; B.t+=proto.t*n; B.p+=proto.p*n; }
+  const fa=(A.n-n)/A.n; A.sj*=fa;A.v*=fa;A.t*=fa; A.n-=n;
+  B.n+=n; B.sj+=proto.sj*n; B.v+=proto.v*n; B.t+=proto.t*n; }
 
-/* ================= EVENTOS (v3) — d: cambio de armonía (± ); kill:{cls,n}; ================= */
+/* ================= EVENTOS (v4) — d: cambio de armonía (± ); kill:{cls,n}; ================= */
 const F=Math.floor;
 const REP_EVENTS = [
   // — negativos graduados (Platón, República) —
@@ -91,8 +99,8 @@ const REP_EVENTS = [
     threat:"Una epidemia se ceba en la masa: mata a parte de los productores y guerreros.",
     effect:()=>{ const k=repKill("E",F(rep.t.E.n/6))+repKill("G",F(rep.t.G.n/10)); return { d:-1, msg:"Peste: −1 y mueren "+k+" ciudadanos." }; } },
   { id:"hambruna", name:"Hambruna", src:"Pol. I", img:"ev-hambruna",
-    threat:"Si la producción no alimenta a la población, hay hambre y muertes.",
-    effect:()=>{ const surplus=repSum("p")-repPop(); if(surplus<0){ const x=F(-surplus/4), k=repKill("E",F(-surplus/6)); return { d:-x, msg:"Hambre: −"+x+(k?" y mueren "+k+" productores.":".") }; } return { d:0, msg:"La producción alimenta a la ciudad." }; } },
+    threat:"Si la producción de la ciudad no alimenta a toda la población, hay hambre y muertes.",
+    effect:()=>{ const surplus=repProd()-repPop(); if(surplus<0){ const x=F(-surplus/4), k=repKill("E",F(-surplus/6)); return { d:-x, msg:"Hambre: −"+x+(k?" y mueren "+k+" productores.":".") }; } return { d:0, msg:"La producción alimenta a la ciudad." }; } },
   { id:"menguada", name:"Ciudad menguada", src:"Pol. I", img:"ev-ataque",
     threat:"Una polis pequeña no se basta a sí misma: cuanto menos de 30 habitantes, peor.",
     effect:()=>{ const x=F(Math.max(0,REP_TARGET-repPop())/4); return { d:-x, msg:x?("Debilidad ("+repPop()+" hab.): −"+x):"Ciudad autosuficiente." }; } },
@@ -107,8 +115,8 @@ const REP_EVENTS = [
     threat:"Si tus guardianes son plenamente justos (SJ medio ≥5), recuperas armonía.",
     effect:()=>{ return (rep.t.Z.sj/Math.max(1,rep.t.Z.n))>=5 ? { d:2, msg:"Buen gobierno: +2." } : { d:0, msg:"Falta justicia plena arriba." }; } },
   { id:"cosecha", name:"Cosecha abundante", src:"—", img:"ev-hambruna",
-    threat:"Si sobra producción (excedente ≥ 40% de la población), hay bonanza.",
-    effect:()=>{ return (repSum("p")-repPop()) >= repPop()*0.4 ? { d:2, msg:"Excedente: +2." } : { d:0, msg:"Sin excedente notable." }; } }
+    threat:"Si la ciudad produce de sobra (excedente ≥ 40% de la población), hay bonanza.",
+    effect:()=>{ return (repProd()-repPop()) >= repPop()*0.4 ? { d:2, msg:"Excedente: +2." } : { d:0, msg:"Sin excedente notable." }; } }
 ];
 
 /* ---------- setup ---------- */
@@ -127,25 +135,26 @@ function drawRepModes(){
   document.querySelectorAll("#repModes [data-acc]").forEach(b=>b.addEventListener("click",()=>{ rep.acciones=b.dataset.acc; drawRepModes(); }));
   const rnd=document.getElementById("repRandom"); if(rnd) rnd.addEventListener("click",repRandom);
 }
-function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' 🌾'+c.p+' <em>· '+cost(c)+'</em></span>'; }
+function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' <em>· '+cost(c)+'</em></span>'; }
 function drawRepRoster(){
   const sec=(title,list)=>'<div class="rep-rsec"><h3>'+title+'</h3>'+list.map(c=>{ const n=rep.cnt[c.id]||0;
     return '<div class="rep-rrow prod"><div class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</div>'+
       '<div class="rep-step"><button data-esub="'+c.id+'">−</button><span class="n">'+n+'</span><button data-eadd="'+c.id+'">+</button></div></div>'; }).join("")+'</div>';
   document.getElementById("repRoster").innerHTML =
-    sec("🦉 Guardianes <span class=\"rep-floor\">los cuatro stats ≥4</span>",REP_ROSTER.Z)+
+    sec("🦉 Guardianes <span class=\"rep-floor\">las tres virtudes ≥4</span>",REP_ROSTER.Z)+
     sec("🛡️ Guerreros <span class=\"rep-floor\">valentía y templanza ≥4</span>",REP_ROSTER.G)+
-    sec("🌾 Productores <span class=\"rep-floor\">templanza y producción ≥4</span>",REP_ROSTER.E);
+    sec("🌾 Productores <span class=\"rep-floor\">templanza ≥4 · alimentan la ciudad</span>",REP_ROSTER.E);
   document.querySelectorAll("#repRoster [data-eadd]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.eadd; rep.cnt[id]=(rep.cnt[id]||0)+1; drawRepRoster(); drawRepSummary(); }));
   document.querySelectorAll("#repRoster [data-esub]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.esub; if(rep.cnt[id]>0){ rep.cnt[id]--; drawRepRoster(); drawRepSummary(); } }));
 }
 function drawRepSummary(){
-  const { ok, errs, s }=repLegal(); const m=REP_MODES[rep.mode];
+  const { ok, errs, s }=repLegal(); const m=REP_MODES[rep.mode]; const fed=s.prod>=s.pop;
   document.getElementById("repSummary").innerHTML=
     '<div class="rep-sum-h">Tu ciudad</div>'+
     '<div class="rep-sum-row"><span>Población</span><b class="'+(s.pop>=REP_TARGET?"ok":"")+'">'+s.pop+(s.pop<REP_TARGET?' <small>(&lt;30: penaliza)</small>':'')+'</b></div>'+
     '<div class="rep-sum-row"><span>Puntos</span><b class="'+(s.pts<=m.budget?"ok":"bad")+'">'+s.pts+' / '+m.budget+'</b></div>'+
     '<div class="rep-sum-classes"><span>🦉 '+s.nZ+'</span><span>🛡️ '+s.nG+'</span><span>🌾 '+s.nE+'</span></div>'+
+    '<div class="rep-sum-row"><span>🌾 Producción</span><b class="'+(fed?"ok":"bad")+'">'+s.prod+' <small>vs '+s.pop+' comen</small></b></div>'+
     (m.ratio?'<div class="rep-sum-row"><span>Proporción</span><b class="'+(s.nE>=2*(s.nZ+s.nG)?"ok":"bad")+'">prod ≥ 2×élite</b></div>':'')+
     (ok?'<button class="rep-play" id="repPlay">Fundar la república →</button>':'<ul class="rep-errs">'+errs.map(e=>'<li>'+e+'</li>').join("")+'</ul>');
   const p=document.getElementById("repPlay"); if(p) p.addEventListener("click",repStart);
@@ -168,7 +177,7 @@ function repStart(){
   const n=(rep.mode==="real")?7:6;   // Real es más exigente (más eventos)
   const rest=repShuffle(REP_EVENTS.filter(e=>e.id!=="menguada").map(e=>e.id)).slice(0,n-1);
   rep.deck=repShuffle(rest.concat("menguada"));   // «Ciudad menguada» siempre presente (castiga el tamaño pequeño)
-  rep.t={ Z:Object.assign({},c.Z), G:Object.assign({},c.G), E:Object.assign({},c.E), hero:false };
+  rep.t={ Z:Object.assign({},c.Z), G:Object.assign({},c.G), E:Object.assign({},c.E), hero:false, prodBonus:0 };
   repRenderTurn();
 }
 function repFmt(n){ n=Math.round(n*10)/10; return Number.isInteger(n)?n:n.toFixed(1); }
@@ -181,6 +190,7 @@ function repRenderTurn(){
       (rep.acciones==="si"?'<span class="stat">🔧 AP <b id="repAp">'+rep.ap+'</b></span>':'')+'</div>'+
     '<div class="rep-arm'+(rep.armonia<=4?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
     '<div class="rep-classes" id="repClasses"></div>'+
+    '<div class="rep-city" id="repCity"></div>'+
     '<div class="rep-event reveal" id="repEvent"></div>'+
     (rep.acciones==="si"?'<div class="rep-actions-h">Acciones (máx. 2 este turno)</div><div class="rep-acts" id="repActs"></div>':'')+
     '<div class="rep-resolve"><button id="repResolve">Afrontar el evento →</button></div></div>';
@@ -191,6 +201,12 @@ function repDrawTurn(ev){
   document.getElementById("repClasses").innerHTML=[
     { em:"🦉", l:"Guardianes", c:rep.t.Z.n }, { em:"🛡️", l:"Guerreros", c:rep.t.G.n+(rep.t.hero?" ×1,5":"") }, { em:"🌾", l:"Productores", c:rep.t.E.n }
   ].map(x=>'<div class="rep-class"><div class="c">'+x.em+' '+x.c+'</div><div class="l">'+x.l+'</div></div>').join("");
+  // stat de CIUDAD: producción vs población
+  const prod=repProd(), pop=repPop(), sur=prod-pop;
+  const city=document.getElementById("repCity");
+  if(city) city.innerHTML='<span class="rep-cstat">🌾 Producción <b>'+prod+'</b></span>'+
+    '<span class="rep-cstat">👥 Comen <b>'+pop+'</b></span>'+
+    '<span class="rep-cstat rep-sur '+(sur<0?"bad":"ok")+'">'+(sur<0?"⚠ déficit ":"✓ excedente +")+Math.abs(sur)+'</span>';
   // previsualizar el efecto sin aplicarlo (clonando rep.t)
   const snap=JSON.parse(JSON.stringify(rep.t)); const pre=ev.effect(); rep.t=snap;
   const good=pre.d>0, bad=pre.d<0; const evb=document.getElementById("repEvent");
