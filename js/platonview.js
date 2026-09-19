@@ -36,11 +36,25 @@ const REP_ROSTER = {
     { id:"mercaderes", name:"Mercaderes", sj:3, v:3, t:5, note:"prósperos" }
   ]
 };
-const REP_ART = { // arte SVG propio de las acciones (se conserva por si vuelven)
-};
+// ACCIONES de turno (modo con acciones): cuestan AP (6 en total, máx. 2/turno; no repetir en el turno).
+// Modifican el estado mutable de la ciudad rep.t durante la partida.
+const REP_ACTS = [
+  { id:"moviliza", name:"Movilización", ap:2, d:"Un productor se forma como guerrero (−1 productor, +1 guerrero).", ok:()=>rep.t.nE>1,
+    run:()=>{ rep.t.nE--; rep.t.nG++; rep.t.sumV+=3; rep.t.sumTot+=3; rep.t.tE=Math.max(0,rep.t.tE-4); } },
+  { id:"heroismo", name:"Heroísmo", ap:1, d:"Este turno, los guerreros valen ×1,5 en las comprobaciones.", ok:()=>!rep.t.hero,
+    run:()=>{ rep.t.hero=true; } },
+  { id:"educacion", name:"Reforma educativa", ap:1, d:"Los guardianes ganan sabiduría-justicia (+3).",
+    run:()=>{ rep.t.sjZ+=3; rep.t.sumTot+=3; } },
+  { id:"grano", name:"Reparto de grano", ap:1, d:"Los productores ganan templanza (+5).",
+    run:()=>{ rep.t.tE+=5; rep.t.sumTot+=5; } },
+  { id:"purga", name:"Purga de corruptos", ap:2, d:"Recuperas 1 punto de armonía.", ok:()=>rep.armonia<REP_ARM0,
+    run:()=>{ rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+1)*10)/10); } }
+];
+function repNGeff(){ return rep.t.hero ? rep.t.nG*1.5 : rep.t.nG; }
 
+const REP_AP0 = 6;   // puntos de acción para los 6 turnos (modo con acciones)
 const rep = repFresh();
-function repFresh(){ return { mode:"real", selZ:new Set(), selG:new Set(), cntE:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0,sumSJ:0,sumV:0,sumT:0 }; }
+function repFresh(){ return { mode:"real", acciones:"si", selZ:new Set(), selG:new Set(), cntE:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0,sumSJ:0,sumV:0,sumT:0, t:null, ap:0, apTurn:0, used:new Set() }; }
 function repBox(){ return document.getElementById("repbox"); }
 function cost(c){ return c.sj + c.v + c.t; }
 function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -74,10 +88,15 @@ function renderRepStart(){
   drawRepModes(); drawRepRoster(); drawRepSummary();
 }
 function drawRepModes(){
-  document.getElementById("repModes").innerHTML='<span class="flabel">Modo</span>'+
+  document.getElementById("repModes").innerHTML=
+    '<span class="flabel">Dificultad</span>'+
     Object.entries(REP_MODES).map(([k,m])=>'<button class="pbtn" data-mode="'+k+'" aria-pressed="'+(k===rep.mode)+'">'+m.name+'</button>').join("")+
-    '<span class="rep-mode-d">'+REP_MODES[rep.mode].d+'</span>';
+    '<span class="flabel" style="margin-left:.8rem">Acciones</span>'+
+    '<button class="pbtn" data-acc="si" aria-pressed="'+(rep.acciones==="si")+'">Con acciones</button>'+
+    '<button class="pbtn" data-acc="no" aria-pressed="'+(rep.acciones==="no")+'">Sin acciones</button>'+
+    '<span class="rep-mode-d">'+REP_MODES[rep.mode].d+(rep.acciones==="no"?" · Sin acciones: pones a prueba tu diseño inicial tal cual.":" · Con acciones: reaccionas a los eventos gastando AP.")+'</span>';
   document.querySelectorAll("#repModes [data-mode]").forEach(b=>b.addEventListener("click",()=>{ rep.mode=b.dataset.mode; drawRepModes(); drawRepSummary(); }));
+  document.querySelectorAll("#repModes [data-acc]").forEach(b=>b.addEventListener("click",()=>{ rep.acciones=b.dataset.acc; drawRepModes(); }));
 }
 function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v+' 🍷'+c.t+' <em>· '+cost(c)+' pts</em></span>'; }
 function drawRepRoster(){
@@ -112,43 +131,68 @@ function drawRepSummary(){
 // ---- eventos: se comprueban sobre la ciudad diseñada ----
 const REP_EVENTS = [
   { id:"corrupcion", name:"Corrupción", img:"ev-corrupcion", threat:"Sin guardianes verdaderamente justos, la corrupción cunde.",
-    danger:()=> (rep._sjZ/Math.max(1,rep.nZ)) < 4.5, bad:()=>"La justicia media de tus guardianes es baja.", ok:"Tus guardianes son sabios y justos." },
+    danger:()=> (rep.t.sjZ/Math.max(1,rep.t.nZ)) < 4.5, bad:()=>"La justicia media de tus guardianes es baja.", ok:"Tus guardianes son sabios y justos." },
   { id:"golpe", name:"Golpe de estado", img:"ev-golpe", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×4) → golpe.",
-    danger:()=> rep.nG > rep.nZ*4, bad:"El ejército desborda al gobierno.", ok:"El ejército respeta a los guardianes." },
+    danger:()=> repNGeff() > rep.t.nZ*4, bad:"El ejército desborda al gobierno.", ok:"El ejército respeta a los guardianes." },
   { id:"ataque", name:"Ataque exterior", img:"ev-ataque", threat:"Pocos brazos o poco valor para defender la ciudad.",
-    danger:()=> rep.nG < 5 || rep.sumV < 55, bad:()=>"Faltan defensores o falta valentía (total "+rep.sumV+").", ok:"Hay defensa suficiente." },
+    danger:()=> repNGeff() < 5 || rep.t.sumV < 55, bad:()=>"Faltan defensores o falta valentía (total "+rep.t.sumV+").", ok:"Hay defensa suficiente." },
   { id:"hambruna", name:"Hambruna", img:"ev-hambruna", threat:"Pocos productores para alimentar a la ciudad.",
-    danger:()=> rep.nE < 16, bad:()=>"Solo hay "+rep.nE+" productores.", ok:"El abastecimiento está cubierto." },
+    danger:()=> rep.t.nE < 16, bad:()=>"Solo hay "+rep.t.nE+" productores.", ok:"El abastecimiento está cubierto." },
   { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Productores descontentos (poca templanza) se rebelan.",
-    danger:()=> (rep._tE/Math.max(1,rep.nE)) < 4.4, bad:"Tus productores son pobres y descontentos.", ok:"Tus productores viven con templanza." },
+    danger:()=> (rep.t.tE/Math.max(1,rep.t.nE)) < 4.4, bad:"Tus productores son pobres y descontentos.", ok:"Tus productores viven con templanza." },
   { id:"sabiduria", name:"Deriva moral", img:"ev-sabiduria", threat:"Si a la ciudad le falta virtud en conjunto, pierde el rumbo.",
-    danger:()=> (rep.sumSJ+rep.sumV+rep.sumT) < 225, bad:()=>"La virtud total de la ciudad es baja ("+(rep.sumSJ+rep.sumV+rep.sumT)+").", ok:"La ciudad rebosa virtud." }
+    danger:()=> rep.t.sumTot < 225, bad:()=>"La virtud total de la ciudad es baja ("+rep.t.sumTot+").", ok:"La ciudad rebosa virtud." }
 ];
 const REP_IMG = "media/juegos/platon/";
 
 /* ---------- turnos ---------- */
-function repStart(){ repCompute(); rep.armonia=REP_ARM0; rep.turn=0; rep.deck=repShuffle(REP_EVENTS.map(e=>e.id)); repRenderTurn(); }
+function repStart(){
+  repCompute(); rep.armonia=REP_ARM0; rep.turn=0; rep.deck=repShuffle(REP_EVENTS.map(e=>e.id));
+  rep.ap=(rep.acciones==="si")?REP_AP0:0;
+  rep.t={ nZ:rep.nZ, nG:rep.nG, nE:rep.nE, sjZ:rep._sjZ, tE:rep._tE, sumV:rep.sumV, sumTot:rep.sumSJ+rep.sumV+rep.sumT, hero:false };
+  repRenderTurn();
+}
 function repFmt(n){ return Number.isInteger(n)?n:n.toFixed(1).replace(/\.0$/,""); }
 function repRenderTurn(){
-  rep.resolved=false;
+  rep.resolved=false; rep.apTurn=0; rep.used=new Set(); rep.t.hero=false;
   const ev=REP_EVENTS.find(e=>e.id===rep.deck[rep.turn]);
   repBox().innerHTML='<div class="rep-wrap">'+
     '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+REP_TURNS+'</span>'+
-      '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b></span></div>'+
+      '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b></span>'+
+      (rep.acciones==="si"?'<span class="stat">🔧 AP <b id="repAp">'+rep.ap+'</b></span>':'')+'</div>'+
     '<div class="rep-arm'+(rep.armonia<=3?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
     '<div class="rep-classes" id="repClasses"></div>'+
     '<div class="rep-event reveal" id="repEvent"></div>'+
+    (rep.acciones==="si"?'<div class="rep-actions-h">Acciones (máx. 2 este turno)</div><div class="rep-acts" id="repActs"></div>':'')+
     '<div class="rep-resolve"><button id="repResolve">Afrontar el evento →</button></div>'+
     '</div>';
+  repDrawTurn(ev);
+  document.getElementById("repResolve").addEventListener("click",()=>repResolve(ev));
+}
+function repDrawTurn(ev){
   document.getElementById("repClasses").innerHTML=[
-    { em:"🦉", l:"Guardianes", c:rep.nZ }, { em:"🛡️", l:"Guerreros", c:rep.nG }, { em:"🌾", l:"Productores", c:rep.nE }
+    { em:"🦉", l:"Guardianes", c:rep.t.nZ }, { em:"🛡️", l:"Guerreros", c:rep.t.nG+(rep.t.hero?" ×1,5":"") }, { em:"🌾", l:"Productores", c:rep.t.nE }
   ].map(x=>'<div class="rep-class"><div class="c">'+x.em+' '+x.c+'</div><div class="l">'+x.l+'</div></div>').join("");
   const danger=ev.danger(); const evb=document.getElementById("repEvent"); evb.classList.toggle("danger",danger); evb.classList.toggle("safe",!danger);
   evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
     '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno</span><h3>'+ev.name+'</h3>'+
     '<div class="threat">'+ev.threat+'</div>'+
     '<div class="rep-status '+(danger?"bad":"ok")+'">'+(danger?"⚠ "+(typeof ev.bad==="function"?ev.bad():ev.bad)+" −1,5 de armonía.":"✓ "+(typeof ev.ok==="function"?ev.ok():ev.ok))+'</div></div>';
-  document.getElementById("repResolve").addEventListener("click",()=>repResolve(ev));
+  if(rep.acciones==="si"){
+    const acts=document.getElementById("repActs");
+    acts.innerHTML=REP_ACTS.map(a=>{ const dis=rep.apTurn>=2||rep.used.has(a.id)||rep.ap<a.ap||(a.ok&&!a.ok());
+      return '<button class="rep-act" data-act="'+a.id+'"'+(dis?" disabled":"")+'><b>'+a.name+' <span class="ap">'+a.ap+' AP</span></b><span class="d">'+a.d+'</span></button>'; }).join("");
+    acts.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",()=>repDoAct(b.dataset.act,ev)));
+  }
+}
+function repDoAct(id,ev){
+  const a=REP_ACTS.find(x=>x.id===id);
+  if(rep.apTurn>=2||rep.used.has(id)||rep.ap<a.ap||(a.ok&&!a.ok())) return;
+  a.run(); rep.ap-=a.ap; rep.apTurn++; rep.used.add(id);
+  const ael=document.getElementById("repAp"); if(ael) ael.textContent=rep.ap;
+  const arm=document.getElementById("repArm"); if(arm) arm.textContent=repFmt(rep.armonia);
+  document.querySelector("#republica .rep-arm > i").style.width=Math.max(0,rep.armonia/REP_ARM0*100)+"%";
+  repDrawTurn(ev);
 }
 function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
@@ -170,7 +214,7 @@ function repResult(){
   repBox().innerHTML='<div class="rep-wrap"><div class="rep-result">'+
     '<div class="rep-badge">'+emoji+'</div><div class="rep-rank">'+rank+'</div>'+
     '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ 8 de armonía</span></div>'+
-    '<p class="rep-pop">'+REP_TURNS+' turnos · ciudad '+rep.nZ+'/'+rep.nG+'/'+rep.nE+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
+    '<p class="rep-pop">'+REP_TURNS+' turnos · ciudad '+rep.t.nZ+'/'+rep.t.nG+'/'+rep.t.nE+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
     '<blockquote class="rep-reflect">Para pensar: '+qs[Math.floor(Math.random()*qs.length)]+'</blockquote>'+
     '<div class="rep-actions2"><button class="btn2 primary" id="repAgain">Diseñar otra ciudad</button></div>'+
     '</div></div>';
