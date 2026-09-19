@@ -36,7 +36,7 @@ function loadDisert(k){
   disertKey = k;
   renderDisertChips();
   const d = DISERTACIONES[k], body = document.getElementById("disertbody");
-  if (!body) return;
+  if (!d || !body) return;
   body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + d.subject + ')">' + d.kick + '</span><h1>' + d.title + '</h1></div>' + d.html;
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "dh-" + i; });
@@ -46,4 +46,4 @@ function loadDisert(k){
 }
 
 renderDisertFilter();
-loadDisert(disertKey);
+if (disertKey) loadDisert(disertKey);

@@ -15,7 +15,7 @@ function loadPau(k){
   pauKey = k;
   renderPauChips();
   const p = PAU[k], body = document.getElementById("paubody");
-  if (!body) return;
+  if (!p || !body) return;
   body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + p.subject + ')">' + p.kick + '</span><h1>' + p.title + '</h1></div>' + p.html;
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "ph-" + i; });
@@ -25,4 +25,4 @@ function loadPau(k){
 }
 
 renderPauChips();
-loadPau(pauKey);
+if (pauKey) loadPau(pauKey);
