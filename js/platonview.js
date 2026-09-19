@@ -39,6 +39,15 @@ const REP_EVENTS = [
     danger:() => rep.nE > (rep.nZ+rep.nG)*2, ok:"El abastecimiento está organizado.", bad:"La clase productora está desbordada." }
 ];
 
+// Arte SVG propio de las acciones (line-art, hereda el color del tema). viewBox 48×48.
+const REP_ART = {
+  politica: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M13 13h22M11 17h26"/><path d="M16 17v18M22 17v18M26 17v18M32 17v18"/><path d="M14 35h20M11 39h26"/></g></svg>',
+  ejemplo: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M12 15c-2-4 1-8 5-7M36 15c2-4-1-8-5-7"/><circle cx="19" cy="21" r="5"/><circle cx="29" cy="21" r="5"/><path d="M24 26v5M17 39c0-7 14-7 14 0"/></g><circle cx="19" cy="21" r="1.8" fill="currentColor"/><circle cx="29" cy="21" r="1.8" fill="currentColor"/></svg>',
+  agoge: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 8v32M11 13l4-5 4 5"/><path d="M28 13h11v8c0 8-5.5 12-5.5 12S28 29 28 21z"/></g></svg>',
+  vida: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 37C22 35 31 24 36 9"/><path d="M21 27c-3 .5-5.5-1-6-4 3-.5 5.5 1 6 4zM27 20c-3 .5-5.5-1-6-4 3-.5 5.5 1 6 4zM32 12c-3 .5-5.5-1-6-4 3-.5 5.5 1 6 4z"/></g></svg>',
+  deporte: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="24" cy="13" r="4"/><path d="M24 17v9M15 21l9 3 9-4M24 26l-5 13M24 26l5 13"/></g></svg>',
+  heroismo: '<svg viewBox="0 0 48 48" aria-hidden="true"><g fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"><path d="M24 7l15 5v9c0 11-8.5 16.5-15 19-6.5-2.5-15-8-15-19v-9z"/><path d="M24 16l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4-3.9-3.8 5.4-.8z"/></g></svg>'
+};
 // ACCIONES: coste en AP; máx. 2 por turno; no repetir la misma acción en el turno
 const REP_ACTS = [
   { id:"politica", name:"Prácticas políticas", ap:1, d:"Los guardianes elevan su Justicia a 5.", run:()=>{ rep.bon.Zjus = Math.max(rep.bon.Zjus, 1); } },
@@ -116,7 +125,8 @@ function repDrawState(ev){
       '<div class="rep-status ' + (danger?"bad":"ok") + '">' + (danger ? "⚠ Peligro: " + (typeof ev.bad==="function"?ev.bad():ev.bad) + " Si no lo corriges, −1,5 de armonía." : "✓ " + (typeof ev.ok==="function"?ev.ok():ev.ok)) + '</div></div>';
   const acts = document.getElementById("repActs");
   acts.innerHTML = REP_ACTS.map(a => { const dis = rep.apTurn>=2 || rep.used.has(a.id) || rep.ap<a.ap;
-    return '<button class="rep-act" data-act="' + a.id + '"' + (dis?" disabled":"") + '><b>' + a.name + ' <span class="ap">' + a.ap + ' AP</span></b><span class="d">' + a.d + '</span></button>'; }).join("");
+    return '<button class="rep-act" data-act="' + a.id + '"' + (dis?" disabled":"") + '><span class="rep-act-art">' + (REP_ART[a.id]||"") + '</span>' +
+      '<span class="rep-act-b"><b>' + a.name + ' <span class="ap">' + a.ap + ' AP</span></b><span class="d">' + a.d + '</span></span></button>'; }).join("");
   acts.querySelectorAll("[data-act]").forEach(b => b.addEventListener("click", () => repDoAct(b.dataset.act, ev)));
 }
 function repDoAct(id, ev){
