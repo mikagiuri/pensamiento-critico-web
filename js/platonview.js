@@ -166,13 +166,13 @@ const REP_EVENTS = [
   { id:"golpe", name:"Golpe de estado", img:"ev-golpe", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×4) → golpe.",
     danger:()=> repNGeff() > rep.t.nZ*4, bad:"El ejército desborda al gobierno.", ok:"El ejército respeta a los guardianes." },
   { id:"ataque", name:"Ataque exterior", img:"ev-ataque", threat:"Pocos brazos o poco valor para defender la ciudad.",
-    danger:()=> repNGeff() < 5 || rep.t.sumV < 55, bad:()=>"Faltan defensores o falta valentía (total "+rep.t.sumV+").", ok:"Hay defensa suficiente." },
+    danger:()=> repNGeff() < 4 || rep.t.sumV < 42, bad:()=>"Faltan defensores o falta valentía (total "+rep.t.sumV+").", ok:"Hay defensa suficiente." },
   { id:"hambruna", name:"Hambruna", img:"ev-hambruna", threat:"Pocos productores para alimentar a la ciudad.",
-    danger:()=> rep.t.nE < 16, bad:()=>"Solo hay "+rep.t.nE+" productores.", ok:"El abastecimiento está cubierto." },
-  { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Productores descontentos (poca templanza) se rebelan.",
-    danger:()=> (rep.t.tE/Math.max(1,rep.t.nE)) < 4.4, bad:"Tus productores son pobres y descontentos.", ok:"Tus productores viven con templanza." },
+    danger:()=> rep.t.nE < 20, bad:()=>"Solo hay "+rep.t.nE+" productores.", ok:"El abastecimiento está cubierto." },
+  { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Sin bastantes guardianes que gobiernen a la masa, los productores se rebelan.",
+    danger:()=> rep.t.nE > rep.t.nZ*10, bad:()=>"Hay "+rep.t.nE+" productores para solo "+rep.t.nZ+" guardianes.", ok:"Los guardianes gobiernan bien a la masa productora." },
   { id:"sabiduria", name:"Deriva moral", img:"ev-sabiduria", threat:"Si a la ciudad le falta virtud en conjunto, pierde el rumbo.",
-    danger:()=> rep.t.sumTot < 225, bad:()=>"La virtud total de la ciudad es baja ("+rep.t.sumTot+").", ok:"La ciudad rebosa virtud." }
+    danger:()=> rep.t.sumTot < 205, bad:()=>"La virtud total de la ciudad es baja ("+rep.t.sumTot+").", ok:"La ciudad rebosa virtud." }
 ];
 const REP_IMG = "media/juegos/platon/";
 
