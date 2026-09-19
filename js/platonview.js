@@ -117,7 +117,29 @@ const REP_EVENTS = [
     effect:()=>{ return (rep.t.Z.sj/Math.max(1,rep.t.Z.n))>=5 ? { d:2, msg:"Buen gobierno: +2." } : { d:0, msg:"Falta justicia plena arriba." }; } },
   { id:"cosecha", name:"Cosecha abundante", src:"—", img:"ev-hambruna",
     threat:"Si la ciudad produce de sobra (excedente ≥ 40% de la población), hay bonanza.",
-    effect:()=>{ return (repProd()-repPop()) >= repPop()*0.4 ? { d:2, msg:"Excedente: +2." } : { d:0, msg:"Sin excedente notable." }; } }
+    effect:()=>{ return (repProd()-repPop()) >= repPop()*0.4 ? { d:2, msg:"Excedente: +2." } : { d:0, msg:"Sin excedente notable." }; } },
+  // — Atenas y su historia (contexto de Platón y Aristóteles) —
+  { id:"delos", name:"Liga de Delos", src:"Historia", img:"ev-corrupcion",
+    threat:"Con una flota fuerte (guerreros ≥ productores ÷ 3), los aliados pagan tributo; si no, se sublevan.",
+    effect:()=>{ return repNGeff() >= rep.t.E.n/3 ? { d:2, msg:"Tributo de los aliados: +2." } : { d:-1, msg:"Los aliados se sublevan: −1." }; } },
+  { id:"esparta", name:"Invasión de Esparta", src:"Guerra del Peloponeso", img:"ev-ataque",
+    threat:"Esparta arrasa los campos. Si los defensores son escasos (guerreros < productores ÷ 4), es una masacre.",
+    effect:()=>{ if(repNGeff() < rep.t.E.n/4){ const k=repKill("E",F(rep.t.E.n/8))+repKill("G",F(rep.t.G.n/6)); return { d:-3, msg:"Devastación: −3 y mueren "+k+" ciudadanos." }; } return { d:-1, msg:"Resistes tras las murallas: −1." }; } },
+  { id:"socrates", name:"Juicio a Sócrates", src:"Apología", img:"ev-sabiduria",
+    threat:"La ciudad juzga a su hombre más sabio. Sin un guardián plenamente sabio (SJ 5), lo condena.",
+    effect:()=>{ return rep.t.Z.max>=5 ? { d:1, msg:"La sabiduría lo absuelve: +1." } : { d:-2, msg:"Condenan al más sabio: −2." }; } },
+  { id:"pericles", name:"La ambición de Pericles", src:"Historia", img:"ev-golpe",
+    threat:"Un líder brillante emprende grandes obras. Con guardianes templados (templanza media ≥4,5) es un siglo de oro; sin mesura, hybris.",
+    effect:()=>{ const tavg=rep.t.Z.t/Math.max(1,rep.t.Z.n); return tavg>=4.5 ? { d:2, msg:"Siglo de oro de Pericles: +2." } : { d:-2, msg:"Ambición desmedida (hybris): −2." }; } },
+  { id:"sofistas", name:"Auge de los sofistas", src:"Gorgias", img:"ev-sabiduria",
+    threat:"Maestros de la retórica seducen a la juventud. Si menos de la mitad de tus guardianes son plenamente justos, vencen.",
+    effect:()=>{ return rep.t.Z.just >= rep.t.Z.n/2 ? { d:1, msg:"Los filósofos los refutan: +1." } : { d:-2, msg:"El relativismo corrompe: −2." }; } },
+  { id:"timocracia", name:"Timocracia", src:"Rep. VIII", img:"ev-golpe",
+    threat:"Si los guerreros dominan a los guardianes (guerreros > guardianes ×2), el honor sustituye a la razón.",
+    effect:()=>{ return rep.t.G.n > rep.t.Z.n*2 ? { d:-2, msg:"La ciudad degenera en timocracia: −2." } : { d:1, msg:"La razón sigue al mando: +1." }; } },
+  { id:"oraculo", name:"Oráculo inquietante", src:"Delfos", img:"ev-sabiduria",
+    threat:"La Pitia pronuncia un presagio ambiguo. El destino, esta vez, no depende de tu ciudad.",
+    effect:()=>{ return rep.rng<0.55 ? { d:-2, msg:"Presagio funesto: −2." } : { d:1, msg:"Presagio favorable: +1." }; } }
 ];
 
 /* ---------- setup ---------- */
@@ -185,6 +207,7 @@ function repStart(){
 function repFmt(n){ n=Math.round(n*10)/10; return Number.isInteger(n)?n:n.toFixed(1); }
 function repRenderTurn(){
   rep.resolved=false; rep.apTurn=0; rep.used=new Set(); rep.t.hero=false;
+  rep.rng=Math.random();   // azar fijo del turno (oráculo): igual en previsualización y resolución
   const ev=REP_EVENTS.find(e=>e.id===rep.deck[rep.turn]);
   repBox().innerHTML='<div class="rep-wrap">'+
     '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+rep.turns+'</span>'+
