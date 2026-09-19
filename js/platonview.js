@@ -26,9 +26,7 @@ const REP_ROSTER = {
     { id:"g_heroe", name:"Héroes", sj:3, v:5, t:5, note:"los mejores" }
   ],
   E: [ // Productores (la masa)
-    { id:"labriego", name:"Labriegos", sj:1, v:1, t:4, note:"lo básico" },
-    { id:"artesanos", name:"Artesanos", sj:2, v:2, t:4, note:"oficio y orden" },
-    { id:"mercaderes", name:"Mercaderes", sj:3, v:3, t:5, note:"prósperos" }
+    { id:"labriego", name:"Productores", sj:1, v:1, t:4, note:"labriegos, artesanos y mercaderes" }
   ]
 };
 // ACCIONES de turno (modo con acciones): cuestan AP (6 en total, máx. 2/turno; no repetir en el turno).
@@ -56,11 +54,11 @@ function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.
 
 // ---- cálculo del estado de la ciudad diseñada ----
 function repCompute(){
-  let nZ=0,nG=0,nE=0,pts=0,sj=0,v=0,t=0, sjZ=0, tE=0;
-  REP_ROSTER.Z.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nZ+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; sjZ+=c.sj*n; } });
+  let nZ=0,nG=0,nE=0,pts=0,sj=0,v=0,t=0, sjZ=0, tE=0, sjZmax=0, nMid=0, nRich=0;
+  REP_ROSTER.Z.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nZ+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; sjZ+=c.sj*n; sjZmax=Math.max(sjZmax,c.sj); } });
   REP_ROSTER.G.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nG+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; } });
-  REP_ROSTER.E.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nE+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; tE+=c.t*n; } });
-  rep.nZ=nZ; rep.nG=nG; rep.nE=nE; rep.sumSJ=sj; rep.sumV=v; rep.sumT=t; rep._sjZ=sjZ; rep._tE=tE;
+  REP_ROSTER.E.forEach(c=>{ const n=rep.cnt[c.id]||0; if(n){ nE+=n; pts+=cost(c)*n; sj+=c.sj*n; v+=c.v*n; t+=c.t*n; tE+=c.t*n; if(c.id==="artesanos") nMid+=n; if(c.id==="mercaderes") nRich+=n; } });
+  rep.nZ=nZ; rep.nG=nG; rep.nE=nE; rep.sumSJ=sj; rep.sumV=v; rep.sumT=t; rep._sjZ=sjZ; rep._tE=tE; rep._sjZmax=sjZmax; rep._nMid=nMid; rep._nRich=nRich;
   return { nZ,nG,nE, pop:nZ+nG+nE, pts };
 }
 function repLegal(){
@@ -141,27 +139,38 @@ function drawRepSummary(){
 }
 
 // ---- eventos: se comprueban sobre la ciudad diseñada ----
+// Mazo de 12 eventos (cada partida saca 6 al azar). Fundados en Platón (República) y Aristóteles (Política/Ética).
 const REP_EVENTS = [
-  { id:"corrupcion", name:"Corrupción", img:"ev-corrupcion", threat:"Sin guardianes verdaderamente justos, la corrupción cunde.",
-    danger:()=> (rep.t.sjZ/Math.max(1,rep.t.nZ)) < 4.5, bad:()=>"La justicia media de tus guardianes es baja.", ok:"Tus guardianes son sabios y justos." },
-  { id:"golpe", name:"Golpe de estado", img:"ev-golpe", threat:"Demasiados guerreros frente a los guardianes (guerreros > guardianes ×4) → golpe.",
+  // — Platón, República —
+  { id:"corrupcion", name:"Corrupción", src:"Rep. I", img:"ev-corrupcion", threat:"Sin guardianes verdaderamente justos, la corrupción cunde.",
+    danger:()=> (rep.t.sjZ/Math.max(1,rep.t.nZ)) < 4.8, bad:"La justicia media de tus guardianes es baja.", ok:"Tus guardianes son sabios y justos." },
+  { id:"golpe", name:"Golpe de estado", src:"Rep. VIII", img:"ev-golpe", threat:"Un ejército muy superior al gobierno derriba a los guardianes (guerreros > guardianes ×4).",
     danger:()=> repNGeff() > rep.t.nZ*4, bad:"El ejército desborda al gobierno.", ok:"El ejército respeta a los guardianes." },
-  { id:"ataque", name:"Ataque exterior", img:"ev-ataque", threat:"Pocos brazos o poco valor para defender la ciudad.",
-    danger:()=> repNGeff() < 4 || rep.t.sumV < 42, bad:()=>"Faltan defensores o falta valentía (total "+rep.t.sumV+").", ok:"Hay defensa suficiente." },
-  { id:"hambruna", name:"Hambruna", img:"ev-hambruna", threat:"Pocos productores para alimentar a la ciudad.",
-    danger:()=> rep.t.nE < 20, bad:()=>"Solo hay "+rep.t.nE+" productores.", ok:"El abastecimiento está cubierto." },
-  { id:"matxinada", name:"Rebelión de los productores", img:"ev-matxinada", threat:"Sin bastantes guardianes que gobiernen a la masa, los productores se rebelan.",
-    danger:()=> rep.t.nE > rep.t.nZ*10, bad:()=>"Hay "+rep.t.nE+" productores para solo "+rep.t.nZ+" guardianes.", ok:"Los guardianes gobiernan bien a la masa productora." },
-  { id:"sabiduria", name:"Deriva moral", img:"ev-sabiduria", threat:"Si a la ciudad le falta virtud en conjunto, pierde el rumbo.",
-    danger:()=> rep.t.sumTot < 205, bad:()=>"La virtud total de la ciudad es baja ("+rep.t.sumTot+").", ok:"La ciudad rebosa virtud." }
+  { id:"timocracia", name:"Deriva a timocracia", src:"Rep. VIII", img:"ev-golpe", threat:"Cuando los guerreros pesan más que los sabios (guerreros > guardianes ×2), el honor sustituye a la sabiduría.",
+    danger:()=> rep.t.nG > rep.t.nZ*2, bad:"Los militares imponen el amor a la victoria sobre el saber.", ok:"El gobierno de los sabios prevalece." },
+  { id:"filosoforey", name:"El filósofo-rey ausente", src:"Rep. V", img:"ev-sabiduria", threat:"«Hasta que los filósofos reinen…»: sin un guardián de sabiduría plena (SJ=5), falta la verdadera rectoría.",
+    danger:()=> rep.t.sjZmax < 5, bad:"Ninguno de tus guardianes alcanza la sabiduría plena.", ok:"Un guardián de sabiduría plena guía la ciudad." },
+  { id:"caverna", name:"Sombras en la caverna", src:"Rep. VII", img:"ev-sabiduria", threat:"Si a la ciudad le falta virtud en conjunto, sigue entre sombras.",
+    danger:()=> rep.t.sumTot < (rep.t.nZ+rep.t.nG+rep.t.nE)*7, bad:()=>"La virtud media de la ciudad es baja.", ok:"La ciudad se eleva hacia la luz." },
+  { id:"rebelion", name:"Rebelión de los productores", src:"Rep. IV", img:"ev-matxinada", threat:"Sin bastantes guardianes que gobiernen a la masa, los productores se rebelan (productores > guardianes ×10).",
+    danger:()=> rep.t.nE > rep.t.nZ*10, bad:()=>"Hay "+rep.t.nE+" productores para solo "+rep.t.nZ+" guardianes.", ok:"Los guardianes gobiernan bien a la masa." },
+  // — Aristóteles, Política / Ética —
+  { id:"ataque", name:"Ataque exterior", src:"Pol. VII", img:"ev-ataque", threat:"Pocos brazos o poco valor para defender la ciudad.",
+    danger:()=> repNGeff() < 4 || rep.t.sumV < 50, bad:()=>"Faltan defensores o falta valentía (total "+rep.t.sumV+").", ok:"Hay defensa suficiente." },
+  { id:"hambruna", name:"Hambruna", src:"Pol. I", img:"ev-hambruna", threat:"Los productores no bastan para alimentar a las demás clases (productores < 2×élite).",
+    danger:()=> rep.t.nE < 2*(rep.t.nZ+rep.t.nG), bad:"No hay bastantes productores para sostener a la ciudad.", ok:"El abastecimiento está cubierto." },
+  { id:"autarkeia", name:"Ciudad no autosuficiente", src:"Pol. I", img:"ev-ataque", threat:"Una polis demasiado pequeña no se basta a sí misma (autarkeia).",
+    danger:()=> (rep.t.nZ+rep.t.nG+rep.t.nE) < 12, bad:()=>"Solo "+(rep.t.nZ+rep.t.nG+rep.t.nE)+" ciudadanos: la ciudad no es autosuficiente.", ok:"La ciudad se basta a sí misma." }
 ];
+const REP_DECK_N = 6;   // eventos por partida (sacados al azar de los 9)
 const REP_IMG = "media/juegos/platon/";
 
 /* ---------- turnos ---------- */
 function repStart(){
-  repCompute(); rep.armonia=REP_ARM0; rep.turn=0; rep.deck=repShuffle(REP_EVENTS.map(e=>e.id));
+  repCompute(); rep.armonia=REP_ARM0; rep.turn=0; rep.deck=repShuffle(REP_EVENTS.map(e=>e.id)).slice(0,REP_DECK_N);
   rep.ap=(rep.acciones==="si")?REP_AP0:0;
-  rep.t={ nZ:rep.nZ, nG:rep.nG, nE:rep.nE, sjZ:rep._sjZ, tE:rep._tE, sumV:rep.sumV, sumTot:rep.sumSJ+rep.sumV+rep.sumT, hero:false };
+  rep.t={ nZ:rep.nZ, nG:rep.nG, nE:rep.nE, sjZ:rep._sjZ, tE:rep._tE, sumV:rep.sumV, sumTot:rep.sumSJ+rep.sumV+rep.sumT,
+    sjZmax:rep._sjZmax, nRich:rep._nRich, nMid:rep._nMid, hero:false };
   repRenderTurn();
 }
 function repFmt(n){ return Number.isInteger(n)?n:n.toFixed(1).replace(/\.0$/,""); }
@@ -187,7 +196,7 @@ function repDrawTurn(ev){
   ].map(x=>'<div class="rep-class"><div class="c">'+x.em+' '+x.c+'</div><div class="l">'+x.l+'</div></div>').join("");
   const danger=ev.danger(); const evb=document.getElementById("repEvent"); evb.classList.toggle("danger",danger); evb.classList.toggle("safe",!danger);
   evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
-    '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno</span><h3>'+ev.name+'</h3>'+
+    '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno'+(ev.src?' · '+ev.src:'')+'</span><h3>'+ev.name+'</h3>'+
     '<div class="threat">'+ev.threat+'</div>'+
     '<div class="rep-status '+(danger?"bad":"ok")+'">'+(danger?"⚠ "+(typeof ev.bad==="function"?ev.bad():ev.bad)+" −"+REP_PENALTY+" de armonía.":"✓ "+(typeof ev.ok==="function"?ev.ok():ev.ok))+'</div></div>';
   if(rep.acciones==="si"){
