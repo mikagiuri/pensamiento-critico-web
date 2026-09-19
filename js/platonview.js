@@ -83,7 +83,7 @@ function statPips(c){ return '<span class="rep-pips">⚖️'+c.sj+' 🛡️'+c.v
 function drawRepRoster(){
   const sec=(title,cls,list,sel)=>'<div class="rep-rsec"><h3>'+title+'</h3>'+list.map(c=>{
     if(cls==="E"){ const n=rep.cntE[c.id]||0; return '<div class="rep-rrow prod"><div class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</div>'+
-      '<div class="rep-step"><button data-decE="'+c.id+'">−</button><span class="n">'+n+'</span><button data-incE="'+c.id+'">+</button></div></div>'; }
+      '<div class="rep-step"><button data-esub="'+c.id+'">−</button><span class="n">'+n+'</span><button data-eadd="'+c.id+'">+</button></div></div>'; }
     const on=sel.has(c.id);
     return '<button class="rep-rrow pick'+(on?" on":"")+'" data-pick="'+cls+':'+c.id+'"><span class="rep-check">'+(on?"✓":"")+'</span><span class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</span></button>';
   }).join("")+'</div>';
@@ -93,8 +93,8 @@ function drawRepRoster(){
     sec("🌾 Productores <span class=\"rep-floor\">templanza ≥4 · la masa</span>","E",REP_ROSTER.E,null);
   document.querySelectorAll("#repRoster [data-pick]").forEach(b=>b.addEventListener("click",()=>{
     const [cls,id]=b.dataset.pick.split(":"); const set=cls==="Z"?rep.selZ:rep.selG; set.has(id)?set.delete(id):set.add(id); drawRepRoster(); drawRepSummary(); }));
-  document.querySelectorAll("#repRoster [data-incE]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.incE; const s=repCompute(); if(s.pop<REP_POP){ rep.cntE[id]=(rep.cntE[id]||0)+1; drawRepRoster(); drawRepSummary(); } }));
-  document.querySelectorAll("#repRoster [data-decE]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.decE; if(rep.cntE[id]>0){ rep.cntE[id]--; drawRepRoster(); drawRepSummary(); } }));
+  document.querySelectorAll("#repRoster [data-eadd]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.eadd; const s=repCompute(); if(s.pop<REP_POP){ rep.cntE[id]=(rep.cntE[id]||0)+1; drawRepRoster(); drawRepSummary(); } }));
+  document.querySelectorAll("#repRoster [data-esub]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.esub; if(rep.cntE[id]>0){ rep.cntE[id]--; drawRepRoster(); drawRepSummary(); } }));
 }
 function drawRepSummary(){
   const { ok, errs, s }=repLegal(); const m=REP_MODES[rep.mode];
