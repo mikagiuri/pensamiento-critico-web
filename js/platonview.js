@@ -16,7 +16,7 @@
    evita. El mazo siempre incluye varias (Real 3 / Fácil 2). Las acciones son
    la tabla de salvación de quien diseñó mal. */
 
-const REP_ARM0 = 10, REP_START = 10, REP_TARGET = 30;   // armonía: empieza llena (10)
+const REP_ARM0 = 10, REP_START = 10, REP_TARGET = 30;   // armonía: empieza en 10 (referencia de la barra); NO tiene techo, puede subir por encima
 const REP_FATE = ["peste","guerra","terremoto","fundador"];   // cartas del destino (daño inevitable)
 const REP_AP0 = 6;
 const REP_OUT = 2;   // cada productor alimenta (produce para) 2 personas
@@ -41,7 +41,7 @@ const REP_ACTS = [
   { id:"heroismo", name:"Heroísmo", ap:1, img:"ac-heroismo", d:"Este turno, los guerreros valen ×1,5.", ok:()=>!rep.t.hero, run:()=>{ rep.t.hero=true; } },
   { id:"educacion", name:"Reforma educativa", ap:1, img:"ac-ejemplo", d:"Los guardianes ganan sabiduría-justicia (+3).", run:()=>{ rep.t.Z.sj+=3; if(rep.t.Z.max<5)rep.t.Z.max=5; rep.t.Z.just=rep.t.Z.n; } },
   { id:"cosecha", name:"Impulso a la producción", ap:1, img:"ac-vida", d:"La ciudad produce más alimento (+8 producción).", run:()=>{ rep.t.prodBonus=(rep.t.prodBonus||0)+8; } },
-  { id:"purga", name:"Purga de corruptos", ap:2, img:"ac-politica", d:"Recuperas 1 punto de armonía.", ok:()=>rep.armonia<REP_ARM0, run:()=>{ rep.armonia=Math.min(REP_ARM0, rep.armonia+1); } }
+  { id:"purga", name:"Purga de corruptos", ap:2, img:"ac-politica", d:"Recuperas 1 punto de armonía.", run:()=>{ rep.armonia=Math.round((rep.armonia+1)*10)/10; } }
 ];
 
 const rep = repFresh();
@@ -237,9 +237,9 @@ function repRenderTurn(){
   const ev=REP_EVENTS.find(e=>e.id===rep.deck[rep.turn]);
   repBox().innerHTML='<div class="rep-wrap">'+
     '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+rep.turns+'</span>'+
-      '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b>/'+REP_ARM0+'</span>'+
+      '<span class="stat" title="Empiezas en 10, pero no hay techo: puedes acumular por encima.">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b></span>'+
       (rep.acciones==="si"?'<span class="stat">🔧 AP <b id="repAp">'+rep.ap+'</b></span>':'')+'</div>'+
-    '<div class="rep-arm'+(rep.armonia<=4?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
+    '<div class="rep-arm'+(rep.armonia<=4?' low':'')+(rep.armonia>REP_ARM0?' over':'')+'"><i style="width:'+Math.min(100,Math.max(0,rep.armonia/REP_ARM0*100))+'%"></i></div>'+
     '<div class="rep-classes" id="repClasses"></div>'+
     '<div class="rep-city" id="repCity"></div>'+
     '<div class="rep-event reveal" id="repEvent"></div>'+
@@ -276,12 +276,12 @@ function repDoAct(id,ev){ const a=REP_ACTS.find(x=>x.id===id);
   a.run(); rep.ap-=a.ap; rep.apTurn++; rep.used.add(id); rep.turnActs.push(a.name);
   const ael=document.getElementById("repAp"); if(ael)ael.textContent=rep.ap;
   const arm=document.getElementById("repArm"); if(arm)arm.textContent=repFmt(rep.armonia);
-  document.querySelector("#republica .rep-arm > i").style.width=Math.max(0,rep.armonia/REP_ARM0*100)+"%";
+  document.querySelector("#republica .rep-arm > i").style.width=Math.min(100,Math.max(0,rep.armonia/REP_ARM0*100))+"%";
   repDrawTurn(ev); }
 function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
   const before=rep.armonia;
-  const r=ev.effect(); const after=Math.min(REP_ARM0, Math.round((before+r.d)*10)/10); rep.armonia=after;
+  const r=ev.effect(); const after=Math.round((before+r.d)*10)/10; rep.armonia=after;   // sin techo
   rep.log.push({ n:rep.turn+1, ev:ev.name, src:ev.src, fate:!!ev.fate, msg:r.msg, acts:rep.turnActs.slice(), before, after, Z:rep.t.Z.n, G:rep.t.G.n, E:rep.t.E.n });
   rep.turn++;
   if(rep.turn>=rep.turns || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
@@ -300,7 +300,7 @@ function repChronicleText(){
     L.push("   Armonía "+repFmt(e.before)+" → "+repFmt(e.after)+"  ·  ciudad "+e.Z+"/"+e.G+"/"+e.E+" (guardianes/guerreros/productores)");
     L.push("");
   });
-  L.push("DESENLACE: "+(rep._rank||"—")+" — "+repFmt(Math.max(0,rep.armonia))+"/"+REP_ARM0+" de armonía tras "+rep.log.length+" turnos vividos.");
+  L.push("DESENLACE: "+(rep._rank||"—")+" — "+repFmt(Math.max(0,rep.armonia))+" de armonía (base "+REP_ARM0+") tras "+rep.log.length+" turnos vividos.");
   return L.join("\n");
 }
 function repDownloadText(txt,name){
@@ -326,7 +326,7 @@ function renderRepHistory(){
   const box=repBox(); if(!box) return; const h=repHistLoad();
   box.innerHTML='<div class="rep-wrap"><div class="rep-hist">'+
     '<div class="rep-hist-top"><button class="btn2" id="repHistBack">← Volver a diseñar</button><h3>📚 Partidas guardadas</h3>'+(h.length?'<button class="btn2" id="repHistClear">Borrar todo</button>':'')+'</div>'+
-    (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> '+(r.name?'<b class="rep-hist-name">'+repEsc(r.name)+'</b> · ':'')+r.rank+' · '+r.arm+'/'+REP_ARM0+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
+    (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> '+(r.name?'<b class="rep-hist-name">'+repEsc(r.name)+'</b> · ':'')+r.rank+' · ⚖ '+r.arm+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
         '<pre class="rep-hist-text">'+repEsc(r.text)+'</pre>'+
         '<div class="rep-hist-btns"><button class="btn2" data-hcopy="'+i+'">📋 Copiar</button><button class="btn2" data-hdl="'+i+'">💾 Descargar</button></div></details>').join("")
       : '<p class="rep-hist-empty">Aún no has terminado ninguna partida. Juega una y quedará guardada aquí (se conservan las últimas '+REP_HIST_MAX+').</p>')+
@@ -362,7 +362,7 @@ function repResult(){
       (e.acts.length?'<div class="rep-cr-acts">🔧 '+e.acts.join(", ")+'</div>':'')+'</li>'; }).join("");
   repBox().innerHTML='<div class="rep-wrap"><div class="rep-result">'+
     '<div class="rep-badge">'+emoji+'</div><div class="rep-rank">'+rank+'</div>'+
-    '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ '+REP_ARM0+' de armonía</span></div>'+
+    '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>de armonía</span></div>'+
     '<p class="rep-pop">'+rep.log.length+' turnos vividos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
     '<div class="rep-name"><label for="repName">🏷️ Nombre de esta partida</label><input id="repName" type="text" maxlength="40" value="'+repEsc(rep.gameName)+'" placeholder="Ponle nombre a tu república"></div>'+
     '<div class="rep-chronicle"><div class="rep-cr-title">📜 Crónica de tu república</div><ol class="rep-cr-list">'+chronicle+'</ol></div>'+

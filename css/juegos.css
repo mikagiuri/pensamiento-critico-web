@@ -83,6 +83,8 @@
 #republica .rep-arm{ height:12px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin-bottom:1rem; }
 #republica .rep-arm > i{ display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--accent-2)); transition:width .4s ease; }
 #republica .rep-arm.low > i{ background:linear-gradient(90deg,var(--bad),#d98a4a); }
+#republica .rep-arm.over{ box-shadow:0 0 0 1px color-mix(in srgb,var(--accent-2) 60%,transparent), 0 0 10px color-mix(in srgb,var(--accent-2) 45%,transparent); }
+#republica .rep-arm.over > i{ background:linear-gradient(90deg,var(--accent-2),#eac452); }
 
 /* clases en juego */
 #republica .rep-classes{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin-bottom:1rem; }
