@@ -45,6 +45,7 @@
         <div class="navmenu">
           <button data-view="infografias">Infografías</button>
           <button data-view="mapas">Mapas</button>
+          <button data-view="esqautor">Esquemas de autor</button>
         </div>
       </div>
       
@@ -262,6 +263,18 @@
     </div>
   </section>
 
+  <!-- ESQUEMAS DE AUTOR -->
+  <section class="view" id="esqautor">
+    <p class="eyebrow">Visual</p>
+    <h1 class="title">Esquemas de autor</h1>
+    <p class="lead"><strong>25 esquemas por tema/autor</strong> del temario (del departamento), en formato textual limpio e imprimible —un autor, una página de repaso para la PAU—. Complementan los grafos de <strong>Esquemas</strong>. Usa <strong>Imprimir</strong> para sacarlos en papel.</p>
+    <div class="ea-actions">
+      <button id="eaprint" class="ea-print" type="button">Imprimir / PDF</button>
+    </div>
+    <div class="filterbar" id="eafilter" role="group" aria-label="Filtrar esquemas de autor"></div>
+    <div id="eabody"></div>
+  </section>
+
   <!-- GALERÍA -->
   <section class="view" id="galeria">
     <p class="eyebrow">Visual</p>
@@ -355,6 +368,13 @@
     <div id="aribox"></div>
   </section>
 
+  <section class="view" id="republica">
+    <p class="eyebrow">Juego</p>
+    <h1 class="title">La República · el juego de la ciudad de Platón</h1>
+    <p class="lead">Reparte la población en las tres clases (guardianes, guerreros, productores) y mantén la armonía frente a los peligros de cada turno. Adaptado del material de gamificación del IES Gabriel Aresti.</p>
+    <div id="repbox"></div>
+  </section>
+
   <footer class="wrap">
     Aula de Filosofía · material del departamento del IES Martín de Bertendona. Las tarjetas y los cuestionarios se amplían editando <code>js/data.js</code>.
   </footer>
@@ -395,9 +415,12 @@
 <script src="js/parejasview.js"></script>
 <script src="js/juego_aristoteles.js"></script>
 <script src="js/aristotelesview.js"></script>
+<script src="js/platonview.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mermaid/10.9.1/mermaid.min.js"></script>
 <script src="js/esquemas.js"></script>
 <script src="js/esquemasview.js"></script>
+<script src="js/esquemas_autor.js"></script>
+<script src="js/esquemas_autorview.js"></script>
 <script src="js/sesiones.js"></script>
 <script src="js/sesionesview.js"></script>
 <script src="js/calendarioview.js"></script>

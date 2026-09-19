@@ -60,3 +60,59 @@
 #eudaimonia .ari-actions{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
 #eudaimonia .ari-actions .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; }
 #eudaimonia .ari-actions .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+
+/* ===== República (Platón) ===== */
+#republica .rep-wrap{ max-width:820px; }
+#republica .rep-col-h{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:.2rem 0 .5rem; }
+#republica .rep-setup{ display:grid; gap:.7rem; }
+#republica .rep-classrow{ display:grid; grid-template-columns:1fr auto; gap:.8rem; align-items:center; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:.8rem 1rem; box-shadow:var(--shadow); }
+#republica .rep-cl-name{ font-family:var(--serif); font-weight:600; font-size:1.1rem; }
+#republica .rep-cl-name .em{ font-size:1.2rem; margin-right:.35rem; }
+#republica .rep-cl-desc{ font-size:.85rem; color:var(--muted); }
+#republica .rep-step{ display:flex; align-items:center; gap:.5rem; }
+#republica .rep-step button{ font:inherit; cursor:pointer; width:2rem; height:2rem; border-radius:8px; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); font-size:1.1rem; }
+#republica .rep-step button:hover{ border-color:var(--accent); }
+#republica .rep-step .n{ font-family:var(--mono); font-weight:600; font-size:1.2rem; min-width:2ch; text-align:center; }
+#republica .rep-pop{ color:var(--muted); font-size:.9rem; margin:.4rem 0; }
+#republica .rep-warn{ font-size:.86rem; color:var(--ipc); }
+#republica .rep-play{ margin-top:.4rem; font:inherit; cursor:pointer; border:0; border-radius:var(--radius); padding:.9rem 1.3rem; color:var(--on-accent); background:linear-gradient(120deg,var(--accent),var(--accent-2)); box-shadow:var(--shadow); font-weight:600; }
+
+/* HUD + armonía */
+#republica .rep-hud{ display:flex; gap:1rem; align-items:center; flex-wrap:wrap; margin-bottom:.5rem; }
+#republica .rep-hud .stat{ font-size:.9rem; color:var(--muted); font-variant-numeric:tabular-nums; } #republica .rep-hud .stat b{ color:var(--ink); }
+#republica .rep-arm{ height:12px; border-radius:999px; background:var(--surface-2); overflow:hidden; margin-bottom:1rem; }
+#republica .rep-arm > i{ display:block; height:100%; border-radius:999px; background:linear-gradient(90deg,var(--ok),var(--accent-2)); transition:width .4s ease; }
+#republica .rep-arm.low > i{ background:linear-gradient(90deg,var(--bad),#d98a4a); }
+
+/* clases en juego */
+#republica .rep-classes{ display:grid; grid-template-columns:repeat(3,1fr); gap:.6rem; margin-bottom:1rem; }
+#republica .rep-class{ background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:.7rem .8rem; text-align:center; }
+#republica .rep-class .c{ font-family:var(--mono); font-size:1.6rem; font-weight:600; }
+#republica .rep-class .l{ font-size:.8rem; color:var(--muted); }
+#republica .rep-class .v{ font-size:.72rem; color:var(--muted); margin-top:.2rem; }
+
+/* evento */
+#republica .rep-event{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--hf); border-radius:12px; padding:.9rem 1.1rem; margin-bottom:1rem; box-shadow:var(--shadow); }
+#republica .rep-event h3{ font-family:var(--serif); font-size:1.15rem; margin:0 0 .2rem; }
+#republica .rep-event .threat{ font-size:.9rem; color:var(--muted); }
+#republica .rep-status{ margin-top:.5rem; font-size:.9rem; font-weight:600; }
+#republica .rep-status.ok{ color:var(--ok); } #republica .rep-status.bad{ color:var(--bad); }
+#republica .rep-actions-h{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:.2rem 0 .4rem; }
+#republica .rep-acts{ display:grid; grid-template-columns:repeat(auto-fill,minmax(220px,1fr)); gap:.5rem; }
+#republica .rep-act{ text-align:left; font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); border-radius:10px; padding:.55rem .7rem; transition:border-color .15s, opacity .2s; }
+#republica .rep-act:not(:disabled):hover{ border-color:var(--accent); }
+#republica .rep-act:disabled{ opacity:.45; cursor:default; }
+#republica .rep-act b{ display:block; } #republica .rep-act .ap{ font-family:var(--mono); font-size:.78rem; color:var(--accent); }
+#republica .rep-act .d{ font-size:.8rem; color:var(--muted); }
+#republica .rep-resolve{ margin-top:1rem; display:flex; justify-content:flex-end; }
+#republica .rep-resolve button{ font:inherit; cursor:pointer; border:0; border-radius:10px; padding:.6rem 1.2rem; background:var(--accent); color:var(--on-accent); font-weight:600; }
+
+/* resultado */
+#republica .rep-result{ text-align:center; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.8rem 1.3rem; box-shadow:var(--shadow); }
+#republica .rep-badge{ font-size:3rem; } #republica .rep-rank{ font-family:var(--serif); font-weight:700; font-size:1.5rem; margin:.3rem 0; }
+#republica .rep-final{ font-family:var(--mono); font-size:2.2rem; font-weight:600; color:var(--accent); }
+#republica .rep-final span{ font-family:var(--sans); font-size:.9rem; color:var(--muted); }
+#republica .rep-reflect{ font-family:var(--serif); font-style:italic; color:var(--ink); max-width:52ch; margin:.8rem auto 1.2rem; padding:.6rem 1rem; border-left:3px solid var(--accent); background:var(--surface-2); border-radius:0 8px 8px 0; text-align:left; }
+#republica .rep-actions2{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+#republica .rep-actions2 .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; } #republica .rep-actions2 .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
+@media (max-width:560px){ #republica .rep-classes{ grid-template-columns:1fr; } }
