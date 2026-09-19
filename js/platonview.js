@@ -10,12 +10,9 @@
    Luego, tantos turnos como cartas del mazo (Real 8 / Fácil 7), fundados en
    Platón/Aristóteles, con penalizaciones
    graduadas, eventos positivos, eventos que MATAN ciudadanos, y penalización
-   creciente a las ciudades de menos de 30 habitantes.
-   DESGASTE: cada turno la ciudad pierde 1 de armonía por sí sola (Rep. VIII:
-   ninguna polis terrenal es eterna, todo régimen degenera). Hay que remontarlo
-   con un buen diseño y con las acciones. */
+   creciente a las ciudades de menos de 30 habitantes. */
 
-const REP_ARM0 = 10, REP_START = 10, REP_DECAY = 1, REP_TARGET = 30;   // empieza llena (10); cada turno se desgasta −1
+const REP_ARM0 = 10, REP_START = 9, REP_TARGET = 30;   // armonía: empieza en 9, tope 10
 const REP_AP0 = 6;
 const REP_OUT = 2;   // cada productor alimenta (produce para) 2 personas
 const REP_MODES = {
@@ -182,7 +179,6 @@ function drawRepSummary(){
     '<div class="rep-sum-classes"><span>🦉 '+s.nZ+'</span><span>🛡️ '+s.nG+'</span><span>🌾 '+s.nE+'</span></div>'+
     '<div class="rep-sum-row"><span>🌾 Producción</span><b class="'+(fed?"ok":"bad")+'">'+s.prod+' <small>vs '+s.pop+' comen</small></b></div>'+
     (m.ratio?'<div class="rep-sum-row"><span>Proporción</span><b class="'+(s.nE>=2*(s.nZ+s.nG)?"ok":"bad")+'">prod ≥ 2×élite</b></div>':'')+
-    '<div class="rep-decay-note">⏳ Empiezas con la armonía llena (10), pero <b>cada turno la ciudad se desgasta −'+REP_DECAY+'</b>: ninguna polis es eterna (Rep. VIII). Diséñala para remontar los eventos… y aun así, no siempre se salva.</div>'+
     (ok?'<button class="rep-play" id="repPlay">Fundar la república →</button>':'<ul class="rep-errs">'+errs.map(e=>'<li>'+e+'</li>').join("")+'</ul>');
   const p=document.getElementById("repPlay"); if(p) p.addEventListener("click",repStart);
 }
@@ -216,7 +212,6 @@ function repRenderTurn(){
   repBox().innerHTML='<div class="rep-wrap">'+
     '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+rep.turns+'</span>'+
       '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b>/'+REP_ARM0+'</span>'+
-      '<span class="stat" title="Toda polis degenera (Rep. VIII): cada turno pierdes 1 de armonía.">⏳ Desgaste <b>−'+REP_DECAY+'</b>/turno</span>'+
       (rep.acciones==="si"?'<span class="stat">🔧 AP <b id="repAp">'+rep.ap+'</b></span>':'')+'</div>'+
     '<div class="rep-arm'+(rep.armonia<=4?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
     '<div class="rep-classes" id="repClasses"></div>'+
@@ -244,8 +239,7 @@ function repDrawTurn(ev){
   evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
     '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno'+(ev.src&&ev.src!=="—"?' · '+ev.src:'')+'</span><h3>'+ev.name+'</h3>'+
     '<div class="threat">'+ev.threat+'</div>'+
-    '<div class="rep-status '+(bad?"bad":good?"good":"ok")+'">'+(bad?"⚠ ":good?"✓ ":"• ")+pre.msg+'</div>'+
-    '<div class="rep-net '+((pre.d-REP_DECAY)<0?"bad":(pre.d-REP_DECAY)>0?"good":"ok")+'">Armonía este turno: <b>'+((pre.d-REP_DECAY)>0?"+":"")+repFmt(pre.d-REP_DECAY)+'</b> <small>(evento '+(pre.d>0?"+":"")+pre.d+' · desgaste −'+REP_DECAY+')</small></div></div>';
+    '<div class="rep-status '+(bad?"bad":good?"good":"ok")+'">'+(bad?"⚠ ":good?"✓ ":"• ")+pre.msg+'</div></div>';
   if(rep.acciones==="si"){ const acts=document.getElementById("repActs");
     acts.innerHTML=REP_ACTS.map(a=>{ const dis=rep.apTurn>=2||rep.used.has(a.id)||rep.ap<a.ap||(a.ok&&!a.ok());
       return '<button class="rep-act" data-act="'+a.id+'"'+(dis?" disabled":"")+'><b>'+a.name+' <span class="ap">'+a.ap+' AP</span></b><span class="d">'+a.d+'</span></button>'; }).join("");
@@ -260,7 +254,7 @@ function repDoAct(id,ev){ const a=REP_ACTS.find(x=>x.id===id);
   repDrawTurn(ev); }
 function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
-  const r=ev.effect(); rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+r.d-REP_DECAY)*10)/10);
+  const r=ev.effect(); rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+r.d)*10)/10);
   rep.turn++;
   if(rep.turn>=rep.turns || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
 }

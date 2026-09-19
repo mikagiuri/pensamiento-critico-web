@@ -97,13 +97,6 @@
 #republica .rep-cstat b{ font-family:var(--mono); }
 #republica .rep-sur.ok{ color:var(--ok); border-color:color-mix(in srgb,var(--ok) 45%,var(--line)); }
 #republica .rep-sur.bad{ color:var(--bad); border-color:color-mix(in srgb,var(--bad) 45%,var(--line)); }
-/* cambio neto de armonía del turno (evento − desgaste) */
-#republica .rep-net{ margin-top:.5rem; font-size:.9rem; }
-#republica .rep-net b{ font-family:var(--mono); }
-#republica .rep-net small{ color:var(--muted); font-weight:normal; }
-#republica .rep-net.bad b{ color:var(--bad); } #republica .rep-net.good b{ color:var(--ok); }
-/* aviso de desgaste en la pantalla de diseño */
-#republica .rep-decay-note{ margin:.7rem 0; padding:.55rem .7rem; font-size:.84rem; line-height:1.35; background:color-mix(in srgb,var(--bad) 8%,var(--surface)); border:1px solid color-mix(in srgb,var(--bad) 25%,var(--line)); border-radius:10px; }
 
 /* evento */
 #republica .rep-event{ background:var(--surface); border:1px solid var(--line); border-left:4px solid var(--hf); border-radius:12px; padding:.9rem 1.1rem; margin-bottom:1rem; box-shadow:var(--shadow); }
