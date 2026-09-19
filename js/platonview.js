@@ -315,6 +315,40 @@ function repDownloadChronicle(){ repDownloadText(repChronicleText(),"mi-republic
 const REP_HIST_KEY="aula-republica-hist", REP_HIST_MAX=12;
 function repHistLoad(){ try{ const h=store.get(REP_HIST_KEY,[]); return Array.isArray(h)?h:[]; }catch(e){ return []; } }
 function repHistPush(rec){ try{ const h=repHistLoad(); h.unshift(rec); while(h.length>REP_HIST_MAX) h.pop(); store.set(REP_HIST_KEY,h); }catch(e){} }
+/* ---- exportar / importar historial (JSON, para llevarlo entre equipos) ---- */
+function repExportHistory(){
+  const h=repHistLoad();
+  if(!h.length){ alert("Todavía no hay partidas guardadas que exportar."); return; }
+  const data={ app:"aula-republica", version:1, exportado:new Date().toISOString(), partidas:h };
+  try{ const blob=new Blob([JSON.stringify(data,null,2)],{type:"application/json;charset=utf-8"});
+    const url=URL.createObjectURL(blob); const a=document.createElement("a");
+    a.href=url; a.download="republica-partidas-"+new Date().toISOString().slice(0,10)+".json";
+    document.body.appendChild(a); a.click(); a.remove(); setTimeout(()=>URL.revokeObjectURL(url),2000);
+  }catch(e){ alert("No se ha podido generar el archivo."); }
+}
+function repImportHistoryFile(file){
+  if(!file) return;
+  const rd=new FileReader();
+  rd.onload=function(){
+    let data; try{ data=JSON.parse(rd.result); }catch(e){ alert("El archivo no es un JSON válido."); return; }
+    const arr = Array.isArray(data) ? data : (data && Array.isArray(data.partidas) ? data.partidas : null);
+    if(!arr){ alert("El archivo no contiene partidas de La República."); return; }
+    const valid=arr.filter(r=>r && typeof r==="object" && typeof r.text==="string");
+    if(!valid.length){ alert("El archivo no contiene ninguna partida válida."); return; }
+    const cur=repHistLoad();
+    const seen={}; cur.forEach(r=>{ if(r&&r.ts!=null) seen[r.ts]=true; });
+    const nuevos=valid.filter(r=> r.ts==null || !seen[r.ts]);
+    if(!nuevos.length){ alert("Esas partidas ya estaban en este equipo. No se ha añadido ninguna."); return; }
+    let merged=cur.concat(nuevos);
+    merged.sort((a,b)=>(b.ts||0)-(a.ts||0));
+    while(merged.length>REP_HIST_MAX) merged.pop();
+    store.set(REP_HIST_KEY,merged);
+    alert("Importadas "+nuevos.length+" partida(s). Se conservan las "+REP_HIST_MAX+" más recientes.");
+    renderRepHistory();
+  };
+  rd.onerror=function(){ alert("No se ha podido leer el archivo."); };
+  rd.readAsText(file);
+}
 function repEsc(s){ return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
 const REP_NAMES=["Calípolis","Magnesia","Nueva Atenas","Politeia","Eunomía","Kalonia","Aristópolis","Ciudad del Sol","Sofópolis","Areté"];
 function repDefaultName(){ return REP_NAMES[Math.floor(Math.random()*REP_NAMES.length)]; }
@@ -325,7 +359,10 @@ function repHistSetLatestName(name){
 function renderRepHistory(){
   const box=repBox(); if(!box) return; const h=repHistLoad();
   box.innerHTML='<div class="rep-wrap"><div class="rep-hist">'+
-    '<div class="rep-hist-top"><button class="btn2" id="repHistBack">← Volver a diseñar</button><h3>📚 Partidas guardadas</h3>'+(h.length?'<button class="btn2" id="repHistClear">Borrar todo</button>':'')+'</div>'+
+    '<div class="rep-hist-top"><button class="btn2" id="repHistBack">← Volver a diseñar</button><h3>📚 Partidas guardadas</h3>'+
+      '<span class="rep-hist-io">'+(h.length?'<button class="btn2" id="repHistExport">⬆️ Exportar</button>':'')+'<button class="btn2" id="repHistImport">⬇️ Importar</button>'+(h.length?'<button class="btn2" id="repHistClear">Borrar todo</button>':'')+'</span>'+
+      '<input type="file" id="repHistFile" accept="application/json,.json" style="display:none">'+
+      '</div>'+
     (h.length? h.map((r,i)=>'<details class="rep-hist-item"><summary><span class="rep-hist-badge">'+r.emoji+'</span> '+(r.name?'<b class="rep-hist-name">'+repEsc(r.name)+'</b> · ':'')+r.rank+' · ⚖ '+r.arm+' · '+r.turns+' turnos · '+r.mode+(r.acc==="no"?" (sin acciones)":"")+' · <span class="rep-hist-date">'+r.date+'</span></summary>'+
         '<pre class="rep-hist-text">'+repEsc(r.text)+'</pre>'+
         '<div class="rep-hist-btns"><button class="btn2" data-hcopy="'+i+'">📋 Copiar</button><button class="btn2" data-hdl="'+i+'">💾 Descargar</button></div></details>').join("")
@@ -333,6 +370,9 @@ function renderRepHistory(){
     '</div></div>';
   document.getElementById("repHistBack").addEventListener("click",renderRepStart);
   const clr=document.getElementById("repHistClear"); if(clr) clr.addEventListener("click",()=>{ if(confirm("¿Borrar todas las partidas guardadas?")){ store.set(REP_HIST_KEY,[]); renderRepHistory(); } });
+  const exp=document.getElementById("repHistExport"); if(exp) exp.addEventListener("click",repExportHistory);
+  const imp=document.getElementById("repHistImport"), fi=document.getElementById("repHistFile");
+  if(imp&&fi){ imp.addEventListener("click",()=>fi.click()); fi.addEventListener("change",()=>{ repImportHistoryFile(fi.files&&fi.files[0]); fi.value=""; }); }
   box.querySelectorAll("[data-hcopy]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hcopy]; if(r&&navigator.clipboard&&navigator.clipboard.writeText){ navigator.clipboard.writeText(r.text).then(()=>{ const o=b.textContent; b.textContent="✓ ¡Copiada!"; setTimeout(()=>{b.textContent=o;},1400); }).catch(()=>{}); } }));
   box.querySelectorAll("[data-hdl]").forEach(b=>b.addEventListener("click",()=>{ const r=repHistLoad()[+b.dataset.hdl]; if(r) repDownloadText(r.text,"mi-republica-"+(r.ts||Date.now())); }));
 }
