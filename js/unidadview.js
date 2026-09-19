@@ -87,7 +87,7 @@ function renderUnidadChips(){
 function unidadTitle(t){
   const k = UNIDADES[t].teoria;
   const item = THEORY[k];
-  if (!item) return "Unidad " + t;
+  if (!item) return "Tema " + t;
   return "Tema " + t + " · " + item.title;
 }
 
@@ -116,10 +116,11 @@ function renderUnidadBody(){
   const links = [];
   if (u.lectura && LECTURAS[u.lectura]) links.push('<button class="btn" data-go="lecturas" data-arg="' + u.lectura + '">Leer el texto</button>');
   if (u.teoria && THEORY[u.teoria]) links.push('<button class="btn" data-go="teoria" data-arg="' + u.teoria + '">Teoría completa</button>');
+  const leadTxt = '<p class="lead">' + (THEORY[u.teoria] ? THEORY[u.teoria].title : "") + ' — toda esta unidad en una sola página.</p>';
 
   body.innerHTML =
     '<div class="theory-head"><span class="kick" style="color:var(--hf)">' + block + '</span><h1>' + title + '</h1></div>' +
-    '<div class="unidad-actions"><p class="lead">' + (THEORY[u.teoria] ? THEORY[u.teoria].title : "") + ' — reúne en una página todo lo que esta unidad tiene en la web.</p>' +
+    '<div class="unidad-actions">' + leadTxt +
     (links.join(" ") ? '<div class="toolrow">' + links.join(" ") + '</div>' : '') + '</div>' +
     '<h2>Recursos multimedia</h2>' + media +
     '<h2>Test de repaso</h2>' + quizBtn;

@@ -16,7 +16,7 @@ function loadComentario(k){
   comentarioKey = k;
   renderComentarioChips();
   const c = COMENTARIO[k], body = document.getElementById("comentariobody");
-  if (!body) return;
+  if (!c || !body) return;
   body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + c.subject + ')">' + c.tema + '</span><h1>' + c.title + '</h1></div>' + c.html;
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "ch-" + i; });

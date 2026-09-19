@@ -12,8 +12,12 @@ function cronoList(block){ return CRONOGRAMAS.filter(c => cronoOf(c.code) === bl
 
 const CRONO_BLOCK_NAME = { A: "Bloque A · Antigua y medieval", B: "Bloque B · Moderna", C: "Bloque C · Contemporánea", "·": "Otros" };
 
-/* ---------- año → texto (euskera: K.a. = antes de Cristo) ---------- */
-function cronoYear(y){ if (y == null) return ""; return y < 0 ? "K.a. " + (-y) : "" + y; }
+/* ---------- año → texto (a.C. = antes de Cristo) ---------- */
+function cronoYear(y){ if (y == null) return ""; return y < 0 ? (-y) + " a.C." : "" + y; }
+function cronoRange(s, e){ if (s == null || e == null) return "";
+  if (s < 0 && e < 0) return (-s) + "–" + (-e) + " a.C.";
+  if (s < 0 && e >= 0) return (-s) + " a.C.–" + e;
+  return s + "–" + e; }
 function niceStep(span){ const steps = [10, 20, 25, 50, 100, 200, 250, 500, 1000];
   for (const s of steps) if (span / s <= 9) return s; return 1000; }
 
