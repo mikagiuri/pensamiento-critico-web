@@ -1,85 +1,90 @@
 // Datos del juego «El camino de la eudaimonía» (Aristóteles) — adaptado del material de
-// gamificación del Gabriel Aresti BHI (BATX 2), traducido al castellano. Solo datos.
+// gamificación del Gabriel Aresti BHI (BATX 2), traducido. Arte de cartas en media/juegos/aristoteles/.
+// Modelo: se llevan tres bienes (Alma 🧠, Cuerpo 🏋️, Bienes externos 💰) + Phrónesis 🧭.
+// Eudaimonía = Alma + Cuerpo + Bienes. Si cae a 0 o menos → fracaso existencial (fin).
 const JUEGO_ARIS = {
-  meta: {
-    title: "El camino de la eudaimonía",
-    subtitle: "Juego de la ética de Aristóteles",
-    rounds: 8,
-    intro: "Encarna a un pensador de la Antigua Grecia y afronta dilemas morales. No se trata solo de «ganar», sino de examinar qué es la buena vida (eudaimonía) según Aristóteles. Tus decisiones mueven el Alma, el Cuerpo y los Bienes externos; la phronesis (prudencia) te ayuda en las decisiones arriesgadas."
-  },
-  // Personajes: alma, cuerpo, bienes (externos), phronesis + rasgos
+  meta: { rounds: 10, imgBase: "media/juegos/aristoteles/" },
   chars: [
-    { id:"hipatia", name:"Hipatia", alma:9, cuerpo:4, bienes:5, phronesis:7, virtud:"Sabiduría", debilidad:"Desconfianza social", orient:"Contemplativa", frase:"El conocimiento es mi fuerza.", emoji:"🦉" },
-    { id:"aspasia", name:"Aspasia", alma:8, cuerpo:4, bienes:7, phronesis:4, virtud:"Elocuencia", debilidad:"Dependencia", orient:"Discursiva", frase:"Las palabras también tienen poder.", emoji:"🗣️" },
-    { id:"alcibiades", name:"Alcibíades", alma:6, cuerpo:8, bienes:9, phronesis:3, virtud:"Carisma y audacia", debilidad:"Hedonismo", orient:"Política", frase:"Mi brillo guiará a los demás.", emoji:"✨" },
-    { id:"trasimaco", name:"Trasímaco", alma:6, cuerpo:5, bienes:7, phronesis:2, virtud:"Astucia", debilidad:"Cinismo moral", orient:"Política", frase:"La justicia está al servicio de los poderosos.", emoji:"⚖️" }
+    { id:"socrates",  name:"Sócrates",       alma:9, cuerpo:5, bienes:3, phronesis:9, virtud:"Examen e ironía", debilidad:"Incomprendido", orient:"Contemplativa", frase:"Solo sé que no sé nada." },
+    { id:"hipatia",   name:"Hipatia",        alma:9, cuerpo:4, bienes:5, phronesis:7, virtud:"Sabiduría", debilidad:"Desconfianza social", orient:"Contemplativa", frase:"El conocimiento es mi fuerza." },
+    { id:"platon",    name:"Platón",         alma:9, cuerpo:5, bienes:6, phronesis:8, virtud:"Idealismo", debilidad:"Rigidez", orient:"Contemplativa", frase:"Que gobierne quien ama la sabiduría." },
+    { id:"aspasia",   name:"Aspasia",        alma:8, cuerpo:4, bienes:7, phronesis:4, virtud:"Elocuencia", debilidad:"Dependencia", orient:"Discursiva", frase:"Las palabras también tienen poder." },
+    { id:"aristofanes",name:"Aristófanes",   alma:6, cuerpo:5, bienes:6, phronesis:6, virtud:"Ingenio y sátira", debilidad:"Mordacidad", orient:"Discursiva", frase:"La risa también dice la verdad." },
+    { id:"alcibiades",name:"Alcibíades",     alma:6, cuerpo:8, bienes:9, phronesis:3, virtud:"Carisma y audacia", debilidad:"Hedonismo", orient:"Política", frase:"Mi brillo guiará a los demás." },
+    { id:"cleon",     name:"Cleón",          alma:3, cuerpo:6, bienes:8, phronesis:3, virtud:"Oratoria popular", debilidad:"Demagogia", orient:"Política", frase:"El pueblo quiere firmeza." },
+    { id:"critias",   name:"Critias",        alma:4, cuerpo:6, bienes:8, phronesis:4, virtud:"Astucia política", debilidad:"Tiranía", orient:"Política", frase:"El orden se impone." },
+    { id:"trasimaco", name:"Trasímaco",      alma:6, cuerpo:5, bienes:7, phronesis:2, virtud:"Astucia", debilidad:"Cinismo moral", orient:"Política", frase:"La justicia sirve al poderoso." },
+    { id:"alejandro", name:"Alejandro Magno",alma:4, cuerpo:9, bienes:10,phronesis:4, virtud:"Ambición y mando", debilidad:"Desmesura", orient:"Política", frase:"El mundo no basta." }
   ],
-  // Dilemas por virtud. Cada opción: t (texto), eud/phr (efectos), risk (resuelto por el dado, ayuda la phronesis).
+  // Dilemas: cada opción con efectos sobre a(lma)/c(uerpo)/b(ienes)/phr y risk (dado, ayuda la phrónesis).
   dilemmas: [
-    { virtue:"Valor (andreía)", sit:"En una guerra, los enemigos están a las puertas.", opts:[
-      { t:"Retirarse", eud:-2 }, { t:"Ataque imprudente", eud:-1, risk:true }, { t:"Defensa racional", eud:3, risk:true } ] },
-    { virtue:"Valor (andreía)", sit:"Están haciendo daño a un amigo.", opts:[
-      { t:"No reaccionar", phr:-1 }, { t:"Actuar con agresividad", eud:-2 }, { t:"Reaccionar con valentía", eud:2 } ] },
-    { virtue:"Valor (andreía)", sit:"Ante un gobierno corrupto: decir la verdad o callar.", opts:[
-      { t:"Callar", phr:-2 }, { t:"Denuncia inoportuna", risk:true, eud:-1 }, { t:"Decir la verdad con valentía", eud:3 } ] },
-    { virtue:"Templanza (sophrosýne)", sit:"En una fiesta hay comida y bebida en abundancia.", opts:[
-      { t:"Excederse", eud:-2 }, { t:"Negarse por completo", eud:-1 }, { t:"Actuar con templanza", eud:2 } ] },
-    { virtue:"Templanza (sophrosýne)", sit:"Alguien te ha insultado.", opts:[
-      { t:"Silencio pasivo", phr:-1 }, { t:"Estallido emocional", eud:-2 }, { t:"Respuesta mesurada", eud:2 } ] },
-    { virtue:"Templanza (sophrosýne)", sit:"Tienes la oportunidad de alcanzar el poder.", opts:[
-      { t:"Deseo ciego, desmesurado", eud:-1, risk:true }, { t:"Renunciar sin más", phr:-1 }, { t:"Elección mesurada", phr:2 } ] },
-    { virtue:"Generosidad (eleuthería)", sit:"Puedes ayudar o no a un ciudadano necesitado.", opts:[
-      { t:"No ayudar", eud:-2 }, { t:"Dar demasiado", eud:0 }, { t:"Dar con mesura", eud:2 } ] },
-    { virtue:"Generosidad (eleuthería)", sit:"Ganas la lotería.", opts:[
-      { t:"Guardarlo todo", eud:-2 }, { t:"Derrocharlo todo", eud:-1 }, { t:"Compartir", eud:3 } ] },
-    { virtue:"Generosidad (eleuthería)", sit:"Participar en un proyecto común.", opts:[
-      { t:"No participar", phr:-1 }, { t:"Participar de forma caótica", risk:true }, { t:"Participar con responsabilidad", eud:2 } ] },
-    { virtue:"Justicia (dikaiosýne)", sit:"Un amigo ha quebrantado la ley.", opts:[
-      { t:"Callar", phr:-2 }, { t:"Denuncia cruel", eud:-1 }, { t:"Justicia proporcionada", eud:3 } ] },
-    { virtue:"Justicia (dikaiosýne)", sit:"Perjudicar a otro grupo en tu propio beneficio.", opts:[
-      { t:"Aceptar", eud:-2 }, { t:"Oponerte", eud:2 }, { t:"Buscar un pacto justo", phr:1, eud:1 } ] },
-    { virtue:"Justicia (dikaiosýne)", sit:"Como juez, debes tomar una resolución difícil.", opts:[
-      { t:"Seguir tu interés personal", eud:-2 }, { t:"Inhibirte", phr:-1 }, { t:"Sentencia mesurada", eud:3 } ] },
-    { virtue:"Mansedumbre (praótes)", sit:"Alguien te insulta públicamente.", opts:[
-      { t:"No reaccionar", eud:-1 }, { t:"Ira violenta", eud:-2 }, { t:"Respuesta mesurada", phr:2 } ] },
-    { virtue:"Mansedumbre (praótes)", sit:"Disputa con un compañero de grupo.", opts:[
-      { t:"Silencio", phr:-1 }, { t:"Arrebato", eud:-2 }, { t:"Diálogo pausado", eud:2 } ] },
-    { virtue:"Mansedumbre (praótes)", sit:"Conflicto moral con un líder.", opts:[
-      { t:"Someterte", eud:-2 }, { t:"Ataque directo", risk:true, eud:-1 }, { t:"Respuesta prudente", eud:2 } ] },
-    { virtue:"Veracidad (alétheia)", sit:"Mentir o no sobre una acción tuya.", opts:[
-      { t:"Mentir", phr:-2 }, { t:"Verdad demasiado dura", eud:-1 }, { t:"Verdad prudente", eud:2 } ] },
-    { virtue:"Veracidad (alétheia)", sit:"Quieres dar buena imagen a los demás.", opts:[
-      { t:"Autoimagen falsa", eud:-2 }, { t:"Verdad cruda", phr:-1 }, { t:"Sinceridad mesurada", eud:3 } ] },
-    { virtue:"Veracidad (alétheia)", sit:"Contar o no un hecho doloroso.", opts:[
-      { t:"Callarlo", eud:-1 }, { t:"Decirlo cruelmente", eud:-1 }, { t:"Contarlo con mesura", eud:2 } ] }
+    { virtue:"Valor (andreía)", sit:"Los enemigos están a las puertas de la ciudad.", opts:[
+      { t:"Huir para salvar la vida", a:-3, b:-2 }, { t:"Ataque temerario al frente", c:-4, b:2, risk:true }, { t:"Organizar una defensa racional", a:2, risk:true } ] },
+    { virtue:"Valor (andreía)", sit:"Humillan a un amigo en plena plaza.", opts:[
+      { t:"Mirar hacia otro lado", a:-3, phr:-1 }, { t:"Responder con violencia", c:-2, b:-2 }, { t:"Intervenir con firmeza y palabra", a:2, phr:1 } ] },
+    { virtue:"Valor (andreía)", sit:"Un gobierno corrupto te ofrece un cargo a cambio de tu silencio.", opts:[
+      { t:"Aceptar el cargo y callar", b:4, a:-4 }, { t:"Denunciarlo en público", b:-3, a:3, risk:true }, { t:"Callar por miedo", a:-2, phr:-2 } ] },
+    { virtue:"Templanza (sophrosýne)", sit:"Un banquete interminable de excesos.", opts:[
+      { t:"Entregarte al placer", c:1, b:-2, a:-3 }, { t:"Rechazarlo todo con desprecio", a:-1, b:-1 }, { t:"Disfrutar con medida", a:2 } ] },
+    { virtue:"Templanza (sophrosýne)", sit:"Puedes hacerte con el poder absoluto esta noche.", opts:[
+      { t:"Tomarlo por la fuerza", b:5, a:-4, risk:true }, { t:"Renunciar sin más", phr:1, b:-1 }, { t:"Buscar un poder compartido y legítimo", a:2, phr:1, risk:true } ] },
+    { virtue:"Templanza (sophrosýne)", sit:"Te ofrecen una fortuna por una obra deshonesta.", opts:[
+      { t:"Aceptar", b:5, a:-5 }, { t:"Negarte", a:2, b:-1 } ] },
+    { virtue:"Justicia (dikaiosýne)", sit:"Un amigo poderoso ha cometido un crimen.", opts:[
+      { t:"Encubrirlo", b:2, a:-4, phr:-1 }, { t:"Denunciarlo sin piedad", a:1, c:-2, risk:true }, { t:"Buscar una justicia proporcionada", a:3, risk:true } ] },
+    { virtue:"Justicia (dikaiosýne)", sit:"Como juez, un soborno cambiaría el veredicto.", opts:[
+      { t:"Aceptar el soborno", b:4, a:-5 }, { t:"Juzgar con rectitud", a:3, b:-2 } ] },
+    { virtue:"Justicia (dikaiosýne)", sit:"Puedes prosperar arruinando a otra familia.", opts:[
+      { t:"Hacerlo", b:4, a:-4 }, { t:"Renunciar a ese beneficio", a:2 }, { t:"Pactar un reparto justo", a:1, b:1, phr:1, risk:true } ] },
+    { virtue:"Generosidad (eleuthería)", sit:"Un ciudadano arruinado te pide ayuda.", opts:[
+      { t:"Ignorarlo", a:-3 }, { t:"Darlo todo sin medida", b:-3, a:1 }, { t:"Ayudar con mesura", a:2, b:-1 } ] },
+    { virtue:"Generosidad (eleuthería)", sit:"Recibes una herencia inesperada.", opts:[
+      { t:"Acumularla", b:3, a:-2 }, { t:"Derrocharla en lujos", c:1, b:-4 }, { t:"Compartir parte con la ciudad", a:3, b:-1 } ] },
+    { virtue:"Veracidad (alétheia)", sit:"Puedes mentir para salvar tu reputación.", opts:[
+      { t:"Mentir con habilidad", b:2, a:-2, phr:-2 }, { t:"Soltar una verdad brutal", a:1, c:-2 }, { t:"Decir la verdad con prudencia", a:2, phr:1 } ] },
+    { virtue:"Veracidad (alétheia)", sit:"Un sofista te reta a un debate público.", opts:[
+      { t:"Vencer con trampas retóricas", b:2, a:-3 }, { t:"Rehuir el debate", a:-2, phr:-1 }, { t:"Debatir con honestidad", a:2, risk:true } ] },
+    { virtue:"Veracidad (alétheia)", sit:"Descubres una verdad incómoda para la ciudad.", opts:[
+      { t:"Ocultarla por prudencia", phr:1, a:-1 }, { t:"Proclamarla sin filtro", a:2, b:-3, risk:true }, { t:"Revelarla poco a poco", a:1, phr:1 } ] },
+    { virtue:"Poder y ciudad", sit:"El pueblo reclama una guerra popular pero injusta.", opts:[
+      { t:"Encabezarla para ganar fama", b:4, c:-3, a:-3, risk:true }, { t:"Oponerte en público", b:-3, a:3, risk:true }, { t:"Frenarla con argumentos", a:2, phr:1 } ] },
+    { virtue:"Poder y ciudad", sit:"Estalla una peste; podrías acaparar el remedio.", opts:[
+      { t:"Acapararlo y venderlo caro", b:5, a:-5 }, { t:"Repartirlo gratis", a:4, b:-3 }, { t:"Guardar solo lo tuyo", c:1, a:-2 } ] },
+    { virtue:"Poder y ciudad", sit:"Un tirano te ofrece ser su consejero.", opts:[
+      { t:"Aceptar por influencia", b:4, a:-4, phr:-1 }, { t:"Rechazar y exiliarte", b:-4, a:2, c:-1 }, { t:"Aceptar para moderarlo desde dentro", a:-1, phr:1, risk:true } ] },
+    { virtue:"Existencia", sit:"Te enfrentas a un juicio injusto que puede condenarte a muerte.", opts:[
+      { t:"Adular a los jueces para salvarte", a:-4, b:1 }, { t:"Defender tu verdad aunque mueras", a:5, c:-5, risk:true }, { t:"Aceptar el destierro", b:-3, a:1 } ] }
   ],
-  // Cartas de azar (se roba una tras cada decisión). eud/phr: efecto neto.
+  // Cartas de azar: efecto por bien. `img` = arte disponible (si falta, tarjeta sin foto). `bad` marca las adversas.
   chance: [
-    { t:"Apoyo del pueblo", d:"El pueblo está de tu lado.", eud:3 },
-    { t:"Discurso asombroso", d:"Tus palabras cautivan a la gente.", eud:2 },
-    { t:"Ayudante inesperado", d:"Alguien te echa una mano en el momento justo.", eud:2 },
-    { t:"Momento de sabiduría", d:"Una idea clara te ordena el juicio.", phr:1, eud:1 },
-    { t:"Reforma exitosa", d:"Una medida tuya sale bien.", eud:2 },
-    { t:"Inspiración", d:"Encuentras claridad para decidir.", phr:1 },
-    { t:"Alianza peligrosa", d:"Ganas poder, pero tus principios se resienten.", eud:1, phr:-1 },
-    { t:"Resistencia de las élites", d:"Los poderosos bloquean tu iniciativa.", eud:-2 },
-    { t:"Reacción de los fanáticos", d:"Recibes una respuesta violenta.", eud:-2 },
-    { t:"Duda colectiva", d:"La indecisión se contagia en la deliberación.", phr:-1 },
-    { t:"Enfermedad", d:"Tu cuerpo flaquea.", eud:-2 },
-    { t:"Noticias falsas", d:"Se difunden bulos contra ti.", eud:-2 },
-    { t:"Desconfianza ciudadana", d:"La gente recela de tus intenciones.", eud:-2 },
-    { t:"Traición", d:"Alguien de confianza te falla.", eud:-3 }
+    { t:"Apoyo del pueblo", d:"El pueblo se pone de tu lado.", b:3, a:1, img:"azar-apoyo" },
+    { t:"Discurso sutil", d:"Tus palabras logran un equilibrio admirable.", a:2, img:"azar-sutil" },
+    { t:"Reforma exitosa", d:"Una medida tuya sale bien.", a:2, b:1, img:"azar-reforma" },
+    { t:"Inspiración", d:"Encuentras una claridad que ordena tu juicio.", phr:2, img:"azar-inspiracion" },
+    { t:"Tratado de paz", d:"Se firma la paz y la ciudad respira.", c:2, b:1, img:"azar-paz" },
+    { t:"Golpe de suerte", d:"La fortuna sonríe por una vez.", b:3, a:1 },
+    { t:"Resistencia de las élites", d:"Los poderosos bloquean tu iniciativa.", b:-4, img:"azar-elites", bad:true },
+    { t:"Reacción de los fanáticos", d:"Recibes una respuesta violenta.", c:-3, b:-2, img:"azar-fanaticos", bad:true },
+    { t:"La peste", d:"Una epidemia asola la ciudad.", c:-5, bad:true },
+    { t:"Ruina económica", d:"Una mala inversión te deja sin recursos.", b:-5, bad:true },
+    { t:"Traición", d:"Alguien de confianza te vende.", a:-4, b:-2, bad:true },
+    { t:"Guerra civil", d:"El conflicto interno lo devora todo.", c:-4, b:-3, bad:true },
+    { t:"Escándalo público", d:"Tu nombre se arrastra por el fango.", a:-3, b:-2, bad:true },
+    { t:"Destierro", d:"Te expulsan de la ciudad.", b:-4, a:-1, bad:true }
   ],
+  chanceProb: 0.7,   // probabilidad de que salte una carta de azar tras cada decisión
   bands: [
-    { min:25, emoji:"🌿", label:"Vida feliz y excelente" },
-    { min:15, emoji:"⚖️", label:"Vida equilibrada" },
-    { min:5,  emoji:"⚠️", label:"Vida conflictiva" },
+    { min:26, emoji:"🌿", label:"Vida feliz y excelente" },
+    { min:16, emoji:"⚖️", label:"Vida equilibrada" },
+    { min:6,  emoji:"⚠️", label:"Vida conflictiva" },
+    { min:1,  emoji:"🥀", label:"Vida al borde del fracaso" },
     { min:-999, emoji:"💀", label:"Fracaso existencial" }
   ],
   reflect: [
-    "¿Quién ha alcanzado la mayor eudaimonía?",
-    "¿Qué ha pesado más: los bienes externos, las virtudes o el azar?",
-    "Según Aristóteles, ¿por qué es tan importante la phronesis (prudencia)?",
+    "¿Quién ha alcanzado la mayor eudaimonía y por qué?",
+    "¿Qué ha pesado más: los bienes externos, las virtudes del alma o el azar?",
+    "Según Aristóteles, ¿por qué es tan importante la phrónesis (prudencia)?",
+    "¿Puede la mala fortuna arruinar una vida virtuosa? ¿Hasta qué punto?",
     "¿Qué distingue la vida política, la discursiva y la contemplativa?"
   ]
 };

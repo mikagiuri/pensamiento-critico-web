@@ -116,3 +116,54 @@
 #republica .rep-actions2{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
 #republica .rep-actions2 .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; } #republica .rep-actions2 .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
 @media (max-width:560px){ #republica .rep-classes{ grid-template-columns:1fr; } }
+
+/* ===== Eudaimonía v2: retratos, tres bienes, azar destacado ===== */
+#eudaimonia .ari-chars{ grid-template-columns:repeat(auto-fill,minmax(210px,1fr)); }
+#eudaimonia .ari-char{ padding:0; overflow:hidden; gap:0; }
+#eudaimonia .ari-portrait{ position:relative; aspect-ratio:4/3; overflow:hidden; background:var(--surface-2); }
+#eudaimonia .ari-portrait img{ width:100%; height:100%; object-fit:cover; object-position:center 22%; display:block; filter:saturate(.95); }
+#eudaimonia .ari-portrait .ari-orient{ position:absolute; left:8px; bottom:8px; margin:0; padding:.15rem .5rem; border-radius:999px;
+  background:color-mix(in srgb,var(--bg) 70%,transparent); backdrop-filter:blur(4px); color:var(--ink); }
+#eudaimonia .ari-char-b{ padding:.7rem .85rem; display:flex; flex-direction:column; gap:.45rem; }
+#eudaimonia .ari-char-h b{ font-family:var(--serif); font-size:1.2rem; }
+#eudaimonia .ari-stats span{ display:inline-flex; gap:.15rem; }
+#eudaimonia .ari-frase{ font-size:.88rem; }
+
+/* HUD */
+#eudaimonia .ari-who{ display:inline-flex; align-items:center; gap:.4rem; }
+#eudaimonia .ari-mini{ width:1.6rem; height:1.6rem; border-radius:50%; object-fit:cover; object-position:center 20%; }
+#eudaimonia .ari-goods{ font-size:.9rem; color:var(--muted); font-variant-numeric:tabular-nums; } #eudaimonia .ari-goods b{ color:var(--ink); }
+#eudaimonia .ari-eud{ font-family:var(--mono); font-weight:600; padding:.1rem .5rem; border-radius:999px; background:var(--ok-bg); color:var(--ok); transition:transform .2s; }
+#eudaimonia .ari-eud.low{ background:var(--bad-bg); color:var(--bad); }
+#eudaimonia .ari-eud.bump{ transform:scale(1.25); }
+
+/* opciones: preview de efectos */
+#eudaimonia .ari-ot{ display:block; }
+#eudaimonia .ari-pv{ font-family:var(--mono); font-size:.76rem; opacity:.9; }
+#eudaimonia .ari-pv .up, #eudaimonia .ari-d .up{ color:var(--ok); } #eudaimonia .ari-pv .down, #eudaimonia .ari-d .down{ color:var(--bad); }
+
+/* resolución */
+#eudaimonia .ari-line{ margin-bottom:.4rem; }
+#eudaimonia .ari-dado{ margin:.5rem 0; padding:.5rem .7rem; border-radius:8px; font-weight:500; }
+#eudaimonia .ari-dado.win{ background:var(--ok-bg); color:var(--ink); border-left:3px solid var(--ok); }
+#eudaimonia .ari-dado.lose{ background:var(--bad-bg); color:var(--ink); border-left:3px solid var(--bad); }
+#eudaimonia .ari-hint{ color:var(--muted); font-size:.82rem; font-weight:400; }
+
+/* CARTA DE AZAR destacada */
+#eudaimonia .ari-chance-card{ display:flex; gap:.9rem; align-items:stretch; margin-top:.8rem; padding:.7rem; border-radius:14px;
+  border:2px solid var(--accent); background:var(--surface); box-shadow:var(--shadow); animation:ari-reveal .45s cubic-bezier(.2,.9,.3,1.2); }
+#eudaimonia .ari-chance-card.bad{ border-color:var(--bad); box-shadow:0 0 0 4px color-mix(in srgb,var(--bad) 18%,transparent); }
+#eudaimonia .ari-chance-card.good{ border-color:var(--ok); box-shadow:0 0 0 4px color-mix(in srgb,var(--ok) 18%,transparent); }
+#eudaimonia .ari-chance-img{ width:96px; min-width:96px; height:128px; object-fit:cover; border-radius:10px; }
+#eudaimonia .ari-chance-ph{ width:96px; min-width:96px; height:128px; display:flex; align-items:center; justify-content:center; font-size:3rem; border-radius:10px; background:var(--surface-2); }
+#eudaimonia .ari-chance-t{ display:flex; flex-direction:column; justify-content:center; gap:.25rem; }
+#eudaimonia .ari-chance-tag{ font-size:.68rem; letter-spacing:.1em; text-transform:uppercase; font-weight:700; color:var(--accent); }
+#eudaimonia .ari-chance-card.bad .ari-chance-tag{ color:var(--bad); } #eudaimonia .ari-chance-card.good .ari-chance-tag{ color:var(--ok); }
+#eudaimonia .ari-chance-t b{ font-family:var(--serif); font-size:1.25rem; }
+#eudaimonia .ari-chance-t p{ margin:0; font-size:.9rem; color:var(--muted); }
+@keyframes ari-reveal{ 0%{ transform:scale(.8) translateY(8px); opacity:0; } 100%{ transform:none; opacity:1; } }
+@media (prefers-reduced-motion:reduce){ #eudaimonia .ari-chance-card{ animation:none; } }
+
+/* resultado con retrato */
+#eudaimonia .ari-result-img{ width:120px; height:120px; object-fit:cover; object-position:center 20%; border-radius:50%; border:3px solid var(--accent); margin-bottom:.4rem; }
+#eudaimonia .ari-result.dead .ari-result-img{ filter:grayscale(1) brightness(.7); border-color:var(--bad); }
