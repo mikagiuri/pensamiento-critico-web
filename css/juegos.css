@@ -1,0 +1,62 @@
+/* ===== Juegos (Eudaimonía / República) ===== usa los tokens de styles.css ===== */
+#eudaimonia .ari-wrap{ max-width:780px; }
+#eudaimonia .ari-lead{ color:var(--muted); line-height:1.6; margin:.2rem 0 1.2rem; }
+#eudaimonia .ari-col-h{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin:.2rem 0 .5rem; }
+
+/* elección de personaje */
+#eudaimonia .ari-chars{ display:grid; grid-template-columns:repeat(auto-fill,minmax(230px,1fr)); gap:.7rem; }
+#eudaimonia .ari-char{ text-align:left; font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface);
+  color:var(--ink); border-radius:var(--radius); padding:.9rem 1rem; box-shadow:var(--shadow); transition:transform .12s, border-color .15s; display:flex; flex-direction:column; gap:.5rem; }
+#eudaimonia .ari-char:hover{ transform:translateY(-2px); border-color:var(--accent); }
+#eudaimonia .ari-char-h{ display:flex; align-items:baseline; gap:.5rem; }
+#eudaimonia .ari-char-h .ari-emoji{ font-size:1.4rem; }
+#eudaimonia .ari-char-h b{ font-family:var(--serif); font-size:1.2rem; }
+#eudaimonia .ari-orient{ margin-left:auto; font-size:.72rem; text-transform:uppercase; letter-spacing:.06em; color:var(--muted); }
+#eudaimonia .ari-stats{ display:flex; flex-wrap:wrap; gap:.3rem .8rem; font-size:.85rem; color:var(--muted); font-variant-numeric:tabular-nums; }
+#eudaimonia .ari-stats b{ color:var(--ink); }
+#eudaimonia .ari-traits{ display:flex; gap:.4rem; flex-wrap:wrap; }
+#eudaimonia .ari-vir, #eudaimonia .ari-deb{ font-size:.76rem; padding:.15rem .5rem; border-radius:999px; }
+#eudaimonia .ari-vir{ background:var(--ok-bg); color:var(--ok); }
+#eudaimonia .ari-deb{ background:var(--bad-bg); color:var(--bad); }
+#eudaimonia .ari-frase{ font-family:var(--serif); font-style:italic; color:var(--muted); font-size:.92rem; }
+
+/* HUD */
+#eudaimonia .ari-hud{ display:flex; gap:.7rem 1rem; align-items:center; flex-wrap:wrap; margin-bottom:.6rem; }
+#eudaimonia .ari-who{ font-weight:600; }
+#eudaimonia .ari-stat{ font-size:.9rem; color:var(--muted); font-variant-numeric:tabular-nums; transition:transform .2s; }
+#eudaimonia .ari-stat b{ color:var(--ink); }
+#eudaimonia .ari-stat.bump{ transform:scale(1.25); }
+
+/* dilema */
+#eudaimonia .ari-card{ background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.1rem 1.2rem; box-shadow:var(--shadow); }
+#eudaimonia .ari-virtue{ font-size:.72rem; letter-spacing:.06em; text-transform:uppercase; color:var(--accent); font-weight:600; }
+#eudaimonia .ari-sit{ font-family:var(--serif); font-size:1.25rem; line-height:1.35; margin:.35rem 0 1rem; text-wrap:balance; }
+#eudaimonia .ari-opts{ display:grid; gap:.55rem; }
+#eudaimonia .ari-opt{ display:flex; gap:.7rem; align-items:flex-start; text-align:left; font:inherit; cursor:pointer;
+  border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.7rem .85rem; border-radius:12px; transition:border-color .15s, transform .1s, opacity .2s; }
+#eudaimonia .ari-opt .k{ font-family:var(--mono); font-weight:600; color:var(--accent); flex:0 0 auto; }
+#eudaimonia .ari-opt:not(:disabled):hover{ border-color:var(--accent); transform:translateY(-1px); }
+#eudaimonia .ari-opt.dim{ opacity:.45; }
+#eudaimonia .ari-opt.chosen{ border-color:var(--accent); background:var(--surface); box-shadow:inset 0 0 0 1px var(--accent); }
+#eudaimonia .ari-risk{ font-size:.75rem; color:var(--ipc); }
+#eudaimonia .ari-res{ margin-top:.9rem; padding:.8rem .9rem; border-left:3px solid var(--accent); background:var(--surface-2);
+  border-radius:8px; font-size:.93rem; line-height:1.5; opacity:0; max-height:0; overflow:hidden; transition:opacity .25s; }
+#eudaimonia .ari-res.show{ opacity:1; max-height:none; }
+#eudaimonia .ari-res > b{ display:inline; }
+#eudaimonia .ari-chance{ margin-top:.5rem; padding-top:.5rem; border-top:1px dashed var(--line); }
+#eudaimonia .ari-d .up{ color:var(--ok); font-weight:600; } #eudaimonia .ari-d .down{ color:var(--bad); font-weight:600; }
+#eudaimonia .ari-d{ font-family:var(--mono); font-size:.85rem; }
+#eudaimonia .ari-foot{ margin-top:1rem; display:flex; justify-content:flex-end; }
+#eudaimonia .ari-next{ font:inherit; cursor:pointer; border:0; border-radius:10px; padding:.6rem 1.1rem; background:var(--accent); color:var(--on-accent); font-weight:600; }
+
+/* balance */
+#eudaimonia .ari-result{ text-align:center; background:var(--surface); border:1px solid var(--line); border-radius:var(--radius); padding:1.8rem 1.3rem; box-shadow:var(--shadow); }
+#eudaimonia .ari-badge{ font-size:3rem; line-height:1; }
+#eudaimonia .ari-rank{ font-family:var(--serif); font-weight:700; font-size:1.5rem; margin:.3rem 0; }
+#eudaimonia .ari-final{ font-family:var(--mono); font-size:2.4rem; font-weight:600; color:var(--accent); }
+#eudaimonia .ari-final span{ font-family:var(--sans); font-size:.9rem; color:var(--muted); font-weight:400; }
+#eudaimonia .ari-stats2{ color:var(--muted); margin:.3rem 0 .8rem; }
+#eudaimonia .ari-reflect{ font-family:var(--serif); font-style:italic; color:var(--ink); max-width:52ch; margin:0 auto 1.2rem; padding:.6rem 1rem; border-left:3px solid var(--accent); background:var(--surface-2); border-radius:0 8px 8px 0; text-align:left; }
+#eudaimonia .ari-actions{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; }
+#eudaimonia .ari-actions .btn2{ font:inherit; cursor:pointer; border:1px solid var(--line); background:var(--surface-2); color:var(--ink); padding:.6rem 1.1rem; border-radius:10px; }
+#eudaimonia .ari-actions .btn2.primary{ background:var(--accent); color:var(--on-accent); border-color:var(--accent); }
