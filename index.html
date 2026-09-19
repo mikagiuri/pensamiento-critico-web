@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,600;0,9..144,900;1,9..144,600;1,9..144,900&display=swap">
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/mobile.css">
+<link rel="stylesheet" href="css/reto.css">
 
 <a class="skiplink" href="#contenido">Saltar al contenido</a>
 <header class="bar">
@@ -33,6 +34,7 @@
         <div class="navmenu">
           <button data-view="tarjetas">Tarjetas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
+          <button data-view="reto">Juego</button>
         </div>
       </div>
       <div class="navsec">
@@ -292,6 +294,13 @@
     <div class="quiz" id="quizbox"></div>
   </section>
 
+  <section class="view" id="reto">
+    <p class="eyebrow">Herramienta</p>
+    <h1 class="title">Juego · Reto</h1>
+    <p class="lead">Repasa jugando: contrarreloj, con puntos por velocidad y racha. Tu mejor marca se guarda en este navegador.</p>
+    <div id="retobox"></div>
+  </section>
+
   <footer class="wrap">
     Aula de Filosofía · material del departamento del IES Martín de Bertendona. Las tarjetas y los cuestionarios se amplían editando <code>js/data.js</code>.
   </footer>
@@ -301,6 +310,7 @@
 <script src="js/data.js"></script>
 <script src="js/flashcards.js"></script>
 <script src="js/quiz.js"></script>
+<script src="js/retoview.js"></script>
 <script src="js/theory.js"></script>
 <script src="js/theoryview.js"></script>
 <script src="js/materials.js"></script>
