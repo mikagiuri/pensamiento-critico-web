@@ -10,16 +10,16 @@
 const REP_ARM0 = 10, REP_TURNS = 6, REP_DECK_N = 7, REP_TARGET = 30;
 const REP_AP0 = 6;
 const REP_MODES = {
-  facil: { name:"Fácil", budget:380, ratio:false },
-  real:  { name:"Real",  budget:315, ratio:true }
+  facil: { name:"Fácil", budget:415, ratio:false },
+  real:  { name:"Real",  budget:345, ratio:true }
 };
 const REP_ROSTER = {
-  Z: [ { id:"z_recto", name:"Guardianes rectos", sj:4,v:4,t:4,p:0, note:"lo justo" },
-       { id:"z_sabio", name:"Guardianes sabios", sj:5,v:4,t:4,p:0, note:"más sabiduría" },
-       { id:"z_pleno", name:"Guardianes plenos", sj:5,v:5,t:5,p:1, note:"virtud máxima" } ],
-  G: [ { id:"g_tropa", name:"Guerreros", sj:1,v:4,t:4,p:0, note:"lo básico" },
-       { id:"g_vet", name:"Veteranos", sj:2,v:5,t:4,p:1, note:"curtidos" },
-       { id:"g_heroe", name:"Héroes", sj:3,v:5,t:5,p:1, note:"los mejores" } ],
+  Z: [ { id:"z_recto", name:"Guardianes rectos", sj:4,v:4,t:4,p:4, note:"los cuatro al mínimo" },
+       { id:"z_sabio", name:"Guardianes sabios", sj:5,v:4,t:4,p:4, note:"más sabiduría-justicia" },
+       { id:"z_pleno", name:"Guardianes plenos", sj:5,v:5,t:5,p:5, note:"virtud máxima" } ],
+  G: [ { id:"g_tropa", name:"Guerreros", sj:1,v:4,t:4,p:1, note:"lo básico" },
+       { id:"g_vet", name:"Veteranos", sj:2,v:5,t:4,p:2, note:"curtidos" },
+       { id:"g_heroe", name:"Héroes", sj:3,v:5,t:5,p:3, note:"los mejores" } ],
   E: [ { id:"labriego", name:"Productores", sj:1,v:1,t:4,p:4, note:"labriegos, artesanos y mercaderes" } ]
 };
 const REP_IMG = "media/juegos/platon/";
@@ -133,7 +133,7 @@ function drawRepRoster(){
     return '<div class="rep-rrow prod"><div class="rep-rname">'+c.name+' <span class="rep-note">'+c.note+'</span><br>'+statPips(c)+'</div>'+
       '<div class="rep-step"><button data-esub="'+c.id+'">−</button><span class="n">'+n+'</span><button data-eadd="'+c.id+'">+</button></div></div>'; }).join("")+'</div>';
   document.getElementById("repRoster").innerHTML =
-    sec("🦉 Guardianes <span class=\"rep-floor\">SJ, valentía y templanza ≥4</span>",REP_ROSTER.Z)+
+    sec("🦉 Guardianes <span class=\"rep-floor\">los cuatro stats ≥4</span>",REP_ROSTER.Z)+
     sec("🛡️ Guerreros <span class=\"rep-floor\">valentía y templanza ≥4</span>",REP_ROSTER.G)+
     sec("🌾 Productores <span class=\"rep-floor\">templanza y producción ≥4</span>",REP_ROSTER.E);
   document.querySelectorAll("#repRoster [data-eadd]").forEach(b=>b.addEventListener("click",()=>{ const id=b.dataset.eadd; rep.cnt[id]=(rep.cnt[id]||0)+1; drawRepRoster(); drawRepSummary(); }));
