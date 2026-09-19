@@ -1,0 +1,106 @@
+"use strict";
+/* ===== Cronogramas ===== depende de: data cronogramas.js (CRONOGRAMAS) =====
+   Renderiza cada cronograma del libro (LTFH, euskera) como línea de tiempo SVG:
+   carriles con rango de años (vidas/periodos) sobre un eje temporal, o secuencia de épocas. */
+
+let cronoBlock = null;      // A / B / C / "otros"
+let cronoId = null;
+
+function cronoOf(code){ const ch = (code || "").trim().charAt(0).toUpperCase(); return "ABC".includes(ch) ? ch : "·"; }
+function cronoBlocksPresent(){ return [...new Set(CRONOGRAMAS.map(c => cronoOf(c.code)))]; }
+function cronoList(block){ return CRONOGRAMAS.filter(c => cronoOf(c.code) === block); }
+
+const CRONO_BLOCK_NAME = { A: "Bloque A · Antigua y medieval", B: "Bloque B · Moderna", C: "Bloque C · Contemporánea", "·": "Otros" };
+
+/* ---------- año → texto (euskera: K.a. = antes de Cristo) ---------- */
+function cronoYear(y){ if (y == null) return ""; return y < 0 ? "K.a. " + (-y) : "" + y; }
+function niceStep(span){ const steps = [10, 20, 25, 50, 100, 200, 250, 500, 1000];
+  for (const s of steps) if (span / s <= 9) return s; return 1000; }
+
+/* ---------- filtros ---------- */
+function renderCronoFilter(){
+  const box = document.getElementById("cronofilter"); if (!box) return;
+  const present = cronoBlocksPresent();
+  if (!present.includes(cronoBlock)) cronoBlock = present[0];
+  box.innerHTML = '<span class="flabel">Bloque</span>' + present.map(b =>
+    '<button class="cbtn" data-cblock="' + b + '" aria-pressed="' + (b === cronoBlock) + '">' + CRONO_BLOCK_NAME[b] + '</button>').join("");
+  box.querySelectorAll("[data-cblock]").forEach(b => b.addEventListener("click", () => {
+    cronoBlock = b.dataset.cblock; cronoId = null; renderCronoFilter(); renderCronoChips(); drawCrono();
+  }));
+}
+
+function renderCronoChips(){
+  const box = document.getElementById("cronochips"); if (!box) return;
+  const list = cronoList(cronoBlock);
+  if (!list.some(c => c.id === cronoId)) cronoId = list.length ? list[0].id : null;
+  box.innerHTML = list.map(c =>
+    '<button class="chip" data-crono="' + c.id + '" aria-pressed="' + (c.id === cronoId) + '">' + c.title + '</button>').join("");
+  box.querySelectorAll("[data-crono]").forEach(b => b.addEventListener("click", () => { cronoId = b.dataset.crono; renderCronoChips(); drawCrono(); }));
+}
+
+/* ---------- dibujo ---------- */
+function drawCrono(){
+  const box = document.getElementById("cronobox"); if (!box) return;
+  const c = CRONOGRAMAS.find(x => x.id === cronoId);
+  if (!c){ box.innerHTML = '<p class="lead">Elige un cronograma.</p>'; return; }
+  const span = (c.type === "timeline" && c.start != null && c.end != null) ? (cronoYear(c.start) + " – " + cronoYear(c.end)) : "";
+  box.innerHTML = '<div class="crono-card"><div class="crono-h"><h2 class="crono-title">' + c.title + '</h2>' +
+    (span ? '<span class="crono-span">' + span + '</span>' : '') + '</div>' +
+    (c.type === "timeline" ? cronoSvg(c) : cronoEpochs(c)) + '</div>';
+}
+
+function cronoSvg(c){
+  const axes = (c.axes || []).filter(a => a.name);
+  let start = c.start, end = c.end;
+  // encuadrar por si la escala no cubre todos los carriles
+  axes.forEach(a => { if (a.start != null) start = Math.min(start, a.start); if (a.end != null) end = Math.max(end, a.end); });
+  if (start == null || end == null || end <= start){ return '<p class="lead">—</p>'; }
+
+  const W = 960, gutter = 186, padR = 26, padTop = 40, rowH = 30, barH = 18;
+  const H = padTop + axes.length * rowH + 16;
+  const x0 = gutter, x1 = W - padR;
+  const xOf = y => x0 + (y - start) / (end - start) * (x1 - x0);
+
+  let svg = '<svg class="crono-svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + c.title.replace(/"/g, "") + '">';
+  // rejilla + años
+  const step = niceStep(end - start);
+  const first = Math.ceil(start / step) * step;
+  for (let y = first; y <= end; y += step){
+    const x = xOf(y);
+    svg += '<line class="grid" x1="' + x.toFixed(1) + '" y1="' + (padTop - 8) + '" x2="' + x.toFixed(1) + '" y2="' + (H - 8) + '"/>';
+    svg += '<text class="tick-lbl" x="' + x.toFixed(1) + '" y="' + (padTop - 12) + '" text-anchor="middle">' + cronoYear(y) + '</text>';
+  }
+  // línea del año 0 si el rango la cruza
+  if (start < 0 && end > 0){ const xz = xOf(0); svg += '<line class="zero" x1="' + xz.toFixed(1) + '" y1="' + (padTop - 8) + '" x2="' + xz.toFixed(1) + '" y2="' + (H - 8) + '"/>'; }
+
+  const colors = ["var(--accent)", "var(--accent-2)", "var(--fil)", "var(--hf)", "var(--ipc)"];
+  axes.forEach((a, i) => {
+    const y = padTop + i * rowH;
+    svg += '<rect class="lane-bg" x="0" y="' + (y + (rowH - barH) / 2 - 2) + '" width="' + W + '" height="' + (barH + 4) + '" rx="4" opacity="' + (i % 2 ? ".5" : ".22") + '"/>';
+    const nm = a.name.length > 26 ? a.name.slice(0, 25) + "…" : a.name;
+    svg += '<text class="lane-lbl" x="8" y="' + (y + rowH / 2 + 4) + '">' + escapeCrono(nm) + '</text>';
+    if (a.start != null && a.end != null && a.end >= a.start){
+      const bx = xOf(a.start), bw = Math.max(4, xOf(a.end) - xOf(a.start));
+      svg += '<rect class="bar" x="' + bx.toFixed(1) + '" y="' + (y + (rowH - barH) / 2) + '" width="' + bw.toFixed(1) + '" height="' + barH + '" rx="6" fill="' + colors[i % colors.length] + '"/>';
+      if (bw > 66) svg += '<text class="bar-lbl" x="' + (bx + 6).toFixed(1) + '" y="' + (y + rowH / 2 + 4) + '">' + cronoYear(a.start) + '–' + cronoYear(a.end) + '</text>';
+    } else if (a.start != null){
+      svg += '<circle cx="' + xOf(a.start).toFixed(1) + '" cy="' + (y + rowH / 2) + '" r="5" fill="' + colors[i % colors.length] + '"/>';
+    }
+  });
+  svg += '</svg>';
+  return svg;
+}
+
+function cronoEpochs(c){
+  return '<div class="crono-epochs">' + (c.stages || []).map(s =>
+    '<div class="epoch"><div class="ep-label">' + escapeCrono(s.label) + '</div><div class="ep-text">' + escapeCrono(s.text) + '</div></div>').join("") + '</div>';
+}
+
+function escapeCrono(s){ return String(s || "").replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+
+/* ---------- init ---------- */
+function initCrono(){ if (typeof CRONOGRAMAS === "undefined") return; renderCronoFilter(); renderCronoChips(); drawCrono(); }
+document.addEventListener("DOMContentLoaded", initCrono);
+(function(){ const nav = document.getElementById("tabs"); if (nav) nav.addEventListener("click", e => {
+  const b = e.target.closest("button"); if (b && b.dataset.view === "cronogramas") initCrono();
+}); })();

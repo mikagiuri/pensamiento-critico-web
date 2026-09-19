@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/reto.css">
+<link rel="stylesheet" href="css/cronogramas.css">
 
 <a class="skiplink" href="#contenido">Saltar al contenido</a>
 <header class="bar">
@@ -44,7 +45,13 @@
           <button data-view="mapas">Mapas</button>
         </div>
       </div>
-      
+      <div class="navsec">
+        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">PAU</span>
+        <div class="navmenu">
+          <button data-view="comentario">Comentario de texto</button>
+          <button data-view="unidad">Banco por unidad</button>
+        </div>
+      </div>
     </nav>
     <button class="navtoggle" id="navtoggle" aria-label="Abrir menú de secciones" aria-expanded="false">☰</button>
     <button class="theme" id="theme" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
@@ -132,6 +139,9 @@
     <p class="lead">Los textos originales de la PAU —Platón, Descartes, Kant, Nietzsche y Beauvoir— con su guía de lectura, los fragmentos, los modelos de respuesta y el glosario. Para leer en clase o en casa y preparar el Ejercicio 1.</p>
     <div class="filterbar" id="lecturafilter" role="group" aria-label="Filtrar lecturas"></div>
     <div class="chips" id="lecturachips" role="group" aria-label="Elegir lectura"></div>
+    <div class="toolrow" id="comentariolink" style="display:none">
+      <button class="btn" data-go="comentario">✍️ Comentar este texto (método guiado) →</button>
+    </div>
     <div class="theory-layout">
       <nav class="toc" id="ltoc" aria-label="Índice de la lectura"></nav>
       <article class="theory" id="lecturabody"></article>
@@ -174,6 +184,31 @@
     <ul class="mlist" id="mediatextos"></ul>
     <div class="sec-head"><h2 class="sec">Preparación PAU</h2></div>
     <ul class="mlist" id="mediapau"></ul>
+  </section>
+
+  <!-- COMENTARIO DE TEXTO -->
+  <section class="view" id="comentario">
+    <p class="eyebrow">PAU</p>
+    <h1 class="title">Comentario de texto guiado</h1>
+    <p class="lead">El método paso a paso para comentar un texto de Historia de la Filosofía (Ejercicio 1 de la PAU): del problema a la tesis, con rúbrica, plantilla imprimible y <strong>ejemplos resueltos</strong> (Platón, Descartes, Kant, Nietzsche, Beauvoir).</p>
+    <div class="chips" id="comentariochips" role="group" aria-label="Elegir guía de comentario"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="comtoc" aria-label="Índice de la guía"></nav>
+      <article class="theory" id="comentariobody"></article>
+    </div>
+  </section>
+
+  <!-- UNIDAD (banco por tema) -->
+  <section class="view" id="unidad">
+    <p class="eyebrow">Historia de la Filosofía</p>
+    <h1 class="title">Banco por unidad</h1>
+    <p class="lead">Cada unidad (tema) en una página: la <strong>teoría</strong>, el <strong>texto</strong>, los <strong>recursos multimedia</strong> y un <strong>test de repaso</strong>. Toda la web organizada por tema para estudiar de un vistazo.</p>
+    <div class="filterbar" id="unidadfilter" role="group" aria-label="Filtrar por bloque"></div>
+    <div class="chips" id="unidadchips" role="group" aria-label="Elegir unidad"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="unidadtoc" aria-label="Índice de la unidad"></nav>
+      <article class="theory" id="unidadbody"></article>
+    </div>
   </section>
 
   <!-- DIAPOSITIVAS -->
@@ -301,6 +336,15 @@
     <div id="retobox"></div>
   </section>
 
+  <section class="view" id="cronogramas">
+    <p class="eyebrow">Visual</p>
+    <h1 class="title">Cronogramas</h1>
+    <p class="lead">Líneas de tiempo del libro (LTFH, en euskera): las vidas y los periodos de cada bloque sobre un eje de años. Elige bloque y cronograma.</p>
+    <div class="crono-filter" id="cronofilter" role="group" aria-label="Filtrar por bloque"></div>
+    <div class="crono-chips" id="cronochips" role="group" aria-label="Elegir cronograma"></div>
+    <div id="cronobox"></div>
+  </section>
+
   <footer class="wrap">
     Aula de Filosofía · material del departamento del IES Martín de Bertendona. Las tarjetas y los cuestionarios se amplían editando <code>js/data.js</code>.
   </footer>
@@ -321,10 +365,13 @@
 <script src="js/disertacionesview.js"></script>
 <script src="js/pau.js"></script>
 <script src="js/pauview.js"></script>
+<script src="js/comentario.js"></script>
+<script src="js/comentarioview.js"></script>
 <script src="js/diapositivas.js"></script>
 <script src="js/diapositivasview.js"></script>
 <script src="js/media.js"></script>
 <script src="js/mediaview.js"></script>
+<script src="js/unidadview.js"></script>
 <script src="js/rubricas.js"></script>
 <script src="js/rubricasview.js"></script>
 <script>window.markmap = { autoLoader: { manual: true } };</script>
@@ -344,5 +391,7 @@
 <script src="js/galeria.js"></script>
 <script src="js/galeriaview.js"></script>
 <script src="js/mobile.js"></script>
+<script src="js/cronogramas.js"></script>
+<script src="js/cronogramasview.js"></script>
 <script src="js/app.js"></script>
 <script src="js/navctx.js"></script>

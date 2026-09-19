@@ -45,6 +45,9 @@ function loadLectura(k){
   renderLecturaChips();
   const t = LECTURAS[k], body = document.getElementById("lecturabody");
   body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + t.subject + ')">' + t.tema + '</span><h1>' + t.title + '</h1></div>' + t.html;
+  // Enlazar con el comentario de texto guiado si existe la vista
+  const comentBtn = document.getElementById("comentariolink");
+  if (comentBtn) comentBtn.style.display = "inline-flex";
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "lh-" + i; });
   const toc = document.getElementById("ltoc");
