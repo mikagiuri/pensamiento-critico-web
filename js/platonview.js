@@ -7,16 +7,17 @@
      · Productor: templanza ≥4  (xx4 → máx. 335)
    La PRODUCCIÓN 🌾 NO es una virtud: es un stat DE LA CIUDAD. Solo la generan los
    productores (cada uno alimenta a 2 personas) y debe cubrir a toda la población.
-   Luego, 6 turnos de eventos (fundados en Platón/Aristóteles) con penalizaciones
+   Luego, tantos turnos como cartas del mazo (Real 8 / Fácil 7), fundados en
+   Platón/Aristóteles, con penalizaciones
    graduadas, eventos positivos, eventos que MATAN ciudadanos, y penalización
    creciente a las ciudades de menos de 30 habitantes. */
 
-const REP_ARM0 = 10, REP_TURNS = 6, REP_DECK_N = 7, REP_TARGET = 30;
+const REP_ARM0 = 10, REP_START = 9, REP_TARGET = 30;   // armonía: empieza en 9, tope 10
 const REP_AP0 = 6;
 const REP_OUT = 2;   // cada productor alimenta (produce para) 2 personas
 const REP_MODES = {
-  facil: { name:"Fácil", budget:265, ratio:false },
-  real:  { name:"Real",  budget:225, ratio:true }
+  facil: { name:"Fácil", budget:265, ratio:false, deck:7 },
+  real:  { name:"Real",  budget:225, ratio:true,  deck:8 }
 };
 const REP_ROSTER = {
   Z: [ { id:"z_recto", name:"Guardianes rectos", sj:4,v:4,t:4, note:"las tres virtudes al mínimo" },
@@ -39,7 +40,7 @@ const REP_ACTS = [
 ];
 
 const rep = repFresh();
-function repFresh(){ return { mode:"real", acciones:"si", cnt:{}, armonia:REP_ARM0, turn:0, deck:[], resolved:false, nZ:0,nG:0,nE:0, t:null, ap:0, apTurn:0, used:new Set() }; }
+function repFresh(){ return { mode:"real", acciones:"si", cnt:{}, armonia:REP_START, turn:0, turns:8, deck:[], resolved:false, nZ:0,nG:0,nE:0, t:null, ap:0, apTurn:0, used:new Set() }; }
 function repBox(){ return document.getElementById("repbox"); }
 function cost(c){ return c.sj+c.v+c.t; }
 function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -79,31 +80,31 @@ const F=Math.floor;
 const REP_EVENTS = [
   // — negativos graduados (Platón, República) —
   { id:"rebelion", name:"Rebelión de los productores", src:"Rep. IV", img:"ev-matxinada",
-    threat:"Demasiados productores frente a los guerreros: X = (productores − guerreros) ÷ 6.",
-    effect:()=>{ const x=F(Math.max(0,rep.t.E.n-rep.t.G.n)/6); return { d:-x, msg:x?("Revuelta: −"+x):"La masa está contenida." }; } },
+    threat:"Demasiados productores frente a los guerreros: X = (productores − guerreros) ÷ 5.",
+    effect:()=>{ const x=F(Math.max(0,rep.t.E.n-rep.t.G.n)/5); return { d:-x, msg:x?("Revuelta: −"+x):"La masa está contenida." }; } },
   { id:"golpe", name:"Golpe de estado", src:"Rep. VIII", img:"ev-golpe",
     threat:"Un ejército muy superior al gobierno da un golpe (mata a un guardián).",
-    effect:()=>{ if(repNGeff()>rep.t.Z.n*3){ const k=repKill("Z",1); return { d:-2, msg:"¡Golpe! −2 y muere "+k+" guardián." }; }
+    effect:()=>{ if(repNGeff()>rep.t.Z.n*3){ const k=repKill("Z",1); return { d:-3, msg:"¡Golpe! −3 y muere "+k+" guardián." }; }
       if(rep.t.G.n>rep.t.Z.n*2) return { d:-1, msg:"Tensión militar: −1." }; return { d:0, msg:"El ejército respeta al gobierno." }; } },
   { id:"corrupcion", name:"Corrupción", src:"Rep. I", img:"ev-corrupcion",
     threat:"Pierdes 1 punto por cada guardián que no sea plenamente justo (SJ<5).",
     effect:()=>{ const x=rep.t.Z.n-rep.t.Z.just; return { d:-x, msg:x?("−"+x+" por guardianes poco justos"):"Todos tus guardianes son justos." }; } },
   { id:"caverna", name:"Sombras en la caverna", src:"Rep. VII", img:"ev-sabiduria",
-    threat:"Si la sabiduría-justicia media de la polis es baja (<3), sigue entre sombras.",
-    effect:()=>{ const avg=repSum("sj")/Math.max(1,repPop()); return avg<3 ? { d:-2, msg:"Ignorancia: −2." } : { d:0, msg:"La ciudad busca la luz." }; } },
+    threat:"Si la sabiduría-justicia media de la polis es baja (<3,2), sigue entre sombras.",
+    effect:()=>{ const avg=repSum("sj")/Math.max(1,repPop()); return avg<3.2 ? { d:-2, msg:"Ignorancia: −2." } : { d:0, msg:"La ciudad busca la luz." }; } },
   // — Aristóteles / muertes / tamaño —
   { id:"ataque", name:"Ataque exterior", src:"Pol. VII", img:"ev-ataque",
     threat:"Si hay pocos defensores (guerreros < productores ÷ 3), el enemigo entra y mata.",
     effect:()=>{ if(repNGeff() < rep.t.E.n/3){ const k=repKill("G",F(rep.t.G.n/4))+repKill("E",F(rep.t.E.n/12)); return { d:-2, msg:"Invasión: −2"+(k?" y mueren "+k+" ciudadanos.":".") }; } return { d:0, msg:"La defensa aguanta." }; } },
   { id:"peste", name:"La peste", src:"—", img:"ev-hambruna",
     threat:"Una epidemia se ceba en la masa: mata a parte de los productores y guerreros.",
-    effect:()=>{ const k=repKill("E",F(rep.t.E.n/6))+repKill("G",F(rep.t.G.n/10)); return { d:-1, msg:"Peste: −1 y mueren "+k+" ciudadanos." }; } },
+    effect:()=>{ const k=repKill("E",F(rep.t.E.n/5))+repKill("G",F(rep.t.G.n/8)); return { d:-2, msg:"Peste: −2 y mueren "+k+" ciudadanos." }; } },
   { id:"hambruna", name:"Hambruna", src:"Pol. I", img:"ev-hambruna",
     threat:"Si la producción de la ciudad no alimenta a toda la población, hay hambre y muertes.",
-    effect:()=>{ const surplus=repProd()-repPop(); if(surplus<0){ const x=F(-surplus/4), k=repKill("E",F(-surplus/6)); return { d:-x, msg:"Hambre: −"+x+(k?" y mueren "+k+" productores.":".") }; } return { d:0, msg:"La producción alimenta a la ciudad." }; } },
+    effect:()=>{ const surplus=repProd()-repPop(); if(surplus<0){ const x=F(-surplus/3), k=repKill("E",F(-surplus/6)); return { d:-x, msg:"Hambre: −"+x+(k?" y mueren "+k+" productores.":".") }; } return { d:0, msg:"La producción alimenta a la ciudad." }; } },
   { id:"menguada", name:"Ciudad menguada", src:"Pol. I", img:"ev-ataque",
     threat:"Una polis pequeña no se basta a sí misma: cuanto menos de 30 habitantes, peor.",
-    effect:()=>{ const x=F(Math.max(0,REP_TARGET-repPop())/4); return { d:-x, msg:x?("Debilidad ("+repPop()+" hab.): −"+x):"Ciudad autosuficiente." }; } },
+    effect:()=>{ const x=F(Math.max(0,REP_TARGET-repPop())/3); return { d:-x, msg:x?("Debilidad ("+repPop()+" hab.): −"+x):"Ciudad autosuficiente." }; } },
   // — positivos —
   { id:"alianza", name:"Alianza comercial", src:"Rep.", img:"ev-corrupcion",
     threat:"Si los productores son la mayoría (≥60%), florece el comercio.",
@@ -173,10 +174,11 @@ function repRandom(){
 
 /* ---------- turnos ---------- */
 function repStart(){
-  repCompute(); const c=rep._cls; rep.armonia=REP_ARM0; rep.turn=0; rep.ap=(rep.acciones==="si")?REP_AP0:0;
-  const n=(rep.mode==="real")?7:6;   // Real es más exigente (más eventos)
+  repCompute(); const c=rep._cls; rep.armonia=REP_START; rep.turn=0; rep.ap=(rep.acciones==="si")?REP_AP0:0;
+  const n=REP_MODES[rep.mode].deck;   // Real 8 · Fácil 7 — cada carta es un turno
+  rep.turns=n;
   const rest=repShuffle(REP_EVENTS.filter(e=>e.id!=="menguada").map(e=>e.id)).slice(0,n-1);
-  rep.deck=repShuffle(rest.concat("menguada"));   // «Ciudad menguada» siempre presente (castiga el tamaño pequeño)
+  rep.deck=repShuffle(rest.concat("menguada"));   // «Ciudad menguada» siempre presente y siempre jugada (castiga el tamaño pequeño)
   rep.t={ Z:Object.assign({},c.Z), G:Object.assign({},c.G), E:Object.assign({},c.E), hero:false, prodBonus:0 };
   repRenderTurn();
 }
@@ -185,7 +187,7 @@ function repRenderTurn(){
   rep.resolved=false; rep.apTurn=0; rep.used=new Set(); rep.t.hero=false;
   const ev=REP_EVENTS.find(e=>e.id===rep.deck[rep.turn]);
   repBox().innerHTML='<div class="rep-wrap">'+
-    '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+REP_TURNS+'</span>'+
+    '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+rep.turns+'</span>'+
       '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b>/'+REP_ARM0+'</span>'+
       (rep.acciones==="si"?'<span class="stat">🔧 AP <b id="repAp">'+rep.ap+'</b></span>':'')+'</div>'+
     '<div class="rep-arm'+(rep.armonia<=4?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
@@ -231,7 +233,7 @@ function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
   const r=ev.effect(); rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+r.d)*10)/10);
   rep.turn++;
-  if(rep.turn>=REP_TURNS || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
+  if(rep.turn>=rep.turns || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
 }
 function repResult(){
   const a=rep.armonia; let emoji,rank;
@@ -247,7 +249,7 @@ function repResult(){
   repBox().innerHTML='<div class="rep-wrap"><div class="rep-result">'+
     '<div class="rep-badge">'+emoji+'</div><div class="rep-rank">'+rank+'</div>'+
     '<div class="rep-final">'+repFmt(Math.max(0,a))+' <span>/ '+REP_ARM0+' de armonía</span></div>'+
-    '<p class="rep-pop">'+REP_TURNS+' turnos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
+    '<p class="rep-pop">'+rep.turns+' turnos · ciudad final '+rep.t.Z.n+'/'+rep.t.G.n+'/'+rep.t.E.n+' · '+(rep.acciones==="si"?"con acciones":"sin acciones")+' · '+(record?"¡tu mejor república! 🎉":"mejor marca: "+repFmt(Math.max(best,a)))+'</p>'+
     '<blockquote class="rep-reflect">Para pensar: '+qs[Math.floor(Math.random()*qs.length)]+'</blockquote>'+
     '<div class="rep-actions2"><button class="btn2 primary" id="repAgain">Diseñar otra ciudad</button></div></div></div>';
   document.getElementById("repAgain").addEventListener("click",renderRepStart);
