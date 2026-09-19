@@ -10,9 +10,12 @@
    Luego, tantos turnos como cartas del mazo (Real 8 / Fácil 7), fundados en
    Platón/Aristóteles, con penalizaciones
    graduadas, eventos positivos, eventos que MATAN ciudadanos, y penalización
-   creciente a las ciudades de menos de 30 habitantes. */
+   creciente a las ciudades de menos de 30 habitantes.
+   DESGASTE: cada turno la ciudad pierde 1 de armonía por sí sola (Rep. VIII:
+   ninguna polis terrenal es eterna, todo régimen degenera). Hay que remontarlo
+   con un buen diseño y con las acciones. */
 
-const REP_ARM0 = 10, REP_START = 9, REP_TARGET = 30;   // armonía: empieza en 9, tope 10
+const REP_ARM0 = 10, REP_START = 10, REP_DECAY = 1, REP_TARGET = 30;   // empieza llena (10); cada turno se desgasta −1
 const REP_AP0 = 6;
 const REP_OUT = 2;   // cada productor alimenta (produce para) 2 personas
 const REP_MODES = {
@@ -119,25 +122,25 @@ const REP_EVENTS = [
     threat:"Si la ciudad produce de sobra (excedente ≥ 40% de la población), hay bonanza.",
     effect:()=>{ return (repProd()-repPop()) >= repPop()*0.4 ? { d:2, msg:"Excedente: +2." } : { d:0, msg:"Sin excedente notable." }; } },
   // — Atenas y su historia (contexto de Platón y Aristóteles) —
-  { id:"delos", name:"Liga de Delos", src:"Historia", img:"ev-corrupcion",
+  { id:"delos", name:"Liga de Delos", src:"Historia", img:"ev-delos",
     threat:"Con una flota fuerte (guerreros ≥ productores ÷ 3), los aliados pagan tributo; si no, se sublevan.",
     effect:()=>{ return repNGeff() >= rep.t.E.n/3 ? { d:2, msg:"Tributo de los aliados: +2." } : { d:-1, msg:"Los aliados se sublevan: −1." }; } },
-  { id:"esparta", name:"Invasión de Esparta", src:"Guerra del Peloponeso", img:"ev-ataque",
+  { id:"esparta", name:"Invasión de Esparta", src:"Guerra del Peloponeso", img:"ev-esparta",
     threat:"Esparta arrasa los campos. Si los defensores son escasos (guerreros < productores ÷ 4), es una masacre.",
     effect:()=>{ if(repNGeff() < rep.t.E.n/4){ const k=repKill("E",F(rep.t.E.n/8))+repKill("G",F(rep.t.G.n/6)); return { d:-3, msg:"Devastación: −3 y mueren "+k+" ciudadanos." }; } return { d:-1, msg:"Resistes tras las murallas: −1." }; } },
-  { id:"socrates", name:"Juicio a Sócrates", src:"Apología", img:"ev-sabiduria",
+  { id:"socrates", name:"Juicio a Sócrates", src:"Apología", img:"ev-socrates",
     threat:"La ciudad juzga a su hombre más sabio. Sin un guardián plenamente sabio (SJ 5), lo condena.",
     effect:()=>{ return rep.t.Z.max>=5 ? { d:1, msg:"La sabiduría lo absuelve: +1." } : { d:-2, msg:"Condenan al más sabio: −2." }; } },
-  { id:"pericles", name:"La ambición de Pericles", src:"Historia", img:"ev-golpe",
+  { id:"pericles", name:"La ambición de Pericles", src:"Historia", img:"ev-pericles",
     threat:"Un líder brillante emprende grandes obras. Con guardianes templados (templanza media ≥4,5) es un siglo de oro; sin mesura, hybris.",
     effect:()=>{ const tavg=rep.t.Z.t/Math.max(1,rep.t.Z.n); return tavg>=4.5 ? { d:2, msg:"Siglo de oro de Pericles: +2." } : { d:-2, msg:"Ambición desmedida (hybris): −2." }; } },
-  { id:"sofistas", name:"Auge de los sofistas", src:"Gorgias", img:"ev-sabiduria",
+  { id:"sofistas", name:"Auge de los sofistas", src:"Gorgias", img:"ev-sofistas",
     threat:"Maestros de la retórica seducen a la juventud. Si menos de la mitad de tus guardianes son plenamente justos, vencen.",
     effect:()=>{ return rep.t.Z.just >= rep.t.Z.n/2 ? { d:1, msg:"Los filósofos los refutan: +1." } : { d:-2, msg:"El relativismo corrompe: −2." }; } },
-  { id:"timocracia", name:"Timocracia", src:"Rep. VIII", img:"ev-golpe",
+  { id:"timocracia", name:"Timocracia", src:"Rep. VIII", img:"ev-timocracia",
     threat:"Si los guerreros dominan a los guardianes (guerreros > guardianes ×2), el honor sustituye a la razón.",
     effect:()=>{ return rep.t.G.n > rep.t.Z.n*2 ? { d:-2, msg:"La ciudad degenera en timocracia: −2." } : { d:1, msg:"La razón sigue al mando: +1." }; } },
-  { id:"oraculo", name:"Oráculo inquietante", src:"Delfos", img:"ev-sabiduria",
+  { id:"oraculo", name:"Oráculo inquietante", src:"Delfos", img:"ev-oraculo",
     threat:"La Pitia pronuncia un presagio ambiguo. El destino, esta vez, no depende de tu ciudad.",
     effect:()=>{ return rep.rng<0.55 ? { d:-2, msg:"Presagio funesto: −2." } : { d:1, msg:"Presagio favorable: +1." }; } }
 ];
@@ -179,6 +182,7 @@ function drawRepSummary(){
     '<div class="rep-sum-classes"><span>🦉 '+s.nZ+'</span><span>🛡️ '+s.nG+'</span><span>🌾 '+s.nE+'</span></div>'+
     '<div class="rep-sum-row"><span>🌾 Producción</span><b class="'+(fed?"ok":"bad")+'">'+s.prod+' <small>vs '+s.pop+' comen</small></b></div>'+
     (m.ratio?'<div class="rep-sum-row"><span>Proporción</span><b class="'+(s.nE>=2*(s.nZ+s.nG)?"ok":"bad")+'">prod ≥ 2×élite</b></div>':'')+
+    '<div class="rep-decay-note">⏳ Empiezas con la armonía llena (10), pero <b>cada turno la ciudad se desgasta −'+REP_DECAY+'</b>: ninguna polis es eterna (Rep. VIII). Diséñala para remontar los eventos… y aun así, no siempre se salva.</div>'+
     (ok?'<button class="rep-play" id="repPlay">Fundar la república →</button>':'<ul class="rep-errs">'+errs.map(e=>'<li>'+e+'</li>').join("")+'</ul>');
   const p=document.getElementById("repPlay"); if(p) p.addEventListener("click",repStart);
 }
@@ -212,6 +216,7 @@ function repRenderTurn(){
   repBox().innerHTML='<div class="rep-wrap">'+
     '<div class="rep-hud"><span class="stat">Turno <b>'+(rep.turn+1)+'</b>/'+rep.turns+'</span>'+
       '<span class="stat">⚖️ Armonía <b id="repArm">'+repFmt(rep.armonia)+'</b>/'+REP_ARM0+'</span>'+
+      '<span class="stat" title="Toda polis degenera (Rep. VIII): cada turno pierdes 1 de armonía.">⏳ Desgaste <b>−'+REP_DECAY+'</b>/turno</span>'+
       (rep.acciones==="si"?'<span class="stat">🔧 AP <b id="repAp">'+rep.ap+'</b></span>':'')+'</div>'+
     '<div class="rep-arm'+(rep.armonia<=4?' low':'')+'"><i style="width:'+Math.max(0,rep.armonia/REP_ARM0*100)+'%"></i></div>'+
     '<div class="rep-classes" id="repClasses"></div>'+
@@ -239,7 +244,8 @@ function repDrawTurn(ev){
   evb.innerHTML='<img class="rep-ev-img" src="'+REP_IMG+ev.img+'.jpg" alt="">'+
     '<div class="rep-ev-body"><span class="rep-ev-tag">🃏 Evento del turno'+(ev.src&&ev.src!=="—"?' · '+ev.src:'')+'</span><h3>'+ev.name+'</h3>'+
     '<div class="threat">'+ev.threat+'</div>'+
-    '<div class="rep-status '+(bad?"bad":good?"good":"ok")+'">'+(bad?"⚠ ":good?"✓ ":"• ")+pre.msg+'</div></div>';
+    '<div class="rep-status '+(bad?"bad":good?"good":"ok")+'">'+(bad?"⚠ ":good?"✓ ":"• ")+pre.msg+'</div>'+
+    '<div class="rep-net '+((pre.d-REP_DECAY)<0?"bad":(pre.d-REP_DECAY)>0?"good":"ok")+'">Armonía este turno: <b>'+((pre.d-REP_DECAY)>0?"+":"")+repFmt(pre.d-REP_DECAY)+'</b> <small>(evento '+(pre.d>0?"+":"")+pre.d+' · desgaste −'+REP_DECAY+')</small></div></div>';
   if(rep.acciones==="si"){ const acts=document.getElementById("repActs");
     acts.innerHTML=REP_ACTS.map(a=>{ const dis=rep.apTurn>=2||rep.used.has(a.id)||rep.ap<a.ap||(a.ok&&!a.ok());
       return '<button class="rep-act" data-act="'+a.id+'"'+(dis?" disabled":"")+'><b>'+a.name+' <span class="ap">'+a.ap+' AP</span></b><span class="d">'+a.d+'</span></button>'; }).join("");
@@ -254,7 +260,7 @@ function repDoAct(id,ev){ const a=REP_ACTS.find(x=>x.id===id);
   repDrawTurn(ev); }
 function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
-  const r=ev.effect(); rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+r.d)*10)/10);
+  const r=ev.effect(); rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+r.d-REP_DECAY)*10)/10);
   rep.turn++;
   if(rep.turn>=rep.turns || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
 }
