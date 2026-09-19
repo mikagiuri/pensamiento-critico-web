@@ -227,8 +227,10 @@
 #republica .rep-act-art{ flex:0 0 auto; width:46px; height:46px; display:flex; align-items:center; justify-content:center;
   border-radius:10px; background:color-mix(in srgb,var(--accent) 12%,var(--surface-2)); color:var(--accent); }
 #republica .rep-act-art svg{ width:30px; height:30px; }
+#republica .rep-act-art img{ width:100%; height:100%; object-fit:cover; border-radius:10px; }
 #republica .rep-act-b{ display:flex; flex-direction:column; }
 #republica .rep-act:disabled .rep-act-art{ color:var(--muted); background:var(--surface-2); }
+#republica .rep-act:disabled .rep-act-art img{ filter:grayscale(1) opacity(.6); }
 
 /* ===== República v2: diseña tu ciudad ===== */
 #republica .rep-modes-pick{ display:flex; flex-wrap:wrap; gap:.5rem; align-items:center; margin-bottom:1rem; }

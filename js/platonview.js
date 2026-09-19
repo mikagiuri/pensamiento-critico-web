@@ -36,12 +36,12 @@ const REP_ROSTER = {
 };
 const REP_IMG = "media/juegos/platon/";
 const REP_ACTS = [
-  { id:"moviliza", name:"Movilización", ap:2, d:"Un productor se forma como guerrero.", ok:()=>rep.t.E.n>1,
+  { id:"moviliza", name:"Movilización", ap:2, img:"ac-agoge", d:"Un productor se forma como guerrero.", ok:()=>rep.t.E.n>1,
     run:()=>{ repMove("E","G",1); } },
-  { id:"heroismo", name:"Heroísmo", ap:1, d:"Este turno, los guerreros valen ×1,5.", ok:()=>!rep.t.hero, run:()=>{ rep.t.hero=true; } },
-  { id:"educacion", name:"Reforma educativa", ap:1, d:"Los guardianes ganan sabiduría-justicia (+3).", run:()=>{ rep.t.Z.sj+=3; if(rep.t.Z.max<5)rep.t.Z.max=5; rep.t.Z.just=rep.t.Z.n; } },
-  { id:"cosecha", name:"Impulso a la producción", ap:1, d:"La ciudad produce más alimento (+8 producción).", run:()=>{ rep.t.prodBonus=(rep.t.prodBonus||0)+8; } },
-  { id:"purga", name:"Purga de corruptos", ap:2, d:"Recuperas 1 punto de armonía.", ok:()=>rep.armonia<REP_ARM0, run:()=>{ rep.armonia=Math.min(REP_ARM0, rep.armonia+1); } }
+  { id:"heroismo", name:"Heroísmo", ap:1, img:"ac-heroismo", d:"Este turno, los guerreros valen ×1,5.", ok:()=>!rep.t.hero, run:()=>{ rep.t.hero=true; } },
+  { id:"educacion", name:"Reforma educativa", ap:1, img:"ac-ejemplo", d:"Los guardianes ganan sabiduría-justicia (+3).", run:()=>{ rep.t.Z.sj+=3; if(rep.t.Z.max<5)rep.t.Z.max=5; rep.t.Z.just=rep.t.Z.n; } },
+  { id:"cosecha", name:"Impulso a la producción", ap:1, img:"ac-vida", d:"La ciudad produce más alimento (+8 producción).", run:()=>{ rep.t.prodBonus=(rep.t.prodBonus||0)+8; } },
+  { id:"purga", name:"Purga de corruptos", ap:2, img:"ac-politica", d:"Recuperas 1 punto de armonía.", ok:()=>rep.armonia<REP_ARM0, run:()=>{ rep.armonia=Math.min(REP_ARM0, rep.armonia+1); } }
 ];
 
 const rep = repFresh();
@@ -268,7 +268,7 @@ function repDrawTurn(ev){
     '<div class="rep-status '+(bad?"bad":good?"good":"ok")+'">'+(bad?"⚠ ":good?"✓ ":"• ")+pre.msg+'</div></div>';
   if(rep.acciones==="si"){ const acts=document.getElementById("repActs");
     acts.innerHTML=REP_ACTS.map(a=>{ const dis=rep.apTurn>=2||rep.used.has(a.id)||rep.ap<a.ap||(a.ok&&!a.ok());
-      return '<button class="rep-act" data-act="'+a.id+'"'+(dis?" disabled":"")+'><b>'+a.name+' <span class="ap">'+a.ap+' AP</span></b><span class="d">'+a.d+'</span></button>'; }).join("");
+      return '<button class="rep-act" data-act="'+a.id+'"'+(dis?" disabled":"")+'>'+(a.img?'<span class="rep-act-art"><img src="'+REP_IMG+a.img+'.jpg" alt=""></span>':'')+'<span class="rep-act-b"><b>'+a.name+' <span class="ap">'+a.ap+' AP</span></b><span class="d">'+a.d+'</span></span></button>'; }).join("");
     acts.querySelectorAll("[data-act]").forEach(b=>b.addEventListener("click",()=>repDoAct(b.dataset.act,ev))); }
 }
 function repDoAct(id,ev){ const a=REP_ACTS.find(x=>x.id===id);
