@@ -62,15 +62,15 @@ const JUEGO_ARIS = {
     { t:"Reforma exitosa", d:"Una medida tuya sale bien.", a:2, b:1, img:"azar-reforma" },
     { t:"Inspiración", d:"Encuentras una claridad que ordena tu juicio.", phr:2, img:"azar-inspiracion" },
     { t:"Tratado de paz", d:"Se firma la paz y la ciudad respira.", c:2, b:1, img:"azar-paz" },
-    { t:"Golpe de suerte", d:"La fortuna sonríe por una vez.", b:3, a:1 },
+    { t:"Golpe de suerte", d:"La fortuna sonríe por una vez.", b:3, a:1, img:"azar-suerte" },
     { t:"Resistencia de las élites", d:"Los poderosos bloquean tu iniciativa.", b:-4, img:"azar-elites", bad:true },
     { t:"Reacción de los fanáticos", d:"Recibes una respuesta violenta.", c:-3, b:-2, img:"azar-fanaticos", bad:true },
-    { t:"La peste", d:"Una epidemia asola la ciudad.", c:-5, bad:true },
-    { t:"Ruina económica", d:"Una mala inversión te deja sin recursos.", b:-5, bad:true },
-    { t:"Traición", d:"Alguien de confianza te vende.", a:-4, b:-2, bad:true },
-    { t:"Guerra civil", d:"El conflicto interno lo devora todo.", c:-4, b:-3, bad:true },
-    { t:"Escándalo público", d:"Tu nombre se arrastra por el fango.", a:-3, b:-2, bad:true },
-    { t:"Destierro", d:"Te expulsan de la ciudad.", b:-4, a:-1, bad:true }
+    { t:"La peste", d:"Una epidemia asola la ciudad.", c:-5, img:"azar-peste", bad:true },
+    { t:"Ruina económica", d:"Una mala inversión te deja sin recursos.", b:-5, img:"azar-ruina", bad:true },
+    { t:"Traición", d:"Alguien de confianza te vende.", a:-4, b:-2, img:"azar-traicion", bad:true },
+    { t:"Guerra civil", d:"El conflicto interno lo devora todo.", c:-4, b:-3, img:"azar-guerra", bad:true },
+    { t:"Escándalo público", d:"Tu nombre se arrastra por el fango.", a:-3, b:-2, img:"azar-escandalo", bad:true },
+    { t:"Destierro", d:"Te expulsan de la ciudad.", b:-4, a:-1, img:"azar-destierro", bad:true }
   ],
   chanceProb: 0.7,   // probabilidad de que salte una carta de azar tras cada decisión
   bands: [

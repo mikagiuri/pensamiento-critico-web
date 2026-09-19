@@ -45,7 +45,7 @@ const REP_ACTS = [
 ];
 
 const rep = repFresh();
-function repFresh(){ return { mode:"real", acciones:"si", cnt:{}, armonia:REP_START, turn:0, turns:8, deck:[], resolved:false, nZ:0,nG:0,nE:0, t:null, ap:0, apTurn:0, used:new Set() }; }
+function repFresh(){ return { mode:"real", acciones:"si", cnt:{}, armonia:REP_START, turn:0, turns:8, deck:[], resolved:false, nZ:0,nG:0,nE:0, t:null, ap:0, apTurn:0, used:new Set(), log:[], turnActs:[], designText:"" }; }
 function repBox(){ return document.getElementById("repbox"); }
 function cost(c){ return c.sj+c.v+c.t; }
 function repShuffle(a){ a=a.slice(); for(let i=a.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[a[i],a[j]]=[a[j],a[i]];} return a; }
@@ -212,7 +212,11 @@ function repRandom(){
 
 /* ---------- turnos ---------- */
 function repStart(){
-  repCompute(); const c=rep._cls; rep.armonia=REP_START; rep.turn=0; rep.ap=(rep.acciones==="si")?REP_AP0:0;
+  const s0=repCompute(); const c=rep._cls; rep.armonia=REP_START; rep.turn=0; rep.ap=(rep.acciones==="si")?REP_AP0:0;
+  // crónica: instantánea del diseño inicial
+  const parts=[]; ["Z","G","E"].forEach(k=>REP_ROSTER[k].forEach(p=>{ const q=rep.cnt[p.id]||0; if(q) parts.push(q+"× "+p.name); }));
+  rep.designText=parts.join(", ")+" — "+s0.pop+" hab., "+s0.pts+" pts";
+  rep.log=[];
   const n=REP_MODES[rep.mode].deck;   // Real 8 · Fácil 7 — cada carta es un turno
   rep.turns=n;
   const nFate=(rep.mode==="real")?3:2;                                  // cartas del destino inevitables por partida
@@ -226,7 +230,7 @@ function repStart(){
 }
 function repFmt(n){ n=Math.round(n*10)/10; return Number.isInteger(n)?n:n.toFixed(1); }
 function repRenderTurn(){
-  rep.resolved=false; rep.apTurn=0; rep.used=new Set(); rep.t.hero=false;
+  rep.resolved=false; rep.apTurn=0; rep.used=new Set(); rep.turnActs=[]; rep.t.hero=false;
   rep.rng=Math.random();   // azar fijo del turno (oráculo): igual en previsualización y resolución
   const ev=REP_EVENTS.find(e=>e.id===rep.deck[rep.turn]);
   repBox().innerHTML='<div class="rep-wrap">'+
@@ -267,14 +271,16 @@ function repDrawTurn(ev){
 }
 function repDoAct(id,ev){ const a=REP_ACTS.find(x=>x.id===id);
   if(rep.apTurn>=2||rep.used.has(id)||rep.ap<a.ap||(a.ok&&!a.ok())) return;
-  a.run(); rep.ap-=a.ap; rep.apTurn++; rep.used.add(id);
+  a.run(); rep.ap-=a.ap; rep.apTurn++; rep.used.add(id); rep.turnActs.push(a.name);
   const ael=document.getElementById("repAp"); if(ael)ael.textContent=rep.ap;
   const arm=document.getElementById("repArm"); if(arm)arm.textContent=repFmt(rep.armonia);
   document.querySelector("#republica .rep-arm > i").style.width=Math.max(0,rep.armonia/REP_ARM0*100)+"%";
   repDrawTurn(ev); }
 function repResolve(ev){
   if(rep.resolved) return; rep.resolved=true;
-  const r=ev.effect(); rep.armonia=Math.min(REP_ARM0, Math.round((rep.armonia+r.d)*10)/10);
+  const before=rep.armonia;
+  const r=ev.effect(); const after=Math.min(REP_ARM0, Math.round((before+r.d)*10)/10); rep.armonia=after;
+  rep.log.push({ n:rep.turn+1, ev:ev.name, src:ev.src, fate:!!ev.fate, msg:r.msg, acts:rep.turnActs.slice(), before, after, Z:rep.t.Z.n, G:rep.t.G.n, E:rep.t.E.n });
   rep.turn++;
   if(rep.turn>=rep.turns || rep.armonia<=0 || repPop()<3) repResult(); else repRenderTurn();
 }
