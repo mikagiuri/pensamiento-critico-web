@@ -59,15 +59,18 @@ function renderTheoryChips(){
 }
 
 /* Mapa curado: infografía de autor → nº de tema del currículo de HF.
-   Solo emparejamientos inequívocos; da a esas infografías (con clave de persona, sin campo
-   `tema`) un ancla al temario para que la tira «De este tema» las enlace con su teoría/lectura.
-   EDITABLE: para añadir un autor, escribe aquí su nº de tema (ver los títulos en theory.js).
-   Se dejan fuera a propósito los ambiguos (Aristóteles T7/8/9, Locke, Spinoza, Hegel,
-   Arendt, Schopenhauer): que los ancle el profesorado según su criterio. */
+   Da a esas infografías (con clave de persona, sin campo `tema`) un ancla al temario para
+   que la tira «De este tema» las enlace con su teoría/lectura.
+   EDITABLE: para cambiar el tema de un autor, edita aquí su nº (ver los títulos en theory.js).
+   Los autores sin tema propio en el temario se anclan al más afín (criterio del profesorado):
+   Aristóteles→8 (ética; alt. 7/9), Locke/Spinoza→14 (empirismo/racionalismo; alt. 16/17/15),
+   Schopenhauer→23 (precursor de Nietzsche; alt. 21), Hegel→21 (idealismo→Marx; el más forzado),
+   Arendt→27 (sociedad actual; alt. 25). */
 const TEMA_ALIAS = {
-  "hf-presocraticos": 4, "hf-socrates": 5, "hf-agustin": 12, "hf-tomas": 12,
-  "hf-descartes": 14, "hf-hume": 14, "hf-maquiavelo": 16, "hf-hobbes": 16,
-  "hf-rousseau": 16, "hf-marx": 21, "hf-freud": 21, "hf-nietzsche": 23, "hf-sartre": 25
+  "hf-presocraticos": 4, "hf-socrates": 5, "hf-aristoteles": 8, "hf-agustin": 12,
+  "hf-tomas": 12, "hf-descartes": 14, "hf-hume": 14, "hf-locke": 14, "hf-spinoza": 14,
+  "hf-maquiavelo": 16, "hf-hobbes": 16, "hf-rousseau": 16, "hf-marx": 21, "hf-freud": 21,
+  "hf-hegel": 21, "hf-nietzsche": 23, "hf-schopenhauer": 23, "hf-sartre": 25, "hf-arendt": 27
 };
 
 /* ===== Enlaces contextuales «De este tema» (compartido por Teoría, Lecturas e Infografías) =====
