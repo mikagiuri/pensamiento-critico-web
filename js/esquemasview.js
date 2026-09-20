@@ -82,13 +82,18 @@ function loadEsq(k){
 
 renderEsqFilter();
 renderEsqChips();
-drawEsq();
+/* El dibujo inicial se dispara al abrir la vista Esquemas (js/lazy_libs.js inyecta
+   mermaid entonces). Aquí solo se dibuja ya si mermaid estuviera presente, para no
+   arrancar el bucle de reintento cuando la carga es perezosa. */
+if (typeof mermaid !== "undefined") drawEsq();
 
-/* Re-dibujar al cambiar el tema (el botón #theme o el sistema). */
+/* Re-dibujar al cambiar el tema (el botón #theme o el sistema); solo si mermaid ya
+   está cargado (si no, el redibujo se hará al abrir Esquemas). */
 (function(){
+  const redraw = function (){ if (typeof mermaid !== "undefined"){ esqInit(); drawEsq(); } };
   const btn = document.getElementById("theme");
-  if (btn) btn.addEventListener("click", function (){ setTimeout(function (){ esqInit(); drawEsq(); }, 60); });
+  if (btn) btn.addEventListener("click", function (){ setTimeout(redraw, 60); });
   if (window.matchMedia){
-    try { window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", function (){ esqInit(); drawEsq(); }); } catch (e) {}
+    try { window.matchMedia("(prefers-color-scheme: dark)").addEventListener("change", redraw); } catch (e) {}
   }
 })();
