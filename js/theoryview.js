@@ -58,11 +58,51 @@ function renderTheoryChips(){
   box.querySelectorAll("[data-th]").forEach(b => b.addEventListener("click", () => loadTheory(b.dataset.th)));
 }
 
+/* Recursos del MISMO tema (enlaces contextuales), sin cambiar la navegación:
+   reutiliza el mapa curado UNIDADES (HF) y coincidencia directa de clave (Filosofía). */
+function theoryRelated(key){
+  const out = [];
+  const has = (o, k) => typeof o !== "undefined" && o && o[k];
+  if (typeof UNIDADES !== "undefined"){
+    for (const n of Object.keys(UNIDADES)){
+      const u = UNIDADES[n];
+      if (u && u.teoria === key){
+        out.push({ go: "unidad", arg: n, label: "Ver el tema completo →" });
+        if (u.quiz && has(QUIZZES, u.quiz)) out.push({ go: "cuestionarios", arg: u.quiz, label: "Cuestionario" });
+        if (u.lectura && has(LECTURAS, u.lectura)) out.push({ go: "lecturas", arg: u.lectura, label: "Leer el texto" });
+        break;
+      }
+    }
+  }
+  if (has(QUIZZES, key) && !out.some(r => r.go === "cuestionarios")) out.push({ go: "cuestionarios", arg: key, label: "Cuestionario" });
+  if (has(INFOGRAFIAS, key)) out.push({ go: "infografias", arg: key, label: "Infografía" });
+  return out;
+}
+
+function goTheoryRelated(go, arg){
+  if (typeof show === "function") show(go);
+  if (go === "cuestionarios" && typeof loadQuiz === "function") loadQuiz(arg);
+  else if (go === "lecturas" && typeof loadLectura === "function") loadLectura(arg);
+  else if (go === "infografias" && typeof loadInfografia === "function") loadInfografia(arg);
+  else if (go === "teoria") loadTheory(arg);
+  else if (go === "unidad" && typeof unidadKey !== "undefined"){
+    unidadKey = +arg;
+    if (typeof renderUnidadChips === "function") renderUnidadChips();
+    if (typeof renderUnidadBody === "function") renderUnidadBody();
+  }
+}
+
 function loadTheory(k){
   theoryKey = k;
   renderTheoryChips();
   const t = THEORY[k], body = document.getElementById("theorybody");
-  body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + t.subject + ')">' + t.tema + '</span><h1>' + t.title + '</h1></div>' + t.html;
+  const rel = theoryRelated(k);
+  const relHtml = rel.length
+    ? '<div class="toolrow theory-related" style="margin:.1rem 0 1.1rem"><span class="flabel" style="align-self:center">De este tema:</span>' +
+      rel.map(r => '<button class="btn" data-go="' + r.go + '" data-arg="' + r.arg + '">' + r.label + '</button>').join(" ") + '</div>'
+    : '';
+  body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + t.subject + ')">' + t.tema + '</span><h1>' + t.title + '</h1></div>' + relHtml + t.html;
+  body.querySelectorAll(".theory-related [data-go]").forEach(b => b.addEventListener("click", () => goTheoryRelated(b.dataset.go, b.dataset.arg)));
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "th-" + i; });
   body.querySelectorAll(".figimg").forEach(img => img.addEventListener("click", () => openLightbox(img.src)));
