@@ -22,6 +22,8 @@
 #cronogramas .crono-svg .lane-lbl{ fill:var(--ink); font-family:var(--sans); font-size:13px; }
 #cronogramas .crono-svg .bar{ rx:6; }
 #cronogramas .crono-svg .bar-lbl{ fill:var(--on-accent); font-family:var(--mono); font-size:10.5px; }
+#cronogramas .crono-svg .bar-yr{ fill:var(--muted); font-family:var(--mono); font-size:10.5px; }
+#cronogramas .crono-svg .band{ fill:var(--ink); opacity:.035; }
 #cronogramas .crono-svg .zero{ stroke:var(--bad); stroke-width:1; stroke-dasharray:3 3; opacity:.7; }
 
 /* épocas (secuencia de etapas) */

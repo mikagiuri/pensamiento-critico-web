@@ -54,11 +54,14 @@ function drawCrono(){
 }
 
 function cronoSvg(c){
-  const axes = (c.axes || []).filter(a => a.name);
+  let axes = (c.axes || []).filter(a => a.name);
   let start = c.start, end = c.end;
   // encuadrar por si la escala no cubre todos los carriles
   axes.forEach(a => { if (a.start != null) start = Math.min(start, a.start); if (a.end != null) end = Math.max(end, a.end); });
   if (start == null || end == null || end <= start){ return '<p class="lead">—</p>'; }
+  // orden cronológico (por año de inicio, luego de fin): la línea se lee de arriba a abajo en el tiempo
+  const key = v => (v == null ? 1e9 : v);
+  axes = axes.slice().sort((a, b) => key(a.start) - key(b.start) || key(a.end) - key(b.end));
 
   const W = 960, gutter = 186, padR = 26, padTop = 40, rowH = 30, barH = 18;
   const H = padTop + axes.length * rowH + 16;
@@ -66,11 +69,15 @@ function cronoSvg(c){
   const xOf = y => x0 + (y - start) / (end - start) * (x1 - x0);
 
   let svg = '<svg class="crono-svg" viewBox="0 0 ' + W + ' ' + H + '" role="img" aria-label="' + c.title.replace(/"/g, "") + '">';
-  // rejilla + años
+  // bandas alternas por periodo + rejilla + años (orientación temporal)
   const step = niceStep(end - start);
   const first = Math.ceil(start / step) * step;
+  let band = 0;
   for (let y = first; y <= end; y += step){
-    const x = xOf(y);
+    const x = xOf(y), xPrev = Math.max(x0, xOf(y - step));
+    if (band % 2 === 0 && x - xPrev > 0)
+      svg += '<rect class="band" x="' + xPrev.toFixed(1) + '" y="' + (padTop - 8) + '" width="' + (x - xPrev).toFixed(1) + '" height="' + (H - padTop) + '"/>';
+    band++;
     svg += '<line class="grid" x1="' + x.toFixed(1) + '" y1="' + (padTop - 8) + '" x2="' + x.toFixed(1) + '" y2="' + (H - 8) + '"/>';
     svg += '<text class="tick-lbl" x="' + x.toFixed(1) + '" y="' + (padTop - 12) + '" text-anchor="middle">' + cronoYear(y) + '</text>';
   }
@@ -86,9 +93,16 @@ function cronoSvg(c){
     if (a.start != null && a.end != null && a.end >= a.start){
       const bx = xOf(a.start), bw = Math.max(4, xOf(a.end) - xOf(a.start));
       svg += '<rect class="bar" x="' + bx.toFixed(1) + '" y="' + (y + (rowH - barH) / 2) + '" width="' + bw.toFixed(1) + '" height="' + barH + '" rx="6" fill="' + colors[i % colors.length] + '"/>';
-      if (bw > 66) svg += '<text class="bar-lbl" x="' + (bx + 6).toFixed(1) + '" y="' + (y + rowH / 2 + 4) + '">' + cronoYear(a.start) + '–' + cronoYear(a.end) + '</text>';
+      // años SIEMPRE visibles: a la derecha de la barra, o a la izquierda si no cabe (nunca recortados)
+      const lbl = cronoYear(a.start) + '–' + cronoYear(a.end), lblW = lbl.length * 6;
+      const yr = y + rowH / 2 + 4, rx = xOf(a.end) + 6;
+      if (rx + lblW <= W - 2)
+        svg += '<text class="bar-yr" x="' + rx.toFixed(1) + '" y="' + yr + '" text-anchor="start">' + lbl + '</text>';
+      else
+        svg += '<text class="bar-yr" x="' + (bx - 6).toFixed(1) + '" y="' + yr + '" text-anchor="end">' + lbl + '</text>';
     } else if (a.start != null){
       svg += '<circle cx="' + xOf(a.start).toFixed(1) + '" cy="' + (y + rowH / 2) + '" r="5" fill="' + colors[i % colors.length] + '"/>';
+      svg += '<text class="bar-yr" x="' + (xOf(a.start) + 9).toFixed(1) + '" y="' + (y + rowH / 2 + 4) + '" text-anchor="start">' + cronoYear(a.start) + '</text>';
     }
   });
   svg += '</svg>';
