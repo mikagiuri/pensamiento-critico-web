@@ -6,12 +6,35 @@
 /* ----- navegación entre vistas ----- */
 const tabs = document.getElementById("tabs");
 const views = [...document.querySelectorAll(".view")];
+function activeViewId(){ const v = views.find(v => v.classList.contains("active")); return v ? v.id : null; }
+
 function show(id){
   views.forEach(v => v.classList.toggle("active", v.id === id));
-  [...tabs.children].forEach(b => b.setAttribute("aria-current", b.dataset.view === id ? "true" : "false"));
+  /* «estás aquí»: marca TODOS los botones de vista, también los de dentro de los
+     desplegables. Al hacerlo, se reactiva el resaltado del grupo (regla :has de mobile.css)
+     y el del botón (styles.css), que antes eran código muerto porque solo se marcaban
+     los hijos directos de la barra. */
+  tabs.querySelectorAll("button[data-view]").forEach(b =>
+    b.setAttribute("aria-current", b.dataset.view === id ? "true" : "false"));
+  /* deep-linking: refleja la vista en la URL (enlace compartible; persiste al refrescar). */
+  if (id && ("#" + id) !== location.hash){ try { location.hash = id; } catch (e){} }
   window.scrollTo(0, 0);
+  /* accesibilidad: lleva el foco al encabezado de la vista para que el cambio se anuncie. */
+  const v = document.getElementById(id), h = v && v.querySelector("h1");
+  if (h){ h.setAttribute("tabindex", "-1"); try { h.focus({ preventScroll: true }); } catch (e){ try { h.focus(); } catch (_){} } }
 }
 tabs.addEventListener("click", e => { const b = e.target.closest("button"); if (b) show(b.dataset.view); });
+
+/* enrutado por hash: enlaces directos, refrescar y atrás/adelante del navegador */
+function viewIdFromHash(){
+  const id = (location.hash || "").replace(/^#/, "");
+  const el = id && document.getElementById(id);
+  return (el && el.classList.contains("view")) ? id : null;
+}
+function routeFromHash(){ const id = viewIdFromHash(); if (id && id !== activeViewId()) (window.show || show)(id); }
+window.addEventListener("hashchange", routeFromHash);
+/* enrutado inicial tras cargar todos los scripts (para pasar por el show() ya envuelto por navctx) */
+document.addEventListener("DOMContentLoaded", routeFromHash);
 
 /* ----- tema claro / oscuro / sistema ----- */
 const themeBtn = document.getElementById("theme");
