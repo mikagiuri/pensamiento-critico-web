@@ -10,19 +10,19 @@
 /* ---- Asociar cada tema (1..27) con las claves que le corresponden ---- */
 const UNIDADES = {
   // Bloque A (temas 1-10)
-  1: { teoria: "hf-historicidad", lectura: null, quiz: null },
-  2: { teoria: "hf-metodos", lectura: null, quiz: null },
+  1: { teoria: "hf-historicidad", lectura: null, quiz: "hf-t1-historicidad" },
+  2: { teoria: "hf-metodos", lectura: null, quiz: "hf-t2-metodos" },
   3: { teoria: "hf-mito", lectura: null, quiz: "preso" },
   4: { teoria: "hf-preso", lectura: null, quiz: "preso" },
   5: { teoria: "hf-sofistas", lectura: null, quiz: "preso" },
   6: { teoria: "hf-platon", lectura: "hf-platon", quiz: "plat-antro" },
   7: { teoria: "hf-antropologia", lectura: null, quiz: "plat-antro" },
-  8: { teoria: "hf-etica", lectura: null, quiz: null },
-  9: { teoria: "hf-politica", lectura: null, quiz: null },
-  10: { teoria: "hf-helenismo", lectura: null, quiz: null },
+  8: { teoria: "hf-etica", lectura: null, quiz: "ltfh-A8" },
+  9: { teoria: "hf-politica", lectura: null, quiz: "ltfh-A9" },
+  10: { teoria: "hf-helenismo", lectura: null, quiz: "ltfh-A10" },
   // Bloque B (temas 11-17)
   11: { teoria: "hf-medieval", lectura: null, quiz: "ltfh-B1" },
-  12: { teoria: "hf-fe-razon", lectura: null, quiz: null },
+  12: { teoria: "hf-fe-razon", lectura: null, quiz: "hf-t12-fe-razon" },
   13: { teoria: "hf-modernidad", lectura: null, quiz: "ltfh-B3" },
   14: { teoria: "hf-racionalismo", lectura: null, quiz: "ltfh-BD" },
   15: { teoria: "hf-metafisica", lectura: null, quiz: "ltfh-B5" },
@@ -31,7 +31,7 @@ const UNIDADES = {
   // Bloque C (temas 18-27)
   18: { teoria: "hf-ilustracion", lectura: null, quiz: "ltfh-C1" },
   19: { teoria: "hf-kant", lectura: null, quiz: "ltfh-CK" },
-  20: { teoria: "hf-etica-deber", lectura: null, quiz: null },
+  20: { teoria: "hf-etica-deber", lectura: null, quiz: "hf-t20-etica-deber" },
   21: { teoria: "hf-sospecha", lectura: null, quiz: "ltfh-C4" },
   22: { teoria: "hf-capitalismo", lectura: null, quiz: "ltfh-CM" },
   23: { teoria: "hf-posmodernidad", lectura: null, quiz: "ltfh-C6" },
