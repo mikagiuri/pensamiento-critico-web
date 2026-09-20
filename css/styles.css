@@ -283,3 +283,26 @@ footer{border-top:1px solid var(--line);margin-top:60px;padding:24px 0 60px;colo
 .resume-x{margin-left:auto;flex:none;background:none;border:0;color:var(--muted);font-size:1.1rem;line-height:1;
   cursor:pointer;padding:.2rem .35rem;border-radius:8px}
 .resume-x:hover{background:var(--surface-2);color:var(--ink)}
+
+/* ===== Botón «Imprimir» (vistas de contenido) ===== */
+.print-row{display:flex;justify-content:flex-end;margin:.2rem 0 .8rem}
+.print-btn{cursor:pointer}
+
+/* ===== Impresión: deja solo el contenido de la vista activa ===== */
+@media print{
+  /* cromo fijo y controles fuera */
+  .bar, .skiplink, #tabs, .navtoggle, #theme, #searchbtn, #searchoverlay, .resume,
+  .toc, .print-row, #comentariolink, .lightbox, .gallb { display:none !important; }
+  /* dentro de la vista activa: intro genérica y filtros fuera (el título propio del
+     contenido va dentro del cuerpo y sí se imprime) */
+  .view.active > .eyebrow, .view.active > .title, .view.active > .lead,
+  .view.active > .filterbar, .view.active > .chips { display:none !important; }
+  .view:not(.active){ display:none !important; }
+  html, body{ background:#fff !important; }
+  body{ color:#000 !important; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  .wrap{ max-width:none !important; margin:0 !important; padding:0 !important; }
+  .theory-layout{ display:block !important; }
+  .theory{ max-width:none !important; }
+  .theory-head h1, .easchema, article, figure, table, img, .card{ break-inside:avoid; }
+  a[href]{ color:#000 !important; text-decoration:none; }
+}

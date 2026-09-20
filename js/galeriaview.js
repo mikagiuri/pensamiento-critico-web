@@ -28,11 +28,12 @@ const GAL_CSS = `
 .gallb .next{right:6px;border-radius:10px 0 0 10px}
 @media (max-width:520px){ #galeria .galgrid{grid-template-columns:repeat(auto-fill,minmax(140px,1fr))} #galeria .galcard img{height:120px} }
 `;
-let _galCss = false, _lb = null;
+let _galCss = false, _lb = null, _galPrev = null;
 function galInject(){
   if (_galCss) return;
   const s = document.createElement("style"); s.textContent = GAL_CSS; document.head.appendChild(s);
   _lb = document.createElement("div"); _lb.className = "gallb"; _lb.hidden = true;
+  _lb.setAttribute("role", "dialog"); _lb.setAttribute("aria-modal", "true"); _lb.setAttribute("aria-label", "Visor de la galería");
   _lb.innerHTML = '<div class="box"><button class="nav prev" aria-label="Anterior">‹</button>' +
     '<img id="gallbimg" alt=""><div class="meta"><h4 id="gallbt"></h4><p id="gallbp"></p></div>' +
     '<button class="nav next" aria-label="Siguiente">›</button><button class="close" aria-label="Cerrar">×</button></div>';
@@ -46,6 +47,12 @@ function galInject(){
     if (e.key === "Escape") galClose();
     else if (e.key === "ArrowLeft") galStep(-1);
     else if (e.key === "ArrowRight") galStep(1);
+    else if (e.key === "Tab"){   // atrapar el foco dentro del visor
+      const f = _lb.querySelectorAll("button"); if (!f.length) return;
+      const first = f[0], last = f[f.length - 1], a = document.activeElement;
+      if (e.shiftKey && (a === first || !_lb.contains(a))){ e.preventDefault(); last.focus(); }
+      else if (!e.shiftKey && (a === last || !_lb.contains(a))){ e.preventDefault(); first.focus(); }
+    }
   });
   _galCss = true;
 }
@@ -83,8 +90,10 @@ function galShow(){
   document.getElementById("gallbt").textContent = g.t;
   document.getElementById("gallbp").textContent = (g.pie ? g.pie + " · " : "") + (g.unidad || "");
 }
-function galOpen(i){ galInject(); galPos = i; galShow(); _lb.hidden = false; }
-function galClose(){ if (_lb) _lb.hidden = true; }
+function galOpen(i){ galInject(); _galPrev = document.activeElement; galPos = i; galShow(); _lb.hidden = false;
+  const c = _lb.querySelector(".close"); if (c) c.focus(); }
+function galClose(){ if (_lb) _lb.hidden = true;
+  if (_galPrev && _galPrev.focus){ try { _galPrev.focus(); } catch (e){} } _galPrev = null; }
 function galStep(d){ galPos = (galPos + d + galList.length) % galList.length; galShow(); }
 
 renderGalFilter();

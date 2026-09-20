@@ -54,20 +54,34 @@ function renderMediaExtra(){
 }
 
 /* ----- visor (lightbox) ----- */
+let _mlbPrev = null;
+function closeMediaLightbox(){
+  const lb = document.getElementById("medialightbox");
+  if (lb) lb.classList.remove("open");
+  if (_mlbPrev && _mlbPrev.focus){ try { _mlbPrev.focus(); } catch (e){} } _mlbPrev = null;
+}
 function openLightbox(src){
   let lb = document.getElementById("medialightbox");
   if (!lb){
     lb = document.createElement("div");
     lb.id = "medialightbox";
     lb.className = "lightbox";
-    lb.innerHTML = '<button class="lb-close" aria-label="Cerrar">×</button><img alt="Infografía ampliada">';
+    lb.setAttribute("role", "dialog"); lb.setAttribute("aria-modal", "true"); lb.setAttribute("aria-label", "Imagen ampliada");
+    lb.innerHTML = '<button class="lb-close" aria-label="Cerrar">×</button><img alt="Imagen ampliada">';
     document.body.appendChild(lb);
     lb.addEventListener("click", e => {
-      if (e.target === lb || e.target.classList.contains("lb-close")) lb.classList.remove("open");
+      if (e.target === lb || e.target.classList.contains("lb-close")) closeMediaLightbox();
+    });
+    document.addEventListener("keydown", e => {
+      if (!lb.classList.contains("open")) return;
+      if (e.key === "Escape") closeMediaLightbox();
+      else if (e.key === "Tab"){ e.preventDefault(); const c = lb.querySelector(".lb-close"); if (c) c.focus(); }  // foco atrapado (único control)
     });
   }
+  _mlbPrev = document.activeElement;
   lb.querySelector("img").src = src;
   lb.classList.add("open");
+  const c = lb.querySelector(".lb-close"); if (c) c.focus();
 }
 
 renderMediaFilter();
