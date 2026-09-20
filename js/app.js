@@ -47,6 +47,28 @@ themeBtn.addEventListener("click", () => {
 })();
 
 /* ----- vistas de materia ----- */
+/* Mapa de recursos de una materia: por cada tipo de contenido, cuántos elementos
+   hay de esa materia. Da al hub un índice navegable de todo lo disponible (además
+   de los enlaces curados de s.tools). Guardas typeof por si un build no trae alguna
+   colección. Al pulsar una ficha, navctx.js preselecciona la materia en esa vista. */
+function subjectResourceMap(subjId){
+  const defs = [
+    ["teoria", "Teoría", typeof THEORY !== "undefined" ? THEORY : null],
+    ["lecturas", "Lecturas", typeof LECTURAS !== "undefined" ? LECTURAS : null],
+    ["cuestionarios", "Cuestionarios", typeof QUIZZES !== "undefined" ? QUIZZES : null],
+    ["tarjetas", "Tarjetas", typeof DECKS !== "undefined" ? DECKS : null],
+    ["infografias", "Infografías", typeof INFOGRAFIAS !== "undefined" ? INFOGRAFIAS : null],
+    ["esquemas", "Esquemas", typeof ESQUEMAS !== "undefined" ? ESQUEMAS : null],
+    ["mapas", "Mapas", typeof MAPS !== "undefined" ? MAPS : null],
+    ["materiales", "Materiales", typeof MATERIALS !== "undefined" ? MATERIALS : null]
+  ];
+  return defs.map(([go, label, coll]) => {
+    if (!coll) return null;
+    const n = Object.keys(coll).filter(k => coll[k] && coll[k].subject === subjId).length;
+    return n ? { go, label, n } : null;
+  }).filter(Boolean);
+}
+
 function renderSubjects(){
   Object.entries(SUBJECTS).forEach(([id, s]) => {
     const el = document.getElementById(id);
@@ -57,8 +79,14 @@ function renderSubjects(){
     const tools = s.tools.length
       ? `<div class="toolrow">${s.tools.map(t => `<button class="btn" data-go="${t[1]}" data-arg="${t[2]}">${t[0]} →</button>`).join("")}</div>`
       : "";
+    const resMap = subjectResourceMap(id);
+    const hub = resMap.length
+      ? `<div class="sec-head"><h2 class="sec">Explora la materia</h2><p>Todo lo disponible, por tipo. Pulsa para abrirlo.</p></div>
+      <div class="hubmap" style="--c:${s.color}">${resMap.map(r => `<button class="hubtile" data-hub="${r.go}"><span class="hubtile-n">${r.n}</span><span class="hubtile-l">${r.label}</span></button>`).join("")}</div>`
+      : "";
     el.innerHTML = `<div class="subhead" style="--c:${s.color}"><span class="kick">${s.kick}</span><h1>${s.name}</h1></div>
       <p class="lead">${s.intro}</p>
+      ${hub}
       <div class="sec-head"><h2 class="sec">Materiales</h2></div>
       <div class="mats">${mats}</div>${tools}`;
   });
@@ -71,6 +99,8 @@ function renderSubjects(){
     if (go === "materiales") loadMaterial(arg);
     if (go === "mapas") loadMap(arg);
   }));
+  /* Fichas del hub: solo cambian de vista; navctx.js preselecciona la materia. */
+  document.querySelectorAll("[data-hub]").forEach(b => b.addEventListener("click", () => show(b.dataset.hub)));
   document.querySelectorAll("[data-mat]").forEach(b => b.addEventListener("click", () => {
     show("materiales");
     loadMaterial(b.dataset.mat);

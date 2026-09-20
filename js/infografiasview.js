@@ -180,6 +180,11 @@ function loadInfografia(k){
   if (!stage) return;
   if (!stage.shadowRoot) stage.attachShadow({ mode: "open" });
   stage.shadowRoot.innerHTML = igMarkup(INFOGRAFIAS[k]);
+  /* Tira «De este tema» en el light DOM (el CSS de .btn/.related-row vive fuera del Shadow DOM). */
+  let rel = document.getElementById("igrelated");
+  if (!rel){ rel = document.createElement("div"); rel.id = "igrelated"; stage.parentNode.insertBefore(rel, stage); }
+  rel.innerHTML = (typeof relatedStripHtml === "function") ? relatedStripHtml(k, "infografias") : "";
+  if (typeof wireRelated === "function") wireRelated(rel);
   window.scrollTo(0, 0);
 }
 

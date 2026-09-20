@@ -58,33 +58,82 @@ function renderTheoryChips(){
   box.querySelectorAll("[data-th]").forEach(b => b.addEventListener("click", () => loadTheory(b.dataset.th)));
 }
 
-/* Recursos del MISMO tema (enlaces contextuales), sin cambiar la navegación:
-   reutiliza el mapa curado UNIDADES (HF) y coincidencia directa de clave (Filosofía). */
-function theoryRelated(key){
+/* Mapa curado: infografía de autor → nº de tema del currículo de HF.
+   Solo emparejamientos inequívocos; da a esas infografías (con clave de persona, sin campo
+   `tema`) un ancla al temario para que la tira «De este tema» las enlace con su teoría/lectura.
+   EDITABLE: para añadir un autor, escribe aquí su nº de tema (ver los títulos en theory.js).
+   Se dejan fuera a propósito los ambiguos (Aristóteles T7/8/9, Locke, Spinoza, Hegel,
+   Arendt, Schopenhauer): que los ancle el profesorado según su criterio. */
+const TEMA_ALIAS = {
+  "hf-presocraticos": 4, "hf-socrates": 5, "hf-agustin": 12, "hf-tomas": 12,
+  "hf-descartes": 14, "hf-hume": 14, "hf-maquiavelo": 16, "hf-hobbes": 16,
+  "hf-rousseau": 16, "hf-marx": 21, "hf-freud": 21, "hf-nietzsche": 23, "hf-sartre": 25
+};
+
+/* ===== Enlaces contextuales «De este tema» (compartido por Teoría, Lecturas e Infografías) =====
+   Reúne los recursos del MISMO tema sin cambiar la navegación: reutiliza el mapa curado
+   UNIDADES (HF) y la coincidencia directa de clave (Filosofía e infografías). `self` es la
+   vista actual, que se excluye para no enlazar a sí misma. typeof-guards por el orden de carga. */
+function relatedFor(key, self){
   const out = [];
   const has = (o, k) => typeof o !== "undefined" && o && o[k];
+  const add = (go, arg, label) => { if (arg && go !== self && !out.some(r => r.go === go)) out.push({ go, arg, label }); };
   if (typeof UNIDADES !== "undefined"){
     for (const n of Object.keys(UNIDADES)){
       const u = UNIDADES[n];
-      if (u && u.teoria === key){
-        out.push({ go: "unidad", arg: n, label: "Ver el tema completo →" });
-        if (u.quiz && has(QUIZZES, u.quiz)) out.push({ go: "cuestionarios", arg: u.quiz, label: "Cuestionario" });
-        if (u.lectura && has(LECTURAS, u.lectura)) out.push({ go: "lecturas", arg: u.lectura, label: "Leer el texto" });
+      if (u && (u.teoria === key || u.lectura === key)){
+        add("unidad", n, "Ver el tema completo →");
+        if (u.teoria && has(THEORY, u.teoria)) add("teoria", u.teoria, "Teoría");
+        if (u.quiz && has(QUIZZES, u.quiz)) add("cuestionarios", u.quiz, "Cuestionario");
+        if (u.lectura && has(LECTURAS, u.lectura)) add("lecturas", u.lectura, "Leer el texto");
         break;
       }
     }
   }
-  if (has(QUIZZES, key) && !out.some(r => r.go === "cuestionarios")) out.push({ go: "cuestionarios", arg: key, label: "Cuestionario" });
-  if (has(INFOGRAFIAS, key)) out.push({ go: "infografias", arg: key, label: "Infografía" });
+  /* typeof-guards obligatorios: estos objetos globales (const) se cargan DESPUÉS de este
+     archivo, y nombrar el identificador antes de existir lanza ReferenceError (no basta con
+     has(): el argumento se evalúa antes de la llamada). El && cortocircuita sin tocarlo. */
+  if (typeof THEORY !== "undefined" && THEORY[key]) add("teoria", key, "Teoría");
+  if (typeof QUIZZES !== "undefined" && QUIZZES[key]) add("cuestionarios", key, "Cuestionario");
+  if (typeof LECTURAS !== "undefined" && LECTURAS[key]) add("lecturas", key, "Leer el texto");
+  if (typeof INFOGRAFIAS !== "undefined" && INFOGRAFIAS[key]) add("infografias", key, "Infografía");
+  /* Fallback por tema (mismo nº de tema y misma materia): conecta las lecturas e infografías
+     "de paquete" con su teoría/cuestionario aunque no compartan clave. */
+  const src = (typeof THEORY !== "undefined" && THEORY[key]) ||
+              (typeof LECTURAS !== "undefined" && LECTURAS[key]) ||
+              (typeof QUIZZES !== "undefined" && QUIZZES[key]) ||
+              (typeof INFOGRAFIAS !== "undefined" && INFOGRAFIAS[key]) || null;
+  if (src){
+    const temaN = o => { if (!o) return null; if (typeof o.tema === "number") return o.tema;
+      const m = String(o.tema || "").match(/Tema\s+(\d+)/); return m ? +m[1] : null; };
+    let tn = temaN(src);
+    if (tn == null && typeof TEMA_ALIAS !== "undefined" && TEMA_ALIAS[key] != null) tn = TEMA_ALIAS[key];
+    const subj = src.subject;
+    if (tn != null){
+      const firstBy = coll => { if (typeof coll === "undefined" || !coll) return null;
+        return Object.keys(coll).find(kk => kk !== key && coll[kk].subject === subj && temaN(coll[kk]) === tn) || null; };
+      add("teoria", firstBy(typeof THEORY !== "undefined" ? THEORY : null), "Teoría");
+      add("cuestionarios", firstBy(typeof QUIZZES !== "undefined" ? QUIZZES : null), "Cuestionario");
+      add("lecturas", firstBy(typeof LECTURAS !== "undefined" ? LECTURAS : null), "Leer el texto");
+      add("infografias", firstBy(typeof INFOGRAFIAS !== "undefined" ? INFOGRAFIAS : null), "Infografía");
+    }
+  }
   return out;
 }
 
-function goTheoryRelated(go, arg){
+function relatedStripHtml(key, self){
+  const rel = relatedFor(key, self);
+  if (!rel.length) return "";
+  return '<div class="toolrow related-row" style="margin:.1rem 0 1.1rem"><span class="flabel" style="align-self:center">De este tema:</span>' +
+    rel.map(r => '<button class="btn" data-go="' + r.go + '" data-arg="' + r.arg + '">' + r.label + '</button>').join(" ") + '</div>';
+}
+
+function goRelated(go, arg){
   if (typeof show === "function") show(go);
   if (go === "cuestionarios" && typeof loadQuiz === "function") loadQuiz(arg);
   else if (go === "lecturas" && typeof loadLectura === "function") loadLectura(arg);
   else if (go === "infografias" && typeof loadInfografia === "function") loadInfografia(arg);
-  else if (go === "teoria") loadTheory(arg);
+  else if (go === "teoria" && typeof loadTheory === "function") loadTheory(arg);
   else if (go === "unidad" && typeof unidadKey !== "undefined"){
     unidadKey = +arg;
     if (typeof renderUnidadChips === "function") renderUnidadChips();
@@ -92,17 +141,17 @@ function goTheoryRelated(go, arg){
   }
 }
 
+function wireRelated(container){
+  (container || document).querySelectorAll(".related-row [data-go]").forEach(b => b.addEventListener("click", () => goRelated(b.dataset.go, b.dataset.arg)));
+}
+
 function loadTheory(k){
   theoryKey = k;
   renderTheoryChips();
   const t = THEORY[k], body = document.getElementById("theorybody");
-  const rel = theoryRelated(k);
-  const relHtml = rel.length
-    ? '<div class="toolrow theory-related" style="margin:.1rem 0 1.1rem"><span class="flabel" style="align-self:center">De este tema:</span>' +
-      rel.map(r => '<button class="btn" data-go="' + r.go + '" data-arg="' + r.arg + '">' + r.label + '</button>').join(" ") + '</div>'
-    : '';
+  const relHtml = (typeof relatedStripHtml === "function") ? relatedStripHtml(k, "teoria") : "";
   body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + t.subject + ')">' + t.tema + '</span><h1>' + t.title + '</h1></div>' + relHtml + t.html;
-  body.querySelectorAll(".theory-related [data-go]").forEach(b => b.addEventListener("click", () => goTheoryRelated(b.dataset.go, b.dataset.arg)));
+  if (typeof wireRelated === "function") wireRelated(body);
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "th-" + i; });
   body.querySelectorAll(".figimg").forEach(img => img.addEventListener("click", () => openLightbox(img.src)));
