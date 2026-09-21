@@ -145,3 +145,14 @@ function renderSubjects(){
   }));
 }
 renderSubjects();
+
+/* Inicio: las tarjetas de materia abren su hub «Explora la materia». Antes el único
+   acceso era el cajón «Materias» del menú (ya retirado): ahora entra por donde el
+   usuario mira. navctx.js preselecciona la materia al hacer show(). */
+document.querySelectorAll(".courses [data-view]").forEach(card => {
+  const go = () => show(card.dataset.view);
+  card.addEventListener("click", go);
+  card.addEventListener("keydown", e => {
+    if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
+  });
+});
