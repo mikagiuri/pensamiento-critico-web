@@ -36,6 +36,7 @@
           <button data-view="materiales">Materiales</button>
           <button data-view="tarjetas">Tarjetas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
+          <button data-view="citas">Citas</button>
         </div>
       </div>
       <div class="navsec">
@@ -177,6 +178,15 @@
   <!-- GLOSARIO -->
   
 
+  <!-- CITAS -->
+  <section class="view" id="citas">
+    <p class="eyebrow">Referencia</p>
+    <h1 class="title">Citas</h1>
+    <p class="lead">Frases célebres de la filosofía, de la Antigüedad a hoy: cada una con su <strong>autor</strong> y su <strong>obra</strong>. Filtra por <strong>época</strong>.</p>
+    <div class="filterbar" id="citasfilter" role="group" aria-label="Filtrar citas por época"></div>
+    <div id="citasbody"></div>
+  </section>
+
   <!-- TARJETAS -->
   <section class="view" id="tarjetas">
     <p class="eyebrow">Herramienta</p>
@@ -247,6 +257,8 @@
 <script src="js/retratosview.js"></script>
 <script src="js/ilustraciones_fil.js"></script>
 <script src="js/ilustracionesview.js"></script>
+<script src="js/citas.js"></script>
+<script src="js/citasview.js"></script>
 <script src="js/materials.js"></script>
 <script src="js/materialsview.js"></script>
 <script src="js/lecturas.js"></script>
