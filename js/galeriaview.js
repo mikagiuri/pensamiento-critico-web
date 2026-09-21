@@ -4,6 +4,15 @@
    y visor a pantalla (lightbox) con anterior/siguiente. Estilos propios con tokens de tema. */
 
 const GAL_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea" };
+/* Filosofía 1.º: suma las ilustraciones de tema (dominio público) como grupo propio «F1»
+   de la Galería. Depende de ilustraciones_fil.js (cargado antes). El crédito va en el pie. */
+if (typeof ILUSTRACIONES !== "undefined" && Array.isArray(GALERIA)){
+  GAL_BLOCKS.F1 = "Filosofía 1.º";
+  ILUSTRACIONES.forEach(function (x){
+    GALERIA.push({ f: x.f, t: x.t, pie: x.pie, bloque: "F1",
+      unidad: "Filosofía 1.º · " + (x.license || "Dominio público") + " · Wikimedia Commons" });
+  });
+}
 let galBloque = ["A", "B", "C"].find(function (b){ return GALERIA.some(function (g){ return g.bloque === b; }); }) || "all";  /* bloque concreto por defecto, nunca «Todos» */
 let galList = [];
 let galPos = 0;
@@ -64,7 +73,7 @@ function renderGalFilter(){
   if (!box) return;
   galInject();
   box.innerHTML = '<div class="fgroup"><span class="flabel">Bloque</span>' +
-    ["all", "A", "B", "C"].map(function (b){
+    ["all", "A", "B", "C"].concat(GAL_BLOCKS.F1 ? ["F1"] : []).map(function (b){
       return '<button class="fbtn" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' +
         (b === "all" ? "Todos" : GAL_BLOCKS[b]) + '</button>'; }).join("") + '</div>';
   box.querySelectorAll("[data-gb]").forEach(function (b){ b.addEventListener("click", function (){
