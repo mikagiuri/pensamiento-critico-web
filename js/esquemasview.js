@@ -8,6 +8,8 @@ let esqKey = Object.keys(ESQUEMAS)[0];
 let esqBlock = ["A", "B", "C"].find(function (b){ return Object.keys(ESQUEMAS).some(function (k){ return ESQUEMAS[k].block === b; }); }) || "all";  /* bloque concreto por defecto, nunca «Todos» */
 let _mid = 0, _esqTheme = null;
 const ESQ_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea", F1: "Filosofía 1.º" };
+/* Suma los esquemas de Filosofía 1.º (grupo «F1», datos en esquemas_fil.js) al objeto ESQUEMAS. */
+if (typeof ESQUEMAS !== "undefined" && typeof ESQUEMAS_FIL !== "undefined") Object.assign(ESQUEMAS, ESQUEMAS_FIL);
 
 const ESQ_CSS = `
 #esquemas .mapstage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow:auto}

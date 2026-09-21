@@ -1,7 +1,7 @@
 "use strict";
-/* ===== Esquemas de Filosofía 1.º (mapas conceptuales, mermaid) =====
-   Se añaden al objeto ESQUEMAS como grupo «F1». Depende de esquemas.js (cargado antes). */
-if (typeof ESQUEMAS !== "undefined") Object.assign(ESQUEMAS, {
+/* ===== Esquemas de Filosofía 1.º (mapas conceptuales, mermaid) — grupo «F1» =====
+   Datos puros (traducibles por la cadena i18n). El merge en ESQUEMAS lo hace esquemasview.js. */
+const ESQUEMAS_FIL = {
  "FIL-T1-01": {
   "subject": "fil",
   "block": "F1",
@@ -86,4 +86,4 @@ if (typeof ESQUEMAS !== "undefined") Object.assign(ESQUEMAS, {
   "title": "Las falacias",
   "mermaid": "flowchart TD\n  fal[\"LAS FALACIAS\"]:::axis\n  def[\"argumentos que parecen válidos pero no lo son\"]\n  formal[\"formales: fallo en la estructura lógica\"]:::key\n  inf[\"informales: fallo en el contenido o el lenguaje\"]:::key\n  ah[\"ad hominem: atacar a la persona\"]\n  ap[\"ad populum: apelar a la mayoría\"]\n  aver[\"ad verecundiam: apelar a la autoridad\"]\n  fc[\"falsa causa: confundir correlación con causa\"]\n  hp[\"hombre de paja: deformar la tesis rival\"]\n  fal --> def\n  fal --> formal\n  fal --> inf\n  inf --> ah\n  inf --> ap\n  inf --> aver\n  inf --> fc\n  inf --> hp\nclassDef axis fill:#1f5d5a,color:#fff,stroke:#1f5d5a;\nclassDef key fill:#9a6a22,color:#fff,stroke:#9a6a22;"
  }
-});
+};
