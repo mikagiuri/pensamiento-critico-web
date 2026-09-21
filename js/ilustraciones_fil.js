@@ -83,5 +83,59 @@ const ILUSTRACIONES = [
   "license": "Public domain",
   "artist": "Whitehead and Russell",
   "page": "https://commons.wikimedia.org/wiki/File:Principia_Mathematica_54-43.png"
+ },
+ {
+  "f": "media/ilustraciones/escuela_atenas.jpg",
+  "t": "La Escuela de Atenas",
+  "pie": "Rafael: los filósofos griegos reunidos; el paso del mito al logos.",
+  "tema": "fil-t1",
+  "license": "Public domain",
+  "artist": "Raphael",
+  "page": "https://commons.wikimedia.org/wiki/File:%22The_School_of_Athens%22_by_Raffaello_Sanzio_da_Urbino.jpg"
+ },
+ {
+  "f": "media/ilustraciones/acropolis.jpg",
+  "t": "La Acrópolis de Atenas",
+  "pie": "Atenas, cuna de la filosofía y de la vida en la polis.",
+  "tema": "fil-t1",
+  "license": "CC0",
+  "artist": "Jebulon",
+  "page": "https://commons.wikimedia.org/wiki/File:Acropolis_Parthenon_Athens_Greece.jpg"
+ },
+ {
+  "f": "media/ilustraciones/muerte_socrates.jpg",
+  "t": "La muerte de Sócrates",
+  "pie": "David: Sócrates elige la coherencia moral antes que salvar la vida.",
+  "tema": "fil-t5",
+  "license": "Public domain",
+  "artist": "Jacques-Louis David",
+  "page": "https://commons.wikimedia.org/wiki/File:David_-_The_Death_of_Socrates.jpg"
+ },
+ {
+  "f": "media/ilustraciones/justicia.jpg",
+  "t": "Alegoría de la Justicia",
+  "pie": "La ética pregunta qué es lo justo y cómo debemos actuar.",
+  "tema": "fil-t5",
+  "license": "Public domain",
+  "artist": "Sienese school",
+  "page": "https://commons.wikimedia.org/wiki/File:Allegory_of_Justice-f3434433.jpg"
+ },
+ {
+  "f": "media/ilustraciones/venus_milo.jpg",
+  "t": "Venus de Milo",
+  "pie": "La belleza clásica: proporción y armonía como ideal estético.",
+  "tema": "fil-t7",
+  "license": "Public domain",
+  "artist": "Unknown artistUnknown artist",
+  "page": "https://commons.wikimedia.org/wiki/File:Venus_de_Milo_Louvre_Ma399_n4.jpg"
+ },
+ {
+  "f": "media/ilustraciones/las_meninas.jpg",
+  "t": "Las Meninas",
+  "pie": "Velázquez: el arte que se piensa a sí mismo (representación y mirada).",
+  "tema": "fil-t7",
+  "license": "Public domain",
+  "artist": "?",
+  "page": "https://commons.wikimedia.org/wiki/File:Las_Meninas_(1656),_by_Velazquez.jpg"
  }
 ];
