@@ -33,6 +33,7 @@
         <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Estudiar</span>
         <div class="navmenu">
           <button data-view="teoria">Teoría</button>
+          <button data-view="materiales">Materiales</button>
           <button data-view="tarjetas">Tarjetas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
         </div>
@@ -108,7 +109,17 @@
   </section>
 
   <!-- MATERIALES -->
-  
+  <section class="view" id="materiales">
+    <p class="eyebrow">Materiales</p>
+    <h1 class="title">Materiales completos</h1>
+    <p class="lead">Las fichas de ejercicios (con soluciones), la presentación de la asignatura y las guías de las tres materias, para consultar en clase o en casa. Las hojas imprimibles del alumnado (sin soluciones) siguen en `.docx`.</p>
+    <div class="filterbar" id="materialfilter" role="group" aria-label="Filtrar materiales"></div>
+    <div class="chips" id="materialchips" role="group" aria-label="Elegir material"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="mtoc" aria-label="Índice del material"></nav>
+      <article class="theory" id="materialbody"></article>
+    </div>
+  </section>
 
   <!-- LECTURAS -->
   

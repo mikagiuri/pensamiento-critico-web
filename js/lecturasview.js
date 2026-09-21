@@ -58,5 +58,7 @@ function loadLectura(k){
     hs.map((h, i) => '<li><a href="#lh-' + i + '">' + h.textContent + '</a></li>').join("") + '</ol>';
 }
 
-renderLecturaFilter();
-if (lecturaKey) loadLectura(lecturaKey);
+if (document.getElementById("lecturabody")){   // solo si la vista de Lecturas existe (no en la web de 2.º ESO)
+  renderLecturaFilter();
+  if (lecturaKey) loadLectura(lecturaKey);
+}
