@@ -73,6 +73,17 @@ if (printBtn) printBtn.addEventListener("click", () => window.print());
   });
 })();
 
+/* ----- portada dinámica: «Esta semana (X–Y)» según el calendario ----- */
+(function dynamicPortada(){
+  if (typeof SEMANAS === "undefined" || !SEMANAS.length) return;
+  const today = new Date(); today.setHours(0, 0, 0, 0);
+  const fri = function (iso){ const p = iso.split("-").map(Number); const d = new Date(p[0], p[1] - 1, p[2]); d.setDate(d.getDate() + 4); return d; };
+  let sem = SEMANAS[SEMANAS.length - 1];
+  for (const w of SEMANAS){ if (fri(w.iso) >= today){ sem = w; break; } }
+  const h = document.querySelector('#inicio .sec-head h2.sec');
+  if (h) h.textContent = "Esta semana" + " (" + sem.ini + " – " + sem.fin + ")";
+})();
+
 /* ----- vistas de materia ----- */
 /* Mapa de recursos de una materia: por cada tipo de contenido, cuántos elementos
    hay de esa materia. Da al hub un índice navegable de todo lo disponible (además
