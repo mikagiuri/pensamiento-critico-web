@@ -431,5 +431,185 @@ const RETRATOS = [
   "artist": "Rijksmuseum",
   "license": "CC0",
   "page": "https://commons.wikimedia.org/wiki/File:Voorbereiding_tot_het_raadplegen_van_het_orakel_van_Delphi_Voorbereyding_tot_het_Orakel-vragen_(titel_op_object),_RP-P-1907-5698.jpg"
+ },
+ {
+  "slug": "darwin",
+  "name": "Charles Darwin",
+  "aliases": [
+   "Darwin",
+   "Charles Darwin"
+  ],
+  "file": "media/retratos/museo/darwin.jpg",
+  "title": "Charles Darwin seated crop",
+  "artist": "Henry Maull",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3ACharles_Darwin_seated_crop.jpg"
+ },
+ {
+  "slug": "wollstonecraft",
+  "name": "Mary Wollstonecraft",
+  "aliases": [
+   "Mary Wollstonecraft",
+   "Wollstonecraft"
+  ],
+  "file": "media/retratos/museo/wollstonecraft.jpg",
+  "title": "Mary Wollstonecraft by John Opie (c. 1797)",
+  "artist": "John Opie",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMary_Wollstonecraft_by_John_Opie_%28c._1797%29.jpg"
+ },
+ {
+  "slug": "gouges",
+  "name": "Olympe de Gouges",
+  "aliases": [
+   "Olympe de Gouges"
+  ],
+  "file": "media/retratos/museo/gouges.jpg",
+  "title": "Olympe de Gouges",
+  "artist": "Anónimo",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AOlympe_de_Gouges.jpg"
+ },
+ {
+  "slug": "curie",
+  "name": "Marie Curie",
+  "aliases": [
+   "Marie Curie",
+   "Curie"
+  ],
+  "file": "media/retratos/museo/curie.jpg",
+  "title": "Marie Curie c1920",
+  "artist": "Henri Manuel",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AMarie_Curie_c1920.jpg"
+ },
+ {
+  "slug": "franklin",
+  "name": "Rosalind Franklin",
+  "aliases": [
+   "Rosalind Franklin"
+  ],
+  "file": "media/retratos/museo/franklin.jpg",
+  "title": "Rosalind Franklin CC-BY-SA",
+  "artist": "Rori!",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File%3ARosalind_Franklin_CC-BY-SA.png"
+ },
+ {
+  "slug": "cassirer",
+  "name": "Ernst Cassirer",
+  "aliases": [
+   "Ernst Cassirer",
+   "Cassirer"
+  ],
+  "file": "media/retratos/museo/cassirer.jpg",
+  "title": "Ernst Cassirer",
+  "artist": "Center for Advanced Research in Phenomenology - CARP http://www.phenomenologycenter.org",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AErnst_Cassirer.jpg"
+ },
+ {
+  "slug": "popper",
+  "name": "Karl Popper",
+  "aliases": [
+   "Karl Popper",
+   "Popper"
+  ],
+  "file": "media/retratos/museo/popper.jpg",
+  "title": "Karl Popper",
+  "artist": "Franz Barta",
+  "license": "No restrictions",
+  "page": "https://commons.wikimedia.org/wiki/File%3AKarl_Popper.jpg"
+ },
+ {
+  "slug": "kuhn",
+  "name": "Thomas Kuhn",
+  "aliases": [
+   "Thomas Kuhn",
+   "Kuhn"
+  ],
+  "file": "media/retratos/museo/kuhn.jpg",
+  "title": "Thomas-kuhn-portrait",
+  "artist": "Davi.trip",
+  "license": "CC BY-SA 4.0",
+  "page": "https://commons.wikimedia.org/wiki/File%3AThomas-kuhn-portrait.png"
+ },
+ {
+  "slug": "copernico",
+  "name": "Nicolás Copérnico",
+  "aliases": [
+   "Copérnico",
+   "Nicolás Copérnico",
+   "Copernico"
+  ],
+  "file": "media/retratos/museo/copernico.jpg",
+  "title": "Nikolaus Kopernikus",
+  "artist": "Anónimo",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3ANikolaus_Kopernikus.jpg"
+ },
+ {
+  "slug": "galileo",
+  "name": "Galileo Galilei",
+  "aliases": [
+   "Galileo",
+   "Galileo Galilei"
+  ],
+  "file": "media/retratos/museo/galileo.jpg",
+  "title": "Justus Sustermans - Portrait of Galileo Galilei, 1636",
+  "artist": "Justus Sustermans",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJustus_Sustermans_-_Portrait_of_Galileo_Galilei%2C_1636.jpg"
+ },
+ {
+  "slug": "newton",
+  "name": "Isaac Newton",
+  "aliases": [
+   "Newton",
+   "Isaac Newton"
+  ],
+  "file": "media/retratos/museo/newton.jpg",
+  "title": "GodfreyKneller-IsaacNewton-1689",
+  "artist": "Godfrey Kneller",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AGodfreyKneller-IsaacNewton-1689.jpg"
+ },
+ {
+  "slug": "einstein",
+  "name": "Albert Einstein",
+  "aliases": [
+   "Einstein",
+   "Albert Einstein"
+  ],
+  "file": "media/retratos/museo/einstein.jpg",
+  "title": "Einstein 1921 by F Schmutzer - restoration",
+  "artist": "Ferdinand Schmutzer / Adam Cuerden",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AEinstein_1921_by_F_Schmutzer_-_restoration.jpg"
+ },
+ {
+  "slug": "james",
+  "name": "William James",
+  "aliases": [
+   "William James"
+  ],
+  "file": "media/retratos/museo/james.jpg",
+  "title": "William James b1842c",
+  "artist": "Notman Studios (photographer)",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AWilliam_James_b1842c.jpg"
+ },
+ {
+  "slug": "dewey",
+  "name": "John Dewey",
+  "aliases": [
+   "John Dewey",
+   "Dewey"
+  ],
+  "file": "media/retratos/museo/dewey.jpg",
+  "title": "John Dewey cph.3a51565",
+  "artist": "Underwood & Underwood",
+  "license": "Public Domain",
+  "page": "https://commons.wikimedia.org/wiki/File%3AJohn_Dewey_cph.3a51565.jpg"
  }
 ];

@@ -53,6 +53,10 @@ themeBtn.addEventListener("click", () => {
   themeBtn.textContent = themeIcon(theme);
 });
 
+/* ----- imprimir / guardar en PDF (la vista activa, sin cabecera ni filtros) ----- */
+const printBtn = document.getElementById("printbtn");
+if (printBtn) printBtn.addEventListener("click", () => window.print());
+
 /* ----- horario ----- */
 (function buildWeek(){
   const tb = document.getElementById("weekbody");

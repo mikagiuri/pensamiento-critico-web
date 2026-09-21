@@ -1,12 +1,14 @@
 "use strict";
 /* ===== Vista Glosario ===== depende de: glosario.js =====
-   Lista de referencia buscable y filtrable, extraída del libro MDLTFH (castellano).
-   Filtra por bloque (A/B/C) y área temática; busca en término + definición sin
-   distinguir mayúsculas ni acentos. Estilos propios inyectados una vez (usan las
-   variables de tema de styles.css, así que respetan claro/oscuro). */
+   Lista de referencia buscable y filtrable: Historia de la Filosofía (libro MDLTFH,
+   bloque A/B/C) + Filosofía 1.º Bach (temas 1-3, 5, 7 y taller). Filtra por materia,
+   bloque (solo HF) y área temática; busca en término + definición sin distinguir
+   mayúsculas ni acentos. Estilos propios inyectados una vez (usan las variables de
+   tema de styles.css, así que respetan claro/oscuro). */
 
 const GLO_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea" };
-let gloBloque = ["A", "B", "C"].find(function (b){ return GLOSARIO.some(function (g){ return g.bloque === b; }); }) || "all", gloArea = "all", gloQuery = "";  /* bloque concreto por defecto, nunca «Todos» */
+const GLO_SUBJECTS = { hf: "Historia de la Filosofía", fil: "Filosofía 1.º" };
+let gloSubject = "hf", gloBloque = "A", gloArea = "all", gloQuery = "";  /* materia y bloque concretos por defecto, nunca «Todos» */
 
 const GLO_CSS = `
 #glosario .glotools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;margin:12px 0 4px}
@@ -25,7 +27,7 @@ const GLO_CSS = `
 #glosario .gloempty{color:var(--muted);padding:24px 2px}
 `;
 
-function gloFold(s){ return (s || "").toLowerCase().normalize("NFD").replace(/[̀-ͯ]/g, ""); }
+function gloFold(s){ return (s || "").toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, ""); }
 function gloEsc(s){ return (s || "").replace(/[&<>]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c])); }
 function gloBold(s){ return s.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>"); }
 function gloHi(escaped, q){
@@ -41,23 +43,39 @@ function gloInject(){
   document.head.appendChild(st); _gloReady = true;
 }
 
+/* Términos visibles para la materia elegida (para el desplegable de áreas). */
+function gloTermsForSubject(){
+  return GLOSARIO.filter(g => gloSubject === "all" || g.subject === gloSubject);
+}
+
 function renderGloControls(){
   const box = document.getElementById("glofilter");
   if (!box) return;
   gloInject();
-  const areas = Array.from(new Set(GLOSARIO.map(g => g.area).filter(Boolean))).sort((a, b) => a.localeCompare(b, "es"));
+  const areas = Array.from(new Set(gloTermsForSubject().map(g => g.area).filter(Boolean))).sort((a, b) => a.localeCompare(b, "es"));
+  const subjBtns = ["all", "hf", "fil"].map(s =>
+    '<button class="fbtn" data-sub="' + s + '" aria-pressed="' + (s === gloSubject) + '">' +
+    (s === "all" ? "Todos" : GLO_SUBJECTS[s]) + '</button>').join("");
   const blkBtns = ["all", "A", "B", "C"].map(b =>
     '<button class="fbtn" data-blk="' + b + '" aria-pressed="' + (b === gloBloque) + '">' +
     (b === "all" ? "Todos" : GLO_BLOCKS[b]) + '</button>').join("");
   const areaOpts = ['<option value="all">Todas las áreas</option>']
     .concat(areas.map(a => '<option value="' + a + '">' + a + '</option>')).join("");
   box.innerHTML =
-    '<div class="fgroup"><span class="flabel">Bloque</span>' + blkBtns + '</div>' +
+    '<div class="fgroup"><span class="flabel">Materia</span>' + subjBtns + '</div>' +
+    (gloSubject !== "fil"
+      ? '<div class="fgroup"><span class="flabel">Bloque</span>' + blkBtns + '</div>'
+      : '') +
     '<div class="glotools">' +
       '<input class="glosearch" id="glosearch" type="search" placeholder="Buscar término o definición…" autocomplete="off" aria-label="Buscar en el glosario">' +
       '<select class="gloarea" id="gloarea" aria-label="Filtrar por área">' + areaOpts + '</select>' +
     '</div>';
 
+  box.querySelectorAll("[data-sub]").forEach(b => b.addEventListener("click", () => {
+    gloSubject = b.dataset.sub;
+    if (gloSubject === "fil") gloArea = "all";
+    renderGloControls(); renderGloList();
+  }));
   box.querySelectorAll("[data-blk]").forEach(b => b.addEventListener("click", () => {
     gloBloque = b.dataset.blk;
     box.querySelectorAll("[data-blk]").forEach(x => x.setAttribute("aria-pressed", x.dataset.blk === gloBloque));
@@ -78,7 +96,8 @@ function renderGloList(){
   if (!list) return;
   const q = gloFold(gloQuery);
   const rows = GLOSARIO.filter(g => {
-    if (gloBloque !== "all" && g.bloque !== gloBloque) return false;
+    if (gloSubject !== "all" && g.subject !== gloSubject) return false;
+    if (gloSubject !== "fil" && gloBloque !== "all" && g.bloque !== gloBloque) return false;
     if (gloArea !== "all" && g.area !== gloArea) return false;
     if (q && !gloFold(g.t + " " + g.def + " " + g.area).includes(q)) return false;
     return true;

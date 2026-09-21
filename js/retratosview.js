@@ -24,7 +24,7 @@
       if (best < Infinity) found.push({ r, at: best });
     });
     found.sort((a, b) => a.at - b.at);
-    return found.slice(0, 12).map(x => x.r);
+    return found.slice(0, 18).map(x => x.r);
   }
 
   function cardHTML(r){

@@ -60,6 +60,13 @@ main{padding:clamp(28px,5vw,52px) 0 80px}
 .view.active{display:block}
 @keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
 @media (prefers-reduced-motion:reduce){.view{animation:none}}
+@media print{
+  header.bar,.skiplink{display:none !important}
+  .filterbar,.chips,.glotools,.fc-ctrl,.ea-actions,.glocount,.subnav{display:none !important}
+  body{background:#fff}
+  .view{display:none !important}
+  .view.active{display:block !important;animation:none}
+}
 
 .eyebrow{font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:600}
 .lead{font-size:1.08rem;color:var(--muted);max-width:60ch;margin-top:12px}
