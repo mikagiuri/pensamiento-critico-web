@@ -70,7 +70,7 @@ const ILUSTRACIONES = [
   "f": "media/ilustraciones/frege_begriffsschrift.png",
   "t": "La conceptografía de Frege",
   "pie": "Frege funda la lógica moderna (de primer orden).",
-  "tema": "fil-t3",
+  "tema": "fil-t4",
   "license": "Public domain",
   "artist": "Frege",
   "page": "https://commons.wikimedia.org/wiki/File:Frege-gegens%C3%A4tze.png"
@@ -79,7 +79,7 @@ const ILUSTRACIONES = [
   "f": "media/ilustraciones/principia_mathematica.png",
   "t": "«1+1=2» en Principia Mathematica",
   "pie": "Lógica simbólica: derivar la aritmética de la lógica.",
-  "tema": "fil-t3",
+  "tema": "fil-t4",
   "license": "Public domain",
   "artist": "Whitehead and Russell",
   "page": "https://commons.wikimedia.org/wiki/File:Principia_Mathematica_54-43.png"
