@@ -7,7 +7,7 @@
 let esqKey = Object.keys(ESQUEMAS)[0];
 let esqBlock = ["A", "B", "C"].find(function (b){ return Object.keys(ESQUEMAS).some(function (k){ return ESQUEMAS[k].block === b; }); }) || "all";  /* bloque concreto por defecto, nunca «Todos» */
 let _mid = 0, _esqTheme = null;
-const ESQ_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea" };
+const ESQ_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea", F1: "Filosofía 1.º" };
 
 const ESQ_CSS = `
 #esquemas .mapstage{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:14px 16px;overflow:auto}
@@ -41,7 +41,7 @@ function renderEsqFilter(){
   const box = document.getElementById("esqfilter");
   if (!box) return;
   box.innerHTML = '<div class="fgroup"><span class="flabel">Bloque</span>' +
-    ["all", "A", "B", "C"].map(function (b){
+    ["all", "A", "B", "C"].concat(Object.keys(ESQUEMAS).some(function (k){ return ESQUEMAS[k].block === "F1"; }) ? ["F1"] : []).map(function (b){
       return '<button class="fbtn" data-eb="' + b + '" aria-pressed="' + (b === esqBlock) + '">' +
         (b === "all" ? "Todos" : ESQ_BLOCKS[b]) + '</button>'; }).join("") + '</div>';
   box.querySelectorAll("[data-eb]").forEach(function (b){ b.addEventListener("click", function (){
