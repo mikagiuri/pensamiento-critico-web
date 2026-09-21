@@ -127,6 +127,8 @@ function renderSesBody(){
   });
 }
 
-sesWeek = sesCurrentWeek();
-renderSesFilter();
-renderSesBody();
+if (document.getElementById("sesbody")){   // solo si la vista de Sesiones existe (no en las webs de alumnado)
+  sesWeek = sesCurrentWeek();
+  renderSesFilter();
+  renderSesBody();
+}

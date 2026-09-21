@@ -28,17 +28,11 @@
     <div class="brand"><span class="owl" aria-hidden="true">🦉</span> Pensamiento crítico</div>
     <nav class="tabs" id="tabs" aria-label="Secciones">
       <button data-view="inicio" aria-current="true">Inicio</button>
-      <div class="navsec">
-        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Programación</span>
-        <div class="navmenu">
-          <button data-view="sesiones">Sesiones</button>
-          <button data-view="teoria">Teoría</button>
-          <button data-view="materiales">Materiales</button>
-        </div>
-      </div>
+      
       <div class="navsec">
         <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Estudiar</span>
         <div class="navmenu">
+          <button data-view="teoria">Teoría</button>
           <button data-view="tarjetas">Tarjetas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
         </div>
@@ -95,13 +89,7 @@
   <section class="view" id="ipc"></section>
 
   <!-- SESIONES -->
-  <section class="view" id="sesiones">
-    <p class="eyebrow">Programación</p>
-    <h1 class="title">Sesiones</h1>
-    <p class="lead">Secuenciación del curso semana a semana, con el <strong>contenido de cada sesión</strong> de la semana en curso y enlaces directos a los materiales de la web. Filtra por <strong>materia</strong> y <strong>semana</strong>.</p>
-    <div class="filterbar" id="sesfilter" role="group" aria-label="Filtrar sesiones"></div>
-    <div id="sesbody"></div>
-  </section>
+  
 
   <!-- CALENDARIO -->
   
@@ -120,17 +108,7 @@
   </section>
 
   <!-- MATERIALES -->
-  <section class="view" id="materiales">
-    <p class="eyebrow">Materiales</p>
-    <h1 class="title">Materiales completos</h1>
-    <p class="lead">Las fichas de ejercicios (con soluciones), la presentación de la asignatura y las guías de las tres materias, para consultar en clase o en casa. Las hojas imprimibles del alumnado (sin soluciones) siguen en `.docx`.</p>
-    <div class="filterbar" id="materialfilter" role="group" aria-label="Filtrar materiales"></div>
-    <div class="chips" id="materialchips" role="group" aria-label="Elegir material"></div>
-    <div class="theory-layout">
-      <nav class="toc" id="mtoc" aria-label="Índice del material"></nav>
-      <article class="theory" id="materialbody"></article>
-    </div>
-  </section>
+  
 
   <!-- LECTURAS -->
   

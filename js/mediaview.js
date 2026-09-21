@@ -84,6 +84,8 @@ function openLightbox(src){
   const c = lb.querySelector(".lb-close"); if (c) c.focus();
 }
 
-renderMediaFilter();
-renderMediaList();
-renderMediaExtra();
+if (document.getElementById("medialist")){   // solo si la vista de Recursos existe (no en las webs de alumnado)
+  renderMediaFilter();
+  renderMediaList();
+  renderMediaExtra();
+}

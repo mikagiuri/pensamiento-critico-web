@@ -34,6 +34,7 @@ function loadMaterial(k){
   materialKey = k;
   renderMaterialChips();
   const t = MATERIALS[k], body = document.getElementById("materialbody");
+  if (!body || !t) return;   // vista de Materiales ausente (webs de alumnado) o clave inexistente: no hacer nada
   body.innerHTML = '<div class="theory-head"><span class="kick" style="color:var(--' + t.subject + ')">' + t.tema + '</span><h1>' + t.title + '</h1></div>' + t.html;
   const hs = [...body.querySelectorAll("h2")];
   hs.forEach((h, i) => { h.id = "mh-" + i; });
@@ -42,5 +43,7 @@ function loadMaterial(k){
     hs.map((h, i) => '<li><a href="#mh-' + i + '">' + h.textContent + '</a></li>').join("") + '</ol>';
 }
 
-renderMaterialFilter();
-loadMaterial(materialKey);
+if (document.getElementById("materialbody")){   // solo si la vista de Materiales existe (no en las webs de alumnado)
+  renderMaterialFilter();
+  loadMaterial(materialKey);
+}
