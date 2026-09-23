@@ -7,6 +7,16 @@
 
 const DIL_KEY = "aula-dilemas", DIL_VOTES_KEY = "aula-dilemas-votos", DIL_CLASS_KEY = "aula-dilemas-clase";
 const DIL_GROUPS = { tecno: "Tecnoéticos", dia: "Del día" };
+/* textos de interfaz: cada uno es una cadena entera (así los traduce web_i18n/ui/<lang>.json) */
+const DIL_TXT = {
+  decididos: "Decididos:", borrar: "borrar mis respuestas", azar: "Dilema al azar", azarSub: "uno que aún no hayas decidido",
+  elegiste: "Elegiste", cambiaste: "cambiaste", sinDecidir: "Sin decidir", confirmBorrar: "¿Borrar tus respuestas de este grupo de dilemas en este navegador?",
+  votosClase: "Votos de la clase", quitar: "Quitar un voto a", sumar: "Sumar un voto a", cero: "poner a cero",
+  volver: "← Todos los dilemas", tuEleccion: "Tu elección:", queHarias: "¿Qué harías tú? Elige una opción.",
+  porQue: "¿Por qué?", porQueSub: "Escribe tu razón en una o dos frases (se guarda en este navegador).", elijoPorque: "Elijo {X} porque…",
+  verPensar: "Ver «para pensar» →", enJuego: "¿Qué está en juego?", otraSalida: "¿Hay otra salida?", unDato: "Un dato:",
+  mantengo: "Mantengo mi elección", cambiaria: "Cambiaría de opinión", siguiente: "Siguiente:", tipo: "Tipo de dilema"
+};
 const dil = { group: "tecno", cur: null, step: 0 };
 
 function dilBox(){ return document.getElementById("dilbox"); }
@@ -25,22 +35,22 @@ function renderDilStart(){
   const done = list.filter(d => st[d.id] && st[d.id].choice).length;
   const groups = Object.keys(DIL_GROUPS).filter(g => dilList(g).length);
   box.innerHTML =
-    '<div class="dil-pick" role="group" aria-label="Tipo de dilema">' +
+    '<div class="dil-pick" role="group" aria-label="' + DIL_TXT.tipo + '">' +
       groups.map(g => '<button class="pbtn" data-g="' + g + '" aria-pressed="' + (g === dil.group) + '">' + DIL_GROUPS[g] + ' <span class="n">' + dilList(g).length + '</span></button>').join("") +
       '<label class="dil-classmode"><input type="checkbox" id="dilclass"' + (dilClassMode() ? " checked" : "") + '> Modo clase (contar votos)</label>' +
     '</div>' +
     '<div class="dil-intro"><h2>' + dilEsc(intro.titulo) + '</h2><p>' + dilEsc(intro.texto) + '</p>' +
-      '<p class="dil-progress"><b>' + done + '</b> de ' + list.length + ' decididos' + (done ? ' · <button class="linkbtn" id="dilreset">borrar mis respuestas</button>' : '') + '</p>' +
+      '<p class="dil-progress">' + DIL_TXT.decididos + ' <b>' + done + ' / ' + list.length + '</b>' + (done ? ' · <button class="linkbtn" id="dilreset">' + DIL_TXT.borrar + '</button>' : '') + '</p>' +
       (done === list.length && intro.cierre ? '<p class="dil-cierre">' + dilEsc(intro.cierre) + '</p>' : '') +
     '</div>' +
-    '<button class="dil-play" id="dilrandom"><span aria-hidden="true">🎲</span> <b>Dilema al azar</b> <span>uno que aún no hayas decidido</span></button>' +
+    '<button class="dil-play" id="dilrandom"><span aria-hidden="true">🎲</span> <b>' + DIL_TXT.azar + '</b> <span>' + DIL_TXT.azarSub + '</span></button>' +
     '<div class="dil-grid">' + list.map(d => {
       const s = st[d.id] || {};
       return '<button class="dil-card" data-id="' + d.id + '">' +
         '<span class="dil-emoji" aria-hidden="true">' + d.emoji + '</span>' +
         '<span class="dil-tag">' + dilEsc(d.etiqueta) + '</span>' +
         '<span class="dil-title">' + dilEsc(d.titulo) + '</span>' +
-        (s.choice ? '<span class="dil-badge dil-' + s.choice.toLowerCase() + '">Elegiste ' + s.choice + (s.cambio ? ' · cambiaste' : '') + '</span>' : '<span class="dil-badge pend">Sin decidir</span>') +
+        (s.choice ? '<span class="dil-badge dil-' + s.choice.toLowerCase() + '">' + DIL_TXT.elegiste + ' ' + s.choice + (s.cambio ? ' · ' + DIL_TXT.cambiaste : '') + '</span>' : '<span class="dil-badge pend">' + DIL_TXT.sinDecidir + '</span>') +
       '</button>';
     }).join("") + '</div>';
   box.querySelectorAll("[data-g]").forEach(b => b.addEventListener("click", () => { dil.group = b.dataset.g; renderDilStart(); }));
@@ -52,7 +62,7 @@ function renderDilStart(){
   box.querySelector("#dilclass").addEventListener("change", e => store.set(DIL_CLASS_KEY, e.target.checked));
   const rs = box.querySelector("#dilreset");
   if (rs) rs.addEventListener("click", () => {
-    if (!confirm("¿Borrar tus respuestas de este grupo de dilemas en este navegador?")) return;
+    if (!confirm(DIL_TXT.confirmBorrar)) return;
     const s = dilState(); list.forEach(d => delete s[d.id]); store.set(DIL_KEY, s); renderDilStart();
   });
 }
@@ -69,13 +79,13 @@ function openDil(id){
 function dilVotesHtml(d){
   const v = dilVotes()[d.id] || { A: 0, B: 0 }, tot = (v.A || 0) + (v.B || 0);
   const pct = k => tot ? Math.round((v[k] || 0) * 100 / tot) : 0;
-  return '<div class="dil-votes" aria-label="Votos de la clase">' + ["A", "B"].map(k =>
+  return '<div class="dil-votes" aria-label="' + DIL_TXT.votosClase + '">' + ["A", "B"].map(k =>
     '<div class="dil-vrow dil-' + k.toLowerCase() + '"><b>' + k + '</b>' +
-      '<button class="vbtn" data-v="' + k + '" data-d="-1" aria-label="Quitar un voto a ' + k + '">−</button>' +
+      '<button class="vbtn" data-v="' + k + '" data-d="-1" aria-label="' + DIL_TXT.quitar + ' ' + k + '">−</button>' +
       '<span class="vbar"><span style="width:' + pct(k) + '%"></span></span>' +
       '<span class="vnum">' + (v[k] || 0) + (tot ? ' · ' + pct(k) + ' %' : '') + '</span>' +
-      '<button class="vbtn" data-v="' + k + '" data-d="1" aria-label="Sumar un voto a ' + k + '">+</button>' +
-    '</div>').join("") + '<button class="linkbtn" id="dilvreset">poner a cero</button></div>';
+      '<button class="vbtn" data-v="' + k + '" data-d="1" aria-label="' + DIL_TXT.sumar + ' ' + k + '">+</button>' +
+    '</div>').join("") + '<button class="linkbtn" id="dilvreset">' + DIL_TXT.cero + '</button></div>';
 }
 
 function renderDil(){
@@ -84,33 +94,33 @@ function renderDil(){
   const opt = k => '<button class="dil-opt dil-' + k.toLowerCase() + (ch === k ? ' sel' : '') + (ch && ch !== k ? ' dim' : '') + '" data-opt="' + k + '"' + (ch ? ' aria-pressed="' + (ch === k) + '"' : '') + '>' +
     '<span class="dil-letter">' + k + '</span><span>' + dilEsc(d[k.toLowerCase()]) + '</span></button>';
   let html =
-    '<button class="linkbtn dil-back" id="dilback">← Todos los dilemas</button>' +
+    '<button class="linkbtn dil-back" id="dilback">' + DIL_TXT.volver + '</button>' +
     '<article class="dil-one">' +
       '<header class="dil-head"><span class="dil-emoji big" aria-hidden="true">' + d.emoji + '</span><div>' +
         '<span class="dil-tag">' + dilEsc(DIL_GROUPS[d.grupo]) + ' · ' + dilEsc(d.etiqueta) + '</span>' +
         '<h2>' + dilEsc(d.titulo) + '</h2></div></header>' +
       '<div class="dil-sit"><h3>La situación</h3><p>' + dilEsc(d.situacion) + '</p></div>' +
-      '<p class="dil-ask">' + (ch ? 'Tu elección:' : '¿Qué harías tú? Elige una opción.') + '</p>' +
+      '<p class="dil-ask">' + (ch ? DIL_TXT.tuEleccion : DIL_TXT.queHarias) + '</p>' +
       '<div class="dil-opts">' + opt("A") + opt("B") + '</div>' +
       (dilClassMode() ? dilVotesHtml(d) : '');
   if (dil.step >= 1){
-    html += '<div class="dil-why"><label for="dilrazon"><b>¿Por qué?</b> Escribe tu razón en una o dos frases (se guarda en este navegador).</label>' +
-      '<textarea id="dilrazon" rows="3" placeholder="Elijo ' + ch + ' porque…">' + dilEsc(s.razon || "") + '</textarea>' +
-      (dil.step === 1 ? '<button class="dil-next" id="dilthink">Ver «para pensar» →</button>' : '') + '</div>';
+    html += '<div class="dil-why"><label for="dilrazon"><b>' + DIL_TXT.porQue + '</b> ' + DIL_TXT.porQueSub + '</label>' +
+      '<textarea id="dilrazon" rows="3" placeholder="' + DIL_TXT.elijoPorque.replace("{X}", ch) + '">' + dilEsc(s.razon || "") + '</textarea>' +
+      (dil.step === 1 ? '<button class="dil-next" id="dilthink">' + DIL_TXT.verPensar + '</button>' : '') + '</div>';
   }
   if (dil.step >= 2){
     html += '<div class="dil-think"><h3>Para pensar</h3>' +
-      '<p><b>¿Qué está en juego?</b> ' + dilEsc(d.enjuego) + '</p>' +
-      (d.otra ? '<p class="dil-otra"><b>¿Hay otra salida?</b> ' + dilEsc(d.otra) + '</p>' : '') +
+      '<p><b>' + DIL_TXT.enJuego + '</b> ' + dilEsc(d.enjuego) + '</p>' +
+      (d.otra ? '<p class="dil-otra"><b>' + DIL_TXT.otraSalida + '</b> ' + dilEsc(d.otra) + '</p>' : '') +
       '<ol>' + (d.preguntas || []).map(q => '<li>' + dilEsc(q) + '</li>').join("") + '</ol>' +
-      (d.dato ? '<p class="dil-dato"><b>Un dato:</b> ' + dilEsc(d.dato) + '</p>' : '') + '</div>';
+      (d.dato ? '<p class="dil-dato"><b>' + DIL_TXT.unDato + '</b> ' + dilEsc(d.dato) + '</p>' : '') + '</div>';
     if (d.ysi){
       html += '<div class="dil-ysi"><h3>¿Y si…?</h3><p>' + dilEsc(d.ysi.replace(/^¿Y si…\?\s*/, "")) + '</p>' +
-        '<div class="dil-keep"><button class="pbtn" data-keep="0" aria-pressed="' + (s.cambio === false) + '">Mantengo mi elección</button>' +
-        '<button class="pbtn" data-keep="1" aria-pressed="' + (s.cambio === true) + '">Cambiaría de opinión</button></div></div>';
+        '<div class="dil-keep"><button class="pbtn" data-keep="0" aria-pressed="' + (s.cambio === false) + '">' + DIL_TXT.mantengo + '</button>' +
+        '<button class="pbtn" data-keep="1" aria-pressed="' + (s.cambio === true) + '">' + DIL_TXT.cambiaria + '</button></div></div>';
     }
     const list = dilList(d.grupo), i = list.findIndex(x => x.id === d.id), nx = list[(i + 1) % list.length];
-    html += '<div class="dil-foot"><button class="dil-next" id="dilnext">Siguiente: ' + nx.emoji + ' ' + dilEsc(nx.titulo) + ' →</button></div>';
+    html += '<div class="dil-foot"><button class="dil-next" id="dilnext">' + DIL_TXT.siguiente + ' ' + nx.emoji + ' ' + dilEsc(nx.titulo) + ' →</button></div>';
   }
   html += '</article>';
   box.innerHTML = html;
