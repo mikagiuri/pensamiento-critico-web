@@ -17,6 +17,7 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/reto.css">
+<link rel="stylesheet" href="css/dilemas.css">
 <link rel="stylesheet" href="css/retratos.css">
 
 <a class="skiplink" href="#contenido">Saltar al contenido</a>
@@ -40,6 +41,7 @@
         <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Juegos</span>
         <div class="navmenu">
           <button data-view="reto">Reto</button>
+          <button data-view="dilemas">Elige A o B</button>
         </div>
       </div>
       <div class="navsec">
@@ -238,6 +240,13 @@
 
   
 
+  <section class="view" id="dilemas">
+    <p class="eyebrow">Juego</p>
+    <h1 class="title">Elige A o B · dilemas</h1>
+    <p class="lead">Situaciones en las que hay que elegir entre dos cosas que importan. Elige, da tu razón y mira si cambias de opinión. Con el «modo clase» se cuentan los votos del aula.</p>
+    <div id="dilbox"></div>
+  </section>
+
   
 
   
@@ -279,6 +288,8 @@
 <script src="js/infografiasview.js"></script>
 <script src="js/glosario.js"></script>
 <script src="js/glosarioview.js"></script>
+<script src="js/dilemas.js"></script>
+<script src="js/dilemasview.js"></script>
 <!-- mermaid se carga bajo demanda al abrir Esquemas (js/lazy_libs.js) -->
 <script src="js/esquemas.js"></script>
 <script src="js/esquemasview.js"></script>

@@ -92,6 +92,21 @@ const SUBJECTS = {
     "Cuestionario: falacias",
     "cuestionarios",
     "falacias"
+   ],
+   [
+    "Juego: Elige A o B (dilemas)",
+    "dilemas",
+    ""
+   ],
+   [
+    "Teoría: mi huella en el planeta",
+    "teoria",
+    "ipc-huella"
+   ],
+   [
+    "Cuestionario: huella ecológica",
+    "cuestionarios",
+    "ipc-huella-q"
    ]
   ]
  }
@@ -298,6 +313,52 @@ const DECKS = {
     "🧠",
     "Alfabetización mediática",
     "Saber leer críticamente los medios: distinguir información, opinión y publicidad."
+   ]
+  ]
+ },
+ "ipc-huella": {
+  "name": "Pensamiento crítico · Mi huella en el planeta",
+  "subject": "ipc",
+  "cards": [
+   [
+    "👣",
+    "Huella ecológica",
+    "Tierra y mar productivos que hacen falta para producir lo que consumimos y absorber nuestros residuos. Se mide en hectáreas globales."
+   ],
+   [
+    "🌱",
+    "Biocapacidad",
+    "Lo que la naturaleza puede regenerar en un año: bosques, pesca, cosechas, suelo."
+   ],
+   [
+    "🌍",
+    "¿Cuántos planetas?",
+    "La humanidad consume como si tuviera unos 1,7 planetas. Viviendo como en España harían falta más de dos."
+   ],
+   [
+    "📅",
+    "Día de la Sobrecapacidad",
+    "Fecha en que ya hemos gastado lo que el planeta regenera en todo el año. Últimamente, a finales de julio o principios de agosto."
+   ],
+   [
+    "🏭",
+    "Huella de carbono",
+    "El CO₂ que emitimos con la energía, el transporte y lo que compramos. Es la parte más grande de la huella de los países ricos."
+   ],
+   [
+    "⚖️",
+    "Justicia ambiental",
+    "Quien más consume no es quien más sufre las consecuencias: sequías e inundaciones golpean más a los pobres."
+   ],
+   [
+    "♻️",
+    "Reducir, reutilizar, reciclar",
+    "En ese orden: lo mejor es no generar el residuo; reciclar es el último recurso."
+   ],
+   [
+    "🎭",
+    "Greenwashing",
+    "Publicidad que pinta de «verde» algo que no lo es. Pregunta: ¿qué cambia de verdad en lo que hace la empresa?"
    ]
   ]
  }
@@ -659,6 +720,111 @@ const QUIZZES = {
     ],
     "a": 0,
     "fb": "Contrastar fuentes es clave para no difundir bulos."
+   }
+  ]
+ },
+ "ipc-huella-q": {
+  "name": "Mi huella en el planeta (Pensamiento crítico)",
+  "subject": "ipc",
+  "items": [
+   {
+    "q": "¿Qué mide la huella ecológica?",
+    "o": [
+     "Los kilómetros que andamos al día.",
+     "La tierra y el mar productivos que hacen falta para producir lo que consumimos y absorber nuestros residuos.",
+     "El número de árboles de una ciudad.",
+     "La basura que reciclamos."
+    ],
+    "a": 1,
+    "fb": "Huella ecológica: superficie productiva necesaria para nuestro consumo y nuestros residuos (en hectáreas globales)."
+   },
+   {
+    "q": "Una familia gasta el sueldo de todo el año en cinco meses y luego vive de préstamos. ¿Con qué idea se compara?",
+    "o": [
+     "Con el Día de la Sobrecapacidad de la Tierra.",
+     "Con el reciclaje.",
+     "Con la biocapacidad.",
+     "Con la huella hídrica."
+    ],
+    "a": 0,
+    "fb": "El Día de la Sobrecapacidad marca cuándo hemos gastado lo que el planeta regenera en todo el año; desde entonces vivimos «a crédito»."
+   },
+   {
+    "q": "Si toda la humanidad viviera como se vive de media en España, ¿cuántos planetas harían falta?",
+    "o": [
+     "Menos de uno.",
+     "Exactamente uno.",
+     "Más de dos.",
+     "Diez."
+    ],
+    "a": 2,
+    "fb": "Más de dos planetas: nuestro consumo supera con mucho lo que nos tocaría."
+   },
+   {
+    "q": "¿Qué es la biocapacidad?",
+    "o": [
+     "Lo que la naturaleza puede regenerar en un año.",
+     "La capacidad de una fábrica.",
+     "El número de habitantes de un país.",
+     "La energía de las baterías."
+    ],
+    "a": 0,
+    "fb": "Biocapacidad: bosques que vuelven a crecer, peces que se reproducen, suelo que vuelve a dar cosecha."
+   },
+   {
+    "q": "En los países ricos, ¿cuál es la parte más grande de la huella ecológica?",
+    "o": [
+     "El agua de beber.",
+     "La huella de carbono (energía, transporte, consumo).",
+     "El papel del colegio.",
+     "Las mascotas."
+    ],
+    "a": 1,
+    "fb": "La huella de carbono: el CO₂ de la energía, el transporte y lo que compramos."
+   },
+   {
+    "q": "Los países que más consumen no son los que más sufren sequías o inundaciones. ¿Cómo se llama este problema?",
+    "o": [
+     "Greenwashing.",
+     "Injusticia ambiental.",
+     "Biocapacidad.",
+     "Reciclaje."
+    ],
+    "a": 1,
+    "fb": "Injusticia ambiental: los daños recaen sobre quien menos ha contaminado y menos medios tiene."
+   },
+   {
+    "q": "¿Cuál es el orden correcto para reducir residuos?",
+    "o": [
+     "Reciclar, reutilizar, reducir.",
+     "Reutilizar, reciclar, reducir.",
+     "Reducir, reutilizar, reciclar.",
+     "Da igual el orden."
+    ],
+    "a": 2,
+    "fb": "Primero reducir (no generar el residuo), luego reutilizar y, al final, reciclar."
+   },
+   {
+    "q": "Una marca de ropa rápida anuncia una «colección verde» pero sigue sacando miles de prendas nuevas cada semana. Eso es…",
+    "o": [
+     "justicia ambiental.",
+     "greenwashing.",
+     "biocapacidad.",
+     "consumo responsable."
+    ],
+    "a": 1,
+    "fb": "Greenwashing: pintarse de verde en la publicidad sin cambiar lo que se hace."
+   },
+   {
+    "q": "¿Cuál de estas acciones reduce más tu huella en el día a día?",
+    "o": [
+     "Ir al instituto andando o en transporte público en vez de en coche.",
+     "Cambiar de móvil cada año.",
+     "Comprar ropa nueva cada mes.",
+     "Dejar la luz encendida."
+    ],
+    "a": 0,
+    "fb": "El transporte es una de las partes que más pesa: andar, bici o transporte público reducen mucho la huella."
    }
   ]
  }
