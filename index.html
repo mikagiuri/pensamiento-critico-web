@@ -1,7 +1,10 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Pensamiento crítico · 2.º ESO</title>
-<meta name="description" content="El taller de filosofía en una página: teoría, materiales, esquemas, tarjetas, mapas y juegos de Filosofía 1.º, Historia de la Filosofía 2.º y Pensamiento crítico.">
+<meta name="description" content="Iniciación al pensamiento crítico (2.º de ESO): teoría, fichas, tarjetas y herramientas para pensar mejor: preguntar, argumentar, dialogar y detectar falacias y sesgos.">
 <meta name="theme-color" content="#f0ece3" media="(prefers-color-scheme: light)">
 <meta name="theme-color" content="#141519" media="(prefers-color-scheme: dark)">
 <link rel="manifest" href="manifest.webmanifest">
@@ -17,9 +20,16 @@
 <link rel="stylesheet" href="css/styles.css">
 <link rel="stylesheet" href="css/mobile.css">
 <link rel="stylesheet" href="css/reto.css">
+<link rel="stylesheet" href="css/parejas.css">
 <link rel="stylesheet" href="css/dilemas.css">
 <link rel="stylesheet" href="css/mundo.css">
 <link rel="stylesheet" href="css/retratos.css">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Pensamiento crítico · 2.º ESO">
+<meta property="og:description" content="Iniciación al pensamiento crítico (2.º de ESO): teoría, fichas, tarjetas y herramientas para pensar mejor: preguntar, argumentar, dialogar y detectar falacias y sesgos.">
+<meta property="og:image" content="media/icons/icon-512.png">
+</head>
+<body>
 
 <a class="skiplink" href="#contenido">Saltar al contenido</a>
 <header class="bar">
@@ -35,6 +45,7 @@
           <button data-view="materiales">Materiales</button>
           <button data-view="tarjetas">Tarjetas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
+          <button data-view="glosario">Glosario</button>
           <button data-view="citas">Citas</button>
         </div>
       </div>
@@ -42,6 +53,7 @@
         <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Juegos</span>
         <div class="navmenu">
           <button data-view="reto">Reto</button>
+          <button data-view="parejas">Parejas</button>
           <button data-view="dilemas">Elige A o B</button>
           <button data-view="mundo">Si la clase fuera el mundo</button>
         </div>
@@ -77,7 +89,7 @@
       </article>
     </div>
 
-    <div class="sec-head"><h2 class="sec">Esta semana (14-18 sep)</h2><p>Tus dos horas de Pensamiento crítico: jueves 11:15 y viernes 9:50.</p></div>
+    <div class="sec-head"><h2 class="sec">Esta semana</h2><p>Tus dos horas de Pensamiento crítico: jueves 11:15 y viernes 9:50.</p></div>
     <div class="weekwrap">
       <table class="week">
         <thead><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr></thead>
@@ -177,7 +189,14 @@
   
 
   <!-- GLOSARIO -->
-  
+  <section class="view" id="glosario">
+    <p class="eyebrow">Referencia</p>
+    <h1 class="title">Glosario</h1>
+    <p class="lead">Diccionario de la asignatura: <strong>301 términos</strong> de Historia de la Filosofía con su definición, extraídos del libro del departamento. Busca por palabra o filtra por <strong>bloque</strong> y <strong>área</strong>.</p>
+    <div class="filterbar" id="glofilter" role="group" aria-label="Filtrar glosario"></div>
+    <div class="glocount" id="glocount"></div>
+    <div class="glolist" id="glolist"></div>
+  </section>
 
   <!-- CITAS -->
   <section class="view" id="citas">
@@ -240,7 +259,12 @@
 
   
 
-  
+  <section class="view" id="parejas">
+    <p class="eyebrow">Herramienta</p>
+    <h1 class="title">Parejas</h1>
+    <p class="lead">Empareja cada término del glosario con su definición, contrarreloj. Suma puntos y racha; se guarda tu mejor marca en este navegador.</p>
+    <div id="parbox"></div>
+  </section>
 
   <section class="view" id="dilemas">
     <p class="eyebrow">Juego</p>
@@ -297,6 +321,7 @@
 <script src="js/infografiasview.js"></script>
 <script src="js/glosario.js"></script>
 <script src="js/glosarioview.js"></script>
+<script src="js/parejasview.js"></script>
 <script src="js/dilemas.js"></script>
 <script src="js/dilemasview.js"></script>
 <script src="js/mundo.js"></script>
@@ -327,3 +352,5 @@
     });
   }
 </script>
+</body>
+</html>
