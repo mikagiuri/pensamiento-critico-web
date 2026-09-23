@@ -1,6 +1,30 @@
 // Generado por tools/build_eso.js — solo Pensamiento crítico (2.º ESO).
 const CITAS = [
  {
+  "c": "Los seres humanos comienzan y han comenzado siempre a filosofar movidos por el asombro.",
+  "a": "Aristóteles",
+  "o": "Metafísica",
+  "e": "antigua"
+ },
+ {
+  "c": "El ser humano es por naturaleza un animal político.",
+  "a": "Aristóteles",
+  "o": "Política",
+  "e": "antigua"
+ },
+ {
+  "c": "La virtud es un término medio relativo a nosotros, determinado por la razón.",
+  "a": "Aristóteles",
+  "o": "Ética a Nicómaco",
+  "e": "antigua"
+ },
+ {
+  "c": "Todos los hombres desean por naturaleza saber.",
+  "a": "Aristóteles",
+  "o": "Universalidad del saber (Met. 980a1)",
+  "e": "antigua"
+ },
+ {
   "c": "Apártate, que me tapas el sol.",
   "a": "Diógenes de Sínope",
   "o": "a Alejandro Magno",

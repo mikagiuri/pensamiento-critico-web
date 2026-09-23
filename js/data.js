@@ -81,12 +81,6 @@ const SUBJECTS = {
     "ipc-eval-inicial"
    ],
    [
-    "Lista de control del diálogo",
-    "Sí / A medias / No, en cuatro dimensiones.",
-    "ipc\\rubricas",
-    "ipc-lista-dialogo"
-   ],
-   [
     "Lecturas para pensar",
     "Cuatro cuentos filosóficos con dibujo y preguntas: Sócrates, la serpiente, Hakuin y los dos monjes.",
     "ipc\\fichas",
