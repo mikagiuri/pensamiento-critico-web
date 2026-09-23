@@ -6,7 +6,7 @@
    proyectar en el aula (también se guarda en este navegador). */
 
 const DIL_KEY = "aula-dilemas", DIL_VOTES_KEY = "aula-dilemas-votos", DIL_CLASS_KEY = "aula-dilemas-clase";
-const DIL_GROUPS = { tecno: "Tecnoéticos", dia: "Del día" };
+const DIL_GROUPS = { tecno: "Tecnoéticos", clasicos: "Clásicos", dia: "Del día" };
 /* textos de interfaz: cada uno es una cadena entera (así los traduce web_i18n/ui/<lang>.json) */
 const DIL_TXT = {
   decididos: "Decididos:", borrar: "borrar mis respuestas", azar: "Dilema al azar", azarSub: "uno que aún no hayas decidido",

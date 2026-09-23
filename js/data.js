@@ -99,6 +99,11 @@ const SUBJECTS = {
     ""
    ],
    [
+    "Juego: Si la clase fuera el mundo",
+    "mundo",
+    ""
+   ],
+   [
     "Teoría: mi huella en el planeta",
     "teoria",
     "ipc-huella"

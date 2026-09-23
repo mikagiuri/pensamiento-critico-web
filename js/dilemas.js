@@ -5,6 +5,11 @@ const DILEMAS_INTRO = {
   "texto": "Detrás de cada avance hay decisiones éticas escondidas. Las herramientas cambian el mundo según cómo las usamos. Cuatro dimensiones, cuatro situaciones reales y cuatro decisiones sin vuelta atrás.",
   "cierre": "La tecnología diseña nuestro mundo, pero son los valores los que guían la tecnología. Si renunciamos a nuestra responsabilidad ética, se impondrán los valores de los algoritmos, las máquinas y las empresas. El futuro no solo se inventa: el futuro se elige."
  },
+ "clasicos": {
+  "titulo": "Dilemas clásicos",
+  "texto": "Dos dilemas famosos que se discuten en clases de ética de todo el mundo. Aquí no se trata de acertar: fíjate en qué razones te convencen y en cuándo cambias de opinión.",
+  "cierre": "Kohlberg usaba el dilema de Heinz para estudiar cómo razonamos: no importa tanto qué eliges como por qué lo eliges (miedo al castigo, lo que opinan los demás, las normas o principios que valen para todos)."
+ },
  "dia": {
   "titulo": "Dilemas del día",
   "texto": "Situaciones de tu edad en las que hay que elegir entre dos cosas que importan. No hay respuesta de libro: lo que cuenta es la razón que das.",
@@ -77,6 +82,45 @@ const DILEMAS = [
    "¿Qué es mejor: arreglar el problema con tecnología después de crearlo, o evitar crearlo?",
    "¿Puede la tecnología reparar de verdad el daño que le hacemos a la naturaleza?"
   ]
+ },
+ {
+  "grupo": "clasicos",
+  "subject": "ipc",
+  "id": "cla-heinz",
+  "emoji": "💊",
+  "etiqueta": "Ley, vida y justicia",
+  "titulo": "El dilema de Heinz",
+  "situacion": "La mujer de Heinz se está muriendo de un cáncer raro. Un farmacéutico de su ciudad ha descubierto un medicamento que podría salvarla, pero cobra 5.000 euros por una dosis, muchísimo más de lo que le cuesta fabricarla. Heinz pide dinero a familiares y amigos y solo reúne la mitad. Le suplica que se lo venda más barato o que le deje pagar más adelante. El farmacéutico se niega: lo ha descubierto él y quiere ganar dinero.",
+  "a": "Heinz entra de noche en la farmacia y roba el medicamento.",
+  "b": "Heinz no lo roba: sigue buscando dinero y respeta la ley.",
+  "enjuego": "La vida de una persona frente a la ley y la propiedad. ¿Es justo el precio? ¿Puede haber leyes que haya que desobedecer?",
+  "preguntas": [
+   "Robar va contra la ley. ¿Eso convierte a Heinz en una mala persona? ¿Por qué?",
+   "¿Tiene alguna culpa el farmacéutico? ¿Debería existir una ley que le obligara a bajar el precio?",
+   "¿Por qué, en general, conviene cumplir las leyes? ¿Hay excepciones?"
+  ],
+  "ysi": "¿Y si Heinz no quisiera a su mujer? ¿Y si la enferma fuera una desconocida? ¿Y si fuera su perro? ¿Cambia tu respuesta en algún caso?",
+  "dato": "El psicólogo Lawrence Kohlberg planteó este dilema a cientos de personas. No le interesaba si decían «sí» o «no», sino sus razones: así describió las etapas del desarrollo moral, desde «para que no me castiguen» hasta «por principios que valen para todos»."
+ },
+ {
+  "grupo": "clasicos",
+  "subject": "ipc",
+  "id": "cla-confederacion",
+  "emoji": "🛸",
+  "etiqueta": "Mayoría y minoría",
+  "titulo": "La Confederación Galáctica",
+  "situacion": "Llega a la Tierra una delegación de la Confederación Galáctica: «En todos los planetas que controlamos, la gente es completamente feliz. Podemos hacer lo mismo con la humanidad: felicidad para siempre». «¿A cambio de qué?», preguntan los humanos. «Muy poco: un niño o una niña de cada país, al que torturaremos el resto de su vida. Un precio pequeño por la felicidad eterna de todos, ¿no?»",
+  "a": "Aceptar el trato: la felicidad de miles de millones compensa el sufrimiento de unos pocos.",
+  "b": "Rechazar el trato: nadie puede ser sacrificado, aunque sea por la felicidad de todos.",
+  "enjuego": "La mayor felicidad para el mayor número (utilitarismo) frente a los derechos de cada persona, que no se pueden cambiar por nada (dignidad).",
+  "preguntas": [
+   "¿Qué razones darías para rechazar la propuesta?",
+   "¿Es siempre mejor «la mayor felicidad para el mayor número», aunque una minoría sufra?",
+   "¿Están los derechos de la mayoría por encima de los de las minorías?",
+   "¿Estarías dispuesto o dispuesta a sacrificarte tú por la felicidad de toda la humanidad?"
+  ],
+  "ysi": "¿Y si os aseguran que, además, olvidaréis para siempre a esos niños? ¿Y si en vez de niños fueran personas a punto de morir, o criminales? ¿Aceptarías entonces?",
+  "dato": "Es una versión del famoso relato de Ursula K. Le Guin «Los que se marchan de Omelas» (1973): una ciudad feliz cuya felicidad depende del sufrimiento de un solo niño."
  },
  {
   "grupo": "dia",
