@@ -289,6 +289,48 @@ const GLOSARIO = [
  },
  {
   "subject": "ipc",
+  "t": "Grupo",
+  "area": "Emociones y grupo",
+  "tema": "Pensamiento crítico · Emociones y grupo",
+  "def": "Personas que se conocen, se relacionan, comparten un objetivo y sienten un «nosotros»."
+ },
+ {
+  "subject": "ipc",
+  "t": "Cohesión",
+  "area": "Emociones y grupo",
+  "tema": "Pensamiento crítico · Emociones y grupo",
+  "def": "Fuerza que mantiene unido a un grupo: las ganas de estar y trabajar juntos."
+ },
+ {
+  "subject": "ipc",
+  "t": "Cooperación",
+  "area": "Emociones y grupo",
+  "tema": "Pensamiento crítico · Emociones y grupo",
+  "def": "Trabajar juntos hacia un objetivo común, de modo que el éxito de uno ayuda al de los demás."
+ },
+ {
+  "subject": "ipc",
+  "t": "Inclusión",
+  "area": "Emociones y grupo",
+  "tema": "Pensamiento crítico · Emociones y grupo",
+  "def": "Que nadie se quede fuera del grupo por sus diferencias."
+ },
+ {
+  "subject": "ipc",
+  "t": "Solidaridad",
+  "area": "Emociones y grupo",
+  "tema": "Pensamiento crítico · Emociones y grupo",
+  "def": "Ayudar a los demás y sentir como propios sus problemas."
+ },
+ {
+  "subject": "ipc",
+  "t": "Grupo nominal",
+  "area": "Emociones y grupo",
+  "tema": "Pensamiento crítico · Emociones y grupo",
+  "def": "Técnica para decidir en grupo: cada uno escribe sus ideas, se ponen en común por turnos y se puntúan."
+ },
+ {
+  "subject": "ipc",
   "t": "Criterio",
   "area": "Argumentar",
   "tema": "Pensamiento crítico · Argumentar",

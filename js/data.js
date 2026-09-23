@@ -366,6 +366,138 @@ const DECKS = {
     "Publicidad que pinta de «verde» algo que no lo es. Pregunta: ¿qué cambia de verdad en lo que hace la empresa?"
    ]
   ]
+ },
+ "ipc-prejuicios": {
+  "name": "Pensamiento crítico · Prejuicios y estereotipos",
+  "subject": "ipc",
+  "cards": [
+   [
+    "🔍",
+    "¿Estereotipo o dato?",
+    "Un dato se puede comprobar y habla de hechos («el 30 % de…»). Un estereotipo mete a todo un grupo en el mismo saco («todos los X son…»)."
+   ],
+   [
+    "🌍",
+    "Racismo",
+    "Juzgar o tratar peor a alguien por su color de piel u origen étnico, como si eso dijera algo de cómo es."
+   ],
+   [
+    "🧳",
+    "Xenofobia",
+    "Rechazo a las personas que vienen de otros países: se las ve como una amenaza o una carga sin conocerlas."
+   ],
+   [
+    "🪙",
+    "Aporofobia",
+    "Rechazo a las personas pobres (palabra de la filósofa Adela Cortina). Al turista rico se le recibe bien; al pobre, no."
+   ],
+   [
+    "♀️",
+    "Machismo y sexismo",
+    "Creer que un género vale más o sirve para unas cosas y no para otras («eso es de chicas», «los chicos no lloran»)."
+   ],
+   [
+    "🏳️‍🌈",
+    "LGTBIfobia",
+    "Rechazo o burla hacia las personas por su orientación sexual o su identidad de género."
+   ],
+   [
+    "👵",
+    "Edadismo",
+    "Prejuicios por la edad: «los mayores no se enteran», «los jóvenes no saben nada»."
+   ],
+   [
+    "♿",
+    "Capacitismo",
+    "Tratar a las personas con discapacidad como si fueran menos capaces en todo, o solo como objeto de pena."
+   ],
+   [
+    "🕊️",
+    "Prejuicio religioso",
+    "Ideas negativas sobre alguien por su religión o por no tener ninguna."
+   ],
+   [
+    "👀",
+    "Por la apariencia",
+    "Juzgar por el cuerpo, el peso, la ropa o la cara. Las burlas por el peso son una de las formas de acoso más frecuentes."
+   ],
+   [
+    "🧠",
+    "Estigma de la salud mental",
+    "Creer que quien tiene un problema de salud mental es peligroso, flojo o «se lo inventa». El estigma hace que no se pida ayuda."
+   ],
+   [
+    "🙋",
+    "¿Qué puedo hacer?",
+    "Pedir datos antes de generalizar, conocer a la persona antes que a la etiqueta y no reírse de la broma que humilla."
+   ]
+  ]
+ },
+ "ipc-moda": {
+  "name": "Pensamiento crítico · Moda rápida (documental)",
+  "subject": "ipc",
+  "cards": [
+   [
+    "📅",
+    "52 colecciones al año",
+    "Antes había unas 4 colecciones al año; hoy algunas cadenas sacan una microcolección cada semana."
+   ],
+   [
+    "👕",
+    "120.000 millones",
+    "Según el documental, cada año se producen en el mundo más de 120.000 millones de prendas."
+   ],
+   [
+    "🏷️",
+    "Sin estrenar",
+    "Según un estudio de Greenpeace, alrededor del 40 % de la ropa que se compra no se llega a usar nunca."
+   ],
+   [
+    "🎉",
+    "El top de fiesta",
+    "Una prenda de fiesta se usa de media una o dos veces antes de tirarla."
+   ],
+   [
+    "🛢️",
+    "Ropa de petróleo",
+    "Cerca del 70 % de los tejidos nuevos son fibras sintéticas que salen del petróleo."
+   ],
+   [
+    "♻️",
+    "El mito del reciclaje",
+    "Reciclar ropa vieja para hacer ropa nueva casi no existe: el poliéster «reciclado» sale sobre todo de botellas de plástico."
+   ],
+   [
+    "🔥",
+    "El destino: Bulgaria",
+    "Mucha ropa desechada acaba en países pobres de Europa del Este, donde algunas familias la queman en estufas porque no pueden pagar la leña."
+   ],
+   [
+    "☠️",
+    "Humo tóxico",
+    "Quemar tejidos con plásticos suelta gases contaminantes y dioxinas, que pueden causar cáncer."
+   ],
+   [
+    "📱",
+    "Influencers",
+    "Las redes sociales empujan las tendencias sin parar y llevan directamente a la tienda online."
+   ],
+   [
+    "🙂",
+    "Felicidad de un día",
+    "La alegría de estrenar ropa dura muy poco: por eso volvemos a comprar."
+   ],
+   [
+    "🔄",
+    "Alternativas",
+    "Segunda mano, intercambio, préstamo y arreglar la ropa alargan su vida."
+   ],
+   [
+    "🌱",
+    "La prenda más sostenible",
+    "La que no hace falta fabricar. Conclusión del documental: la moda rápida nunca será sostenible."
+   ]
+  ]
  }
 };
 const QUIZZES = {
@@ -830,6 +962,260 @@ const QUIZZES = {
     ],
     "a": 0,
     "fb": "El transporte es una de las partes que más pesa: andar, bici o transporte público reducen mucho la huella."
+   }
+  ]
+ },
+ "ipc-hecho-q": {
+  "name": "¿Hecho, opinión, hipótesis o pregunta? (Pensamiento crítico)",
+  "subject": "ipc",
+  "items": [
+   {
+    "q": "«El agua hierve a 100 °C al nivel del mar.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 0,
+    "fb": "Es un hecho: se puede comprobar y cualquiera que lo mida obtiene lo mismo."
+   },
+   {
+    "q": "«El reguetón es la peor música que existe.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 1,
+    "fb": "Es una opinión: expresa un gusto o una valoración. Se puede defender con razones, pero no se «comprueba» como un hecho."
+   },
+   {
+    "q": "«Puede que las plantas crezcan más con música: lo probaremos con dos macetas iguales.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 2,
+    "fb": "Es una hipótesis: una suposición que todavía no sabemos si es verdad, pero que se puede poner a prueba."
+   },
+   {
+    "q": "«¿Es justo que unos países tengan mucho más que otros?»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 3,
+    "fb": "Es una pregunta filosófica: no se responde con un dato ni con un experimento, sino pensando y dando razones."
+   },
+   {
+    "q": "«Bilbao está en Bizkaia.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 0,
+    "fb": "Es un hecho: basta mirar un mapa para comprobarlo."
+   },
+   {
+    "q": "«Las series de ahora son más aburridas que las de antes.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 1,
+    "fb": "Es una opinión: depende de gustos. Ojo: que sea opinión no significa que no haya que razonarla."
+   },
+   {
+    "q": "«Quizá mirar el móvil antes de dormir empeora el sueño: comparemos a quienes lo hacen y a quienes no.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 2,
+    "fb": "Es una hipótesis: se plantea como posible y se propone una forma de comprobarla. Una hipótesis NO es lo mismo que una opinión."
+   },
+   {
+    "q": "«¿Qué es la felicidad?»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 3,
+    "fb": "Pregunta filosófica: es abierta, importante y no tiene una única respuesta de libro."
+   },
+   {
+    "q": "«En 1969 unos astronautas llegaron a la Luna.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 0,
+    "fb": "Es un hecho histórico comprobado con muchas pruebas independientes (aunque circulen bulos que digan lo contrario)."
+   },
+   {
+    "q": "«Pensar críticamente es aburrido.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 1,
+    "fb": "Es una opinión: una valoración personal. Otra persona puede pensar lo contrario con buenas razones."
+   },
+   {
+    "q": "«Si estudio con música, tal vez me concentre peor: voy a probar una semana con música y otra sin ella.»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 2,
+    "fb": "Es una hipótesis: una suposición que se comprueba con una prueba sencilla."
+   },
+   {
+    "q": "«¿Podemos estar seguros de algo?»",
+    "o": [
+     "Un hecho.",
+     "Una opinión.",
+     "Una hipótesis.",
+     "Una pregunta filosófica."
+    ],
+    "a": 3,
+    "fb": "Pregunta filosófica: sobre el conocimiento mismo. La ciencia no la puede zanjar con un experimento."
+   }
+  ]
+ },
+ "ipc-moda-q": {
+  "name": "Moda rápida: el documental (Pensamiento crítico)",
+  "subject": "ipc",
+  "items": [
+   {
+    "q": "¿A quién se dirige sobre todo el negocio de la moda rápida?",
+    "o": [
+     "A los adolescentes.",
+     "A las personas mayores.",
+     "A las empresas.",
+     "A los deportistas."
+    ],
+    "a": 0,
+    "fb": "El documental explica que el público principal son los adolescentes."
+   },
+   {
+    "q": "Antes había unas 4 colecciones al año. ¿Cuántas microcolecciones sacan hoy algunas cadenas?",
+    "o": [
+     "8.",
+     "52, una cada semana.",
+     "12, una al mes.",
+     "Ninguna."
+    ],
+    "a": 1,
+    "fb": "Hasta 52 al año: una microcolección nueva cada semana, para que siempre haya algo «nuevo» que comprar."
+   },
+   {
+    "q": "Según un estudio de Greenpeace, ¿qué parte de la ropa que se compra no se llega a usar nunca?",
+    "o": [
+     "Casi nada.",
+     "Un 5 %.",
+     "Alrededor del 40 %.",
+     "Toda."
+    ],
+    "a": 2,
+    "fb": "Alrededor del 40 %: casi la mitad de lo que se compra se queda sin estrenar."
+   },
+   {
+    "q": "¿De dónde salen cerca del 70 % de los tejidos nuevos?",
+    "o": [
+     "Del algodón ecológico.",
+     "De la lana.",
+     "De ropa reciclada.",
+     "Del petróleo (fibras sintéticas)."
+    ],
+    "a": 3,
+    "fb": "Son fibras sintéticas derivadas del petróleo, como el poliéster."
+   },
+   {
+    "q": "El poliéster «reciclado» de muchas grandes marcas sale sobre todo de…",
+    "o": [
+     "botellas de plástico viejas.",
+     "ropa usada.",
+     "algodón.",
+     "papel."
+    ],
+    "a": 0,
+    "fb": "De botellas de plástico, no de ropa usada: reciclar ropa para hacer ropa nueva casi no existe."
+   },
+   {
+    "q": "¿Qué hacen algunas familias pobres de Bulgaria con la ropa desechada que les venden?",
+    "o": [
+     "La exportan a Asia.",
+     "La queman en las estufas para calentarse.",
+     "La convierten en papel.",
+     "La devuelven a las tiendas."
+    ],
+    "a": 1,
+    "fb": "La queman para calentarse porque no pueden pagar leña: sale humo tóxico y la ciudad se contamina."
+   },
+   {
+    "q": "¿Por qué es tan contaminante quemar esta ropa?",
+    "o": [
+     "Porque es de papel.",
+     "Porque lleva mucha agua.",
+     "Porque muchas prendas llevan plásticos y sueltan gases tóxicos y dioxinas.",
+     "Porque huele mal."
+    ],
+    "a": 2,
+    "fb": "Los plásticos de los tejidos liberan gases contaminantes y dioxinas, perjudiciales para la salud."
+   },
+   {
+    "q": "En el documental, la felicidad por estrenar una prenda dura…",
+    "o": [
+     "años.",
+     "toda la temporada.",
+     "un mes.",
+     "poco más de un día."
+    ],
+    "a": 3,
+    "fb": "Poco más de un día: por eso el ciclo de comprar vuelve a empezar enseguida."
+   },
+   {
+    "q": "Una tienda te da un descuento por dejar tu ropa vieja en su contenedor «de reciclaje». ¿Qué técnica hay detrás?",
+    "o": [
+     "Te anima a volver a comprar y lava la imagen de la marca (greenwashing).",
+     "Es caridad sin más.",
+     "Obliga a no comprar.",
+     "Es un impuesto."
+    ],
+    "a": 0,
+    "fb": "El descuento es para la siguiente compra: sigues consumiendo y la marca parece «verde». El documental lo llama un truco de marketing."
+   },
+   {
+    "q": "Según la conclusión del documental, ¿cuál es la prenda más sostenible?",
+    "o": [
+     "La de algodón.",
+     "La que no hace falta fabricar.",
+     "La más barata.",
+     "La que se tira al contenedor."
+    ],
+    "a": 1,
+    "fb": "La que no hace falta producir: comprar menos, usar más tiempo, arreglar y compartir."
    }
   ]
  }
