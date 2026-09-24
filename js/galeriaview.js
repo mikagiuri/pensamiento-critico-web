@@ -14,9 +14,24 @@ function galAddIlus(list, bloque, nombre){
   });
 }
 if (typeof ILUSTRACIONES !== "undefined" && Array.isArray(GALERIA)) galAddIlus(ILUSTRACIONES, "F1", "Filosofía 1.º");
-/* Pensamiento crítico (2.º ESO): lo mismo con ilustraciones_ipc.js, grupo «PC». */
-if (typeof ILUSTRACIONES_IPC !== "undefined" && Array.isArray(GALERIA)) galAddIlus(ILUSTRACIONES_IPC, "PC", "Pensamiento crítico");
-/* bloques con alguna imagen (en las webs por materia GALERIA llega ya filtrada: 1.º solo trae «F1»; ESO, «PC») */
+/* 1.º y 2.º de Bachillerato: «Arte y pensamiento crítico» (galeria_pensar.js), grupo «PC». */
+if (typeof GALERIA_PENSAR !== "undefined" && Array.isArray(GALERIA)) galAddIlus(GALERIA_PENSAR, "PC", "Arte y pensamiento crítico");
+/* 2.º ESO: la Galería son los dibujos de los «Cuentos para pensar», sacados del propio texto de cada
+   cuento (MATERIALS ipc-lec-*, primer <img> + su <figcaption>). En Bachillerato MATERIALS llega vacío. */
+if (typeof MATERIALS !== "undefined" && Array.isArray(GALERIA)){
+  const cu = Object.keys(MATERIALS).filter(function (k){ return /^ipc-lec-/.test(k) && !/soluciones/.test(k); });
+  cu.forEach(function (k){
+    const html = String(MATERIALS[k].html || "");
+    const img = html.match(/<img[^>]*\ssrc="([^"]+)"[^>]*>/);
+    if (!img) return;
+    const cap = html.match(/<figcaption[^>]*>([\s\S]*?)<\/figcaption>/);
+    const alt = img[0].match(/\salt="([^"]*)"/);
+    GAL_BLOCKS.CU = "Cuentos para pensar";
+    GALERIA.push({ f: img[1], t: MATERIALS[k].title, pie: (cap ? cap[1] : (alt ? alt[1] : "")).replace(/<[^>]+>/g, ""),
+      bloque: "CU", unidad: "Cuentos para pensar" });
+  });
+}
+/* bloques con alguna imagen (en las webs por materia GALERIA llega ya filtrada: 1.º trae «F1» y «PC»; ESO, «CU») */
 function galBlocksPresent(){ return Object.keys(GAL_BLOCKS).filter(function (b){ return GALERIA.some(function (g){ return g.bloque === b; }); }); }
 let galBloque = galBlocksPresent()[0] || "all";  /* bloque concreto por defecto, nunca «Todos» */
 let galList = [];
