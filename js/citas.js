@@ -61,6 +61,12 @@ const CITAS = [
   "e": "antigua"
  },
  {
+  "c": "El fin de una enciclopedia es reunir los conocimientos dispersos sobre la superficie de la tierra.",
+  "a": "Diderot",
+  "o": "El proyecto enciclopédico (Encyclopédie, Prólogo)",
+  "e": "moderna"
+ },
+ {
   "c": "El cristiano es señor de todas las cosas y no está sujeto a nadie. El cristiano es siervo de todas las cosas y está sujeto a todos.",
   "a": "Martín Lutero",
   "o": "La libertad del cristiano (De libertate christiana)",
