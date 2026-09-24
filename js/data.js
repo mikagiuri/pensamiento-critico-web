@@ -61,32 +61,7 @@ const SUBJECTS = {
   "kick": "2.º de ESO · Inicio de curso",
   "color": "var(--ipc)",
   "intro": "Fundamentar los conceptos del curso (opinión, pregunta y tipos de pregunta, argumentación, debate, diálogo, crítica, criterio, autonomía, conflicto, negociación) y hacer la preevaluación inicial.",
-  "mats": [
-   [
-    "Contrato de aula",
-    "Normas, compromisos y hoja de firma.",
-    "ipc\\gestion_aula",
-    "ipc-contrato"
-   ],
-   [
-    "Diario de aprendizaje",
-    "Portada, plantilla de entrada y hoja de evidencias.",
-    "ipc\\gestion_aula",
-    "ipc-diario"
-   ],
-   [
-    "Evaluación inicial",
-    "«¿Buena razón o truco?»: test de 10 ítems + escrito breve.",
-    "ipc\\fichas",
-    "ipc-eval-inicial"
-   ],
-   [
-    "Lecturas para pensar",
-    "Cuatro cuentos filosóficos con dibujo y preguntas: Sócrates, la serpiente, Hakuin y los dos monjes.",
-    "ipc\\fichas",
-    "ipc-lec-tamices"
-   ]
-  ],
+  "mats": [],
   "tools": [
    [
     "Cuestionario: falacias",
@@ -112,6 +87,11 @@ const SUBJECTS = {
     "Cuestionario: huella ecológica",
     "cuestionarios",
     "ipc-huella-q"
+   ],
+   [
+    "Lecturas para pensar (cuentos)",
+    "cuentos",
+    ""
    ]
   ]
  }
