@@ -60,6 +60,7 @@
     addAll(typeof DECKS       !== "undefined" ? DECKS       : null, "tarjetas",      function(i){ return i.name; },             function(i){ return subjName(i.subject); },                      "Tarjetas");
     addAll(typeof ESQUEMAS    !== "undefined" ? ESQUEMAS    : null, "esquemas",      function(i){ return i.title; },            function(i){ return i.tema || subjName(i.subject); },            "Esquema");
     addAll(typeof PAU         !== "undefined" ? PAU         : null, "pau",           function(i){ return i.title; },            function(i){ return i.kick || "PAU"; },                          "PAU");
+    addAll(typeof ILUSTRES    !== "undefined" ? ILUSTRES    : null, "ilustres",      function(i){ return i.name; },             function(i){ return i.dates + (i.role ? " · " + i.role : ""); }, "Ilustre");
     index = out;
     return out;
   }

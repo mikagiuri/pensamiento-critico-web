@@ -502,7 +502,7 @@ const DECKS = {
 };
 const QUIZZES = {
  "falacias": {
-  "name": "Falacias (Pensamiento crítico)",
+  "name": "Falacias",
   "subject": "ipc",
   "items": [
    {
@@ -629,7 +629,7 @@ const QUIZZES = {
   ]
  },
  "ipc-sesgos-q": {
-  "name": "Sesgos cognitivos (Pensamiento crítico)",
+  "name": "Sesgos cognitivos",
   "subject": "ipc",
   "items": [
    {
@@ -745,7 +745,7 @@ const QUIZZES = {
   ]
  },
  "ipc-medios-q": {
-  "name": "Publicidad y medios (Pensamiento crítico)",
+  "name": "Publicidad y medios",
   "subject": "ipc",
   "items": [
    {
@@ -861,7 +861,7 @@ const QUIZZES = {
   ]
  },
  "ipc-huella-q": {
-  "name": "Mi huella en el planeta (Pensamiento crítico)",
+  "name": "Mi huella en el planeta",
   "subject": "ipc",
   "items": [
    {
@@ -966,7 +966,7 @@ const QUIZZES = {
   ]
  },
  "ipc-hecho-q": {
-  "name": "¿Hecho, opinión, hipótesis o pregunta? (Pensamiento crítico)",
+  "name": "¿Hecho, opinión, hipótesis o pregunta?",
   "subject": "ipc",
   "items": [
    {
@@ -1104,7 +1104,7 @@ const QUIZZES = {
   ]
  },
  "ipc-moda-q": {
-  "name": "Moda rápida: el documental (Pensamiento crítico)",
+  "name": "Moda rápida: el documental",
   "subject": "ipc",
   "items": [
    {
