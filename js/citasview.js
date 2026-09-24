@@ -45,7 +45,7 @@
         '<figcaption class="cit-src"><span class="cit-a">' + esc(c.a) + '</span>' +
         (c.o ? ', <span class="cit-o">' + esc(c.o) + '</span>' : '') + '</figcaption></figure>';
     }).join("") + '</div>' +
-    '<p class="citcount">' + list.length + (list.length === 1 ? " cita" : " citas") + '.</p>';
+    '<p class="citcount">' + list.length + (list.length === 1 ? " frase" : " frases") + '.</p>';
   }
 
   function initCitas(){ if (!document.getElementById("citasbody")) return; renderCitFilter(); renderCitBody(); }
