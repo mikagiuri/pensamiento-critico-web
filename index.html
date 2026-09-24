@@ -44,6 +44,7 @@
         <div class="navmenu">
           <button data-view="teoria">Teoría</button>
           <button data-view="materiales">Materiales</button>
+          <button data-view="cuentos">Cuentos</button>
           <button data-view="tarjetas">Tarjetas</button>
           <button data-view="cuestionarios">Cuestionarios</button>
           <button data-view="glosario">Glosario</button>
@@ -134,6 +135,18 @@
     <div class="theory-layout">
       <nav class="toc" id="mtoc" aria-label="Índice del material"></nav>
       <article class="theory" id="materialbody"></article>
+    </div>
+  </section>
+
+  <!-- CUENTOS (Pensamiento crítico) -->
+  <section class="view" id="cuentos">
+    <p class="eyebrow">Pensamiento crítico</p>
+    <h1 class="title">Cuentos para pensar</h1>
+    <p class="lead">Fábulas y relatos breves de todas las tradiciones —Sócrates, Zhuangzi, Esopo, Tolstói, un cuento inuit, una parábola china— para leer en cinco minutos y pensar durante una clase: cada uno trae sus preguntas de comprensión, de reflexión y una entrada de diario. <span id="cuentocount" class="muted"></span></p>
+    <div class="chips" id="cuentochips" role="group" aria-label="Elegir cuento"></div>
+    <div class="theory-layout">
+      <nav class="toc" id="ctoc" aria-label="Índice del cuento"></nav>
+      <article class="theory" id="cuentobody"></article>
     </div>
   </section>
 
@@ -310,6 +323,7 @@
 <script src="js/citasview.js"></script>
 <script src="js/materials.js"></script>
 <script src="js/materialsview.js"></script>
+<script src="js/cuentosview.js"></script>
 <script src="js/lecturas.js"></script>
 <script src="js/lecturasview.js"></script>
 <script src="js/disertaciones.js"></script>

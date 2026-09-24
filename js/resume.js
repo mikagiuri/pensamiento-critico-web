@@ -15,6 +15,7 @@
     teoria:       { load: "loadTheory",     coll: function(){ return typeof THEORY      !== "undefined" ? THEORY      : null; }, type: "Teoría",       lab: function(o){ return o.title; } },
     lecturas:     { load: "loadLectura",    coll: function(){ return typeof LECTURAS    !== "undefined" ? LECTURAS    : null; }, type: "Lectura",      lab: function(o){ return o.title; } },
     materiales:   { load: "loadMaterial",   coll: function(){ return typeof MATERIALS   !== "undefined" ? MATERIALS   : null; }, type: "Material",     lab: function(o){ return o.title; } },
+    cuentos:      { load: "loadCuento",     coll: function(){ return typeof MATERIALS   !== "undefined" ? MATERIALS   : null; }, type: "Cuento",       lab: function(o){ return o.title; } },
     infografias:  { load: "loadInfografia", coll: function(){ return typeof INFOGRAFIAS !== "undefined" ? INFOGRAFIAS : null; }, type: "Infografía",   lab: function(o){ return o.label || o.title; } },
     cuestionarios:{ load: "loadQuiz",       coll: function(){ return typeof QUIZZES     !== "undefined" ? QUIZZES     : null; }, type: "Cuestionario", lab: function(o){ return o.name; } },
     tarjetas:     { load: "loadDeck",       coll: function(){ return typeof DECKS       !== "undefined" ? DECKS       : null; }, type: "Tarjetas",     lab: function(o){ return o.name; } },
