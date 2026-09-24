@@ -1,30 +1,6 @@
 // Generado por tools/build_eso.js — solo Pensamiento crítico (2.º ESO).
 const CITAS = [
  {
-  "c": "Los seres humanos comienzan y han comenzado siempre a filosofar movidos por el asombro.",
-  "a": "Aristóteles",
-  "o": "Metafísica",
-  "e": "antigua"
- },
- {
-  "c": "El ser humano es por naturaleza un animal político.",
-  "a": "Aristóteles",
-  "o": "Política",
-  "e": "antigua"
- },
- {
-  "c": "La virtud es un término medio relativo a nosotros, determinado por la razón.",
-  "a": "Aristóteles",
-  "o": "Ética a Nicómaco",
-  "e": "antigua"
- },
- {
-  "c": "Todos los hombres desean por naturaleza saber.",
-  "a": "Aristóteles",
-  "o": "Universalidad del saber (Met. 980a1)",
-  "e": "antigua"
- },
- {
   "c": "Apártate, que me tapas el sol.",
   "a": "Diógenes de Sínope",
   "o": "a Alejandro Magno",
@@ -67,6 +43,12 @@ const CITAS = [
   "e": "moderna"
  },
  {
+  "c": "El fin de la ley no es abolir o restringir la libertad, sino preservarla y ampliarla.",
+  "a": "John Locke",
+  "o": "Segundo tratado sobre el gobierno civil",
+  "e": "moderna"
+ },
+ {
   "c": "El cristiano es señor de todas las cosas y no está sujeto a nadie. El cristiano es siervo de todas las cosas y está sujeto a todos.",
   "a": "Martín Lutero",
   "o": "La libertad del cristiano (De libertate christiana)",
@@ -77,5 +59,29 @@ const CITAS = [
   "a": "Pico della Mirandola",
   "o": "La dignidad del hombre (Oratio)",
   "e": "moderna"
+ },
+ {
+  "c": "El ser humano es un lobo para el ser humano.",
+  "a": "Thomas Hobbes",
+  "o": "Leviatán",
+  "e": "moderna"
+ },
+ {
+  "c": "La mayor felicidad para el mayor número.",
+  "a": "John Stuart Mill",
+  "o": "El utilitarismo",
+  "e": "contemporanea"
+ },
+ {
+  "c": "Es mejor ser un ser humano insatisfecho que un cerdo satisfecho.",
+  "a": "John Stuart Mill",
+  "o": "El utilitarismo",
+  "e": "contemporanea"
+ },
+ {
+  "c": "Cuando cambian los paradigmas, el mundo mismo cambia con ellos.",
+  "a": "Thomas Kuhn",
+  "o": "La estructura de las revoluciones científicas",
+  "e": "contemporanea"
  }
 ];
