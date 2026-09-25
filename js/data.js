@@ -1194,6 +1194,309 @@ const QUIZZES = {
    }
   ]
  },
+ "ipc-bulos-q": {
+  "name": "Detectar bulos: argumentos, falacias y noticias falsas",
+  "subject": "ipc",
+  "items": [
+   {
+    "q": "En un debate de clase, Carlos dice: «Deberíamos prohibir las bebidas azucaradas en la cafetería, ya que tienen muchísimo azúcar y aumentan el riesgo de diabetes en los jóvenes». ¿Cuál es la razón que da?",
+    "o": [
+     "Las bebidas azucaradas tienen mucho azúcar y aumentan el riesgo de diabetes en los jóvenes.",
+     "Deberíamos prohibir las bebidas azucaradas en la cafetería.",
+     "Todo lo que se vende en la cafetería es malo para la salud.",
+     "La cafetería no debería vender ningún alimento procesado."
+    ],
+    "a": 0,
+    "fb": "La razón va detrás de «ya que». «Deberíamos prohibir…» es la conclusión: lo que Carlos quiere que aceptemos."
+   },
+   {
+    "q": "Marta dice: «El profesor debe ponernos un 10 en el proyecto porque nos hemos esforzado muchísimo y apenas hemos dormido». Con las tres preguntas (¿es verdadera?, ¿tiene que ver?, ¿basta?), ¿en cuál falla sobre todo?",
+    "o": [
+     "En «¿Tiene que ver?»: el esfuerzo y el sueño no miden si el trabajo está bien hecho.",
+     "En «¿Es verdadera?»: es imposible saber si durmieron o no.",
+     "Solo en «¿Basta?»: esforzarse siempre garantiza un buen trabajo.",
+     "En ninguna: la nota debe depender del sacrificio de cada uno."
+    ],
+    "a": 0,
+    "fb": "Puede ser verdad que se esforzaron, pero la nota mide el trabajo, no el cansancio. La razón no tiene que ver con la conclusión."
+   },
+   {
+    "q": "Para elegir la actividad de fin de curso, un alumno dice: «Hagamos un torneo de baloncesto, porque a mí me encanta jugar los fines de semana». ¿Por qué no es un buen argumento?",
+    "o": [
+     "Da un gusto personal: explica lo que él prefiere, pero no que sea lo mejor para el grupo.",
+     "Insulta a los compañeros a los que no les gusta el deporte.",
+     "Amenaza al grupo si no vota su propuesta.",
+     "No usa ningún «porque»."
+    ],
+    "a": 0,
+    "fb": "Que te guste algo explica tu preferencia, no demuestra que sea lo mejor para todos."
+   },
+   {
+    "q": "Un alumno escribe: «Es imprescindible llegar puntual a clase porque hay que estar a la hora». ¿Qué le pasa a esta razón?",
+    "o": [
+     "No es una razón: repite la conclusión con otras palabras.",
+     "Ataca a los que llegan tarde.",
+     "Plantea un falso dilema: puntualidad o expulsión.",
+     "Usa el miedo al castigo para convencer."
+    ],
+    "a": 0,
+    "fb": "«Llegar puntual» y «estar a la hora» dicen lo mismo. Lleva «porque», pero no añade ninguna razón."
+   },
+   {
+    "q": "En un debate sobre el uniforme, Lucía explica cuánto ahorrarían las familias. Pablo responde: «No le hagáis caso; el año pasado suspendió dos asignaturas y siempre llega tarde». ¿Qué falacia comete Pablo?",
+    "o": [
+     "Ad hominem.",
+     "Hombre de paja.",
+     "Apelación a la autoridad.",
+     "Generalización precipitada."
+    ],
+    "a": 0,
+    "fb": "Pablo ataca a Lucía (sus notas, sus retrasos) en vez de responder a lo que dice sobre el ahorro."
+   },
+   {
+    "q": "Un vídeo viral dice: «Este streamer famoso asegura que la vitamina C previene todas las enfermedades infecciosas, así que hay que tomarla a diario». ¿Por qué es una apelación a la autoridad?",
+    "o": [
+     "Da por buena una afirmación médica porque la dice alguien famoso que no es experto en medicina.",
+     "Quiere asustar a la gente con las infecciones.",
+     "Solo deja dos opciones: tomar vitamina C o enfermar.",
+     "Deforma lo que dicen los médicos."
+    ],
+    "a": 0,
+    "fb": "Ser famoso en los videojuegos no te hace experto en medicina. Hay que preguntar: ¿es experto en este tema? ¿qué pruebas da?"
+   },
+   {
+    "q": "Un alumno propone organizar de otra forma la fila del comedor para ir más rápido. El encargado responde: «Aquí la fila siempre se ha hecho por orden de lista; así que es la forma correcta». ¿Qué falacia es?",
+    "o": [
+     "Apelación a la tradición.",
+     "Ad populum.",
+     "Falso dilema.",
+     "Apelación a la compasión."
+    ],
+    "a": 0,
+    "fb": "Que algo se haya hecho siempre así no demuestra que sea la mejor forma."
+   },
+   {
+    "q": "Un alumno le dice al profesor: «No me ponga un cero; si suspendo, mis padres me castigarán todo el trimestre y me sentiré fatal». ¿Qué falacia usa?",
+    "o": [
+     "Apelación a la compasión.",
+     "Apelación al miedo.",
+     "Ad hominem.",
+     "Hombre de paja."
+    ],
+    "a": 0,
+    "fb": "Busca dar pena en vez de dar razones sobre el trabajo. No asusta al profesor: le pide lástima."
+   },
+   {
+    "q": "Elena propone: «Podríamos guardar los móviles en la mochila durante las clases para concentrarnos mejor». Roberto contesta: «¡Tú lo que quieres es prohibir toda la tecnología y volver a la Edad Media!». ¿Qué falacia usa Roberto?",
+    "o": [
+     "Hombre de paja.",
+     "Apelación a la autoridad.",
+     "Generalización precipitada.",
+     "Falsa causa."
+    ],
+    "a": 0,
+    "fb": "Roberto exagera lo que dijo Elena y rebate esa versión inventada, que es más fácil de atacar."
+   },
+   {
+    "q": "Alguien comenta en un foro: «Conozco a dos personas que aprobaron el carné de conducir sin estudiar; así que estudiar es perder el tiempo». ¿Qué error comete?",
+    "o": [
+     "Generalización precipitada.",
+     "Falso dilema.",
+     "Ad populum.",
+     "Apelación a la tradición."
+    ],
+    "a": 0,
+    "fb": "Saca una regla para todos a partir de solo dos casos."
+   },
+   {
+    "q": "«Ayer me puse la camiseta roja para ver el partido y ganamos después de tres derrotas. Está claro: la camiseta roja nos hace ganar». ¿Qué falacia es?",
+    "o": [
+     "Falsa causa.",
+     "Generalización precipitada.",
+     "Apelación a la autoridad.",
+     "Ad populum."
+    ],
+    "a": 0,
+    "fb": "Que una cosa pase después de otra no quiere decir que la cause. Pregunta: ¿no será casualidad o habrá otra causa?"
+   },
+   {
+    "q": "En un debate sobre el tráfico, alguien dice: «O prohibimos del todo los coches en el centro, o aceptamos que la contaminación nos destroce los pulmones». ¿Qué falacia comete?",
+    "o": [
+     "Falso dilema.",
+     "Hombre de paja.",
+     "Apelación al miedo.",
+     "Ad hominem."
+    ],
+    "a": 0,
+    "fb": "Caso trampa: también mete miedo, pero lo que sostiene el argumento es que solo da dos opciones extremas y olvida las intermedias."
+   },
+   {
+    "q": "Un mensaje en redes dice: «Si no reenvías este aviso a 15 contactos en diez minutos, te bloquearán la cuenta y perderás todos tus archivos». ¿Qué truco usa?",
+    "o": [
+     "Apelación al miedo.",
+     "Apelación a la tradición.",
+     "Hombre de paja.",
+     "Falsa causa."
+    ],
+    "a": 0,
+    "fb": "Asusta para que actúes deprisa, sin comprobar nada. No hay ninguna prueba de esa amenaza."
+   },
+   {
+    "q": "Un alumno dice: «Esta serie es la mejor de la historia, porque la ven millones de personas en todo el mundo». ¿Qué falacia comete?",
+    "o": [
+     "Ad populum.",
+     "Apelación a la autoridad.",
+     "Generalización precipitada.",
+     "Falso dilema."
+    ],
+    "a": 0,
+    "fb": "Que algo sea muy popular no demuestra que sea lo mejor."
+   },
+   {
+    "q": "Para responder a un hombre de paja en una discusión, ¿qué pregunta viene mejor?",
+    "o": [
+     "¿Es eso exactamente lo que yo he dicho?",
+     "¿Qué tiene que ver quién lo dice con que sea verdad?",
+     "¿Que lo piense mucha gente lo hace verdad?",
+     "¿Ese peligro es real? ¿Qué pruebas hay?"
+    ],
+    "a": 0,
+    "fb": "El hombre de paja cambia lo que dijiste. La segunda pregunta sirve para el ad hominem, la tercera para el ad populum y la cuarta para la apelación al miedo."
+   },
+   {
+    "q": "Para desmontar un ad hominem, ¿qué pregunta hay que hacer?",
+    "o": [
+     "¿Qué tiene que ver quién lo dice con que la idea sea verdad?",
+     "¿Es experto en este tema? ¿Qué pruebas da?",
+     "¿No será casualidad? ¿Habrá otra causa?",
+     "¿No hay una tercera opción?"
+    ],
+    "a": 0,
+    "fb": "El ad hominem ataca a la persona. La pregunta separa a quien habla de lo que dice."
+   },
+   {
+    "q": "Para analizar un bulo o una teoría de la conspiración, ¿qué pregunta corresponde al criterio de la «necesidad»?",
+    "o": [
+     "¿Qué me ofrece creerlo: seguridad, culpables claros, sentirme parte de un grupo?",
+     "¿Qué pruebas da? ¿Se pueden comprobar?",
+     "¿Quién lo dice y qué gana con ello?",
+     "¿Me hace más libre o me manipula?"
+    ],
+    "a": 0,
+    "fb": "La necesidad mira qué ganas tú al creerlo. Las otras preguntas son las de las pruebas, la fuente e interés y la libertad."
+   },
+   {
+    "q": "Un artículo cita a un equipo de epidemiólogas para defender que una vacuna funciona. ¿Por qué esto NO es una falacia de apelación a la autoridad?",
+    "o": [
+     "Porque citar a expertas en su propio campo, que se apoyan en pruebas, es una buena razón.",
+     "Porque las epidemiólogas son famosas y salen mucho en la tele.",
+     "Porque algo es verdad si lo cree mucha gente.",
+     "Porque todo lo que dice alguien con un título es correcto."
+    ],
+    "a": 0,
+    "fb": "Caso trampa: fiarse de expertos en su tema y con pruebas es razonable. La falacia está en fiarse de alguien que no sabe del tema o no da pruebas."
+   },
+   {
+    "q": "Una web poco conocida publica: «Científicos descubren que comer solo manzanas elimina todas las caries en 24 horas». ¿Qué falla claramente?",
+    "o": [
+     "No da pruebas que se puedan comprobar y ningún otro medio serio lo confirma.",
+     "Solo que la web es poco conocida: si lo dicen científicos, es fiable.",
+     "Apela a la tradición porque no habla de recetas antiguas.",
+     "Ataca a los dentistas: es un ad hominem."
+    ],
+    "a": 0,
+    "fb": "«Científicos descubren» no es una prueba: no dice quiénes, ni dónde, ni cómo. Y si fuera verdad, lo contarían muchos otros medios."
+   },
+   {
+    "q": "¿Qué dos falacias juegan con tus emociones (pena o miedo) en vez de dar pruebas?",
+    "o": [
+     "Apelación a la compasión y apelación al miedo.",
+     "Generalización precipitada y falsa causa.",
+     "Hombre de paja y falso dilema.",
+     "Apelación a la tradición y generalización precipitada."
+    ],
+    "a": 0,
+    "fb": "La compasión busca darte pena; el miedo, asustarte. Las otras son errores al razonar, no trucos con las emociones."
+   },
+   {
+    "q": "Quieres comprobar si una noticia que te ha llegado es un bulo. ¿Cuál de estas cosas NO sirve?",
+    "o": [
+     "Creértela porque te ha llegado reenviada muchas veces.",
+     "Mirar quién la publica y qué gana con ello.",
+     "Mirar la fecha, por si es una noticia antigua.",
+     "Hacer una búsqueda inversa de la imagen."
+    ],
+    "a": 0,
+    "fb": "Caso trampa: que algo circule mucho no lo hace verdad (eso sería un ad populum). Las otras tres son pasos para verificar."
+   },
+   {
+    "q": "Antes de compartir un mensaje, conviene pasarlo por los «tres tamices». ¿Cuáles son?",
+    "o": [
+     "¿Es verdad? ¿Es bueno? ¿Es útil?",
+     "¿Es verdad? ¿Es nuevo? ¿Es gracioso?",
+     "¿Es popular? ¿Es bueno? ¿Es útil?",
+     "¿Es verdad? ¿Es bonito? ¿Es corto?"
+    ],
+    "a": 0,
+    "fb": "Verdad, bondad y utilidad. La historia se suele atribuir a Sócrates, aunque no aparece en ningún texto antiguo: es una anécdota moderna."
+   },
+   {
+    "q": "Pensar que una cosa causa otra solo porque ha pasado antes es la falacia de…",
+    "o": [
+     "falsa causa.",
+     "falso dilema.",
+     "hombre de paja.",
+     "ad populum."
+    ],
+    "a": 0,
+    "fb": "Falsa causa: confunde «pasó antes» con «es la causa»."
+   },
+   {
+    "q": "Cambiar lo que ha dicho el otro para rebatir una versión más débil es la falacia del…",
+    "o": [
+     "hombre de paja.",
+     "ad hominem.",
+     "falso dilema.",
+     "generalización precipitada."
+    ],
+    "a": 0,
+    "fb": "Hombre de paja: un muñeco fácil de tumbar, que no es lo que el otro dijo."
+   },
+   {
+    "q": "Decir que algo es verdad solo porque la mayoría de la gente lo cree es la falacia…",
+    "o": [
+     "ad populum (apelación a la mayoría).",
+     "apelación a la tradición.",
+     "apelación a la autoridad.",
+     "ad hominem."
+    ],
+    "a": 0,
+    "fb": "Ad populum significa «al pueblo»: confunde lo que cree mucha gente con lo que es verdad."
+   },
+   {
+    "q": "Para saber si una razón es buena, ¿cuál es la primera de las tres preguntas?",
+    "o": [
+     "¿Es verdadera o, al menos, creíble?",
+     "¿Tiene que ver con la conclusión?",
+     "¿Basta?",
+     "¿Quién la dice?"
+    ],
+    "a": 0,
+    "fb": "Primero, ¿es verdadera? Si la razón es falsa, el argumento se cae. Después, ¿tiene que ver? y ¿basta?"
+   },
+   {
+    "q": "¿Cuál de estas falacias NO es de las que más usan los bulos para difundirse?",
+    "o": [
+     "Apelación a la tradición.",
+     "Apelación al miedo.",
+     "Ad populum.",
+     "Apelación a la autoridad."
+    ],
+    "a": 0,
+    "fb": "Los bulos asustan (miedo), dicen que «todo el mundo lo comparte» (ad populum) o que «lo dice un experto» (autoridad). Apelar a la tradición no es lo típico."
+   }
+  ]
+ },
  "ipc-pensar-banco": {
   "name": "Pensar por uno mismo (banco ampliado)",
   "subject": "ipc",
