@@ -214,3 +214,41 @@ document.querySelectorAll(".courses [data-view]").forEach(card => {
     if (e.key === "Enter" || e.key === " ") { e.preventDefault(); go(); }
   });
 });
+
+/* Inicio de la web COMPLETA del profesor (las tres materias en SUBJECTS; las webs de alumnado
+   solo llevan la suya): enlaces a las seis webs públicas en GitHub Pages, con «Copiar» para
+   pegarlos en Classroom. En la web completa en euskera (web_eu) se listan igual. */
+(function publicWebs(){
+  if (typeof SUBJECTS === "undefined" || Object.keys(SUBJECTS).length < 3) return;
+  const courses = document.querySelector("#inicio .courses");
+  if (!courses) return;
+  const B = "https://mikagiuri.github.io/";
+  const webs = [
+    ["fil", "Filosofía 1.º Bachillerato", "aula-de-filosofia-web"],
+    ["hf", "Historia de la Filosofía 2.º Bachillerato", "historia-filosofia-web"],
+    ["ipc", "Pensamiento crítico 2.º ESO", "pensamiento-critico-web"]
+  ];
+  const link = (url, lab) =>
+    '<span class="pw-l"><a href="' + url + '" target="_blank" rel="noopener">' + lab + '</a>' +
+    '<button class="pw-copy" type="button" data-url="' + url + '" aria-label="Copiar el enlace">Copiar</button></span>';
+  const css = document.createElement("style");
+  css.textContent = ".pubwebs{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:12px;margin-top:14px}" +
+    ".pubweb{background:var(--surface);border:1px solid var(--line);border-left:4px solid var(--c);border-radius:12px;padding:12px 14px}" +
+    ".pubweb h3{font:600 .95rem var(--sans);margin:0 0 8px;color:var(--ink)}" +
+    ".pw-l{display:flex;align-items:center;justify-content:space-between;gap:8px;margin:4px 0}" +
+    ".pw-l a{color:var(--c);font-weight:600;text-decoration:none}.pw-l a:hover{text-decoration:underline}" +
+    ".pw-copy{border:1px solid var(--line);background:var(--surface-2);color:var(--muted);border-radius:8px;padding:3px 10px;font-size:.8rem;cursor:pointer}" +
+    ".pw-copy.ok{color:var(--ok);border-color:var(--ok)}";
+  document.head.appendChild(css);
+  courses.insertAdjacentHTML("afterend",
+    '<div class="sec-head"><h2 class="sec">Webs del alumnado (en abierto)</h2>' +
+    '<p>Lo que ve el alumnado: cada materia con lo suyo y sin material del profesor. Se actualizan al publicar.</p></div>' +
+    '<div class="pubwebs">' + webs.map(w =>
+      '<div class="pubweb" style="--c:var(--' + w[0] + ')"><h3>' + w[1] + '</h3>' +
+      link(B + w[2] + "/", "Castellano") + link(B + w[2] + "-eu/", "Euskera") + '</div>').join("") + '</div>');
+  document.querySelectorAll(".pw-copy").forEach(b => b.addEventListener("click", () => {
+    const done = () => { b.textContent = "Copiado"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Copiar"; b.classList.remove("ok"); }, 1600); };
+    if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.url).then(done, () => window.prompt("Copia el enlace:", b.dataset.url));
+    else window.prompt("Copia el enlace:", b.dataset.url);
+  }));
+})();
