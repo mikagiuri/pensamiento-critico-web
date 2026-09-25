@@ -64,6 +64,11 @@ const SUBJECTS = {
   "mats": [],
   "tools": [
    [
+    "Clases: todas las sesiones",
+    "clases",
+    ""
+   ],
+   [
     "Cuestionario: falacias",
     "cuestionarios",
     "falacias"
