@@ -79,11 +79,6 @@ const SUBJECTS = {
     ""
    ],
    [
-    "Teoría: mi huella en el planeta",
-    "teoria",
-    "ipc-huella"
-   ],
-   [
     "Cuestionario: huella ecológica",
     "cuestionarios",
     "ipc-huella-q"
