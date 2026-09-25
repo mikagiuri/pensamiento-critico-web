@@ -1,16 +1,19 @@
 // Generado por tools/build_eso.js — solo Pensamiento crítico (2.º ESO).
 const DILEMAS_INTRO = {
  "tecno": {
+  "nombre": "Tecnoéticos",
   "titulo": "La tecnología no es neutral",
   "texto": "Detrás de cada avance hay decisiones éticas escondidas. Las herramientas cambian el mundo según cómo las usamos. Cuatro dimensiones, cuatro situaciones reales y cuatro decisiones sin vuelta atrás.",
   "cierre": "La tecnología diseña nuestro mundo, pero son los valores los que guían la tecnología. Si renunciamos a nuestra responsabilidad ética, se impondrán los valores de los algoritmos, las máquinas y las empresas. El futuro no solo se inventa: el futuro se elige."
  },
  "clasicos": {
+  "nombre": "Clásicos",
   "titulo": "Dilemas clásicos",
   "texto": "Dos dilemas famosos que se discuten en clases de ética de todo el mundo. Aquí no se trata de acertar: fíjate en qué razones te convencen y en cuándo cambias de opinión.",
   "cierre": "Kohlberg usaba el dilema de Heinz para estudiar cómo razonamos: no importa tanto qué eliges como por qué lo eliges (miedo al castigo, lo que opinan los demás, las normas o principios que valen para todos)."
  },
  "dia": {
+  "nombre": "Del día",
   "titulo": "Dilemas del día",
   "texto": "Situaciones de tu edad en las que hay que elegir entre dos cosas que importan. No hay respuesta de libro: lo que cuenta es la razón que das.",
   "cierre": "Un buen dilema no se «resuelve»: se piensa. Fíjate en si has cambiado de opinión y por qué."
