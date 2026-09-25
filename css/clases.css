@@ -18,8 +18,8 @@
 /* Rótulos pequeños en naranja (.cl-badge, .cl-blq, .theory-head .kick, .cl-warn): en la web de ESO el naranja puro
    (--ipc / --accent-2) sobre fondo claro se queda en 2,6-2,9:1 de contraste; mezclado con la tinta llega a ≈5:1
    (y en oscuro, con la tinta clara, sigue ≥ 6:1). Los números de las listas van en azul (--accent) por lo mismo. */
-#clases .cl-badge{font-size:.74rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--ipc) 62%,var(--ink));
-  border:1px solid currentColor;border-radius:999px;padding:1px 7px;align-self:center;white-space:nowrap}
+#clases .cl-badge{font-size:.68rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:color-mix(in srgb,var(--ipc) 62%,var(--ink));
+  border:1px solid currentColor;border-radius:999px;padding:0 6px;white-space:nowrap;vertical-align:middle}   /* (26-09) va dentro del título, no roba ancho a la fila */
 #clases .cl-play{flex:none;width:40px;height:40px;display:grid;place-items:center;border:1px solid var(--line);border-radius:10px;
   background:var(--surface);color:var(--muted);text-decoration:none;font-size:.9rem}
 #clases .cl-play:hover,#clases .cl-play:focus-visible{border-color:var(--accent);color:var(--accent);background:var(--surface-2)}
@@ -106,3 +106,5 @@
   #clases .cl-card{box-shadow:none;break-inside:avoid;border-color:#999}
   #clases .cl-trampa{background:none}
 }
+/* (26-09) enlace al PDF de cada sesión, junto al ▶ de proyectar */
+#clases .cl-pdf{width:auto;padding:0 8px;font:700 .72rem/1 var(--sans);letter-spacing:.06em;margin-left:6px}

@@ -16,9 +16,10 @@ const CLASES_TXT = {
   proyectarN: "▶ Proyectar la {n}",
   proyectarT: "Proyectar",
   pptx: "PowerPoint",
-  fotocopias: "Fotocopias de la unidad",
-  fotocopiasPdf: "Fotocopias (PDF)",
-  fotocopiasU: "Fotocopias {U}",
+  fotocopias: "Fotocopias de la sesión",
+  fotocopiasPdf: "Toda la unidad en un PDF",
+  fotocopiasU: "Fotocopias de la {n}",
+  fotocopiasT: "Fotocopias de esta sesión (PDF)",
   sigue: "Sigue por aquí",
   todo: "Todo",
   sesion: "Sesión",
@@ -97,9 +98,10 @@ function clUnidadCard(u, ultima){
   const rows = (u.sesiones || []).map(s => {
     const key = clSid(s.n);
     return '<li><button class="cl-seslink" type="button" data-go-clase="' + key + '" aria-current="' + (key === ultima) + '" title="' + clEsc(clPlain(s.idea)) + '">' +
-      '<span class="cl-n">' + s.n + '</span><span class="cl-t">' + clMd(s.titulo) + '</span>' +
-      (s.examen ? '<span class="cl-badge">' + clEsc(CLASES_TXT.examenBadge) + '</span>' : '') + '</button>' +
-      '<a class="cl-play" href="' + clEsc(clUrl("diapositivas/" + key + ".html")) + '" target="_blank" rel="noopener" aria-label="' + clEsc(clTxt("ariaProyectar", { n: s.n })) + '" title="' + clEsc(CLASES_TXT.proyectarT) + '">▶</a></li>';
+      '<span class="cl-n">' + s.n + '</span><span class="cl-t">' + clMd(s.titulo) +
+      (s.examen ? ' <span class="cl-badge">' + clEsc(CLASES_TXT.examenBadge) + '</span>' : '') + '</span></button>' +
+      '<a class="cl-play" href="' + clEsc(clUrl("diapositivas/" + key + ".html")) + '" target="_blank" rel="noopener" aria-label="' + clEsc(clTxt("ariaProyectar", { n: s.n })) + '" title="' + clEsc(CLASES_TXT.proyectarT) + '">▶</a>' +
+      '<a class="cl-play cl-pdf" href="' + clEsc(clUrl("fotocopias/" + key + ".pdf")) + '" target="_blank" rel="noopener" aria-label="' + clEsc(CLASES_TXT.fotocopiasT) + '" title="' + clEsc(CLASES_TXT.fotocopiasT) + '">PDF</a></li>';
   }).join("");
   return '<article class="course cl-unidad" style="--c:var(--ipc)">' +
     '<span class="kick">' + clEsc(CLASES_TXT.unidad + " " + u.unidad) + '</span><h3>' + clMd(u.titulo) + '</h3>' +
@@ -127,7 +129,7 @@ function renderClasesIndex(){
       '<div class="toolrow cl-resume-acts">' +
       (nx ? '<button class="btn" type="button" data-go-clase="' + nx.key + '">' + clEsc(clTxt("sigNext", { n: nx.n, titulo: (nx.unidad !== it.unidad ? clUid(nx.unidad) + " · " : "") + nx.titulo })) + '</button>' : '') +
       '<a class="btn ghost" href="' + clEsc(clUrl("diapositivas/" + tgt.key + ".html")) + '" target="_blank" rel="noopener">' + clEsc(clTxt("proyectarN", { n: tgt.n })) + '</a>' +
-      '<a class="btn ghost" href="' + clEsc(clUrl("fotocopias/" + clUid(tgt.unidad) + ".pdf")) + '" target="_blank" rel="noopener">' + clEsc(clTxt("fotocopiasU", { U: clUid(tgt.unidad) })) + '</a>' +
+      '<a class="btn ghost" href="' + clEsc(clUrl("fotocopias/" + tgt.key + ".pdf")) + '" target="_blank" rel="noopener">' + clEsc(clTxt("fotocopiasU", { n: tgt.n })) + '</a>' +
       '</div></div>';
   }
   html += '<div class="chips" id="cltrim" role="group" aria-label="' + clEsc(CLASES_TXT.ariaTrim) + '">' +
@@ -250,7 +252,7 @@ function loadClase(k){
       '<p class="cl-idea">' + clMd(s.idea) + '</p>' +
       '<div class="toolrow cl-links">' +
         link("btn", "diapositivas/" + key + ".html", CLASES_TXT.proyectar) +
-        link("btn ghost", "fotocopias/" + clUid(u.unidad) + ".pdf", CLASES_TXT.fotocopias) +
+        link("btn ghost", "fotocopias/" + key + ".pdf", CLASES_TXT.fotocopias) +
         link("btn ghost", "pptx/" + key + ".pptx", CLASES_TXT.pptx) +
       '</div></div>' +
     '<div class="theory-layout">' +
