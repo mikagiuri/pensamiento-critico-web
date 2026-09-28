@@ -69,7 +69,11 @@ function clNorm(k){
 function clUrl(rel){ return (typeof CURSO_BASE !== "undefined" ? CURSO_BASE : "") + rel; }
 function clState(){ return store.get("aula-clases", {}) || {}; }
 function clSave(key){ store.set("aula-clases", { ultima: key }); }
-function clTrimNombre(t){ return String(t || "").split("·")[0].trim(); }
+// nombre corto del trimestre para el chip; si dos grupos empiezan igual («Ampliación · …»), se muestra lo de después del «·»
+function clTrimNombre(t){
+  const [ini, fin] = String(t || "").split("·").map(x => x.trim());
+  return fin && clTrims().filter(x => String(x).split("·")[0].trim() === ini).length > 1 ? fin : ini;
+}
 function clTrims(){ const out = []; if (typeof CURSO !== "undefined") CURSO.forEach(u => { if (out.indexOf(u.trimestre) < 0) out.push(u.trimestre); }); return out; }
 
 (function clBuild(){

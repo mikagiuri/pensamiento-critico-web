@@ -11667,5 +11667,2972 @@ const CURSO = [
     ]
    }
   ]
+ },
+ {
+  "unidad": 15,
+  "titulo": "¿Quién soy?",
+  "trimestre": "Ampliación · Crecer y convivir",
+  "sesiones": [
+   {
+    "n": 72,
+    "titulo": "¿Qué es la identidad?",
+    "idea": "La identidad es lo que nos hace ser quienes somos; la forman factores internos y externos, elegidos y no elegidos, y ninguna etiqueta la resume.",
+    "arranque": {
+     "texto": "Tu perfil de una red social tiene sitio para una foto y una frase corta. Tienes que resumir en ella quién eres.",
+     "pregunta": "¿Qué pondrías? ¿Y qué se quedaría fuera?"
+    },
+    "bloques": [
+     {
+      "titulo": "Qué nos define",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Identidad",
+        "texto": "Es lo que hace que seas quien eres y te distingas de los demás. También cómo te ves y cómo te ven.",
+        "puntos": [
+         "Viene del latín **idem**: «lo mismo»",
+         "Tiene una parte que **sigue** y otra que **cambia**",
+         "Nadie tiene una identidad igual a la de otro"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Factores que nos definen",
+        "cabecera": [
+         "Factor",
+         "Ejemplos"
+        ],
+        "filas": [
+         [
+          "**Físicos**",
+          "El cuerpo, la altura, la voz, el pelo"
+         ],
+         [
+          "**Contexto**",
+          "Familia, lugar, lengua, la época en que vives"
+         ],
+         [
+          "**Habilidades** y **gustos**",
+          "Dibujar, jugar al fútbol, la música que escuchas"
+         ],
+         [
+          "**Personalidad** y **valores**",
+          "Tímido o abierto; lo que te parece justo"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Factores internos y externos",
+        "cabecera": [
+         "Factores **internos**",
+         "Factores **externos**"
+        ],
+        "filas": [
+         [
+          "Están **dentro** de ti",
+          "Vienen de **fuera**"
+         ],
+         [
+          "Personalidad, gustos, valores",
+          "Familia, lugar donde nacimos, lengua, época"
+         ],
+         [
+          "Los vas formando tú, en parte",
+          "Te llegan, en gran parte, sin elegirlos"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Lo que elegimos y lo que no",
+        "puntos": [
+         "**No elegimos:** la familia, el cuerpo, el lugar donde nacimos",
+         "**Elegimos en parte:** amigos, aficiones, cómo tratamos a los demás",
+         "Casi todo es **mezcla**: lo que nos toca y lo que hacemos con ello"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La ficha de Naiara",
+        "caso": "Naiara escribe en una ficha: «13 años. Bilbao. Toco la trikitixa. Me encanta leer. Soy tímida.» ¿Qué factores de su identidad aparecen? (Ejemplo inventado.)",
+        "pasos": [
+         "«13 años» y «Bilbao»: contexto. Son factores externos: no los ha elegido.",
+         "«Toco la trikitixa» y «me encanta leer»: una habilidad y un gusto.",
+         "«Soy tímida»: personalidad, un factor interno.",
+         "Conclusión: cinco datos dan pistas sobre Naiara, pero ella es mucho más que su ficha."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «Soy malo en mates»",
+        "caso": "Iker suspende un examen de mates. Esa tarde dice: «Soy malo en mates. Yo soy así y no voy a cambiar».",
+        "pasos": [
+         "¿Cómo lo sabes? Iker solo tiene un examen.",
+         "Es una generalización **apresurada** (sesión 19): de un caso pasa a «siempre».",
+         "Además, las habilidades se entrenan: no son una marca fija.",
+         "Conclusión: «He suspendido este examen» es un hecho. «Soy malo en mates» es una etiqueta que se pone él mismo."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · El gracioso de la clase",
+        "caso": "En clase todos llaman a Dylan «el gracioso». Un día llega serio y callado. Le dicen: «¿Qué te pasa? Tú no eres así».",
+        "pasos": [
+         "Una **etiqueta** es una palabra que resume a alguien y deja fuera casi todo.",
+         "Pasa como en el efecto halo (sesión 45): un rasgo tapa todo lo demás.",
+         "Dylan también puede estar triste, tener miedo o hablar en serio.",
+         "Conclusión: el «yo» no es una etiqueta. Una persona es muchas cosas a la vez."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Lo he elegido yo",
+        "caso": "Leire dice: «Mi música favorita la he elegido yo, libremente. Nadie me ha influido».",
+        "pasos": [
+         "Parece que sí: nadie la obliga a escuchar nada.",
+         "Pero esa música la ha oído en casa, en su cuadrilla y en lo que le enseña el algoritmo (sesión 53).",
+         "Eso no la hace falsa: sigue siendo su gusto, y ella decide qué hace con él.",
+         "Conclusión: casi nada es elegido del todo ni impuesto del todo. Casi todo es mezcla."
+        ],
+        "pregunta": "¿Sus gustos son del todo elegidos por ella?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La identidad es lo que hace que seas quien eres y te distingas de los demás.",
+     "Nos definen factores internos, como la personalidad, y externos, como la familia o el lugar.",
+     "Casi todo es mezcla de lo que nos toca y lo que elegimos; nadie es una etiqueta."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es la identidad?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de factor interno y otro de factor externo de la identidad."
+       },
+       {
+        "pregunta": "Kevin dice que Omar es «el callado» de la clase y que no hay nada más que saber de él. ¿Qué error comete?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 66) ¿Qué es el favoritismo hacia el propio grupo? Pon un ejemplo."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Yasmin (personaje inventado) nació en Bilbao, su familia es de Marruecos, habla euskera, castellano y árabe, juega al baloncesto y quiere ser enfermera. ¿Qué no ha elegido? ¿Qué es mezcla o elección suya?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 73,
+    "titulo": "Identidad individual y colectiva",
+    "idea": "Tenemos una identidad individual y varias colectivas a la vez; reducir a alguien a un solo grupo es injusto y peligroso.",
+    "arranque": {
+     "texto": "Aitor es de Santutxu, del Athletic, habla euskera, es hermano mayor, juega a la Play y su abuela es gallega.",
+     "pregunta": "¿Cuál de esas cosas es «el verdadero Aitor»?"
+    },
+    "bloques": [
+     {
+      "titulo": "Yo y nosotros",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Identidad individual",
+        "texto": "Es lo que te hace único: tu historia, tu forma de ser, tus gustos y tus decisiones.",
+        "puntos": [
+         "Responde a la pregunta: **¿quién soy yo?**",
+         "Nadie tiene exactamente la misma"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Identidad colectiva",
+        "texto": "Es lo que compartes con un grupo al que sientes que perteneces: un «nosotros».",
+        "puntos": [
+         "Responde a la pregunta: **¿con quiénes soy «nosotros»?**",
+         "Cuadrilla, equipo, lengua, barrio, origen, religión",
+         "Como vimos en la sesión 64: un grupo siente un «nosotros»"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Una idea de Amin Maalouf",
+        "texto": "Escritor nacido en el Líbano que vive en Francia. En su libro «Identidades asesinas» (1998) defiende, con otras palabras:",
+        "puntos": [
+         "Cada persona tiene **muchas pertenencias** a la vez",
+         "Ninguna de ellas, sola, dice quién eres",
+         "Reducir a alguien a **una sola** puede llevar al **odio**"
+        ]
+       },
+       {
+        "tipo": "cita",
+        "texto": "El problema de los estereotipos no es que sean falsos, sino que son incompletos.",
+        "autor": "Chimamanda Ngozi Adichie, escritora nigeriana, en su charla «El peligro de la historia única» (2009)"
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Muchas identidades a la vez",
+        "caso": "Volvemos a Aitor: de Santutxu, del Athletic, euskaldun, hermano mayor, jugador de Play, nieto de una abuela gallega. (Ejemplo inventado.)",
+        "pasos": [
+         "Individual: su forma de ser, su historia, que le guste la Play.",
+         "Colectivas: el Athletic, el euskera, el barrio, la familia gallega.",
+         "No compiten: Aitor puede sentirse de Bilbao y querer también a Galicia.",
+         "Conclusión: nadie es solo una cosa. Tenemos varias identidades a la vez, y conviven."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «Es de la Real»",
+        "caso": "Tras un derbi, en el grupo de WhatsApp de clase alguien escribe sobre Chen: «Es de la Real. No os fieis de él para nada».",
+        "pasos": [
+         "Se reduce a Chen a **una sola** pertenencia: su equipo.",
+         "Es «nosotros y ellos» (sesión 66): tratar peor a los de fuera por ser de fuera.",
+         "¿Viene a cuento? Ser de la Real no dice nada de si Chen es de fiar.",
+         "Conclusión: reducir a alguien a un solo grupo es injusto y abre la puerta al desprecio."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Mejor no ser de ningún grupo",
+        "caso": "Después de la sesión 66, Maialen piensa: «Si los grupos crean el “nosotros y ellos”, lo mejor es no sentirse parte de ninguno».",
+        "pasos": [
+         "Parece lógico: sin grupos, no habría rivalidades.",
+         "Pero pertenecer da apoyo, compañía y sentido. Todos lo necesitamos.",
+         "El problema no es tener un «nosotros», sino despreciar a «ellos» o reducirlos a una sola cosa.",
+         "Conclusión: es un falso **dilema** (sesión 20). Se puede pertenecer a grupos y tratar bien a los de fuera."
+        ],
+        "pregunta": "¿Es buena idea no pertenecer a ningún grupo?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La identidad individual es lo que te hace único; la colectiva, lo que compartes con un grupo.",
+     "Todos tenemos varias identidades colectivas a la vez, y pueden convivir.",
+     "Reducir a alguien a un solo grupo es injusto: los estereotipos son incompletos."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es la identidad colectiva?"
+       },
+       {
+        "pregunta": "Inventa un personaje y escribe tres identidades colectivas que tenga a la vez."
+       },
+       {
+        "pregunta": "Naiara habla de un chico nuevo como «el de Rumanía», y no sabe nada más de él. ¿Qué está haciendo?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 70) ¿Qué diferencia hay entre una necesidad y un deseo?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Iker (personaje inventado) dice: «Si me siento de Bilbao, no puedo sentirme también de Ecuador, como mi madre. Tengo que elegir». ¿Tiene razón? Explícalo con lo de hoy."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 74,
+    "titulo": "Cambiamos al crecer",
+    "idea": "La identidad cambia al crecer; una teoría, la de Kohlberg, describe cómo cambia nuestra forma de razonar sobre el bien y el mal.",
+    "arranque": {
+     "texto": "Piensa en ti con seis años: tus gustos, tus miedos, tus amigos, tu forma de pensar. Casi todo era distinto.",
+     "pregunta": "¿Sigues siendo la misma persona? ¿Qué ha cambiado y qué no?"
+    },
+    "bloques": [
+     {
+      "titulo": "Crecer es cambiar",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Cuatro formas de cambiar",
+        "texto": "**Cognitivo**: lo que tiene que ver con pensar y aprender.",
+        "puntos": [
+         "**Físico:** el cuerpo crece y cambia, sobre todo en la adolescencia",
+         "**Cognitivo:** pensamos mejor sobre ideas, no solo sobre cosas",
+         "**Personal:** cambian los gustos, los amigos, la forma de ser",
+         "**Moral:** cambia cómo razonamos sobre el bien y el mal"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Lawrence Kohlberg",
+        "texto": "Psicólogo estadounidense. Estudió cómo razonan niños y jóvenes ante un **dilema moral**: un problema con razones para dos respuestas.",
+        "puntos": [
+         "Su dilema más famoso: el de **Heinz**",
+         "Le importaban las **razones**, no la respuesta",
+         "Propuso **tres niveles**, con dos etapas cada uno"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Los tres niveles de Kohlberg (una teoría)",
+        "cabecera": [
+         "Nivel",
+         "Está bien lo que…",
+         "No copio porque…"
+        ],
+        "filas": [
+         [
+          "1 · **Preconvencional**",
+          "evita el castigo o da un premio",
+          "si me pillan, me suspenden"
+         ],
+         [
+          "2 · **Convencional**",
+          "marcan las normas y esperan los demás",
+          "es la norma y la profe confía en mí"
+         ],
+         [
+          "3 · **Posconvencional**",
+          "respeta principios, como la justicia",
+          "no es justo para quien ha estudiado"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · «Ya no eres tú»",
+        "caso": "Omar ha dejado el fútbol por el dibujo y ahora va con otra cuadrilla. Un amigo le dice: «Has cambiado. Ya no eres tú». (Ejemplo inventado.)",
+        "pasos": [
+         "Es verdad que Omar ha cambiado: gustos y amigos.",
+         "Pero cambiar al crecer es normal: la identidad no es fija.",
+         "Algo sigue: su historia, su familia, sus recuerdos, muchos de sus valores.",
+         "Conclusión: cambiar no es dejar de ser uno mismo. La identidad cambia y, a la vez, continúa."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · El dilema de Heinz",
+        "caso": "La mujer de Heinz se muere. Un farmacéutico tiene la medicina, pero pide mucho más dinero del que Heinz puede reunir. Heinz la roba. ¿Hizo bien?",
+        "pasos": [
+         "Nivel 1: «No debe robar, porque lo meterán en la cárcel».",
+         "Nivel 2: «No debe robar: la ley es para todos. Si cada uno se la salta, no hay orden».",
+         "Nivel 3: «Debe robar: una vida vale más que el dinero del farmacéutico».",
+         "Conclusión: Kohlberg no mira si dices «sí» o «no», sino **por qué** lo dices."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "La respuesta más noble",
+        "caso": "Ante el dilema de Heinz, Aitor responde que Heinz debe robar la medicina. Naiara responde que no debe robarla.",
+        "pasos": [
+         "Parece que sí: salvar una vida suena más noble.",
+         "Pero Aitor explica: «Debe robar, porque si ella muere, él se queda solo». Solo mira lo que le conviene: nivel 1.",
+         "Naiara explica: «No, porque la ley es igual para todos». Piensa en las normas: nivel 2.",
+         "Conclusión: el nivel no se ve en la respuesta, sino en las razones. Hay que preguntar «¿por qué?»."
+        ],
+        "pregunta": "¿Aitor, que quiere salvar una vida, razona en un nivel más alto?"
+       }
+      ]
+     },
+     {
+      "titulo": "Una teoría con límites",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Límites de la teoría de Kohlberg",
+        "texto": "Es **una teoría**: una explicación con pruebas, no una verdad cerrada.",
+        "puntos": [
+         "Mide cómo **razonamos**, no siempre cómo **actuamos**",
+         "Según Kohlberg, muchos adultos no llegan al nivel 3",
+         "Al principio estudió solo a chicos, y de un solo país",
+         "Otros críticos dicen que refleja sobre todo valores occidentales"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "La ética del cuidado",
+        "texto": "Razonar sobre el bien fijándose en las relaciones y en cuidar a las personas concretas, no solo en normas y principios.",
+        "puntos": [
+         "La propuso la psicóloga **Carol Gilligan** en 1982",
+         "Criticó que Kohlberg estudiara al principio **solo a chicos**",
+         "Estudios posteriores: las diferencias entre chicos y chicas son **pequeñas**",
+         "Muchos ven hoy la justicia y el cuidado como complementarios"
+        ]
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La identidad cambia al crecer, pero algo continúa: cambiar no es dejar de ser uno mismo.",
+     "Kohlberg propuso tres niveles: evitar el castigo, seguir las normas y actuar por principios.",
+     "Es una teoría con críticas; Carol Gilligan añadió la ética del cuidado."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es un dilema moral?"
+       },
+       {
+        "pregunta": "Escribe una razón de nivel 1 (preconvencional) para devolver una cartera encontrada."
+       },
+       {
+        "pregunta": "Leire no se cuela en la cola del autobús «porque no es justo para los que llevan rato esperando». ¿Qué nivel de Kohlberg es? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 72) ¿Qué diferencia hay entre factores internos y externos de la identidad? Pon un ejemplo de cada."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Chen (personaje inventado) dice: «Kohlberg lo demostró: todos pasamos por tres niveles, y quien está en el 3 es mejor persona». Busca dos errores."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "unidad": 16,
+  "titulo": "Emociones y conflictos",
+  "trimestre": "Ampliación · Crecer y convivir",
+  "sesiones": [
+   {
+    "n": 75,
+    "titulo": "¿Para qué sirven las emociones?",
+    "idea": "Las emociones no son buenas ni malas: informan de lo que nos importa. Pero pueden equivocarse, y decidir en caliente suele salir mal.",
+    "arranque": {
+     "texto": "Naiara ve que Leire ha leído su mensaje hace una hora y no contesta. Se enfada. Escribe «Pues vale, pasa de mí» y lo envía.",
+     "pregunta": "¿Qué ha sentido Naiara? ¿Tenía razones para sentirlo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Emoción, sentimiento e idea",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Emoción",
+        "texto": "Es una reacción rápida del cuerpo y de la mente ante algo que nos importa.",
+        "puntos": [
+         "Aparece **sola**: no la elegimos",
+         "Dura **poco**: segundos o minutos",
+         "Se nota en el **cuerpo**: corazón, cara, estómago"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Tres cosas que solemos mezclar",
+        "cabecera": [
+         "",
+         "Qué es",
+         "Ejemplo: la nota de Mates"
+        ],
+        "filas": [
+         [
+          "**Emoción**",
+          "Reacción rápida que dura poco",
+          "Se me encoge el estómago al ver un 3"
+         ],
+         [
+          "**Sentimiento**",
+          "Emoción que dura y en la que pienso",
+          "Llevo toda la semana preocupada"
+         ],
+         [
+          "**Idea**",
+          "Lo que pienso de lo que pasa",
+          "«Voy a suspender el curso entero»"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Cada emoción es un aviso",
+        "cabecera": [
+         "Emoción",
+         "Me avisa de que…",
+         "Me empuja a…"
+        ],
+        "filas": [
+         [
+          "**Miedo**",
+          "puede haber un peligro",
+          "tener cuidado o protegerme"
+         ],
+         [
+          "**Enfado**",
+          "algo me parece injusto o me bloquea",
+          "defenderme y poner límites"
+         ],
+         [
+          "**Tristeza**",
+          "he perdido algo que me importa",
+          "parar y buscar apoyo"
+         ],
+         [
+          "**Alegría**",
+          "algo me va bien",
+          "repetirlo y acercarme a otros"
+         ]
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Las emociones informan, no mandan",
+        "izq": {
+         "titulo": "No son",
+         "puntos": [
+          "Buenas o malas",
+          "Órdenes que hay que obedecer",
+          "Siempre verdad"
+         ]
+        },
+        "der": {
+         "titulo": "Sí son",
+         "puntos": [
+          "Agradables o desagradables",
+          "Señales que **informan** de lo que me importa",
+          "Una pista que hay que comprobar: «¿cómo lo sé?»"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El mensaje sin contestar",
+        "caso": "Naiara piensa: «Leire pasa de mí» y se enfada. Una hora después, Leire escribe: «Perdona, me quedé sin batería en el metro».",
+        "pasos": [
+         "¿Qué pasó? Leire leyó el mensaje y no contestó.",
+         "¿Qué idea tuvo Naiara? «Pasa de mí». De esa idea salió el enfado.",
+         "¿Cómo lo sabía? No lo sabía: había otras explicaciones posibles.",
+         "Conclusión: muchas veces sentimos lo que sentimos por la idea que nos hacemos. Y la idea puede ser falsa."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Decidir en caliente",
+        "caso": "En Aste Nagusia, a Iker se le cae el bocadillo porque Aitor le empuja sin querer. Iker, furioso, le suelta un insulto delante de todos.",
+        "pasos": [
+         "¿Era razonable enfadarse? Sí: ha perdido la cena. El enfado informa de algo real.",
+         "¿Era buena la decisión? No: decidió en caliente, sin mirar si fue sin querer.",
+         "En caliente pensamos peor: decidimos rápido y sin razones (sesión 16).",
+         "Conclusión: la emoción puede ser razonable y la decisión, mala. Primero calmarse y esperar, luego decidir."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Las emociones no son malas»",
+        "caso": "Kevin empuja a Omar en el patio. Luego explica: «Estaba enfadado. Y en clase dijimos que las emociones no son malas».",
+        "pasos": [
+         "Parece que Kevin tiene razón: hemos dicho que enfadarse no es malo.",
+         "Pero Kevin no se ha limitado a sentir: ha empujado. Eso es una conducta.",
+         "Las emociones no se eligen; lo que hacemos con ellas, sí.",
+         "Conclusión: el enfado no es malo, pero empujar sí puede serlo. Sentir y hacer son cosas distintas."
+        ],
+        "pregunta": "Si las emociones no son malas, ¿Kevin no ha hecho nada malo?"
+       }
+      ]
+     },
+     {
+      "titulo": "Antes de decidir en caliente",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Tres pasos cuando la emoción es fuerte",
+        "texto": "Como vimos en la sesión 16, quien asusta quiere que decidas rápido.",
+        "puntos": [
+         "**Nombrar:** «Estoy enfadado». Ponerle nombre ya ayuda a pensar.",
+         "**Esperar:** no enviar, no contestar, no decidir todavía.",
+         "**Preguntar:** ¿qué idea me hago? ¿Cómo lo sé? ¿Hay otra explicación?"
+        ]
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Una emoción es una reacción rápida ante algo que nos importa; un sentimiento dura más.",
+     "Las emociones no son buenas ni malas: informan, pero pueden equivocarse.",
+     "La emoción no se elige; lo que hacemos con ella, sí. En caliente, mejor esperar."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué diferencia hay entre una emoción y un sentimiento?"
+       },
+       {
+        "pregunta": "Elige una emoción (miedo, enfado, tristeza o alegría) y escribe de qué nos avisa, con un ejemplo."
+       },
+       {
+        "pregunta": "Yasmin ve que no la han etiquetado en una foto de la cuadrilla. Piensa: «No me quieren en el grupo» y se pone triste. ¿Qué parte es la idea? ¿Qué debería preguntarse?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 16) ¿Cuándo es falacia apelar a las emociones y cuándo no?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Dylan pierde una partida online y escribe al rival: «Eres un tramposo, te voy a denunciar». Luego dice: «Tenía derecho a estar enfadado». ¿Tiene razón? Explica qué ha fallado."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 76,
+    "titulo": "El conflicto no es una pelea",
+    "idea": "Un conflicto es un choque de intereses o necesidades; se puede afrontar de varias maneras, y ayuda distinguir lo que pido de lo que necesito.",
+    "arranque": {
+     "texto": "Leire y su hermano Aitor quieren el ordenador de casa a la misma hora. Cada uno grita: «¡Lo pedí yo primero!». Nadie cede.",
+     "pregunta": "¿Qué quiere de verdad cada uno? ¿Hay alguna salida en la que ganen los dos?"
+    },
+    "bloques": [
+     {
+      "titulo": "Qué es un conflicto",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Conflicto",
+        "texto": "Es un choque entre personas que quieren o necesitan cosas que, en ese momento, parecen incompatibles.",
+        "puntos": [
+         "Es **normal**: aparece en cualquier grupo",
+         "No es lo mismo que una **pelea**",
+         "La pelea es una mala forma de **afrontarlo**"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Tipos de conflicto según lo que choca",
+        "cabecera": [
+         "Tipo",
+         "Qué choca",
+         "Ejemplo"
+        ],
+        "filas": [
+         [
+          "**De recursos**",
+          "Hay una cosa y la quieren dos",
+          "El ordenador, el mando, el balón"
+         ],
+         [
+          "**De necesidades**",
+          "Uno necesita algo que molesta al otro",
+          "Estudiar en silencio y escuchar música"
+         ],
+         [
+          "**De ideas o valores**",
+          "Piensan distinto sobre lo importante",
+          "Qué es justo en un reparto"
+         ],
+         [
+          "**Malentendido**",
+          "Uno entiende mal lo que el otro dijo",
+          "Un mensaje leído con otro tono"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Cinco actitudes ante un conflicto",
+        "texto": "Es un modelo conocido, de Thomas y Kilmann (1974). No es una ley: sirve para pensar.",
+        "puntos": [
+         "**Evitar:** hago como si no pasara nada.",
+         "**Ceder:** dejo que el otro consiga lo suyo.",
+         "**Competir:** intento ganar yo, aunque el otro pierda.",
+         "**Pactar:** cada uno renuncia a una parte.",
+         "**Colaborar:** buscamos juntos una salida buena para los dos."
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Postura e interés",
+        "texto": "La postura es lo que pido. El interés es lo que necesito de verdad, la razón por la que lo pido.",
+        "puntos": [
+         "Las **posturas** chocan más que los intereses",
+         "Pregunta clave: «¿Para qué lo quieres?»",
+         "Idea de Roger Fisher y William Ury (Harvard, 1981)"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El ordenador de casa",
+        "caso": "Postura de Leire: «Quiero el ordenador ya». Postura de Aitor: «Lo quiero yo». Su madre les pregunta a cada uno: «¿Para qué lo necesitas?».",
+        "pasos": [
+         "Interés de Leire: entregar un trabajo antes de las 20:00.",
+         "Interés de Aitor: jugar online con su cuadrilla, que queda a las 21:00.",
+         "Las posturas chocaban; los intereses, no: caben los dos en la tarde.",
+         "Conclusión: Leire lo usa hasta las 20:00 y Aitor después. Mirar el interés permite colaborar."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · El asiento del autobús",
+        "caso": "Excursión a Urdaibai. Chen quiere ir en la ventanilla. A Maialen le da igual, pero Chen se marea si no mira fuera.",
+        "pasos": [
+         "¿Qué actitud tiene sentido para Maialen? Ceder.",
+         "¿Por qué ceder? A ella casi no le importa y a Chen le importa mucho.",
+         "Ceder no es perder: es elegir bien cuando el tema es pequeño para ti.",
+         "Conclusión: ninguna actitud es siempre la buena. La buena depende de cuánto le importa a cada uno."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "La cuadrilla perfecta",
+        "caso": "Omar presume: «En mi cuadrilla nunca hay conflictos». Pero Naiara siempre cede, y Kevin se calla cuando algo no le gusta.",
+        "pasos": [
+         "Parece que sí: no hay gritos ni peleas.",
+         "Pero Naiara siempre cede y Kevin siempre evita. Los conflictos están, solo que escondidos.",
+         "Un conflicto escondido no desaparece: puede crecer, como en el pensamiento de grupo (sesión 66).",
+         "Conclusión: que no haya peleas no significa que no haya conflictos. A veces falta alguien que diga «no»."
+        ],
+        "pregunta": "Si nunca discuten, ¿es una cuadrilla sin conflictos?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Un conflicto es un choque de intereses o necesidades; es normal y no es una pelea.",
+     "Hay cinco actitudes: evitar, ceder, competir, pactar y colaborar; ninguna vale siempre.",
+     "La postura es lo que pido; el interés, lo que necesito. Preguntar «¿para qué?» ayuda."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es un conflicto? ¿Es lo mismo que una pelea?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de conflicto de recursos en casa o en el instituto."
+       },
+       {
+        "pregunta": "Iker y Yasmin quieren elegir la peli. Iker dice: «Yo elijo hoy y tú el viernes». ¿Qué actitud es: evitar, ceder, competir, pactar o colaborar?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 66) ¿Qué es el pensamiento de grupo?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Dylan quiere la ventana del aula abierta; Naiara, cerrada. Dylan tiene calor; a Naiara le da el aire en la espalda. Escribe la postura y el interés de cada uno y una salida para colaborar."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 77,
+    "titulo": "Conflictos en las redes",
+    "idea": "En las redes los conflictos crecen más porque no hay cara y todo queda guardado y a la vista; allí también hay derechos y deberes.",
+    "arranque": {
+     "texto": "Alguien hace una captura de un audio privado de Maialen y la sube al grupo de clase. En diez minutos la han visto sesenta personas.",
+     "pregunta": "¿Por qué esto hace más daño que si se lo hubiera dicho a una sola persona?"
+    },
+    "bloques": [
+     {
+      "titulo": "Por qué en las redes se escala más",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Cuatro razones por las que un conflicto crece en las redes",
+        "texto": "Escalar = hacerse cada vez más grande.",
+        "puntos": [
+         "**Sin cara:** no ves si el otro se ríe o llora. Falta el tono.",
+         "**Anonimato:** detrás de una cuenta falsa, algunos se atreven a más.",
+         "**Captura:** todo queda guardado y se puede reenviar, recortar o sacar de contexto.",
+         "**Público:** lo ve mucha gente, y cada «me gusta» anima a seguir."
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Ciberacoso",
+        "texto": "Es hacer daño a alguien a propósito y de forma repetida usando el móvil, las redes o los videojuegos.",
+        "puntos": [
+         "**Intención** de hacer daño",
+         "**Repetición:** una publicación puede dañar una y otra vez",
+         "**Desequilibrio:** la víctima no puede defenderse fácilmente"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Derechos y deberes en las redes",
+        "cabecera": [
+         "Tengo derecho a…",
+         "Por eso tengo el deber de…"
+        ],
+        "filas": [
+         [
+          "**Privacidad:** que mis mensajes privados sigan siendo privados",
+          "No reenviar capturas de chats privados de otros"
+         ],
+         [
+          "**Propia imagen:** decidir dónde sale mi foto",
+          "Pedir permiso antes de subir fotos o vídeos de otros"
+         ],
+         [
+          "**Respeto:** que no me insulten ni me humillen",
+          "No insultar ni humillar, aunque sea desde el anonimato"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La captura",
+        "caso": "Enfadada, Naiara escribe en privado a Yasmin: «Leire es una pesada». Yasmin hace una captura y la sube al grupo de clase.",
+        "pasos": [
+         "Naiara escribió en caliente (sesión 75), pero en privado.",
+         "Yasmin ha roto la privacidad de Naiara: el mensaje era para ella sola.",
+         "Ahora lo lee toda la clase, Leire incluida. Sin cara, sin tono y guardado: el conflicto crece.",
+         "Conclusión: quien reenvía también es responsable. Reenviar no es neutral."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · La cuenta sin nombre",
+        "caso": "Una cuenta sin foto ni nombre comenta cada foto de Omar: «Qué pintas», «Nadie te aguanta». Lleva así tres semanas.",
+        "pasos": [
+         "¿Intención de hacer daño? Sí: los comentarios buscan humillar.",
+         "¿Repetición? Sí: tres semanas. ¿Desequilibrio? Sí: Omar no sabe quién es.",
+         "Es ciberacoso. Omar no debe contestar en caliente: guarda capturas, bloquea y lo denuncia.",
+         "Conclusión: el ciberacoso no se aguanta solo. Hay que contárselo a un adulto de confianza."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Solo era una broma»",
+        "caso": "Dylan graba a Chen tropezando en el patio, le pone música graciosa y lo sube. Muchos se ríen. Dylan dice: «Solo era una broma».",
+        "pasos": [
+         "Parece que no: Dylan no quería hacer daño y la gente se ríe.",
+         "Pero ¿se ríe Chen? ¿Dio permiso? Su imagen es suya.",
+         "Una broma lo es si se ríen todos, también quien sale. Si no, es reírse de alguien.",
+         "Conclusión: la intención no borra el daño. Sin permiso, subir el vídeo no respeta a Chen."
+        ],
+        "pregunta": "Si Dylan lo hizo de broma, ¿no pasa nada?"
+       }
+      ]
+     },
+     {
+      "titulo": "Si te pasa o lo ves",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Qué hacer ante un conflicto en las redes",
+        "puntos": [
+         "**No contestar en caliente:** nombrar, esperar y preguntar.",
+         "**No reenviar:** si no lo difundes, dejas de hacerlo crecer.",
+         "**Guardar pruebas,** bloquear y denunciar en la propia aplicación.",
+         "**Contarlo** a un adulto de confianza. También existe el teléfono **017** (INCIBE), gratuito."
+        ]
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "En las redes los conflictos crecen: sin cara, anonimato, todo queda guardado y lo ve mucha gente.",
+     "El ciberacoso es hacer daño a propósito y de forma repetida con la tecnología.",
+     "Tu imagen y tus mensajes privados son tuyos; los de los demás, también."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es el ciberacoso? Escribe sus tres rasgos."
+       },
+       {
+        "pregunta": "Escribe un ejemplo de algo que no respeta el derecho a la propia imagen."
+       },
+       {
+        "pregunta": "Kevin recibe en el grupo una foto de Leire dormida en el autobús con un texto de burla. Solo la reenvía a su cuadrilla. ¿Tiene alguna responsabilidad? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 75) ¿Qué tres pasos conviene dar cuando una emoción es muy fuerte, antes de decidir?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Circula una captura de un chat en la que Aitor parece insultar a Chen. Aitor dice que está recortada. Chen está furioso y quiere contestar ya en el grupo. ¿Qué le aconsejarías y por qué?"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "unidad": 17,
+  "titulo": "Amistad, amor y familias",
+  "trimestre": "Ampliación · Crecer y convivir",
+  "sesiones": [
+   {
+    "n": 78,
+    "titulo": "¿Qué es un amigo?",
+    "idea": "Aristóteles distingue amistades por utilidad, por placer y por virtud; un buen amigo quiere tu bien, aunque a veces eso sea decir que no.",
+    "arranque": {
+     "texto": "Iker tiene 600 seguidores en Instagram y un grupo de WhatsApp con 30 personas de la cuadrilla.",
+     "pregunta": "¿Cuántos de ellos son amigos de verdad? ¿Cómo lo sabes?"
+    },
+    "bloques": [
+     {
+      "titulo": "Tres tipos de amistad",
+      "diapositivas": [
+       {
+        "tipo": "cita",
+        "texto": "Sin amigos nadie querría vivir, aunque tuviera todos los demás bienes.",
+        "autor": "Aristóteles, «Ética a Nicómaco», libro VIII (siglo IV a. C.)"
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Amistad",
+        "texto": "Para Aristóteles, la **amistad** es quererse bien de forma mutua y saberlo: cada uno desea el bien del otro.",
+        "puntos": [
+         "Es **mutua**: si solo quiere uno, no es amistad",
+         "Los dos lo **saben**: no es un cariño escondido",
+         "Aristóteles fue un filósofo griego, alumno de Platón"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Los tres tipos de amistad (Aristóteles)",
+        "cabecera": [
+         "Tipo",
+         "Qué quiero del otro",
+         "¿Cuánto dura?"
+        ],
+        "filas": [
+         [
+          "Por **utilidad**",
+          "Que me sirva: me ayuda, me presta, me conviene",
+          "Se acaba cuando deja de servir"
+         ],
+         [
+          "Por **placer**",
+          "Pasarlo bien: es divertido, compartimos aficiones",
+          "Se acaba cuando deja de divertir"
+         ],
+         [
+          "Por **virtud** (por la persona misma)",
+          "A la persona: quiero su bien por ella misma",
+          "Dura mucho, pero es rara"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Lo que añade Aristóteles",
+        "puntos": [
+         "Las amistades por utilidad y por placer **no son falsas**: son más frágiles",
+         "Según él, los jóvenes suelen hacer amistades por **placer**, y cambian a menudo",
+         "La amistad por **virtud** también es útil y agradable, pero no depende de eso",
+         "Necesita **tiempo** y trato: no se hace en una semana"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Tres amigos de Chen",
+        "caso": "Chen se sienta con Dylan porque Dylan le deja los apuntes. Con Omar juega al Fortnite. Con Naiara habla de todo desde primaria. (Ejemplo inventado.)",
+        "pasos": [
+         "Dylan: le sirve para los apuntes. Amistad por **utilidad**.",
+         "Omar: lo pasan bien jugando. Amistad por **placer**.",
+         "Naiara: se quieren por cómo son, desde hace años. Se parece a la amistad por **virtud**.",
+         "Conclusión: las tres son amistades. Pero si se acaban los apuntes o el juego, puede acabarse la amistad."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · La presión del grupo",
+        "caso": "En el grupo de WhatsApp, la cuadrilla de Leire se ríe de una chica nueva. Leire no quiere, pero piensa: «Si no me río, me dejan fuera». (Ejemplo inventado.)",
+        "pasos": [
+         "Es **presión del grupo**: hacer algo para no quedarte fuera, como en el experimento de Asch (sesión 29).",
+         "Pregunta útil: ¿me quieren a mí, o solo que haga lo que hace el grupo?",
+         "En el experimento de Asch, con un solo **aliado** casi todos resistían. Un «no» ayuda a otros a decirlo.",
+         "Conclusión: un amigo de verdad no te pide hacer daño a alguien para seguir siendo tu amigo."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Si eres mi amigo, me cubres»",
+        "caso": "Iker quiere que Aitor le diga a su madre que ayer estudiaron juntos. En realidad, Iker se fue al Casco Viejo. «Si eres mi amigo, me cubres». (Ejemplo inventado.)",
+        "pasos": [
+         "Parece que sí: un amigo te apoya y te cubre.",
+         "Pero en la amistad por virtud quiero el **bien** del otro, no darle todo lo que pide.",
+         "Mentir por él puede meterle en líos mayores. Aristóteles añade que los buenos amigos no se piden cosas malas.",
+         "Conclusión: decir «no» a algo que no está bien también puede ser cuidar al amigo."
+        ],
+        "pregunta": "Si Aitor dice que no, ¿es un mal amigo?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Para Aristóteles, la amistad es quererse bien de forma mutua y saberlo.",
+     "Hay amistad por utilidad, por placer y por virtud, que quiere a la persona misma.",
+     "Un buen amigo quiere tu bien: a veces eso significa decir que no."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es la amistad por virtud, según Aristóteles?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo inventado de amistad por utilidad."
+       },
+       {
+        "pregunta": "Maialen y Yasmin solo quedan para ir al gimnasio, porque ninguna quiere ir sola. Cuando Yasmin lo deja, ya no se hablan. ¿Qué tipo de amistad era?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 29) ¿Qué es la conformidad?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Dylan le pide a Naiara que comparta una foto que deja en ridículo a un compañero: «Si eres mi amiga, lo harás». Según Aristóteles, ¿qué haría una buena amiga? ¿Por qué?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 79,
+    "titulo": "Los mitos del amor romántico",
+    "idea": "Los mitos del amor romántico son creencias falsas o exageradas sobre el amor, como que los celos prueban amor; pueden disfrazar el control de cariño.",
+    "arranque": {
+     "texto": "Letra de una canción inventada: «Sin ti no soy nada. Eres mi media naranja. Te quiero tanto que me muero de celos».",
+     "pregunta": "¿Qué ideas sobre el amor hay en esa letra? ¿Son verdad?"
+    },
+    "bloques": [
+     {
+      "titulo": "Mitos, roles y control",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Mito del amor romántico",
+        "texto": "Un **mito** del amor romántico es una creencia sobre el amor que mucha gente da por verdadera, pero es falsa o exagerada.",
+        "puntos": [
+         "Lo aprendemos de películas, canciones, series y redes",
+         "Lo creemos por **costumbre** y por el grupo (sesión 5)",
+         "La idea de la «otra mitad» ya sale en «El banquete», de Platón",
+         "El psicólogo Carlos Yela los estudió y clasificó en España"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Cuatro mitos y por qué fallan",
+        "cabecera": [
+         "Mito",
+         "Qué dice",
+         "Por qué falla"
+        ],
+        "filas": [
+         [
+          "La **media naranja**",
+          "Hay una sola persona hecha para ti",
+          "Nadie está a medias; el amor puede llegar más de una vez"
+         ],
+         [
+          "Los **celos** son amor",
+          "Si tiene celos, es que te quiere",
+          "Los celos hablan de miedo e inseguridad, no de cuánto quiere"
+         ],
+         [
+          "El amor **lo puede todo**",
+          "Si os queréis, todo se arregla",
+          "Querer no basta si hay faltas de respeto o daño"
+         ],
+         [
+          "«Si me quiere, me enseña el **móvil**»",
+          "Quien ama no tiene secretos",
+          "Cada uno tiene derecho a su intimidad, también en pareja"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Roles de género en las relaciones",
+        "texto": "Ideas fijas sobre cómo «deben» ser los chicos y las chicas en pareja:",
+        "puntos": [
+         "«Él protege y decide; ella espera y cede»",
+         "«Si un chico llora o pide ayuda, es débil»",
+         "Son **estereotipos** (sesión 45): no describen a las personas reales",
+         "Hay muchas formas de relación, y no tener pareja también es una opción"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Control disfrazado de cariño",
+        "texto": "Es **control** cuando alguien vigila o limita a su pareja y lo presenta como amor o preocupación.",
+        "puntos": [
+         "Pedir la ubicación o «¿con quién estás?» a todas horas",
+         "Decidir con quién quedas o qué ropa llevas",
+         "Pedir contraseñas o revisar el móvil",
+         "Enfadarse si no contestas enseguida"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · «Mándame la ubicación»",
+        "caso": "Iker escribe a su novia Leire cada hora: «¿Dónde estás? ¿Con quién? Mándame la ubicación». Y añade: «Es porque me preocupo por ti». (Ejemplo inventado.)",
+        "pasos": [
+         "¿Qué dice Iker? Que es preocupación, cariño.",
+         "¿Qué hace? Vigila dónde está Leire y con quién, a todas horas.",
+         "¿Cómo lo sé? Miro los hechos, no la etiqueta. Preocuparse alguna vez no es vigilar cada hora.",
+         "Conclusión: es **control** disfrazado de cariño. Llamarlo amor no lo convierte en amor."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Sentir celos y usar los celos",
+        "caso": "Naiara ve que su novio Omar se ríe mucho con una compañera. Siente celos. (Ejemplo inventado.)",
+        "pasos": [
+         "Sentir celos alguna vez es humano: es una emoción, no un delito.",
+         "Lo que Naiara haga con ellos es otra cosa: puede hablarlo con calma, o vigilar y prohibir.",
+         "El mito es creer que los celos **prueban** amor y dan derecho a controlar.",
+         "Conclusión: la emoción no se elige; lo que hago con ella, sí."
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "¿Control o relación sana?",
+        "izq": {
+         "titulo": "Control",
+         "puntos": [
+          "Los celos como prueba de amor",
+          "Revisar el móvil y pedir contraseñas",
+          "Separarte de tu cuadrilla"
+         ]
+        },
+        "der": {
+         "titulo": "Relación sana",
+         "puntos": [
+          "**Respeto:** tus decisiones y tus límites cuentan",
+          "**Confianza:** no hace falta vigilar",
+          "**Libertad:** tienes tu vida, tus amigos y tus aficiones"
+         ]
+        }
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "No se enseñan los móviles",
+        "caso": "Yasmin y Chen llevan un año juntos. No se revisan el móvil ni se piden contraseñas. Maialen opina: «Eso es que no confían el uno en el otro».",
+        "pasos": [
+         "Parece lógico: si no hay secretos, ¿por qué no enseñarlo?",
+         "Pero no pedir el móvil es justo lo contrario: **confianza**. Si confías, no necesitas comprobar.",
+         "¿Cómo lo sabe Maialen? Saca su conclusión de un dato que apunta a lo contrario. Y la intimidad es un derecho.",
+         "Conclusión: respetar el móvil del otro no es desconfianza; suele ser señal de una relación sana."
+        ],
+        "pregunta": "¿Tiene razón Maialen?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Los mitos del amor romántico son creencias falsas o exageradas sobre el amor.",
+     "Los celos no prueban amor; vigilar y controlar no es cariño.",
+     "Una relación sana se basa en respeto, confianza y libertad."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es un mito del amor romántico?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo inventado de control disfrazado de cariño."
+       },
+       {
+        "pregunta": "Una serie (inventada) dice: «Si no te tiene celos, es que no le importas». ¿Qué mito aparece? ¿Por qué falla?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 5) Escribe dos de los cuatro caminos por los que creemos cosas sin razones."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Kevin le dice a su novia: «Si me quisieras, dejarías a tu cuadrilla y estarías solo conmigo». ¿Qué trampas ves en la frase? ¿Qué falta para una relación sana?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 80,
+    "titulo": "Familias diversas",
+    "idea": "Hay muchos modelos de familia; lo común es el cuidado y el vínculo. Tomar la mía como «la normal» es generalizar deprisa.",
+    "arranque": {
+     "texto": "Un libro de texto antiguo dibuja «la familia»: un padre, una madre, un niño, una niña y un perro.",
+     "pregunta": "¿Se parece a todas las familias que conoces? ¿Qué hace que algo sea una familia?"
+    },
+    "bloques": [
+     {
+      "titulo": "Modelos de familia",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Familia",
+        "texto": "Solemos llamar **familia** a personas unidas por el cuidado y un vínculo duradero: parentesco, pareja, adopción o acogida.",
+        "puntos": [
+         "**Vínculo:** una unión que dura en el tiempo",
+         "**Cuidado:** se ocupan unos de otros",
+         "La definición exacta está discutida: esta es una forma de verlo"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Algunos modelos de familia",
+        "puntos": [
+         "**Nuclear:** una madre y un padre con sus hijos",
+         "**Monoparental:** una madre o un padre solo con sus hijos",
+         "**Reconstituida:** una pareja con hijos de relaciones anteriores",
+         "**Homoparental:** dos madres o dos padres; en España, matrimonio legal desde 2005",
+         "Y también: **extensa** (con abuelos, tíos…), **de acogida**, sin hijos…"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "¿Qué tienen en común?",
+        "puntos": [
+         "**Cuidado:** alguien se ocupa de ti: comida, salud, estudios, cariño",
+         "**Vínculo:** una relación que dura en el tiempo",
+         "**Conflictos:** en todas se discute, se negocian normas y se hacen las paces",
+         "La forma cambia; lo que cuenta es **cómo** se tratan"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · «Las familias normales»",
+        "caso": "Aitor vive con su madre y su abuela. En clase oye: «Las familias normales son padre, madre e hijos». Se siente raro. (Ejemplo inventado.)",
+        "pasos": [
+         "¿Cómo lo sabe quien lo dice? Seguramente mira su casa y la de sus amigos.",
+         "Pocos casos y poco variados: es una **generalización apresurada** (sesión 19).",
+         "En cualquier instituto de Bilbao hay familias de muchos tipos.",
+         "Conclusión: la familia de Aitor no es menos familia. Hay cuidado y hay vínculo."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Discutir por el baño",
+        "caso": "Dylan vive con su madre, la pareja de ella y las dos hijas de esa pareja. Discuten por el baño y por el mando de la tele. (Ejemplo inventado.)",
+        "pasos": [
+         "Tipo de familia: **reconstituida**.",
+         "¿Discutir significa que no es una familia de verdad? No: en todas las familias hay conflictos.",
+         "Lo importante es cómo se resuelven: hablar, normas claras y respeto.",
+         "Conclusión: el conflicto no rompe la familia. Cuenta cómo se tratan."
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Pensar sobre las familias",
+        "izq": {
+         "titulo": "Generalizar deprisa",
+         "puntos": [
+          "«Mi familia es la normal»",
+          "«En todas las casas se hace como en la mía»",
+          "«Las otras familias son raras»"
+         ]
+        },
+        "der": {
+         "titulo": "Pensar mejor",
+         "puntos": [
+          "Mi familia es **una** de muchas",
+          "¿Cuántos casos he mirado? (sesión 19)",
+          "Lo común: cuidado y vínculo"
+         ]
+        }
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "¿Normal es lo más frecuente?",
+        "caso": "En la clase de Kevin, la mayoría vive con su padre y su madre. Kevin concluye: «Esa es la familia normal, y las demás no». (Ejemplo inventado.)",
+        "pasos": [
+         "Parece que sí: lo que más se ve es lo «normal».",
+         "Pero «normal» tiene dos sentidos: **frecuente** (lo que más hay) y **correcto** (como debe ser).",
+         "Que algo sea frecuente no dice que sea mejor. Kevin salta de un sentido a otro sin darse cuenta.",
+         "Conclusión: una familia puede ser menos frecuente e igual de familia. Ojo con las palabras de dos sentidos."
+        ],
+        "pregunta": "Si es la más frecuente, ¿es la normal?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Hay muchos modelos de familia: nuclear, monoparental, reconstituida, homoparental, extensa, de acogida…",
+     "Lo que tienen en común es el cuidado y un vínculo que dura.",
+     "Tomar mi familia como «la normal» es una generalización apresurada."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es una familia reconstituida?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo inventado de familia extensa."
+       },
+       {
+        "pregunta": "Omar dice: «En mi casa comemos todos juntos a las dos. En las familias normales se hace así». ¿Qué error comete?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 45) ¿Qué es el efecto halo?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un anuncio (inventado) de yogures dice «Para toda la familia», y siempre sale un padre, una madre y dos hijos. ¿Qué idea transmite sin decirla? ¿Es verdad?"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "unidad": 18,
+  "titulo": "Diferentes, pero iguales",
+  "trimestre": "Ampliación · Crecer y convivir",
+  "sesiones": [
+   {
+    "n": 81,
+    "titulo": "Sexo y género",
+    "idea": "Solemos distinguir el sexo, que es biológico, del género: los roles y expectativas que cada sociedad asocia a ser hombre o mujer.",
+    "arranque": {
+     "texto": "En una tienda de juguetes hay dos pasillos: uno rosa, con muñecas y cocinitas; otro azul, con balones y coches.",
+     "pregunta": "¿Quién decidió qué juguetes son «de chicas» y cuáles «de chicos»?"
+    },
+    "bloques": [
+     {
+      "titulo": "Dos palabras distintas",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Sexo",
+        "texto": "Llamamos sexo a las características biológicas del cuerpo: cromosomas, hormonas y órganos.",
+        "puntos": [
+         "Viene con el **cuerpo**",
+         "Lo estudian la **biología** y la medicina",
+         "Ejemplo: la voz cambia en la pubertad por las hormonas"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Género",
+        "texto": "El género son los roles y las expectativas que una sociedad asocia a ser hombre o mujer.",
+        "puntos": [
+         "**Rol:** el papel que se espera que hagas",
+         "Se **aprende**: en casa, en la escuela, en las pantallas",
+         "Ejemplo: «los chicos no lloran», «las chicas cuidan»",
+         "**Solemos distinguir** así; hay quien lo explica de otras formas"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "¿Sexo o género?",
+        "cabecera": [
+         "Frase",
+         "¿De qué habla?"
+        ],
+        "filas": [
+         [
+          "«Su voz cambió en la pubertad»",
+          "**Sexo**: el cuerpo y las hormonas"
+         ],
+         [
+          "«Las chicas tienen que ser discretas»",
+          "**Género**: una expectativa social"
+         ],
+         [
+          "«Los hombres no friegan»",
+          "**Género**: un rol que se ha enseñado"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Los roles cambian con las épocas y los lugares",
+        "puntos": [
+         "En el siglo XVII, los **tacones** eran moda de hombres nobles en Europa",
+         "**Rosa para niñas** y azul para niños: se extendió en el siglo XX",
+         "En Escocia, muchos hombres llevan **falda** (el kilt) en las fiestas",
+         "En España, hasta 1975, una mujer casada necesitaba **permiso del marido** para trabajar"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Estereotipos de género",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Estereotipo de género",
+        "texto": "Un estereotipo de género es una idea fija y simplificada sobre cómo son o deben ser hombres o mujeres.",
+        "puntos": [
+         "Nace de **generalizar** deprisa, como vimos en la sesión 19",
+         "Se parece al **efecto halo** (sesión 45): un rasgo decide todo",
+         "Pregunta que lo desmonta: «¿**cómo lo sabes**? ¿Todas? ¿Todos?»"
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El equipo de robótica",
+        "caso": "Iker ve la lista del equipo de robótica del instituto y dice: «¿Una chica? Las chicas no valen para la tecnología».",
+        "pasos": [
+         "¿Qué dice? Que **todas** las chicas son malas en tecnología.",
+         "¿Cómo lo sabe? No lo sabe: no conoce a esa chica ni ha visto lo que hace.",
+         "Pasa de «es chica» a «no vale»: juzga a una persona entera por un rasgo.",
+         "Conclusión: es un estereotipo. Para saber si alguien vale, hay que mirar lo que hace."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Un dato no es un estereotipo",
+        "caso": "Maialen cuenta: «En mi escuela de fútbol hay 40 chicos y 12 chicas» (ejemplo inventado). Naiara contesta: «¡Eso es un estereotipo!».",
+        "pasos": [
+         "¿Qué dice Maialen? Un número: cuántos chicos y chicas se han apuntado.",
+         "Eso se puede **comprobar** contando. Es un dato, no una idea fija.",
+         "El estereotipo sería otra frase: «las chicas no saben jugar al fútbol».",
+         "Conclusión: describir una diferencia no es un estereotipo. Lo es atribuir un rasgo a cada persona por su grupo."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Un estereotipo que suena bonito",
+        "caso": "Omar le dice a su hermana: «Organiza tú el cumpleaños de la ama, que las chicas sois más ordenadas». Lo dice como un elogio.",
+        "pasos": [
+         "Parece que no: dice algo bueno de las chicas.",
+         "Pero juzga a su hermana por ser chica, no por cómo es ella.",
+         "Y de paso le carga a ella la tarea, y a él se la quita.",
+         "Conclusión: un estereotipo que suena bien sigue siendo un estereotipo. También encierra a las personas en un papel."
+        ],
+        "pregunta": "Si es un elogio, ¿puede ser un estereotipo?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Solemos distinguir el sexo, que es biológico, del género, que es social.",
+     "Los roles de género se aprenden y cambian con las épocas y los lugares.",
+     "Un estereotipo de género juzga a una persona por su grupo, aunque suene a elogio."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué diferencia solemos hacer entre sexo y género?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de un rol de género que haya cambiado con el tiempo o que sea distinto en otro lugar."
+       },
+       {
+        "pregunta": "Kevin dice: «No elijas a Chen para el partido de pádel: las chicas son malas en los deportes de raqueta». ¿Qué error comete?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 45) ¿Qué es el efecto halo? Pon un ejemplo."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un anuncio de colonia dice: «Para hombres de verdad: fuertes, de los que nunca lloran». ¿Qué estereotipo usa? ¿Para qué crees que lo usa?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 82,
+    "titulo": "La desigualdad de género",
+    "idea": "Ser diferentes no es lo mismo que ser desiguales; los datos muestran desigualdades de género, y cada diferencia pide preguntar por qué.",
+    "arranque": {
+     "texto": "Kevin: «Las chicas y los chicos ya son iguales. Hoy cualquiera puede estudiar lo que quiera».",
+     "pregunta": "¿Qué tendrías que mirar para saber si tiene razón?"
+    },
+    "bloques": [
+     {
+      "titulo": "Diferencia y desigualdad",
+      "diapositivas": [
+       {
+        "tipo": "tabla",
+        "titulo": "No es lo mismo",
+        "cabecera": [
+         "Palabra",
+         "Qué es",
+         "Ejemplo"
+        ],
+        "filas": [
+         [
+          "**Diferencia**",
+          "Ser distintos en algo",
+          "Leire es alta y Omar, bajito. A Iker le gusta bailar."
+         ],
+         [
+          "**Desigualdad**",
+          "Tener menos derechos u oportunidades por ser de un grupo",
+          "No poder votar por ser mujer"
+         ]
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Desigualdad de género",
+        "texto": "Es cuando hombres y mujeres no tienen los mismos derechos, oportunidades o trato solo por ser hombres o mujeres.",
+        "puntos": [
+         "**Diferentes, pero iguales:** en derechos y en dignidad",
+         "En España, las mujeres votaron por primera vez en **1933**",
+         "Una ley igual no basta: hay que mirar la **vida real**"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Algunos datos reales",
+        "texto": "Del Instituto Nacional de Estadística (**INE**), sobre España:",
+        "puntos": [
+         "**Sueldo:** de media, las mujeres cobran menos al año que los hombres",
+         "**Jornada parcial:** la tienen muchas más mujeres que hombres",
+         "**Tiempo:** las mujeres dedican más horas a la casa y a cuidar",
+         "**Cuidar a los hijos:** la gran mayoría de quienes piden excedencia son mujeres"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "El 8 de marzo",
+        "texto": "Es el Día Internacional de la Mujer. Recuerda la lucha por la igualdad de derechos entre mujeres y hombres.",
+        "puntos": [
+         "Nace de las protestas de **mujeres trabajadoras** a principios del siglo XX",
+         "La **ONU** lo celebra oficialmente desde **1975**",
+         "No es un día contra los hombres, sino **por la igualdad**"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Leer bien los datos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · ¿Cobran menos por el mismo trabajo?",
+        "caso": "Leire lee: «Las mujeres cobran de media menos que los hombres». Concluye: «Entonces a mi madre le pagan menos que a su compañero por hacer lo mismo».",
+        "pasos": [
+         "La media compara a **todas** las mujeres con **todos** los hombres, no el mismo puesto (sesión 41).",
+         "Pagar distinto por el mismo trabajo está **prohibido** por ley en España. Si pasa, se puede denunciar.",
+         "La diferencia de media sale de varias causas: más jornada parcial, trabajos peor pagados, parones para cuidar… y a veces discriminación.",
+         "Conclusión: el dato es real y muestra desigualdad. Pero no dice qué pasa en un caso concreto."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Una diferencia pide un porqué",
+        "caso": "En un instituto, 9 de cada 10 alumnos del ciclo de Informática son chicos (ejemplo inventado).",
+        "pasos": [
+         "El dato no se explica solo. Como en las sesiones 22 y 40: ¿cuál es la **causa**?",
+         "¿Que a las chicas «no se les da»? Eso sería un estereotipo, sin pruebas.",
+         "Otras causas posibles: pocas informáticas conocidas, comentarios en casa, miedo a ser «la única».",
+         "Conclusión: ante una diferencia, no saltes a la primera explicación. Pregunta por qué y busca pruebas."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Ya está explicado",
+        "caso": "Dylan: «La diferencia de sueldo es porque muchas mujeres trabajan a jornada parcial. Así que no hay ninguna desigualdad».",
+        "pasos": [
+         "Parece que sí: ha encontrado una causa real.",
+         "Pero falta otra pregunta: ¿por qué hay muchas más mujeres que hombres a jornada parcial?",
+         "Muchas la eligen, o la aceptan, para cuidar a hijos o a mayores: el reparto de los cuidados es desigual.",
+         "Conclusión: encontrar una causa no cierra el tema. A veces esa causa es otra desigualdad."
+        ],
+        "pregunta": "¿Queda todo explicado?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Diferencia es ser distintos; desigualdad es tener menos derechos u oportunidades por ser de un grupo.",
+     "Los datos del INE muestran desigualdades de género en el sueldo y en los cuidados.",
+     "Una diferencia en los datos no se explica sola: hay que preguntar por qué."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué diferencia hay entre «diferencia» y «desigualdad»?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de desigualdad de género, de hoy o del pasado."
+       },
+       {
+        "pregunta": "Naiara lee que de media las mujeres cobran menos y dice: «Seguro que es porque trabajan peor». ¿Qué error comete?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 22) Cuando dos cosas van juntas, ¿qué tres explicaciones olvida la causa falsa?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "En la cuadrilla de Chen, casi siempre son las madres las que preparan la cena de las fiestas (ejemplo inventado). Chen dice: «Es que a ellas les gusta cocinar». ¿Qué le preguntarías para pensar mejor?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 83,
+    "titulo": "Diversidad y respeto",
+    "idea": "Las personas son diversas en su orientación y su identidad; respetar es no burlarse ni excluir, y en las relaciones solo sí es sí.",
+    "arranque": {
+     "texto": "En el vestuario, después de fallar un pase, alguien grita: «¡Qué gay eres!». Todos se ríen.",
+     "pregunta": "¿Por qué funciona esa frase como insulto? ¿Qué dice sin decirlo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Palabras claras",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Orientación sexual",
+        "texto": "Es hacia quién siente una persona atracción y amor.",
+        "puntos": [
+         "**Heterosexual:** hacia personas del otro sexo",
+         "**Homosexual** (gay o lesbiana): hacia personas del mismo sexo",
+         "**Bisexual:** hacia personas de más de un sexo",
+         "No se elige como un gusto y **no es una enfermedad**"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Identidad de género",
+        "texto": "Es cómo se siente y se reconoce una persona: hombre, mujer u otra forma.",
+        "puntos": [
+         "**Persona cis:** su identidad coincide con el sexo asignado al nacer",
+         "**Persona trans:** su identidad no coincide con el sexo asignado al nacer",
+         "Orientación e identidad son **cosas distintas**"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Consentimiento",
+        "texto": "Es estar de acuerdo con algo de forma libre y clara. En las relaciones, **solo sí es sí**.",
+        "puntos": [
+         "Callarse o no decir «no» **no** es un sí",
+         "Con presión, miedo o engaño no hay acuerdo **libre**",
+         "Se puede **cambiar de opinión** en cualquier momento",
+         "Vale para un beso, un abrazo o **una foto**"
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La foto",
+        "caso": "Naiara le envió una foto privada a Iker cuando salían juntos. Ahora lo han dejado e Iker quiere reenviarla al grupo de la cuadrilla.",
+        "pasos": [
+         "¿Naiara dio permiso para que la vieran otros? No: la envió solo a Iker.",
+         "El consentimiento es para una cosa concreta. Enviar una foto no es aceptar que se reenvíe.",
+         "Además, difundir imágenes privadas sin permiso puede ser **delito** en España.",
+         "Conclusión: sin un sí claro de Naiara, no se reenvía. Y ella puede cambiar de opinión."
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Respeto frente a burla",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "LGTBIfobia",
+        "texto": "Es el rechazo, la burla o la agresión a alguien por su orientación o su identidad de género.",
+        "puntos": [
+         "**LGTBI:** lesbianas, gais, trans, bisexuales e intersexuales",
+         "**Intersexual:** cuerpo no del todo típico de hombre ni de mujer",
+         "Es una forma de **exclusión**: dejar a alguien fuera",
+         "Como vimos en la sesión 66: «**nosotros**» frente a «**ellos**»"
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Burla y respeto",
+        "izq": {
+         "titulo": "Burla",
+         "puntos": [
+          "Usar «gay» como insulto",
+          "Reírse de cómo viste o habla alguien",
+          "Adivinar y contar la orientación de otro",
+          "«Solo era una broma»"
+         ]
+        },
+        "der": {
+         "titulo": "Respeto",
+         "puntos": [
+          "Llamar a cada persona por el nombre que pide",
+          "Tratar a todos igual en el grupo",
+          "Dejar que cada uno cuente lo suyo, si quiere",
+          "No reírse con quien se burla"
+         ]
+        }
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «Solo era una broma»",
+        "caso": "En el vestuario, alguien le grita «¡Qué gay eres!» a Aitor por fallar un pase. Luego dice que solo era una broma.",
+        "pasos": [
+         "¿Qué dice la frase sin decirlo? Que ser gay es algo malo, algo de lo que reírse.",
+         "¿A quién hace daño? A Aitor y a cualquier persona gay que lo oiga, aunque calle.",
+         "Que todos se rían no lo hace bueno: recuerda «todo el mundo lo hace» (sesión 28).",
+         "Conclusión: una broma que usa a un grupo como insulto es una burla. Y deja a ese grupo fuera."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Se nota por fuera",
+        "caso": "Kevin ve un vídeo de un cantante con las uñas pintadas y comenta: «Se nota que es gay».",
+        "pasos": [
+         "Parece una pista: «los chicos no se pintan las uñas».",
+         "Pero eso es un **rol de género** (sesión 81). Y el rol no dice nada de la orientación.",
+         "La orientación es hacia quién siente atracción alguien. No se ve en la ropa ni en las uñas: ¿cómo lo sabes?",
+         "Conclusión: la orientación no se adivina por la apariencia. Y además es asunto de cada persona."
+        ],
+        "pregunta": "¿Se puede saber así?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La orientación es hacia quién sientes atracción; la identidad de género, cómo te reconoces.",
+     "En las relaciones solo sí es sí, y se puede cambiar de opinión.",
+     "Burlarse de alguien por su orientación o identidad es LGTBIfobia: una forma de exclusión."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué diferencia hay entre orientación sexual e identidad de género?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de burla LGTBIfóbica que podría pasar en un instituto y lo que sería actuar con respeto en esa situación."
+       },
+       {
+        "pregunta": "Yasmin dijo que sí a ir al cine con Dylan, pero en la puerta dice que prefiere irse a casa. Dylan: «Ya dijiste que sí, no te puedes echar atrás». ¿Tiene razón?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 66) ¿Qué es el favoritismo hacia el propio grupo? Pon un ejemplo."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "En un grupo de WhatsApp circula: «Omar es gay, lo dice alguien que lo sabe». Leire quiere reenviarlo «porque ser gay no es nada malo». ¿Qué le dirías?"
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "unidad": 19,
+  "titulo": "Glocal: culturas y migraciones",
+  "trimestre": "Ampliación · Crecer y convivir",
+  "sesiones": [
+   {
+    "n": 84,
+    "titulo": "¿Qué es una cultura?",
+    "idea": "Una cultura es la forma de vivir que un grupo aprende y comparte; respetarla no obliga a aceptar lo que daña a las personas.",
+    "arranque": {
+     "texto": "En casa de Chen todos se quitan los zapatos al entrar. En casa de Iker, nadie. La primera vez, Iker se quedó parado en la puerta de Chen.",
+     "pregunta": "¿Cuál de las dos casas lo hace bien?"
+    },
+    "bloques": [
+     {
+      "titulo": "Qué es una cultura",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Cultura",
+        "texto": "Es la forma de vivir que un grupo aprende, comparte y pasa a los que vienen después.",
+        "puntos": [
+         "Se **aprende**: no viene en los genes",
+         "Todos los grupos humanos tienen cultura",
+         "Hay muchas **culturas**, y cambian con el tiempo",
+         "Una persona puede vivir en **varias** a la vez"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Elementos de una cultura",
+        "cabecera": [
+         "Elemento",
+         "Ejemplo cerca de ti"
+        ],
+        "filas": [
+         [
+          "**Costumbres** y hábitos",
+          "Horarios de comida, fiestas como Aste Nagusia"
+         ],
+         [
+          "**Creencias** y valores",
+          "Lo que se considera importante, religiones"
+         ],
+         [
+          "**Lengua** y arte",
+          "Euskera, castellano, bertsos, canciones"
+         ],
+         [
+          "**Objetos** y formas de relacionarse",
+          "La txapela; dar uno o dos besos al saludar"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Tres posturas ante la diversidad cultural",
+        "cabecera": [
+         "Postura",
+         "Qué dice",
+         "Problema o límite"
+        ],
+        "filas": [
+         [
+          "**Etnocentrismo**",
+          "Mi cultura es la medida de todas",
+          "Llama «raro» o «malo» a lo que solo es distinto"
+         ],
+         [
+          "**Relativismo cultural**",
+          "Cada costumbre se entiende dentro de su cultura",
+          "Llevado al extremo, no se podría criticar nada"
+         ],
+         [
+          "**Interculturalidad**",
+          "Respeto, diálogo y derechos humanos para todos",
+          "Exige esfuerzo: conocer al otro y dar razones"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Cenar a las seis",
+        "caso": "Maialen viaja con su familia a otro país. Allí cenan a las seis de la tarde. Su padre comenta: «Qué gente más rara, cenar a esas horas no es normal».",
+        "pasos": [
+         "El padre mide la costumbre de otros con la suya: en Euskadi se cena tarde.",
+         "Para ellos, los raros somos nosotros: cenamos a las nueve o a las diez.",
+         "Nadie sale dañado por cenar a una hora u otra. Es solo una diferencia.",
+         "Conclusión: es etnocentrismo. Juzgar lo distinto como raro solo porque no es lo mío."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Los zapatos en la puerta",
+        "caso": "Vuelve el caso del principio: en casa de Chen se quitan los zapatos al entrar; en casa de Iker, no. ¿Cuál lo hace bien?",
+        "pasos": [
+         "¿Hay alguien dañado en alguna de las dos casas? No.",
+         "Cada costumbre tiene sus razones: limpieza, comodidad, respeto al hogar.",
+         "Lo razonable es fijarse y adaptarse cuando vas de invitado.",
+         "Conclusión: ninguna es mejor. Es una diferencia, no un error. Aquí el relativismo cultural funciona bien."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Es nuestra tradición»",
+        "caso": "En un club inventado, a los nuevos se les humilla en público el primer día. Los veteranos dicen: «Es nuestra tradición. Si no la respetas, no respetas nuestra cultura».",
+        "pasos": [
+         "Parece que sí: hemos dicho que las costumbres distintas se respetan.",
+         "Pero aquí hay personas dañadas: se humilla a los nuevos.",
+         "Respetar costumbres tiene un límite: la dignidad y los derechos humanos de cada persona.",
+         "Conclusión: que algo sea una tradición no lo hace bueno. Se puede criticar con razones."
+        ],
+        "pregunta": "Es una costumbre del grupo. ¿Hay que respetarla?"
+       }
+      ]
+     },
+     {
+      "titulo": "Error típico",
+      "diapositivas": [
+       {
+        "tipo": "contraste",
+        "titulo": "Respetar una cultura",
+        "izq": {
+         "titulo": "No es",
+         "puntos": [
+          "Aceptar cualquier cosa porque «es su cultura»",
+          "Pensar que todos los de un país son iguales",
+          "Llamar «raro» a lo que no conozco"
+         ]
+        },
+        "der": {
+         "titulo": "Sí es",
+         "puntos": [
+          "Intentar entender antes de juzgar",
+          "Ver a cada persona, no solo su origen",
+          "Criticar con razones lo que daña a alguien"
+         ]
+        }
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Una cultura es la forma de vivir que un grupo aprende, comparte y pasa a otros.",
+     "El etnocentrismo mide las demás culturas con la propia y llama raro a lo distinto.",
+     "Respetar costumbres tiene un límite: los derechos humanos de cada persona."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es una cultura?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de un elemento de la cultura de Bilbao o de Euskadi y di de qué tipo es (costumbre, lengua, arte…)."
+       },
+       {
+        "pregunta": "Dylan escucha música de otro país y dice: «Qué música más rara. La música de verdad es la nuestra». ¿Qué postura muestra? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 5) Nombra dos causas por las que creemos cosas sin haberlas pensado."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Hace décadas, en muchas escuelas de España se obligaba a los niños zurdos a escribir con la derecha, a veces con castigos. Leire: «Era la costumbre de entonces: no podemos decir que estaba mal». ¿Tiene razón? ¿Por qué?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 85,
+    "titulo": "Globalización y migraciones",
+    "idea": "El mundo está cada vez más conectado y las personas siempre han migrado; sobre los migrantes circulan bulos y generalizaciones que hay que comprobar.",
+    "arranque": {
+     "texto": "Tu móvil se diseñó en un país, se montó en otro y lleva minerales de otros más. Tu camiseta, igual. Y los usas en Bilbao.",
+     "pregunta": "¿Cuántos países caben en lo que llevas encima hoy?"
+    },
+    "bloques": [
+     {
+      "titulo": "Un mundo conectado",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Globalización",
+        "texto": "Es que los países están cada vez más conectados: productos, dinero, personas, noticias e ideas viajan por todo el mundo.",
+        "puntos": [
+         "**Económica:** empresas y productos de todas partes",
+         "**Cultural:** series, música, comida y redes de todo el mundo",
+         "La hacen posible **internet** y el transporte barato"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Glocal",
+        "texto": "Es lo global mezclado con lo local: lo que llega de todo el mundo se vive a nuestra manera.",
+        "puntos": [
+         "Una serie de otro país, doblada al euskera",
+         "Canciones en euskera con ritmos de todo el mundo",
+         "Una app mundial para quedar con tu cuadrilla"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Migrar",
+        "texto": "Es irse a vivir a otro país o a otra región durante mucho tiempo.",
+        "puntos": [
+         "**Emigrar:** salir del lugar donde vivías",
+         "**Inmigrar:** llegar a vivir a un lugar nuevo",
+         "La misma persona es emigrante allí e inmigrante aquí"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "¿Por qué emigra la gente?",
+        "texto": "Casi siempre hay varias razones a la vez.",
+        "puntos": [
+         "**Trabajo:** buscar un empleo o un sueldo mejor.",
+         "**Guerra o persecución:** huir para salvar la vida.",
+         "**Clima y desastres:** sequías, inundaciones, terremotos.",
+         "**Familia y estudios:** reunirse con los suyos, estudiar fuera."
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Los humanos siempre hemos migrado",
+        "puntos": [
+         "Nuestra especie nació en **África** y desde allí llegó a todo el planeta.",
+         "Siglos XIX y XX: muchos vascos emigraron a **América** (Argentina, Uruguay, Chile, Estados Unidos…).",
+         "Siglo XX: a Bilbao llegó gente de toda España a trabajar en fábricas.",
+         "Hoy llega gente de todo el mundo, y también se van jóvenes vascos."
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Un mensaje en la familia",
+        "caso": "Al grupo de la familia de Kevin llega: «¡URGENTE! A los inmigrantes les dan miles de euros solo por llegar. Lo ha dicho un amigo que trabaja en el ayuntamiento. ¡Pásalo!».",
+        "pasos": [
+         "Tiene los ingredientes de un bulo (sesión 33): urgencia, emoción fuerte y fuente vaga.",
+         "¿Quién lo dice? «Un amigo». ¿Cómo lo sabe? No lo explica. No hay fuente fiable (sesión 31).",
+         "Da una cifra sin decir de dónde sale. Antes de creerla, hay que buscarla en fuentes fiables.",
+         "Conclusión: son señales de bulo. No se reenvía hasta comprobarlo."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «Lo que yo decía»",
+        "caso": "Aitor lee una noticia sobre un robo. El detenido nació en otro país. Aitor comenta: «Lo que yo decía: los de fuera vienen a robar».",
+        "pasos": [
+         "De un caso saca una conclusión sobre todos: generalización apresurada (sesión 19).",
+         "¿Cuántos casos ha mirado? Uno. En Bilbao viven muchísimas personas de fuera que trabajan y estudian.",
+         "«Lo que yo decía»: se fija en lo que confirma su idea (sesión 44).",
+         "Conclusión: un caso no dice nada de todo un grupo. Cada persona responde de lo que hace."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Una generalización amable",
+        "caso": "Naiara, harta de los comentarios contra los migrantes, escribe en un chat: «Pues los inmigrantes son todos buenísimos y muy trabajadores».",
+        "pasos": [
+         "Parece que sí: su intención es buena y no ataca a nadie.",
+         "Pero dice «todos»: habla de millones de personas distintas como si fueran una sola.",
+         "Es otra generalización apresurada, aunque sea positiva (sesión 19).",
+         "Conclusión: los migrantes son personas variadas, como todas. Ni «todos malos» ni «todos buenos»."
+        ],
+        "pregunta": "Naiara defiende a los migrantes. ¿Está razonando bien?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La globalización conecta el mundo; lo glocal es lo global vivido a nuestra manera.",
+     "Se emigra por trabajo, guerra, clima o familia, y los humanos siempre hemos migrado.",
+     "Sobre los migrantes circulan bulos y generalizaciones: comprueba la fuente y cuenta los casos."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué quiere decir «glocal»?"
+       },
+       {
+        "pregunta": "Escribe dos razones por las que una persona puede emigrar."
+       },
+       {
+        "pregunta": "Llega este mensaje: «¡Pásalo ya! Dicen que los de fuera nos quitan todos los trabajos». ¿Qué señales de bulo tiene?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 31) Escribe las tres preguntas para saber si una fuente es fiable."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Iker dice: «Migrar es algo nuevo. Antes la gente se quedaba toda la vida en su pueblo». Con lo visto hoy, ¿tiene razón? Da un ejemplo."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 86,
+    "titulo": "Aporofobia, racismo y otras exclusiones",
+    "idea": "Un prejuicio es juzgar a alguien por su grupo antes de conocerle; así nacen la aporofobia, el racismo y otras formas de exclusión.",
+    "arranque": {
+     "texto": "Dos personas preguntan por una calle en Gran Vía. Una lleva traje y maletín. La otra, ropa vieja y una mochila enorme. Casi todos atienden solo a la primera.",
+     "pregunta": "¿Qué ven los que pasan de largo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Cómo funciona un prejuicio",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Prejuicio",
+        "texto": "Es juzgar a una persona antes de conocerla, solo por el grupo al que pertenece.",
+        "puntos": [
+         "Pre-juicio: un juicio **antes** de conocer",
+         "Suele ser negativo y cuesta mucho cambiarlo",
+         "Se aprende: nadie nace con prejuicios"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "De la idea al acto",
+        "cabecera": [
+         "Paso",
+         "Qué es",
+         "Ejemplo inventado"
+        ],
+        "filas": [
+         [
+          "**Estereotipo** (sesión 45)",
+          "Una idea fija sobre un grupo",
+          "«Los de ese barrio son conflictivos»"
+         ],
+         [
+          "**Prejuicio**",
+          "Un juicio o rechazo antes de conocer",
+          "«Seguro que el nuevo es conflictivo»"
+         ],
+         [
+          "**Discriminación**",
+          "Tratar peor a alguien por su grupo",
+          "No dejarle entrar en el equipo"
+         ]
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Aporofobia",
+        "texto": "Es el rechazo a las personas pobres, solo por ser pobres.",
+        "puntos": [
+         "Palabra creada por la filósofa **Adela Cortina**",
+         "La RAE la aceptó en el diccionario en **2017**",
+         "Su idea: a menudo no molesta el de fuera, sino el **pobre**"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Otras exclusiones",
+        "cabecera": [
+         "Palabra",
+         "Rechazo o trato peor a…"
+        ],
+        "filas": [
+         [
+          "**Xenofobia**",
+          "Las personas extranjeras, por ser de fuera"
+         ],
+         [
+          "**Racismo**",
+          "Personas por su origen o su color de piel"
+         ],
+         [
+          "**Homofobia**",
+          "Las personas homosexuales: gais y lesbianas"
+         ],
+         [
+          "**Transfobia**",
+          "Las personas trans, por su identidad de género"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Turistas y sin hogar",
+        "caso": "En el Casco Viejo, un camarero atiende con sonrisas a unos turistas extranjeros que gastan mucho. Cuando entra un hombre sin hogar, nacido en Bilbao, le dice que se vaya.",
+        "pasos": [
+         "¿Rechaza a los de fuera? No: a los turistas extranjeros los trata muy bien.",
+         "Al hombre sin hogar lo echa, y es de aquí. ¿Qué le molesta de él? Su pobreza.",
+         "Es justo la idea de Adela Cortina: el rechazo va contra el pobre.",
+         "Conclusión: es aporofobia. A veces lo que parece xenofobia es, sobre todo, rechazo al pobre."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Por qué no se va",
+        "caso": "Omar cree que los de un barrio inventado son conflictivos. Si uno hace algo mal, lo recuerda durante meses. Los cien que no hacen nada malo, ni los ve.",
+        "pasos": [
+         "Omar se fija solo en lo que confirma su idea: sesgo de confirmación (sesión 44).",
+         "Además, ve a «los de ese barrio» como un bloque: nosotros y ellos (sesión 66).",
+         "Así, cada caso nuevo parece darle la razón, y el prejuicio crece.",
+         "Conclusión: el prejuicio se mantiene porque solo mira los casos que le convienen."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Solo era una broma»",
+        "caso": "En el vestuario, Kevin suelta «Eso es de gais» cada vez que algo no le gusta. Cuando se lo dicen, contesta: «Solo es una broma. No tengo nada contra nadie».",
+        "pasos": [
+         "Parece que no: Kevin no odia a nadie y lo dice riéndose.",
+         "Pero usa «gay» como algo malo, como un insulto.",
+         "El mensaje llega igual: quien es gay oye que ser como él es algo negativo.",
+         "Conclusión: sin querer, la broma trata una orientación como insulto. Es un trato homófobo, aunque no haya odio."
+        ],
+        "pregunta": "Kevin no quiere hacer daño. ¿Entonces no pasa nada?"
+       }
+      ]
+     },
+     {
+      "titulo": "Frenar un prejuicio",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Cuatro preguntas contra un prejuicio",
+        "puntos": [
+         "**¿Cómo lo sabes?** ¿Lo has comprobado o lo has oído?",
+         "**¿Cuántos casos has mirado?** Uno no basta (sesión 19).",
+         "**¿Busco solo lo que me da la razón?** (sesión 44).",
+         "**¿Veo a la persona o solo su grupo?**"
+        ]
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Un prejuicio es juzgar a alguien antes de conocerle, solo por su grupo.",
+     "La aporofobia es el rechazo al pobre; Adela Cortina creó la palabra.",
+     "El sesgo de confirmación mantiene los prejuicios: mira solo los casos que convienen."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es un prejuicio?"
+       },
+       {
+        "pregunta": "Pon un ejemplo inventado de discriminación: alguien que trata peor a otra persona por su grupo."
+       },
+       {
+        "pregunta": "Un portal de Bilbao pone rejas para que no duerman allí personas sin hogar, pero nadie se queja de los turistas. ¿Qué exclusión puede ser?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 66) ¿Qué es el favoritismo hacia el propio grupo? ¿Qué mostró el experimento de Tajfel?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Leire cree que las chicas que juegan al fútbol «no se lo toman en serio». Cuando una falla un gol, dice: «¿Veis?». Cuando otra marca, dice: «Ha tenido suerte». ¿Qué le pasa a Leire? Usa lo visto hoy."
+       }
+      ]
+     }
+    ]
+   }
+  ]
+ },
+ {
+  "unidad": 20,
+  "titulo": "Modas, ocio y futuro",
+  "trimestre": "Ampliación · Crecer y convivir",
+  "sesiones": [
+   {
+    "n": 87,
+    "titulo": "¿Por qué seguimos las modas?",
+    "idea": "Seguimos las modas para pertenecer y para distinguirnos; pensar bien es ver por qué las sigo y separar lo que se lleva de lo bueno.",
+    "arranque": {
+     "texto": "Piensa en algo que hace dos años llevaba o hacía todo el mundo y que hoy ya «no se lleva».",
+     "pregunta": "¿Por qué gustaba entonces? ¿Qué ha cambiado: la cosa o el grupo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Moda e identidad",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Moda",
+        "texto": "Es una forma de vestir, hablar o hacer que se extiende en un grupo durante un tiempo y luego cambia.",
+        "puntos": [
+         "No solo ropa: música, bailes, palabras, apps, cortes de pelo",
+         "Dura un tiempo: lo que hoy se lleva, mañana «ya no»",
+         "Dice algo de ti: es una **señal** de identidad",
+         "**Identidad:** quién eres y de qué grupos te sientes parte"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Pertenecer y distinguirse",
+        "texto": "El sociólogo Georg Simmel (1905) vio que la moda junta dos ganas opuestas: parecerse a los demás y distinguirse.",
+        "puntos": [
+         "**Pertenecer:** vestir como mi cuadrilla para ser «de los nuestros»",
+         "**Distinguirse:** ser diferente de otros grupos o del resto",
+         "Cuando todos la llevan, ya no distingue… y llega otra moda"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Presiones y roles en la moda",
+        "texto": "La moda puede ser un juego. También puede apretar:",
+        "puntos": [
+         "**Burlas** a quien no lleva la marca o el estilo «que toca»",
+         "**Gasto:** pedir lo que la familia no puede pagar",
+         "**Cuerpos retocados** en fotos y anuncios: nadie es así de verdad",
+         "**Roles:** «esto es de chicos», «esto es de chicas»",
+         "Publicidad e influencers también empujan: lo vimos en las sesiones 50 y 51"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La sudadera de la cuadrilla",
+        "caso": "Toda la cuadrilla de Leire lleva la misma sudadera. A Leire no le encanta, pero la pide para su cumpleaños. (Ejemplo inventado.)",
+        "pasos": [
+         "¿Por qué la quiere? No por la sudadera: por **pertenecer** al grupo.",
+         "Querer pertenecer es muy humano. No es un error ni una tontería.",
+         "La pregunta crítica: ¿la quiero por lo que es o por lo que dice de mí?",
+         "Conclusión: seguir una moda puede estar bien. Lo importante es saber por qué la sigo."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «Si todos las llevan, serán las mejores»",
+        "caso": "Dylan va a correr la carrera del instituto con unas zapatillas de moda: «Las lleva todo el mundo, así que serán las mejores para correr».",
+        "pasos": [
+         "Es la **prueba social** (sesión 28): copiar a los demás cuando no sabemos qué hacer.",
+         "Pero la moda dice qué **se lleva**, no qué es **bueno** para correr.",
+         "¿Cómo lo sabe? Mejor preguntar a alguien que corre o buscar pruebas.",
+         "Conclusión: que algo esté de moda es una pista de que gusta, no de que funcione."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · ¿El rosa es de chicas?",
+        "caso": "Kevin dice: «El rosa siempre ha sido de chicas y el azul, de chicos. Es natural».",
+        "pasos": [
+         "¿Cómo lo sabe? Mira a su alrededor y generaliza (sesión 19).",
+         "La historiadora Jo Paoletti cuenta que hace unos cien años algunas tiendas de EE. UU. recomendaban rosa para niños.",
+         "Y azul para niñas. Los colores «de chico» y «de chica» han cambiado con el tiempo.",
+         "Conclusión: muchos roles de la moda son **costumbres**, no naturaleza. Cada uno puede vestir como quiera."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Yo no sigo modas»",
+        "caso": "Aitor viste siempre de negro, como los fans de su grupo de música favorito. «Yo no sigo modas: los que las siguen son borregos», dice. (Ejemplo inventado.)",
+        "pasos": [
+         "Parece que sí: no lleva lo que lleva la mayoría.",
+         "Pero viste igual que los fans de su grupo: también se parece a alguien.",
+         "Es la otra cara de Simmel: distinguirse de unos es parecerse a otros. Y llamar «borregos» a todos es un estereotipo.",
+         "Conclusión: ir contra una moda también puede ser seguir la moda de **otro** grupo. Nadie está del todo fuera."
+        ],
+        "pregunta": "¿Está Aitor fuera de las modas?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La moda junta dos ganas: pertenecer a un grupo y distinguirse de otros.",
+     "Que algo esté de moda dice que gusta, no que sea bueno ni verdad.",
+     "Muchos roles de la moda son costumbres que cambian; la ropa no es la persona entera."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es una moda?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de alguien que sigue una moda para pertenecer a un grupo."
+       },
+       {
+        "pregunta": "Naiara dice: «Esta mochila la lleva medio instituto, así que es la de mejor calidad». ¿Qué error comete?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 50) En publicidad, ¿qué es la técnica de la pertenencia?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Kevin le dice a Omar: «Tus zapatillas no son de marca: no tienes estilo». ¿Qué presión hay aquí? ¿Qué error de razonamiento comete Kevin?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 88,
+    "titulo": "Ocio, drogas y adicciones",
+    "idea": "El ocio es tiempo libre elegido; una adicción es perder el control. Ante los mitos sobre drogas, pregunto: ¿cómo lo sabes y quién lo dice?",
+    "arranque": {
+     "texto": "Un vídeo con muchas visitas: «Vapear no es fumar. Es solo vapor de agua con sabor a fresa». (Ejemplo inventado.)",
+     "pregunta": "¿Cómo podrías saber si es verdad?"
+    },
+    "bloques": [
+     {
+      "titulo": "Ocio y adicción",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Ocio",
+        "texto": "Es el tiempo libre que usas en lo que tú eliges, para descansar, divertirte o aprender algo.",
+        "puntos": [
+         "Una forma de verlo: tiene tres **elementos**",
+         "**Tiempo libre:** fuera de clase, deberes y tareas",
+         "**Elección:** lo decides tú, nadie te obliga",
+         "**Disfrute:** te sienta bien, te divierte o te hace crecer"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Adicción",
+        "texto": "Es perder el control sobre un consumo o una conducta: sigues aunque te haga daño y te cuesta mucho parar.",
+        "puntos": [
+         "**Con sustancia:** alcohol, nicotina (tabaco y vapeo), cannabis…",
+         "**Sin sustancia:** apuestas, videojuegos",
+         "La OMS reconoce el trastorno por juego de apuestas y por videojuegos",
+         "«Adicción al móvil» no es un diagnóstico oficial: se dice «uso problemático»"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Señales de adicción",
+        "texto": "Los médicos no miran solo las horas. Miran señales como estas:",
+        "puntos": [
+         "**Pérdida de control:** quieres parar y no puedes",
+         "**Seguir aunque haga daño:** al sueño, a los estudios, a la familia",
+         "**Tolerancia:** necesitas más para sentir lo mismo",
+         "**Abstinencia:** malestar, nervios o mal humor al dejarlo",
+         "Todo gira alrededor de eso y deja fuera lo demás"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Mitos y presión del grupo",
+      "diapositivas": [
+       {
+        "tipo": "tabla",
+        "titulo": "Mitos frecuentes y lo que dicen las fuentes sanitarias",
+        "cabecera": [
+         "Mito",
+         "Lo que dicen Sanidad y la OMS"
+        ],
+        "filas": [
+         [
+          "«Vapear es solo vapor de agua»",
+          "Es un aerosol con sustancias químicas; la mayoría lleva **nicotina**, que engancha"
+         ],
+         [
+          "«Es natural, así que no hace daño» (cannabis)",
+          "Natural no es seguro. En adolescentes puede afectar a memoria y atención"
+         ],
+         [
+          "«Un poco de alcohol a mi edad no pasa nada»",
+          "Para menores, Sanidad recomienda **cero**: el cerebro aún se está formando"
+         ],
+         [
+          "«Si solo fumo en fiestas, no me engancho»",
+          "La nicotina es muy adictiva: puedes engancharte sin fumar cada día"
+         ]
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El vídeo del vaper",
+        "caso": "El vídeo del principio: «Es solo vapor de agua con sabor a fresa». Lo publica una cuenta que vende vapers. (Ejemplo inventado.)",
+        "pasos": [
+         "¿Quién lo dice? Una cuenta que vende vapers. ¿Qué gana? Vender más (sesión 31).",
+         "¿Cómo lo sabe? No da ninguna prueba: solo lo afirma.",
+         "Contrasto con fuentes sanitarias, como el Ministerio de Sanidad o la OMS: dicen que no es solo vapor.",
+         "Conclusión: el mito cae con las preguntas de siempre. No hace falta un sermón: hace falta mirar la fuente."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «Si lo hace todo el mundo»",
+        "caso": "En Aste Nagusia, alguien de la cuadrilla le pasa un vaper a Iker: «Venga, si lo hace todo el mundo». (Ejemplo inventado.)",
+        "pasos": [
+         "Es una apelación a la mayoría (sesión 28): «si todos lo hacen, estará bien».",
+         "¿Es verdad? Muchos estudios encuentran que creemos que los demás consumen **más** de lo que consumen.",
+         "Y aunque fuera verdad, que muchos lo hagan no dice si es bueno para mí.",
+         "Conclusión: «todo el mundo» no es una razón. Y, como en Asch, un solo aliado ayuda a resistir."
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Mucho tiempo no es adicción",
+      "diapositivas": [
+       {
+        "tipo": "trampa",
+        "titulo": "¿Adicto al Fortnite?",
+        "caso": "Chen juega tres horas al Fortnite los sábados con sus primos. Duerme bien, estudia y queda con la cuadrilla. Su tía dice: «Es adicto». (Ejemplo inventado.)",
+        "pasos": [
+         "Parece que sí: tres horas seguidas es bastante tiempo.",
+         "Pero la adicción no se mide solo en horas. Se mira si hay **pérdida de control** y daño.",
+         "Chen elige cuándo jugar y no deja de lado el sueño, los estudios ni a la cuadrilla.",
+         "Conclusión: mucho tiempo no es lo mismo que adicción. Antes de poner la etiqueta, mira las señales."
+        ],
+        "pregunta": "Tres horas es mucho. ¿Tiene razón la tía?"
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Ocio saludable",
+        "texto": "Una forma de verlo: el ocio saludable es el que…",
+        "puntos": [
+         "Eliges tú, no el grupo ni la app (sesión 52)",
+         "Es **variado**: deporte, música, monte, leer, quedar con la cuadrilla",
+         "No te quita el sueño, los estudios ni la salud",
+         "Puedes dejarlo cuando quieres: sigues teniendo el **control**"
+        ]
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "El ocio es tiempo libre que eliges tú para descansar, divertirte o aprender.",
+     "Adicción es perder el control: sigues aunque haga daño. Puede ser con o sin sustancia.",
+     "Ante un mito sobre drogas: ¿quién lo dice, cómo lo sabe y qué dicen las fuentes sanitarias?"
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es una adicción?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de adicción con sustancia y otro sin sustancia."
+       },
+       {
+        "pregunta": "Aitor dice: «El vapeo es solo vapor de agua, no pasa nada». ¿Es verdad? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 52) ¿Qué es una recompensa variable? ¿Qué máquina de apuestas la usa?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un youtuber (inventado) dice: «El cannabis es natural y hay medicamentos con él, así que para los jóvenes es sano». Escribe dos fallos de su razonamiento."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 89,
+    "titulo": "¿Y después de la ESO?",
+    "idea": "Tras 4.º de ESO hay varios caminos que se cruzan; lo que cuenta es elegir con buenas razones, conociendo derechos y deberes.",
+    "arranque": {
+     "texto": "Alguien le dice a Maialen: «Si no vas a la universidad, serás una fracasada».",
+     "pregunta": "¿Cuántos caminos ves en esa frase? ¿Cuántos crees que hay de verdad?"
+    },
+    "bloques": [
+     {
+      "titulo": "Después de 4.º de ESO",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Título de Graduado en ESO",
+        "texto": "Es el título que se obtiene al terminar la ESO. Abre el Bachillerato y la FP de grado medio.",
+        "puntos": [
+         "Lo decide el **equipo de profesores** al final de la ESO",
+         "**FP:** Formación Profesional, estudios para aprender una profesión",
+         "Sin el título: FP de **grado básico**, que también lo da",
+         "La enseñanza es **obligatoria** hasta los 16 años"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Caminos después de 4.º de ESO",
+        "cabecera": [
+         "Camino",
+         "Qué es",
+         "Y después"
+        ],
+        "filas": [
+         [
+          "**Bachillerato**",
+          "Dos cursos de estudios generales, por modalidades",
+          "Universidad o FP de grado superior"
+         ],
+         [
+          "**FP de grado medio**",
+          "Dos cursos para aprender una profesión, con prácticas en empresas",
+          "Trabajar, FP de grado superior o Bachillerato"
+         ],
+         [
+          "**FP de grado básico**",
+          "Sin título de ESO: aprendes una profesión y te da el título",
+          "FP de grado medio o trabajar"
+         ],
+         [
+          "**FP de grado superior**",
+          "Tras Bachillerato o grado medio: dos cursos más especializados",
+          "Trabajar o universidad"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Algunos derechos y deberes en el instituto",
+        "cabecera": [
+         "Quién",
+         "Algunos derechos",
+         "Algunos deberes"
+        ],
+        "filas": [
+         [
+          "**Alumnado**",
+          "Formación, respeto, evaluación **objetiva**, orientación",
+          "Estudiar, asistir, respetar a todos y las normas"
+         ],
+         [
+          "**Familias**",
+          "Estar informadas y participar en el centro",
+          "Colaborar con el centro y cuidar la asistencia"
+         ],
+         [
+          "**Profesorado**",
+          "Respeto y apoyo para enseñar",
+          "Enseñar, evaluar con objetividad y orientar"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Elegir con razones",
+        "caso": "Omar no sabe qué hacer tras 4.º. Le gusta arreglar cosas y se le dan bien las mates. Su cuadrilla va a Bachillerato. (Ejemplo inventado.)",
+        "pasos": [
+         "Primero, razones suyas: qué le gusta, qué se le da bien, a qué quiere dedicarse.",
+         "Después, información: el **orientador** del centro, jornadas de puertas abiertas, gente que lo estudia.",
+         "¿Bachillerato de Ciencias o una FP de mantenimiento? Las dos pueden encajar con sus razones.",
+         "Conclusión: se elige con razones propias e información. La cuadrilla importa, pero no decide por ti."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · La nota del examen",
+        "caso": "Naiara cree que su examen está mal corregido: una respuesta correcta tiene un cero. Quiere protestar en clase a gritos. (Ejemplo inventado.)",
+        "pasos": [
+         "Tiene **derecho** a una evaluación objetiva y a pedir que se revise.",
+         "También tiene **deberes**: respetar al profesorado y a la clase.",
+         "Camino: pedir ver el examen y preguntar. Si sigue sin estar de acuerdo, puede hacer una reclamación.",
+         "Conclusión: derechos y deberes van juntos. Defender un derecho no exige saltarse un deber."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Con la cuadrilla, ¿mal?",
+        "caso": "Yasmin irá a Bachillerato de Humanidades. Le encanta la historia y quiere ser periodista. Además, van tres amigas suyas. (Ejemplo inventado.)",
+        "pasos": [
+         "Parece que sí: hemos visto que seguir al grupo sin pensar es un error.",
+         "Pero Yasmin tiene razones propias: le gusta la historia y sabe a qué quiere dedicarse.",
+         "Ir con amigas es una razón más, no la única. Eso no es dejarse llevar.",
+         "Conclusión: coincidir con el grupo no es el error. El error es que el grupo sea la **única** razón."
+        ],
+        "pregunta": "Elige lo mismo que su grupo. ¿Se está dejando llevar?"
+       }
+      ]
+     },
+     {
+      "titulo": "Error típico: la escalera",
+      "diapositivas": [
+       {
+        "tipo": "contraste",
+        "titulo": "¿Escalera o mapa?",
+        "izq": {
+         "titulo": "Falso dilema (sesión 20)",
+         "puntos": [
+          "«O universidad o fracaso»",
+          "«La FP es para los que no valen»",
+          "«Si eliges mal, ya no hay vuelta atrás»"
+         ]
+        },
+        "der": {
+         "titulo": "Mejor así",
+         "puntos": [
+          "Hay varios caminos, y **se cruzan**",
+          "La FP forma profesionales; desde grado superior se llega a la universidad",
+          "Se puede cambiar: de FP a Bachillerato y al revés",
+          "Cada camino vale según tus razones"
+         ]
+        }
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Con el título de la ESO puedes ir a Bachillerato o a FP de grado medio.",
+     "Los caminos se cruzan: la FP no es un camino peor, es otro camino.",
+     "Elige con razones propias e información; el alumnado tiene derechos y también deberes."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es la FP de grado básico?"
+       },
+       {
+        "pregunta": "Escribe un derecho y un deber del alumnado."
+       },
+       {
+        "pregunta": "Leire dice: «La FP es para los que no valen para estudiar». ¿Es verdad? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 87) Según Simmel, ¿qué dos ganas junta la moda?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Kevin quiere ser técnico de sonido en conciertos. Su tío le dice: «O haces Bachillerato y carrera, o no serás nada». ¿Qué falacia es? Propón un camino posible."
+       }
+      ]
+     }
+    ]
+   }
+  ]
  }
 ];
