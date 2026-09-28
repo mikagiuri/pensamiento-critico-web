@@ -12030,7 +12030,7 @@ const CURSO = [
          [
           "3 · **Posconvencional**",
           "respeta principios, como la justicia",
-          "no es justo para quien ha estudiado"
+          "sería injusto aunque ninguna norma lo prohibiera"
          ]
         ]
        }
@@ -12120,7 +12120,7 @@ const CURSO = [
         "pregunta": "Escribe una razón de nivel 1 (preconvencional) para devolver una cartera encontrada."
        },
        {
-        "pregunta": "Leire no se cuela en la cola del autobús «porque no es justo para los que llevan rato esperando». ¿Qué nivel de Kohlberg es? ¿Por qué?"
+        "pregunta": "Leire no se cuela en la cola del autobús: «Aunque no hubiera ninguna norma ni nadie mirando, no sería justo con los que esperan». ¿Qué nivel de Kohlberg es? ¿Por qué?"
        }
       ]
      },
@@ -13348,7 +13348,7 @@ const CURSO = [
        {
         "tipo": "lista",
         "titulo": "Algunos datos reales",
-        "texto": "Del Instituto Nacional de Estadística (**INE**), sobre España:",
+        "texto": "Datos oficiales sobre España (**INE** y Seguridad Social):",
         "puntos": [
          "**Sueldo:** de media, las mujeres cobran menos al año que los hombres",
          "**Jornada parcial:** la tienen muchas más mujeres que hombres",
