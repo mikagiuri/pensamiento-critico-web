@@ -9,7 +9,8 @@ const CAM_KEY = "aula-caminos";
 const CAM_TXT = {
   finales: "Finales descubiertos:", empezar: "Empezar", volver: "← Todas las historias",
   tuCamino: "Tu camino", laIdea: "La idea", otroCamino: "Probar otro camino", otraHistoria: "Otra historia",
-  todos: "¡Has descubierto todos los finales de esta historia!", nuevo: "¡Final nuevo!"
+  todos: "¡Has descubierto todos los finales de esta historia!", nuevo: "¡Final nuevo!",
+  como: "Cómo se juega:", howto: "Elige una historia, lee cada escena y decide: cada decisión cambia el final. Intenta descubrirlos todos."
 };
 const cam = { story: null, node: null, path: [] };
 
@@ -21,7 +22,8 @@ function camStory(id){ return CAMINOS.find(s => s.id === id); }
 function renderCamStart(){
   const box = camBox(); if (!box) return;
   const found = camFound();
-  box.innerHTML = '<div class="cam-grid">' + CAMINOS.map(s => {
+  box.innerHTML = '<p class="howto"><span><b>' + CAM_TXT.como + '</b> ' + CAM_TXT.howto + '</span></p>' +
+    '<div class="cam-grid">' + CAMINOS.map(s => {
     const n = Object.keys(s.finales).length, got = (found[s.id] || []).length;
     return '<button class="cam-card" data-s="' + s.id + '"><span class="cam-emoji" aria-hidden="true">' + s.emoji + '</span>' +
       '<span class="cam-tag">' + camEsc(s.tema) + '</span><span class="cam-title">' + camEsc(s.titulo) + '</span>' +

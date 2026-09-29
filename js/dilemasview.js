@@ -23,7 +23,8 @@ const DIL_TXT = {
   mantengo: "Mantengo mi elección", cambiaria: "Cambiaría de opinión", siguiente: "Siguiente:", tipo: "Tipo de dilema",
   /* Bachillerato (25-09): pregunta universal, escuelas, debate de época, reflexión PAU */
   preguntaFondo: "La pregunta de fondo", escuelas: "Las escuelas responden", elige: "elige", debateEpoca: "El debate de su época",
-  verTeoria: "Ver en la teoría", pau: "Reflexión PAU (Ejercicio 2)"
+  verTeoria: "Ver en la teoría", pau: "Reflexión PAU (Ejercicio 2)",
+  como: "Cómo se juega:", howto: "Abre un dilema, elige A o B, escribe por qué y mira «para pensar»: al final decides si mantienes tu elección o cambias."
 };
 const dil = { group: (Object.keys(DIL_GROUPS).find(g => typeof DILEMAS !== "undefined" && DILEMAS.some(d => d.grupo === g)) || "tecno"), cur: null, step: 0 };
 
@@ -43,6 +44,7 @@ function renderDilStart(){
   const done = list.filter(d => st[d.id] && st[d.id].choice).length;
   const groups = Object.keys(DIL_GROUPS).filter(g => dilList(g).length);
   box.innerHTML =
+    '<p class="howto"><span><b>' + DIL_TXT.como + '</b> ' + DIL_TXT.howto + '</span></p>' +
     '<div class="dil-pick" role="group" aria-label="' + DIL_TXT.tipo + '">' +
       groups.map(g => '<button class="pbtn" data-g="' + g + '" aria-pressed="' + (g === dil.group) + '">' + DIL_GROUPS[g] + ' <span class="n">' + dilList(g).length + '</span></button>').join("") +
       '<label class="dil-classmode"><input type="checkbox" id="dilclass"' + (dilClassMode() ? " checked" : "") + '> Modo clase (contar votos)</label>' +

@@ -6,6 +6,8 @@
 const RETO_SUBJ = { fil: "Filosofía 1.º", hf: "Historia de la Filosofía", ipc: "Pensamiento crítico" };
 const RETO_TIME = 15;          // segundos por pregunta
 const RETO_QUICK = 10;         // nº de preguntas del «reto rápido»
+/* «Cómo se juega» (29-09): una línea al abrir el juego; cadena entera para que la traduzca ui/<lang>.json */
+const RETO_HOWTO = { como: "Cómo se juega:", txt: "Elige materia o cuestionario y responde antes de que acabe el tiempo: cuanto más rápido, más puntos; la racha multiplica." };
 
 const reto = { subject: null, pool: [], title: "", idx: 0, score: 0, streak: 0, best: 0, correct: 0, t: null, answered: false };
 
@@ -31,6 +33,7 @@ function renderRetoStart(){
 
   box.innerHTML =
     '<div class="reto-wrap reto-start">' +
+      '<p class="howto"><span><b>' + RETO_HOWTO.como + '</b> ' + RETO_HOWTO.txt + '</span></p>' +
       '<div class="reto-pick"><span class="flabel">Materia</span>' + picks + '</div>' +
       '<div class="reto-modes">' +
         '<button class="reto-quick" id="retoQuick"><span><b>Reto rápido</b>' +

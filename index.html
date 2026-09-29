@@ -40,16 +40,14 @@
   <div class="wrap bar-in">
     <div class="brand"><span class="owl" aria-hidden="true">🦉</span> Pensamiento crítico</div>
     <nav class="tabs" id="tabs" aria-label="Secciones">
-      <button data-view="inicio" aria-current="true">Inicio</button>
+      <button data-view="ipc" aria-current="true">Inicio</button>
       
       <div class="navsec">
         <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Estudiar</span>
         <div class="navmenu">
           <button data-view="clases">Clases</button>
           <button data-view="cuentos">Cuentos</button>
-          <button data-view="dilemas">Dilemas éticos</button>
           <button data-view="tarjetas">Tarjetas</button>
-          <button data-view="cuestionarios">Cuestionarios</button>
           <button data-view="glosario">Glosario</button>
         </div>
       </div>
@@ -70,7 +68,13 @@
           <button data-view="mapas">Mapas conceptuales</button>
         </div>
       </div>
-      
+      <div class="navsec">
+        <span class="navgroup" role="button" tabindex="0" aria-haspopup="true" aria-expanded="false">Ejercicios</span>
+        <div class="navmenu">
+          <button data-view="dilemas">Dilemas éticos</button>
+          <button data-view="cuestionarios">Cuestionarios</button>
+        </div>
+      </div>
     </nav>
     <button class="navtoggle" id="navtoggle" aria-label="Abrir menú de secciones" aria-expanded="false">☰</button>
     <button class="theme" id="theme" title="Cambiar tema" aria-label="Cambiar tema">◐</button>
@@ -80,28 +84,7 @@
 <main class="wrap" id="contenido">
 
   <!-- INICIO -->
-  <section class="view active" id="inicio">
-    <p class="eyebrow">IES Martín de Bertendona · 2.º ESO · Curso 2026-27</p>
-    <h1 class="title">Pensamiento crítico</h1>
-    <p class="lead">Iniciación al Pensamiento crítico (2.º de ESO). Aquí tienes la teoría, las fichas y las herramientas para pensar mejor: preguntar, argumentar, dialogar y detectar falacias y sesgos.</p>
-
-    <div class="courses">
-      <article class="course" data-view="ipc" role="button" tabindex="0" aria-label="Abrir Pensamiento crítico 2.º ESO" style="--c:var(--ipc)">
-        <span class="kick">Pensamiento crítico · 2.º ESO</span>
-        <h3>Pensar por uno mismo</h3>
-        <p>Preguntar, argumentar, dialogar y detectar falacias. Diario de aprendizaje y trabajos por proyectos.</p>
-        <div class="meta"><span><b>Conceptos</b> y preevaluación</span><span>2.º ESO A/B/C/D</span></div>
-      </article>
-    </div>
-
-    <div class="sec-head"><h2 class="sec">Esta semana</h2><p>Tus dos horas de Pensamiento crítico: jueves 11:15 y viernes 9:50.</p></div>
-    <div class="weekwrap">
-      <table class="week">
-        <thead><tr><th>Hora</th><th>Lunes</th><th>Martes</th><th>Miércoles</th><th>Jueves</th><th>Viernes</th></tr></thead>
-        <tbody id="weekbody"></tbody>
-      </table>
-    </div>
-  </section>
+  
 
   <!-- MATERIAS (se rellenan desde js/app.js) -->
   
@@ -250,6 +233,7 @@
         <button class="icon-btn" id="fcnext" aria-label="Siguiente">›</button>
       </div>
     </div>
+    <div id="itin-tarjetas"></div>
   </section>
 
   <!-- CUESTIONARIOS -->
@@ -260,6 +244,7 @@
     <div class="filterbar" id="quizfilter" role="group" aria-label="Filtrar cuestionarios"></div>
     <div class="chips" id="quizchips" role="group" aria-label="Elegir cuestionario"></div>
     <div class="quiz" id="quizbox"></div>
+    <div id="itin-quiz"></div>
   </section>
 
   <section class="view" id="reto">
@@ -366,6 +351,9 @@
 <script src="js/progreso.js"></script>
 <script src="js/search.js"></script>
 <script src="js/resume.js"></script>
+<script src="js/itinerario.js"></script>
+<script src="js/epocas.js"></script>
+<script src="js/compacto.js"></script>
 <script src="js/nav_toc.js"></script>
 <script src="js/lazy_libs.js"></script>
 <script>

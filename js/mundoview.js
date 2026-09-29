@@ -10,7 +10,8 @@ const MUNDO_TXT = {
   tamano: "Alumnos en tu clase:", adivina: "¿Cuántos crees?", comprobar: "Comprobar",
   enClase: "En tu clase:", ninguno: "Menos de 1: en tu clase no le tocaría a nadie, pero en todo el instituto sí.",
   clavado: "¡Clavado!", cerca: "Muy cerca", lejos: "Te has alejado", aciertos: "Puntos:", otraVez: "Volver a empezar",
-  paraPensar: "Para pensar", fuentes: "Fuentes"
+  paraPensar: "Para pensar", fuentes: "Fuentes",
+  como: "Cómo se juega:", howto: "Ajusta cuántos sois en clase, mueve la barra para adivinar a cuántos os tocaría y pulsa «Comprobar»: cuanto más te acerques, más puntos."
 };
 const mundo = { n: 25, done: {}, score: 0 };
 
@@ -27,6 +28,7 @@ function renderMundo(){
   const box = mundoBox(); if (!box || typeof MUNDO === "undefined") return;
   const saved = +store.get(MUNDO_N_KEY, 25); if (saved >= 5 && saved <= 40) mundo.n = saved;
   box.innerHTML =
+    '<p class="howto"><span><b>' + MUNDO_TXT.como + '</b> ' + MUNDO_TXT.howto + '</span></p>' +
     '<p class="mundo-intro">' + mundoEsc(MUNDO.intro) + '</p>' +
     '<div class="mundo-bar"><label>' + MUNDO_TXT.tamano + ' <input type="number" id="mundon" min="5" max="40" value="' + mundo.n + '"></label>' +
       '<span class="mundo-score">' + MUNDO_TXT.aciertos + ' <b id="mundoscore">' + mundo.score + '</b></span>' +
