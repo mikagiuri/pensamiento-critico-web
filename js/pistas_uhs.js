@@ -432,5 +432,223 @@ const PISTAS = [
     "Reto: elige una idea de la que estés muy seguro o segura y busca hoy un buen argumento en contra."
    ]
   }
+ },
+ {
+  "id": "ipc-medios",
+  "subject": "ipc",
+  "tema": "Mira los medios con lupa",
+  "unidad": "ipc-medios",
+  "materia": "Pensamiento crítico · 2.º ESO",
+  "titulo": "¿Cómo sé si una noticia es un bulo?",
+  "lede": "Antes de creer o de reenviar, mira con lupa. Pide solo las pistas que necesites.",
+  "ciclos": [
+   {
+    "fase": "Fase 1 · Recuperación",
+    "etiqueta": "Pregunta inicial",
+    "pregunta": "¿Qué es un bulo y por qué se difunde tan rápido?",
+    "intro": [
+     "Piensa en el último mensaje que te llegó con un «¡reenvíalo a todos!». Intenta explicarlo antes de pedir ayuda."
+    ],
+    "pistas": [
+     "Un bulo (o <em>fake news</em>) es una noticia, pero con un problema.",
+     "Es falsa, aunque se presenta como si fuera verdadera.",
+     "Los bulos suelen tocar la emoción: dan miedo, rabia o risa.",
+     "Un bulo es una <strong>noticia falsa que se difunde como verdadera</strong>; corre tan rápido porque nos remueve por dentro y apetece compartirla sin pensar."
+    ],
+    "comprobacion": {
+     "pregunta": "¿Por qué se difunden tan rápido los bulos?",
+     "opciones": [
+      [
+       "Porque tocan la emoción y dan ganas de compartirlos sin comprobarlos.",
+       true
+      ],
+      [
+       "Porque siempre los publican los periódicos más serios.",
+       false,
+       "Los bulos suelen circular por mensajes y redes, muchas veces sin fuente clara."
+      ],
+      [
+       "Porque son más aburridos que las noticias verdaderas.",
+       false,
+       "Al revés: están pensados para llamar la atención."
+      ],
+      [
+       "Porque la gente comprueba siempre todo antes de reenviar.",
+       false,
+       "Si lo hiciéramos, los bulos no correrían tanto."
+      ]
+     ],
+     "ok": "Bien. La emoción va más rápido que la comprobación.",
+     "mal": "Todavía no."
+    },
+    "rescate": [
+     {
+      "boton": "Necesito un ejemplo",
+      "etiqueta": "Ejemplo",
+      "titulo": "Un mensaje en el grupo de clase",
+      "definicion": [
+       "«¡¡URGENTE!! Mañana cierran todos los institutos por un virus nuevo. Lo ha dicho un médico amigo de mi tía. ¡¡Reenvíalo a todos!!»",
+       "No dice qué médico, ni dónde lo ha publicado ninguna fuente oficial.",
+       "Está escrito en mayúsculas, con prisa y con miedo."
+      ],
+      "parrafos": [
+       "¿Qué señales de alarma ves en este mensaje?"
+      ],
+      "comprobacion": {
+       "etiqueta": "Comprobación del ejemplo",
+       "pregunta": "¿Cuál es la mejor señal de que puede ser un bulo?",
+       "opciones": [
+        [
+         "No tiene una fuente identificable y busca que lo reenvíes con prisa.",
+         true
+        ],
+        [
+         "Habla de institutos.",
+         false,
+         "El tema no lo convierte en bulo: lo que falla es la falta de fuente."
+        ],
+        [
+         "Lo ha mandado alguien de clase.",
+         false,
+         "Quien lo reenvía puede ser de confianza y aun así haberse creído un bulo."
+        ],
+        [
+         "Está en castellano.",
+         false,
+         "El idioma no tiene nada que ver."
+        ]
+       ],
+       "ok": "Correcto: sin fuente, con urgencia y con miedo, mucho cuidado.",
+       "mal": "Vuelve a leer el mensaje.",
+       "intentos": 2
+      }
+     },
+     {
+      "etiqueta": "Definición y explicación",
+      "titulo": "Bulo y posverdad",
+      "definicion": [
+       "Un <strong>bulo</strong> es una noticia falsa que se difunde como verdadera.",
+       "Vivimos en la época de la <strong>posverdad</strong>: muchas veces pesan más las emociones y las creencias que los hechos comprobados.",
+       "Por eso, la primera pregunta ante cualquier mensaje es: <strong>¿quién lo manda y qué gana con ello?</strong>"
+      ],
+      "comprobacion": {
+       "boton": "Comprobar comprensión",
+       "etiqueta": "Comprobación final",
+       "pregunta": "¿Qué es la posverdad?",
+       "opciones": [
+        [
+         "Una situación en la que pesan más las emociones y creencias que los hechos comprobados.",
+         true
+        ],
+        [
+         "Una noticia que se publica después de un suceso.",
+         false,
+         "No tiene que ver con el orden en el tiempo."
+        ],
+        [
+         "La verdad comprobada por científicos.",
+         false,
+         "Es casi lo contrario: los hechos pierden peso frente a las emociones."
+        ],
+        [
+         "Un tipo de red social.",
+         false,
+         "Es un fenómeno, no una plataforma."
+        ]
+       ],
+       "ok": "Correcto.",
+       "mal": "Todavía no."
+      }
+     }
+    ]
+   },
+   {
+    "fase": "Fase 2 · Profundización",
+    "etiqueta": "Nueva pregunta",
+    "pregunta": "¿Qué debo hacer antes de creer o reenviar una noticia?",
+    "intro": [
+     "Ya sabes qué es un bulo. Ahora piensa en un plan: ¿qué pasos darías antes de pulsar «reenviar»?"
+    ],
+    "pistas": [
+     "Lo primero es frenar: si un mensaje te da mucha prisa, sospecha.",
+     "Mira de dónde viene: ¿quién lo firma? ¿Es una fuente conocida y fiable?",
+     "Busca si otras fuentes fiables cuentan lo mismo.",
+     "Antes de creer o compartir, <strong>verifica</strong>: comprueba la información en varias fuentes fiables."
+    ],
+    "comprobacion": {
+     "pregunta": "¿Qué significa verificar una información?",
+     "opciones": [
+      [
+       "Comprobarla en varias fuentes fiables antes de creerla.",
+       true
+      ],
+      [
+       "Reenviarla a muchas personas para ver qué opinan.",
+       false,
+       "Así se difunde el bulo: primero se comprueba y luego, si acaso, se comparte."
+      ],
+      [
+       "Creerla si tiene muchos «me gusta».",
+       false,
+       "La popularidad no prueba que algo sea verdad."
+      ],
+      [
+       "Leer solo el titular.",
+       false,
+       "El titular puede engañar: hay que mirar la fuente y el contenido."
+      ]
+     ],
+     "ok": "Exacto. Verificar es contrastar con fuentes fiables.",
+     "mal": "No exactamente."
+    },
+    "rescate": [
+     {
+      "boton": "Mostrar los pasos",
+      "etiqueta": "Antes de reenviar",
+      "titulo": "Cuatro pasos",
+      "definicion": [
+       "<strong>1. Frena.</strong> Si te da miedo, rabia o prisa, respira antes de hacer nada.",
+       "<strong>2. Mira la fuente.</strong> ¿Quién lo dice? ¿Es un medio o una institución conocida?",
+       "<strong>3. Contrasta.</strong> Busca si otras fuentes fiables cuentan lo mismo.",
+       "<strong>4. Decide.</strong> Si no puedes comprobarlo, no lo reenvíes."
+      ],
+      "comprobacion": {
+       "boton": "Terminar comprobando",
+       "pregunta": "No encuentras ninguna fuente fiable que confirme un mensaje. ¿Qué haces?",
+       "opciones": [
+        [
+         "No lo reenvío.",
+         true
+        ],
+        [
+         "Lo reenvío por si acaso es verdad.",
+         false,
+         "«Por si acaso» es justo como se difunden los bulos."
+        ],
+        [
+         "Lo reenvío añadiendo «no sé si es verdad».",
+         false,
+         "Aun así lo estás difundiendo."
+        ],
+        [
+         "Me lo creo, pero no se lo digo a nadie.",
+         false,
+         "Sin fuente fiable, tampoco hay razones para creerlo."
+        ]
+       ],
+       "ok": "Correcto: lo que no se puede comprobar, no se comparte.",
+       "mal": "Relee los pasos."
+      }
+     }
+    ]
+   }
+  ],
+  "cierre": {
+   "titulo": "Ya miras los medios con lupa",
+   "parrafos": [
+    "Un bulo es una noticia falsa que se difunde como verdadera, porque toca la emoción. Antes de creer o reenviar: frena, mira la fuente, contrasta y, si no puedes comprobarlo, no lo compartas.",
+    "Reto: coge un mensaje o un titular de esta semana y aplícale los cuatro pasos."
+   ]
+  }
  }
 ];
