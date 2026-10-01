@@ -215,5 +215,222 @@ const PISTAS = [
     "Reto: busca hoy un ejemplo real (en redes, en la tele, en una discusión) y explica dónde está la trampa."
    ]
   }
+ },
+ {
+  "id": "ipc-sesgos",
+  "subject": "ipc",
+  "tema": "Los sesgos",
+  "unidad": "ipc-sesgos",
+  "materia": "Pensamiento crítico · 2.º ESO",
+  "titulo": "¿Qué es el sesgo de confirmación?",
+  "lede": "Una trampa que no está fuera, sino dentro de nuestra cabeza. Pide solo las pistas que necesites.",
+  "ciclos": [
+   {
+    "fase": "Fase 1 · Recuperación",
+    "etiqueta": "Pregunta inicial",
+    "pregunta": "¿Qué es el sesgo de confirmación?",
+    "intro": [
+     "Intenta explicarlo con tus palabras. Piensa en alguien que está convencido de algo y solo hace caso a lo que le da la razón."
+    ],
+    "pistas": [
+     "Un sesgo es un atajo de la mente que nos hace pensar de forma torcida sin darnos cuenta.",
+     "A diferencia de las falacias, que están en los argumentos, los sesgos están <em>dentro</em> de nosotros.",
+     "Fíjate en la palabra «confirmación»: ¿qué queremos confirmar?",
+     "Es la tendencia a <strong>buscar y creer solo lo que confirma lo que ya pensábamos</strong>, y a no ver lo que nos lleva la contraria."
+    ],
+    "comprobacion": {
+     "pregunta": "¿Cuál de estos casos es un sesgo de confirmación?",
+     "opciones": [
+      [
+       "Creo que mi compañero es antipático y solo me fijo en los gestos que lo confirman.",
+       true
+      ],
+      [
+       "Cambio de opinión después de ver datos nuevos.",
+       false,
+       "Eso es justo lo contrario: dejar que las pruebas cambien lo que piensas."
+      ],
+      [
+       "Pregunto a varias personas antes de decidir.",
+       false,
+       "Buscar opiniones distintas ayuda a evitar el sesgo."
+      ],
+      [
+       "Me equivoco en una suma por despiste.",
+       false,
+       "Es un error, pero no tiene que ver con confirmar lo que ya pensabas."
+      ]
+     ],
+     "ok": "Bien. El sesgo filtra lo que vemos para que encaje con lo que ya creíamos.",
+     "mal": "Todavía no."
+    },
+    "rescate": [
+     {
+      "boton": "Necesito un ejemplo",
+      "etiqueta": "Ejemplo",
+      "titulo": "Las mates de Leire",
+      "definicion": [
+       "Leire piensa: «Se me dan fatal las mates».",
+       "Recuerda perfectamente el examen que suspendió en octubre.",
+       "Pero se olvida de los tres que aprobó después, y de que ayer resolvió sola un problema difícil."
+      ],
+      "parrafos": [
+       "¿Qué está haciendo la mente de Leire con sus recuerdos?"
+      ],
+      "comprobacion": {
+       "etiqueta": "Comprobación del ejemplo",
+       "pregunta": "¿Qué le pasa a Leire?",
+       "opciones": [
+        [
+         "Solo recuerda lo que confirma su idea y olvida lo que la contradice.",
+         true
+        ],
+        [
+         "Tiene mala memoria para todo.",
+         false,
+         "Recuerda muy bien el suspenso: su memoria elige qué guardar."
+        ],
+        [
+         "Tiene razón: se le dan fatal las mates.",
+         false,
+         "Los datos (tres aprobados y un problema difícil resuelto) dicen otra cosa."
+        ],
+        [
+         "Miente a propósito.",
+         false,
+         "No miente: el sesgo actúa sin que se dé cuenta."
+        ]
+       ],
+       "ok": "Correcto. Su idea previa decide qué recuerda: eso es el sesgo de confirmación.",
+       "mal": "Vuelve a leer el caso.",
+       "intentos": 2
+      }
+     },
+     {
+      "etiqueta": "Definición y explicación",
+      "titulo": "Sesgo de confirmación",
+      "definicion": [
+       "El <strong>sesgo de confirmación</strong> es la tendencia a buscar, recordar y creer solo lo que confirma lo que ya pensábamos.",
+       "Lo que nos lleva la contraria no lo vemos, lo olvidamos o lo despreciamos.",
+       "No es mentir ni ser tonto: le pasa a todo el mundo. Por eso hay que aprender a vigilarlo."
+      ],
+      "comprobacion": {
+       "boton": "Comprobar comprensión",
+       "etiqueta": "Comprobación final",
+       "pregunta": "¿Cuál de estas frases sobre el sesgo de confirmación es verdadera?",
+       "opciones": [
+        [
+         "Nos afecta a todos, aunque no nos demos cuenta.",
+         true
+        ],
+        [
+         "Solo les pasa a las personas poco inteligentes.",
+         false,
+         "Le pasa a todo el mundo, también a gente muy lista."
+        ],
+        [
+         "Es lo mismo que mentir.",
+         false,
+         "Quien miente sabe que dice algo falso; el sesgo actúa sin que lo notemos."
+        ],
+        [
+         "Es una falacia que usamos para convencer a otros.",
+         false,
+         "Las falacias están en los argumentos; los sesgos, dentro de nuestra cabeza."
+        ]
+       ],
+       "ok": "Correcto.",
+       "mal": "Todavía no."
+      }
+     }
+    ]
+   },
+   {
+    "fase": "Fase 2 · Profundización",
+    "etiqueta": "Nueva pregunta",
+    "pregunta": "¿Qué podemos hacer para no caer en el sesgo de confirmación?",
+    "intro": [
+     "Si el sesgo está dentro de nosotros, no basta con saber que existe. ¿Qué hábitos pueden ayudarte a vigilarlo?"
+    ],
+    "pistas": [
+     "El sesgo nos hace buscar solo lo que nos da la razón. ¿Qué pasaría si hicieras lo contrario?",
+     "Las redes sociales nos enseñan sobre todo lo que ya nos gusta. Piensa en lo que eso hace con nuestras ideas.",
+     "Una buena pregunta es: «¿Qué me haría cambiar de opinión?».",
+     "Busca a propósito pruebas y opiniones que te lleven la contraria, y escúchalas antes de decidir."
+    ],
+    "comprobacion": {
+     "pregunta": "¿Cuál de estos hábitos ayuda más a evitar el sesgo de confirmación?",
+     "opciones": [
+      [
+       "Buscar a propósito información que contradiga lo que pienso.",
+       true
+      ],
+      [
+       "Seguir solo cuentas que piensan como yo.",
+       false,
+       "Eso alimenta el sesgo: solo verás lo que ya te da la razón."
+      ],
+      [
+       "No cambiar nunca de opinión para ser coherente.",
+       false,
+       "Ser coherente no es no cambiar nunca: si aparecen buenas razones, cambiar es razonable."
+      ],
+      [
+       "Decidir rápido para no dudar.",
+       false,
+       "Las prisas favorecen los atajos de la mente, y el sesgo es uno de ellos."
+      ]
+     ],
+     "ok": "Exacto. Buscar lo que te contradice es la mejor vacuna contra el sesgo.",
+     "mal": "No exactamente."
+    },
+    "rescate": [
+     {
+      "boton": "Mostrar la explicación",
+      "etiqueta": "Antídotos",
+      "titulo": "Cómo vigilar el sesgo",
+      "definicion": [
+       "<strong>Busca lo contrario.</strong> Antes de decidir, busca al menos una razón o un dato en contra de lo que piensas.",
+       "<strong>Pregúntate qué te haría cambiar de opinión.</strong> Si la respuesta es «nada», cuidado: ya no estás pensando, estás defendiendo.",
+       "<strong>Rompe la burbuja.</strong> Las redes te muestran lo que ya te gusta: escucha también a quien piensa distinto."
+      ],
+      "comprobacion": {
+       "boton": "Terminar comprobando",
+       "pregunta": "Si nada podría hacerte cambiar de opinión, ¿qué te está pasando?",
+       "opciones": [
+        [
+         "Que probablemente estás defendiendo una idea en lugar de pensarla.",
+         true
+        ],
+        [
+         "Que tienes toda la razón.",
+         false,
+         "No poder imaginar ninguna prueba en contra es una señal de alarma, no de acierto."
+        ],
+        [
+         "Que eres muy coherente.",
+         false,
+         "La coherencia no consiste en cerrarse a las pruebas."
+        ],
+        [
+         "Nada: es lo normal.",
+         false,
+         "Es normal, pero es justo lo que hay que vigilar."
+        ]
+       ],
+       "ok": "Correcto: pensar es estar dispuesto a cambiar si hay buenas razones.",
+       "mal": "Relee la explicación."
+      }
+     }
+    ]
+   }
+  ],
+  "cierre": {
+   "titulo": "Ya sabes vigilar tu mente",
+   "parrafos": [
+    "El sesgo de confirmación nos hace buscar y recordar solo lo que confirma lo que ya pensábamos. Le pasa a todo el mundo; el antídoto es buscar a propósito lo que nos contradice.",
+    "Reto: elige una idea de la que estés muy seguro o segura y busca hoy un buen argumento en contra."
+   ]
+  }
  }
 ];
