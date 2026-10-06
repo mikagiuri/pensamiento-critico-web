@@ -512,3 +512,103 @@ const GLOSARIO = [
   "def": "Comprar pensando en lo que de verdad necesitas y en el impacto que tiene en las personas y el planeta."
  }
 ];
+const GLOSARIO_TRAMPAS = {
+ "ipc": [
+  [
+   "Opinión",
+   "Saber"
+  ],
+  [
+   "Creencia",
+   "Opinión"
+  ],
+  [
+   "Objeción",
+   "Contraargumento"
+  ],
+  [
+   "Premisa",
+   "Conclusión"
+  ],
+  [
+   "Ad hominem",
+   "Hombre de paja"
+  ],
+  [
+   "Apelación a la mayoría",
+   "Apelación a la autoridad"
+  ],
+  [
+   "Falso dilema",
+   "Pendiente resbaladiza"
+  ],
+  [
+   "Anclaje",
+   "Disponibilidad"
+  ],
+  [
+   "Efecto arrastre",
+   "Burbuja"
+  ],
+  [
+   "Sesgo cognitivo",
+   "Sesgo de confirmación"
+  ],
+  [
+   "Consenso",
+   "Negociación"
+  ],
+  [
+   "Empatía",
+   "Asertividad"
+  ],
+  [
+   "Escucha activa",
+   "Empatía"
+  ],
+  [
+   "Bulo (fake news)",
+   "Clickbait"
+  ],
+  [
+   "Posverdad",
+   "Bulo (fake news)"
+  ],
+  [
+   "Huella ecológica",
+   "Huella de carbono"
+  ],
+  [
+   "Biocapacidad",
+   "Día de la Sobrecapacidad"
+  ],
+  [
+   "Consumismo",
+   "Consumo responsable"
+  ],
+  [
+   "Emoción",
+   "Sentimiento"
+  ],
+  [
+   "Presión de grupo",
+   "Conformidad"
+  ],
+  [
+   "Cohesión",
+   "Cooperación"
+  ],
+  [
+   "Grupo",
+   "Grupo nominal"
+  ],
+  [
+   "Prejuicio",
+   "Estereotipo"
+  ],
+  [
+   "Discriminación",
+   "Estigma"
+  ]
+ ]
+};
