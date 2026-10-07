@@ -13,7 +13,19 @@ function galAddIlus(list, bloque, nombre){
       unidad: nombre + " · " + (x.license || "Dominio público") + " · Wikimedia Commons" });
   });
 }
-if (typeof ILUSTRACIONES !== "undefined" && Array.isArray(GALERIA)) galAddIlus(ILUSTRACIONES, "F1", "Filosofía 1.º");
+/* (08-10) Filosofía 1.º: un grupo por tema, en el orden del curso (antes, las ilustraciones iban todas juntas en «F1»).
+   Las que no traigan tema conocido van a «F1». */
+const GAL_FIL_TEMAS = [
+  ["fil-t1", "T1 · ¿Qué es la filosofía?"], ["fil-presocraticos", "T1 · Los presocráticos"], ["fil-t2", "T2 · El ser humano"],
+  ["fil-t3", "T3 · El conocimiento"], ["fil-metafisica", "M · La realidad (Metafísica)"], ["fil-t4", "T4 · Lógica y argumentación"],
+  ["fil-t5", "T5 · Ética"], ["fil-helenismo", "T5 · Las escuelas helenísticas"], ["fil-t6", "T6 · Política"], ["fil-t7", "T7 · Estética"]];
+if (typeof ILUSTRACIONES !== "undefined" && Array.isArray(GALERIA)){
+  GAL_FIL_TEMAS.forEach(function (p){
+    galAddIlus(ILUSTRACIONES.filter(function (x){ return x.tema === p[0]; }), p[0], p[1]);
+  });
+  const sinTema = ILUSTRACIONES.filter(function (x){ return !GAL_FIL_TEMAS.some(function (p){ return p[0] === x.tema; }); });
+  if (sinTema.length) galAddIlus(sinTema, "F1", "Filosofía 1.º");
+}
 /* 1.º y 2.º de Bachillerato: «Arte y pensamiento crítico» (galeria_pensar.js), grupo «PC». */
 if (typeof GALERIA_PENSAR !== "undefined" && Array.isArray(GALERIA)) galAddIlus(GALERIA_PENSAR, "PC", "Arte y pensamiento crítico");
 /* 2.º ESO: la Galería son los dibujos de los «Cuentos para pensar», sacados del propio texto de cada
@@ -94,11 +106,26 @@ function renderGalFilter(){
   galInject();
   const present = galBlocksPresent();
   if (present.length < 2){ box.innerHTML = ""; return; }   /* un solo grupo: sin filtro */
-  box.innerHTML = '<div class="fgroup"><span class="flabel">Bloque</span>' +
-    ["all"].concat(present).map(function (b){
-      return '<button class="fbtn" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' +
-        (b === "all" ? "Todos" : GAL_BLOCKS[b]) + '</button>'; }).join("") + '</div>';
-  box.querySelectorAll("[data-gb]").forEach(function (b){ b.addEventListener("click", function (){
+  /* (08-10) más de 6 grupos (Galería de 1.º por temas): lista de temas (.chips), que compacto.js pliega
+     en una línea con el elegido, también en escritorio; con pocos, la fila de filtros de siempre */
+  let chips = document.getElementById("galchips");
+  if (present.length > 6){
+    if (!chips){
+      chips = document.createElement("div"); chips.className = "chips"; chips.id = "galchips";
+      chips.setAttribute("role", "group"); chips.setAttribute("aria-label", "Elegir tema");
+      box.parentNode.insertBefore(chips, box);
+    }
+    box.innerHTML = "";
+    chips.innerHTML = present.map(function (b){
+      return '<button class="chip" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' + GAL_BLOCKS[b] + '</button>'; }).join("");
+  } else {
+    if (chips) chips.remove();
+    box.innerHTML = '<div class="fgroup"><span class="flabel">Bloque</span>' +
+      ["all"].concat(present).map(function (b){
+        return '<button class="fbtn" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' +
+          (b === "all" ? "Todos" : GAL_BLOCKS[b]) + '</button>'; }).join("") + '</div>';
+  }
+  (chips && present.length > 6 ? chips : box).querySelectorAll("[data-gb]").forEach(function (b){ b.addEventListener("click", function (){
     galBloque = b.dataset.gb; renderGalFilter(); renderGalGrid(); }); });
 }
 

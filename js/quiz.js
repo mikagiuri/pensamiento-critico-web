@@ -20,7 +20,7 @@ const QUIZ_BLOCKS = { A: "Bloque A · Antigua", B: "Bloque B · Medieval-Moderna
 /* Clasificador de temas: temas de cada materia (en orden) y tema de cada cuestionario.
    Al añadir un cuestionario a QUIZZES, añadir aquí su clave; si falta, sale en «Otros». */
 const QUIZ_TEMAS = {
-  fil: { T1: "¿Qué es la filosofía?", T2: "El ser humano", T3: "Conocimiento y verdad", T4: "Lógica y argumentación", T5: "Ética", T6: "La vida en sociedad: política", T7: "Estética: ¿qué es el arte?" },
+  fil: { T1: "¿Qué es la filosofía?", T2: "El ser humano", T3: "Conocimiento y verdad", M: "La realidad (Metafísica)", T4: "Lógica y argumentación", T5: "Ética", T6: "La vida en sociedad: política", T7: "Estética: ¿qué es el arte?" },
   hf: { T1: "Historicidad y universalidad", T2: "Los métodos de la filosofía", T3: "Del mito al logos", T4: "Los presocráticos", T5: "Sofistas, Sócrates y Aspasia", T6: "Platón: Ideas y República", T7: "Antropología clásica", T8: "Ética clásica", T9: "Política clásica", T10: "El helenismo",
     T11: "Filosofía medieval y universales", T12: "Fe y razón", T13: "Renacimiento y revolución científica", T14: "Racionalismo y empirismo", T15: "Dualismo y materialismo", T16: "Sociedad y poder: el contrato social", T17: "Utilitarismo y liberalismo",
     T18: "La Ilustración", T19: "Kant: crítica y metafísica", T20: "Éticas de la felicidad y del deber", T21: "Los filósofos de la sospecha", T22: "Crítica del capitalismo: de Marx a Rawls", T23: "Nietzsche y la posmodernidad", T24: "Filosofía analítica", T25: "El existencialismo", T26: "El feminismo", T27: "Retos del siglo XXI" },
@@ -28,7 +28,7 @@ const QUIZ_TEMAS = {
 };
 const QUIZ_TEMA = {
   "fil-t1": "T1", "fil-metodo-q": "T1", "fil-ramas-q": "T1", "fil-t1-banco": "T1", "fil-presocraticos-q": "T1", "fil-presocraticos-banco": "T1",
-  "fil-t2": "T2", "fil-mente-q": "T2", "fil-t2-banco": "T2", "fil-t3": "T3", "fil-ciencia-q": "T3", "fil-t3-banco": "T3",
+  "fil-t2": "T2", "fil-mente-q": "T2", "fil-t2-banco": "T2", "fil-t3": "T3", "fil-ciencia-q": "T3", "fil-t3-banco": "T3", "fil-metafisica": "M",
   "fil-logica-q": "T4", "fil-t4-banco": "T4", "fil-etica-q": "T5", "fil-t5-banco": "T5", "fil-helenismo-q": "T5", "fil-helenismo-banco": "T5",
   "fil-politica-q": "T6", "fil-t6-banco": "T6", "fil-t7": "T7", "fil-t7-banco": "T7",
   "hf-t1-historicidad": "T1", "hf-a01-banco": "T1", "ltfh-A1": "T1", "hf-t2-metodos": "T2", "hf-a02-banco": "T2", "hf-a03-banco": "T3",
@@ -78,6 +78,7 @@ function lexMask(text, term){
 }
 function lexTemaDe(g){
   if (g.subject === "hf"){ const t = LEX_UNIDAD[g.unidad] || QUIZ_TEMA["ltfh-" + g.unidad]; return t ? { id: t } : null; }
+  if (g.subject === "fil" && /· M$/.test(g.tema || "")) return { id: "M" };   // (08-10) tema M (metafísica), sin número
   if (g.subject === "fil"){ const m = /(\d+)/.exec(g.tema || ""); return { id: m ? "T" + m[1] : "T4" }; }   // sin número: el taller de argumentación (tema 4)
   const hit = LEX_IPC.find(([, re]) => re.test(g.tema || ""));
   return { id: hit ? hit[0] : "otros", etq: String(g.tema || "").split(" · ").pop() };

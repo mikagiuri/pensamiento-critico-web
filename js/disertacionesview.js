@@ -9,7 +9,9 @@ const DISERT_TIPOS = { guia: "Cómo se hace", modelo: "Modelos", comparativa: "C
 function renderDisertFilter(){
   const box = document.getElementById("disertfilter");
   if (!box) return;
-  const btns = ["all", "guia", "modelo", "comparativa", "temas"].map(t =>
+  /* (08-10) solo los tipos que existen en esta web (en 1.º no hay comparativas) */
+  const hay = t => t === "all" || Object.values(DISERTACIONES).some(d => d.tipo === t);
+  const btns = ["all", "guia", "modelo", "comparativa", "temas"].filter(hay).map(t =>
     '<button class="fbtn" data-tipo="' + t + '" aria-pressed="' + (t === disertTipo) + '">' +
     (t === "all" ? "Todas" : DISERT_TIPOS[t]) + '</button>'
   ).join("");
