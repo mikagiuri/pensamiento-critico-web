@@ -52,7 +52,7 @@
       'Cada pie enlaza a la ficha original con su autoría y licencia. Corresponden a los autores y temas citados en esta unidad.</p>';
     body.appendChild(strip);
     strip.querySelectorAll(".museo-img").forEach(img =>
-      img.addEventListener("click", () => { if (typeof openLightbox === "function") openLightbox(img.src); }));
+      img.addEventListener("click", () => { if (typeof openLightbox === "function") openLightbox(img.src, img.alt); }));
   }
 
   // envolver loadTheory para que la tira se reconstruya al cambiar de unidad
