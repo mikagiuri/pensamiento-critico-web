@@ -75,7 +75,7 @@ function drawMap(){
   }
   const cuad = mapMode === "cuad" && gridEl && typeof EsqGrid !== "undefined";
   if (svgEl) svgEl.style.display = cuad ? "none" : "";
-  if (gridEl){ gridEl.style.display = cuad ? "" : "none"; if (cuad){ EsqGrid.render({ subject: m.subject, v2: EsqGrid.fromMarkmap(m.md) }, gridEl); return; } }
+  if (gridEl){ gridEl.style.display = cuad ? "" : "none"; if (cuad){ EsqGrid.render({ subject: m.subject, v2: EsqGrid.fromMarkmap(m.md) }, gridEl, { short: true }); return; } }
 
   if (!_ready()){                 // Markmap aún cargando desde el CDN: reintentar
     if (_pending) return;

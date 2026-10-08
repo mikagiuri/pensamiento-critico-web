@@ -130,20 +130,14 @@ const EsqGrid = (function (){
 #esquemas .esqg-wrap{position:relative}
 .esqg{--c:var(--hf);position:relative;display:grid;gap:22px 20px;font-family:var(--sans);color:var(--ink);align-items:stretch}
 .esqg[data-s="fil"]{--c:var(--fil)} .esqg[data-s="ipc"]{--c:var(--ipc)}
-/* Jerarquía por color (la decisión de febrero): cada rama de la raíz tiene su color (--b, de la paleta de épocas y ramas de
-   styles.css, con variante clara/oscura) y sus descendientes lo llevan cada vez más claro: rama = relleno pleno,
-   nivel 2 = tinte fuerte, nivel 3 = tinte suave, nivel 4 = casi blanco con borde discontinuo. La raíz, con el color de la materia. */
-.esqg-n{--b:var(--c);position:relative;z-index:1;border-radius:12px;padding:9px 10px;background:color-mix(in srgb,var(--b) 16%,var(--surface));border:1px solid color-mix(in srgb,var(--b) 55%,var(--line));font-size:1em;line-height:1.3;display:flex;flex-direction:column;justify-content:center;min-height:62px;overflow-wrap:anywhere}
+.esqg-n{position:relative;z-index:1;border-radius:12px;padding:9px 10px;background:var(--surface-2);border:1px solid var(--line);font-size:1em;line-height:1.3;display:flex;flex-direction:column;justify-content:center;min-height:62px;overflow-wrap:anywhere}
 .esqg-n[data-d="0"]{background:var(--c);color:var(--surface);border-color:var(--c);font-weight:700;font-size:1.08em;text-align:center;border-radius:999px;padding:12px 12px;letter-spacing:.02em}
-.esqg-n[data-d="1"]{background:var(--b);color:var(--on-e,#fff);border:2px solid var(--b);font-weight:700}
-.esqg-n[data-d="2"]{background:color-mix(in srgb,var(--b) 34%,var(--surface));border:1.5px solid var(--b);font-weight:600}
-.esqg-n[data-d="3"]{background:color-mix(in srgb,var(--b) 16%,var(--surface))}
-.esqg-n[data-d="4"]{background:color-mix(in srgb,var(--b) 7%,var(--surface));border-style:dashed}
-.esqg-n.esqg-k .esqg-t{text-decoration:underline;text-decoration-color:var(--b);text-underline-offset:3px}
+.esqg-n[data-d="1"]{border:2px solid var(--c);background:color-mix(in srgb,var(--c) 12%,var(--surface));font-weight:700}
+.esqg-n[data-d="2"]{background:var(--surface-2)}
+.esqg-n[data-d="3"]{background:var(--surface);border-style:dashed}
+.esqg-n.esqg-k .esqg-t{color:var(--c)}
 .esqg-rel{display:block;font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);margin:0 0 2px}
-.esqg-n[data-d="1"] .esqg-rel{color:var(--on-e,#fff);opacity:.85}
-.esqg-n[data-d="2"] .esqg-rel{color:var(--ink)}
-.esqg-n[data-d="1"] .esqg-a{color:var(--on-e,#fff);opacity:.85}
+.esqg-n[data-d="1"] .esqg-rel{color:var(--c)}
 .esqg-t{font-weight:inherit}
 .esqg-a{font-size:.8rem;color:var(--muted);font-style:italic;margin:2px 0 0}
 #esquemas #esqsvg svg.esqg-svg,.esqg-svg{position:absolute;inset:0;width:100%;height:100%;max-width:none;margin:0;overflow:visible;pointer-events:none;z-index:0}   /* más específica que «#esquemas #esqsvg svg{height:auto}» de esquemasview.js */
@@ -165,7 +159,12 @@ const EsqGrid = (function (){
 .esqg-top{display:flex;flex-wrap:wrap;align-items:center;gap:8px;margin:0 0 10px}
 .esqg-top .esq2-q{margin:0;flex:1 1 200px}
 @media (max-width:520px){.esqg-n{padding:7px 8px;min-height:54px}}
-@media print{.esqg-n{break-inside:avoid}}
+.esqg-short .esqg-a{display:none}
+.esqg-short .esqg-has{cursor:pointer}
+.esqg-short .esqg-has::after{content:"+";position:absolute;right:7px;bottom:3px;font-size:.8rem;color:var(--muted);line-height:1}
+.esqg-short .esqg-open .esqg-a{display:block;font-style:normal;color:var(--ink)}
+.esqg-short .esqg-open::after{content:"−"}
+@media print{.esqg-n{break-inside:avoid}.esqg-short .esqg-a{display:block}.esqg-short .esqg-has::after{content:""}}
 `;
   let cssDone = false;
   function injectCss(){ if (cssDone) return; const s = document.createElement("style"); s.textContent = CSS; document.head.appendChild(s); cssDone = true; }
@@ -188,6 +187,13 @@ const EsqGrid = (function (){
       const node = { t: text, c: [] };
       const m = text.match(/^\*\*([^*]+)\*\*\s*(?::|—|–|-)\s+(.+)$/);
       if (m){ node.t = m[1].trim(); node.a = m[2].trim(); }
+      else if (!h && text.length > 28){
+        /* viñeta larga sin «Título: resto»: etiqueta corta = las palabras en negrita (si las hay) o las primeras
+           palabras; la frase entera queda como detalle (se ve al tocar la caja) */
+        const bold = (text.match(/\*\*([^*]+)\*\*/g) || []).map(function (b){ return b.replace(/\*\*/g, ""); });
+        const label = bold.length ? bold.join(" · ") : text.replace(/[*_]/g, "").split(/\s+/).slice(0, 5).join(" ") + "…";
+        if (label.length < text.length - 6){ node.t = label; node.a = text; }
+      }
       if (stack.length === 1 && !root.t && h && lvl === 1){ root.t = node.t; stack.push({ lvl: lvl, node: root }); return; }
       stack[stack.length - 1].node.c.push(node);
       stack.push({ lvl: lvl, node: node });
@@ -203,17 +209,6 @@ const EsqGrid = (function (){
     return [cx + dx * t, cy + dy * t];
   }
 
-  /* paleta de ramas: colores de época y de ramas de Filosofía definidos en styles.css (claro/oscuro) */
-  const BRANCH_COLORS = ["--e-mod", "--e-ant", "--e-con", "--e-ren", "--e-med", "--e-ilu", "--r-est", "--r-ant"];
-  function branchOf(tree){
-    const out = {};
-    tree.nodes.forEach(function (nd){
-      if (nd.depth === 0) return;
-      if (nd.depth === 1){ out[nd.id] = tree.children["r"].indexOf(nd.id); return; }
-      out[nd.id] = out[nd.parent];
-    });
-    return out;
-  }
   let showCross = false;   /* las curvas cruzan cajas en una cuadrícula densa: por defecto, insignias + leyenda */
   function drawArrows(grid, tree, cruces){
     const NS = "http://www.w3.org/2000/svg";
@@ -260,7 +255,9 @@ const EsqGrid = (function (){
   drawArrows.n = 0;
 
   let ro = null;
-  function render(e, st){
+  /* opts.short: cuadrícula de mapas: solo la etiqueta en cada caja; el detalle se abre al tocarla */
+  function render(e, st, opts){
+    const short = !!(opts && opts.short);
     injectCss();
     const v = e.v2, tree = buildTree(v), n = tree.nodes.length;
     const width = st.clientWidth || 700;
@@ -277,24 +274,23 @@ const EsqGrid = (function (){
     const cellW = scrollX ? MIN_COL : (width - GAP * (shape.cols - 1)) / shape.cols;
     const fontPx = cellW < 125 ? 12.5 : cellW < 145 ? 13.5 : cellW < 170 ? 14.5 : 15.5;   /* letra según el ancho de celda */
     const hasX = Array.isArray(v.cruces) && v.cruces.length > 0;
-    const branch = branchOf(tree);
     /* relaciones entre ramas: insignia numerada en las dos cajas (①…) y leyenda debajo de la cuadrícula */
     const badges = {};
     if (hasX) v.cruces.forEach(function (x, i){ [x.de, x.a].forEach(function (t){ (badges[t] = badges[t] || []).push(i + 1); }); });
     st.innerHTML = '<div class="esqg-top">' + (v.pregunta ? '<p class="esq2-q">' + esc(v.pregunta) + "</p>" : "") +
       (hasX ? '<label class="esq2-xtog"><input type="checkbox" id="esqgxtog"' + (showCross ? " checked" : "") + '> Dibujar las relaciones entre ramas</label>' : "") + "</div>" +
-      '<div class="esqg-wrap"' + (scrollX ? ' style="overflow-x:auto;padding-bottom:6px"' : "") + '><div class="esqg" data-s="' + esc(e.subject) + '" style="font-size:' + fontPx + 'px;grid-template-columns:repeat(' + shape.cols + ',minmax(' + (scrollX ? MIN_COL + "px" : "0") + ',1fr))">' +
+      '<div class="esqg-wrap"' + (scrollX ? ' style="overflow-x:auto;padding-bottom:6px"' : "") + '><div class="esqg' + (short ? " esqg-short" : "") + '" data-s="' + esc(e.subject) + '" style="font-size:' + fontPx + 'px;grid-template-columns:repeat(' + shape.cols + ',minmax(' + (scrollX ? MIN_COL + "px" : "0") + ',1fr))">' +
       tree.nodes.map(function (nd){ const p = pos[nd.id];
-        const bcol = nd.depth ? "--b:var(" + BRANCH_COLORS[branch[nd.id] % BRANCH_COLORS.length] + ");" : "";
         const bs = badges[nd.t] ? '<span class="esqg-bs">' + badges[nd.t].map(function (i){ return '<span class="esqg-b">' + i + "</span>"; }).join("") + "</span>" : "";
-        return '<div class="esqg-n' + (nd.k ? " esqg-k" : "") + '" data-id="' + nd.id + '" data-d="' + Math.min(nd.depth, 4) + '" style="' + bcol + 'grid-row:' + (p[0] + 1) + ';grid-column:' + (p[1] + 1) + '">' + bs +
+        return '<div class="esqg-n' + (nd.k ? " esqg-k" : "") + (short && nd.a ? " esqg-has" : "") + '" data-id="' + nd.id + '" data-d="' + Math.min(nd.depth, 3) + '" style="grid-row:' + (p[0] + 1) + ';grid-column:' + (p[1] + 1) + '">' + bs +
           (nd.rel ? '<span class="esqg-rel">' + esc(nd.rel) + "</span>" : "") + '<span class="esqg-t">' + md(nd.t) + "</span>" + (nd.a ? '<span class="esqg-a">' + md(nd.a) + "</span>" : "") + "</div>"; }).join("") +
       "</div></div>" +
       (hasX ? '<ol class="esqg-xl">' + v.cruces.map(function (x){ return "<li><em>" + esc(x.de) + '</em> <span class="esqg-xr">' + esc(x.rel) + "</span> <em>" + esc(x.a) + "</em></li>"; }).join("") + "</ol>" : "") +
-      '<p class="esq2-hint">' + (scrollX ? "Desliza la cuadrícula hacia los lados." + " " : "") + "Cada concepto toca a su concepto padre (también en diagonal)." +
+      '<p class="esq2-hint">' + (scrollX ? "Desliza la cuadrícula hacia los lados." + " " : "") + (short ? "Toca una caja para ver su texto completo." + " " : "") + "Cada concepto toca a su concepto padre (también en diagonal)." +
         (tree.nodes.some(function (nd){ return nd.rel; }) ? " " + "El tipo de relación va escrito dentro de cada caja." : "") + "</p>";   /* literales enteros entre comillas: así los traduce ui/<lang>.json */
     const grid = st.querySelector(".esqg");
     drawArrows(grid, tree, v.cruces);
+    if (short) grid.querySelectorAll(".esqg-has").forEach(function (el){ el.addEventListener("click", function (){ el.classList.toggle("esqg-open"); drawArrows(grid, tree, v.cruces); }); });
     const cb = st.querySelector("#esqgxtog");
     if (cb) cb.addEventListener("change", function (){ showCross = cb.checked; const l = grid.querySelector(".esqg-x-layer"); if (l) l.style.display = showCross ? "" : "none"; });
     /* al cambiar el ancho: si cambia la forma de la cuadrícula se recoloca; si no, solo se redibujan las flechas */
