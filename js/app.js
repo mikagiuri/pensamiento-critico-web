@@ -343,7 +343,7 @@ document.querySelectorAll(".courses [data-view]").forEach(card => {
     '<p>Lo que ve el alumnado: cada materia con lo suyo y sin material del profesor. Se actualizan al publicar.</p></div>' +
     '<div class="pubwebs">' + webs.map(w =>
       '<div class="pubweb" style="--c:var(--' + w[0] + ')"><h3>' + w[1] + '</h3>' +
-      link(B + w[2] + "/", "Castellano") + link(B + w[2] + "-eu/", "Euskera") + '</div>').join("") + '</div>');
+      link(B + w[2] + "/", "Castellano") + link(B + w[2] + "-eu/", "Euskera") + link(B + w[2] + "-fr/", "Français") + '</div>').join("") + '</div>');
   document.querySelectorAll(".pw-copy").forEach(b => b.addEventListener("click", () => {
     const done = () => { b.textContent = "Copiado"; b.classList.add("ok"); setTimeout(() => { b.textContent = "Copiar"; b.classList.remove("ok"); }, 1600); };
     if (navigator.clipboard) navigator.clipboard.writeText(b.dataset.url).then(done, () => window.prompt("Copia el enlace:", b.dataset.url));
