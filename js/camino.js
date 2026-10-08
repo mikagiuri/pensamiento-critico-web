@@ -40,7 +40,7 @@ const CAMINOS = [
     ]
    },
    "preguntar": {
-    "texto": "Te contestan: «Lo ha dicho la prima de Ane, que conoce a la directora». Un par de personas te llaman aguafiestas por preguntar.",
+    "texto": "Te contestan: «Lo ha dicho la prima de una de clase, que conoce a la directora». Un par de personas te llaman aguafiestas por preguntar.",
     "opciones": [
      {
       "t": "Callarme para no quedar mal.",
@@ -103,7 +103,7 @@ const CAMINOS = [
   "start": "inicio",
   "escenas": {
    "inicio": {
-    "texto": "En el recreo, tu cuadrilla se ríe con una foto de Iker, de tu clase, tropezando en Educación Física. Mikel propone subirla a Instagram con un meme. Todos te miran esperando tu reacción.",
+    "texto": "En el recreo, tu cuadrilla se ríe con una foto de un chico de tu clase tropezando en Educación Física. Un compañero propone subirla a Instagram con un meme. Todos te miran esperando tu reacción.",
     "opciones": [
      {
       "t": "Reírme y decir: «¡Súbela!».",
@@ -120,23 +120,23 @@ const CAMINOS = [
     ]
    },
    "sube": {
-    "texto": "La foto consigue doscientos «me gusta» y un montón de comentarios. Al día siguiente Iker no viene a clase. En el grupo dicen: «Era una broma, no aguanta nada».",
+    "texto": "La foto consigue doscientos «me gusta» y un montón de comentarios. Al día siguiente el chico de la foto no viene a clase. En el grupo dicen: «Era una broma, no aguanta nada».",
     "opciones": [
      {
       "t": "Darles la razón: «Solo era una broma».",
       "to": "f_broma"
      },
      {
-      "t": "Escribir a Iker en privado para ver cómo está.",
+      "t": "Escribir en privado al chico de la foto para ver cómo está.",
       "to": "f_reparar"
      }
     ]
    },
    "paso": {
-    "texto": "Mikel se burla: «Qué aburrido eres». Pero Unai, que estaba callado, te mira y asiente: parece que piensa como tú.",
+    "texto": "El que propuso subirla se burla: «Qué aburrido eres». Pero una chica de la cuadrilla, que estaba callada, te mira y asiente: parece que piensa como tú.",
     "opciones": [
      {
-      "t": "Explicar mis razones y buscar el apoyo de Unai.",
+      "t": "Explicar mis razones y buscar el apoyo de esa chica.",
       "to": "f_valiente"
      },
      {
@@ -149,7 +149,7 @@ const CAMINOS = [
     "texto": "La foto se sube igual. Durante la tarde no dejas de pensar en ello y te sientes incómodo o incómoda.",
     "opciones": [
      {
-      "t": "Hablar con Iker o contárselo a la tutora.",
+      "t": "Hablar con el chico de la foto o contárselo a la tutora.",
       "to": "f_reparar"
      },
      {
@@ -163,19 +163,19 @@ const CAMINOS = [
    "f_broma": {
     "emoji": "😶",
     "titulo": "¿Solo una broma?",
-    "texto": "Iker tarda días en volver y evita al grupo. La foto sigue circulando aunque ya la hayáis borrado.",
+    "texto": "El chico de la foto tarda días en volver y evita al grupo. La foto sigue circulando aunque ya la hayáis borrado.",
     "idea": "Una broma es graciosa para todos; si solo se ríen unos a costa de otro, es una humillación. Lo que se sube a internet no se puede recoger del todo."
    },
    "f_reparar": {
     "emoji": "🤝",
     "titulo": "Nunca es tarde para reparar",
-    "texto": "Iker agradece el mensaje. Con ayuda de la tutora, la foto se retira y el tema se habla en tutoría.",
+    "texto": "El chico de la foto agradece el mensaje. Con ayuda de la tutora, la foto se retira y el tema se habla en tutoría.",
     "idea": "Reparar el daño (pedir perdón, acompañar, avisar a un adulto) también es tomar partido. Empatía: ponerse en el lugar del otro y actuar en consecuencia."
    },
    "f_valiente": {
     "emoji": "🦁",
     "titulo": "Decir no en grupo",
-    "texto": "Con Unai de tu parte, el plan se desinfla. La foto no se sube. Mikel refunfuña, pero no pasa nada más.",
+    "texto": "Con esa chica de tu parte, el plan se desinfla. La foto no se sube. El que lo propuso refunfuña, pero no pasa nada más.",
     "idea": "En el experimento de Asch, bastaba con que una sola persona del grupo discrepara para que los demás se atrevieran a decir lo que pensaban. Un aliado lo cambia todo."
    },
    "f_testigo": {
