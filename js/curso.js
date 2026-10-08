@@ -3,7 +3,7 @@ const CURSO_BASE = "curso/";   // build_eso.js lo cambia a "curso/"
 const CURSO = [
  {
   "unidad": 1,
-  "titulo": "Pensar, creer y saber",
+  "titulo": "Pensar críticamente",
   "trimestre": "1.er trimestre · Razonar",
   "sesiones": [
    {
@@ -250,8 +250,8 @@ const CURSO = [
         "pasos": [
          "«Salió en 2023»: dice cómo son las cosas. Es un **hecho**.",
          "«Me encanta»: habla de lo que le gusta a él. Es un **gusto**.",
-         "«Deberías comprártelo»: dice qué hacer. Es una **opinión**, y le puedo pedir razones.",
-         "Conclusión: una sola frase puede mezclar los tres tipos. Hay que separarlos."
+         "«Deberías comprártelo»: es una **opinión**. Le pido razones. Y me pregunto: ¿qué **gana** él si me lo compro?",
+         "Conclusión: una frase puede mezclar los tres tipos. Y quien opina puede tener un **interés**: no lo supongo, pero lo miro."
         ]
        },
        {
@@ -321,7 +321,7 @@ const CURSO = [
         "pregunta": "¿Qué es una afirmación de hecho? ¿Puede ser falsa?"
        },
        {
-        "pregunta": "Escribe un gusto y una opinión sobre la comida del comedor."
+        "pregunta": "Escribe un gusto y una opinión sobre la comida del comedor. Después defiende tu opinión con una razón usando «porque»."
        },
        {
         "pregunta": "¿Hecho, gusto u opinión? a) «El recreo dura 30 minutos». b) «Me encanta el recreo». c) «Habría que poner el recreo más tarde»."
@@ -333,7 +333,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 1) ¿Cuál es la pregunta clave del pensador crítico? ¿Para qué sirve?"
+        "pregunta": "(Repaso de la sesión 1) Un vídeo dice que una cucharada de miel cada mañana evita los resfriados. ¿Por qué podría alguien decir eso aunque no fuera verdad?"
        }
       ]
      },
@@ -350,69 +350,241 @@ const CURSO = [
    },
    {
     "n": 3,
-    "titulo": "Creer, saber y estar seguro",
-    "idea": "Sentirse seguro no es lo mismo que saber. Solemos decir que alguien sabe algo cuando lo cree, es verdad y tiene buenas razones.",
+    "titulo": "¿Por qué creemos lo que creemos?",
+    "idea": "Muchas creencias no vienen de razones, sino de la costumbre, el grupo, la autoridad o la emoción, como en el cuento del rey que cojeaba.",
     "arranque": {
-     "texto": "Un chico está segurísimo de que dejó las llaves en la mochila. Las busca… y no están.",
-     "pregunta": "¿Ese chico sabía dónde estaban las llaves, o solo lo creía?"
+     "texto": "Todos en la clase de una chica llevan las mismas zapatillas. Sin darse cuenta, ella empieza a pensar que son las mejores.",
+     "pregunta": "¿Lo piensa por una razón… o por otra cosa?"
     },
     "bloques": [
      {
-      "titulo": "Tres palabras que se confunden",
+      "titulo": "Cuatro caminos para creer",
       "diapositivas": [
        {
-        "tipo": "concepto",
-        "titulo": "Creer",
-        "texto": "Creer es pensar que algo es **verdad**. Lo que creo puede ser verdad… o no.",
+        "tipo": "lista",
+        "titulo": "¿De dónde vienen nuestras creencias?",
+        "texto": "Muchas cosas las creemos sin mirar sus razones. Hay cuatro caminos:",
         "puntos": [
-         "«Creo que mañana lloverá»",
-         "Todos creemos muchas cosas sin comprobarlas",
-         "Creer no es malo: lo malo es no revisar nunca"
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Saber",
-        "texto": "Solemos decir que alguien **sabe** algo cuando lo cree, es verdad y tiene **buenas razones**.",
-        "puntos": [
-         "Si era falso, no lo sabía: solo lo creía",
-         "Si acierto por suerte, tampoco lo sé",
-         "Los filósofos llevan siglos discutiendo esta definición"
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Estar seguro",
-        "texto": "**Sentirse** seguro es un sentimiento: la sensación de que no me equivoco.",
-        "puntos": [
-         "Me puedo sentir seguro y estar equivocado",
-         "El sentimiento, solo, no es una razón",
-         "Estar seguro **con razones** es otra cosa: «lo he comprobado»"
+         "**Costumbre:** «siempre se ha hecho así»",
+         "**Grupo:** «lo cree toda mi cuadrilla»",
+         "**Autoridad:** «lo ha dicho alguien importante»",
+         "**Emoción:** «me gusta creerlo» o «me da miedo»"
         ]
        },
        {
         "tipo": "tabla",
-        "titulo": "Las tres palabras, juntas",
+        "titulo": "Los cuatro caminos, con ejemplos",
         "cabecera": [
-         "Palabra",
-         "Qué es",
-         "¿Puede fallar?"
+         "Camino",
+         "Ejemplo",
+         "Pregunta para revisarla"
         ],
         "filas": [
          [
-          "**Creer**",
-          "Pensar que algo es verdad",
-          "Sí"
+          "**Costumbre**",
+          "«Se hace así porque siempre se ha hecho así»",
+          "¿Hay alguna razón, o solo es costumbre?"
          ],
          [
-          "**Saber**",
-          "Creer algo verdadero con buenas razones",
-          "No: si falla, no era saber"
+          "**Grupo**",
+          "«Esa serie es malísima: lo dicen todos mis amigos»",
+          "¿La he visto yo?"
          ],
          [
-          "**Sentirse seguro**",
-          "Un sentimiento",
-          "Sí, muchas veces"
+          "**Autoridad**",
+          "«Lo dice un youtuber con millones de seguidores»",
+          "¿Sabe de ese tema?"
+         ],
+         [
+          "**Emoción**",
+          "«No ha sido falta: es mi equipo»",
+          "¿Diría lo mismo si fuera el otro equipo?"
+         ]
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "¿Son siempre malos estos caminos?",
+        "izq": {
+         "titulo": "Error",
+         "puntos": [
+          "«Si lo cree el grupo, es falso»",
+          "«Nunca hay que hacer caso a nadie»",
+          "«Las emociones no sirven para nada»"
+         ]
+        },
+        "der": {
+         "titulo": "Mejor así",
+         "puntos": [
+          "Casi todo lo sabemos porque nos lo cuentan",
+          "Confiar en quien **sabe del tema** es razonable",
+          "Las emociones informan: el miedo avisa de peligros",
+          "El problema es no revisarlas nunca"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "El rey que cojeaba",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "El cuento (1) · Todo el palacio cojea",
+        "caso": "Había una vez un rey que era cojo. Sus cortesanos, para caerle bien, empezaron a cojear. Pronto cojeaba todo el palacio: ministros, guardias, cocineros… Nadie caminaba recto.",
+        "pasos": [
+         "¿Por qué cojeaban? No les dolía nada.",
+         "Al principio, para agradar a la **autoridad**: el rey.",
+         "Después, porque lo hacían todos: el **grupo**. Y al final ya era **costumbre**.",
+         "Conclusión: nadie tenía una buena razón para cojear."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "El cuento (2) · El caballero",
+        "caso": "Llega un caballero de fuera que camina recto. Todos se ríen. El rey se enfada. El caballero dice: «Majestad, cojeo de los dos pies a la vez».",
+        "pasos": [
+         "¿Por qué se ríen? Porque es distinto al grupo, no porque haga algo mal.",
+         "Aquí actúa la **emoción**: la burla y el miedo a quedar mal.",
+         "Su respuesta es ingeniosa: se burla de la costumbre y a la vez se libra del castigo.",
+         "Conclusión: el único que camina bien parece el raro. Lo normal no siempre es lo razonable."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso de hoy · Una crema para granos",
+        "caso": "Una chica cree que una crema para granos funciona. La usa toda su cuadrilla, la anuncia su influencer favorita y a ella le hace mucha ilusión.",
+        "pasos": [
+         "«La usa toda su cuadrilla»: camino del **grupo**.",
+         "«La anuncia su influencer»: camino de la **autoridad**. Pero ¿sabe de piel?",
+         "«Le hace mucha ilusión»: camino de la **emoción**.",
+         "Conclusión: nada de eso dice si la crema funciona. Mejor preguntar a quien sabe: un médico o una farmacéutica."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "¿Autoridad = mala razón?",
+        "caso": "Un chico cree que la Tierra gira alrededor del Sol. Nunca lo ha comprobado: se lo explicó su profesora.",
+        "pasos": [
+         "Sí, es el camino de la autoridad.",
+         "Pero la profesora **sabe del tema**, y la ciencia lo ha comprobado muchísimas veces.",
+         "No es como el influencer de la crema: él no sabe de piel.",
+         "Conclusión: el problema no es fiarse de alguien, sino fiarse de quien no sabe."
+        ],
+        "pregunta": "Lo cree por autoridad… ¿entonces es una mala razón?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Muchas creencias vienen de la costumbre, el grupo, la autoridad o la emoción.",
+     "Esos caminos pueden acertar o fallar: fiarse de quien sabe del tema es razonable.",
+     "Lo importante es poder revisarlas, no creer como el palacio que cojeaba."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "Escribe los cuatro caminos por los que creemos cosas sin mirar sus razones."
+       },
+       {
+        "pregunta": "Escribe un ejemplo de algo que se cree o se hace por costumbre."
+       },
+       {
+        "pregunta": "Un chico dice: «Ese videojuego es malísimo: en mi clase lo dice todo el mundo». ¿Qué camino es? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 2) «Deberías comprarte esas zapatillas.» ¿Es un hecho, un gusto o una opinión? ¿Qué le pedirías a quien lo dice?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Imagina la lámina del rey cojo: el rey cojea y, detrás, toda la corte cojea igual. Un cortesano dice: «Yo cojeo porque, si no, el rey se enfada y pierdo mi puesto». ¿Qué camino le hace cojear? ¿Es una buena razón para cojear?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 4,
+    "titulo": "Convencer y manipular",
+    "idea": "Convencer es darte razones para que decidas tú; manipular es esquivar tu juicio o esconderte información para que no pienses.",
+    "arranque": {
+     "texto": "Dos mensajes para vender la misma zapatilla. A: «Pesa 200 gramos y dura dos años». B: «Todos tus amigos ya la tienen. ¿Y tú?»",
+     "pregunta": "¿Cuál te da razones? ¿Cuál intenta que no pienses?"
+    },
+    "bloques": [
+     {
+      "titulo": "Convencer y manipular",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Persuadir",
+        "texto": "Persuadir es intentar que alguien crea o haga algo. Se puede hacer bien o mal.",
+        "puntos": [
+         "**Convencer:** dar razones que el otro puede examinar",
+         "**Manipular:** esquivar su juicio o esconderle información",
+         "La pregunta: ¿te dejan pensar y ver los datos?",
+         "Muchos mensajes mezclan las dos cosas: hay grises"
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Manipular y convencer",
+        "izq": {
+         "titulo": "Manipular",
+         "puntos": [
+          "Esconde información",
+          "Mete prisa para que no pienses",
+          "Usa el miedo para que no pienses",
+          "Quiere que no preguntes"
+         ]
+        },
+        "der": {
+         "titulo": "Convencer",
+         "puntos": [
+          "Enseña los datos",
+          "Te deja tiempo para decidir",
+          "Da razones que puedes comprobar",
+          "Acepta tus preguntas"
+         ]
+        }
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Cuatro preguntas para detectar la manipulación",
+        "cabecera": [
+         "Pregunta",
+         "Si la respuesta es «sí»…"
+        ],
+        "filas": [
+         [
+          "¿Me meten **prisa**?",
+          "Quieren que decida antes de pensar"
+         ],
+         [
+          "¿Me **esconden** algo?",
+          "Quieren que no compare"
+         ],
+         [
+          "¿Solo me **emocionan**?",
+          "Quieren que la emoción ocupe el lugar de las razones"
+         ],
+         [
+          "¿Qué **gana** quien me lo dice?",
+          "No supongo mala fe, pero lo tengo en cuenta"
          ]
         ]
        }
@@ -423,55 +595,50 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Las llaves",
-        "caso": "Un chico está segurísimo: «Las llaves están en la mochila». No están. Al final aparecen en la mesa de la cocina.",
+        "titulo": "Caso 1 · El móvil de un chico",
+        "caso": "Un chico quiere un móvil nuevo. Le dice a su padre: «El mío tiene 5 años, la batería dura 2 horas y arreglarla cuesta casi lo mismo».",
         "pasos": [
-         "¿Estaba seguro? Sí, muchísimo.",
-         "¿Era verdad lo que creía? No: estaban en la cocina.",
-         "Entonces, ¿lo sabía? No. Solo lo creía, y con mucha fuerza.",
-         "Conclusión: sentirse seguro no es lo mismo que saber."
+         "¿Qué quiere el chico? Que su padre le compre un móvil.",
+         "¿Cómo lo intenta? Con datos: la edad del móvil, la batería, el precio del arreglo.",
+         "¿Puede su padre comprobarlo? Sí: puede mirar la batería y pedir presupuesto.",
+         "Conclusión: el chico intenta convencer. Da razones y deja pensar a su padre."
         ]
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Acertar por suerte",
-        "caso": "Un chico no ha estudiado. En una pregunta de test elige la b) al azar… y acierta.",
+        "titulo": "Caso 2 · Una oferta en una app",
+        "caso": "«¡Última oportunidad! 9 personas están viendo esta oferta. Termina en 04:59.» No dice el precio normal ni qué pasa si esperas.",
         "pasos": [
-         "¿Su respuesta es verdadera? Sí.",
-         "¿Tenía razones para elegir la b)? No: la eligió al azar.",
-         "¿Sabía la respuesta? No: acertó por suerte.",
-         "Conclusión: para saber no basta con acertar. Hacen falta buenas razones."
+         "¿Qué quieren? Que compre ya.",
+         "¿Cómo lo intentan? Con prisa (el reloj) y con presión (las 9 personas).",
+         "¿Me dan razones sobre el producto? No: no sé si es bueno ni si es barato.",
+         "Conclusión: es manipulación. Quieren que decida antes de pensar."
         ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · Saber de verdad",
-        "caso": "Una chica dice: «El agua hierve a 100 grados a nivel del mar». Lo explicaron en clase y ella lo midió en el laboratorio.",
-        "pasos": [
-         "¿Es verdad? Sí: es un dato muy comprobado.",
-         "¿Tiene buenas razones? Sí: se lo explicaron y lo midió ella misma.",
-         "Conclusión: esa chica lo sabe. Es verdad y tiene buenas razones."
-        ]
-       },
+       }
+      ]
+     },
+     {
+      "titulo": "Caso trampa",
+      "diapositivas": [
        {
         "tipo": "trampa",
-        "titulo": "El reloj parado",
-        "caso": "Una chica mira el reloj del pasillo: marca las 10:15. Son las 10:15. Pero el reloj está parado desde ayer a las 10:15.",
+        "titulo": "¿Emocionar = manipular?",
+        "caso": "Una campaña contra el abandono de animales enseña a un perro atado en una gasolinera. Da datos reales y un teléfono de ayuda.",
         "pasos": [
-         "¿Lo cree? Sí. ¿Es verdad? Sí: son las 10:15.",
-         "¿Tiene una razón? Sí: los relojes del pasillo suelen funcionar.",
-         "Y aun así acierta por suerte: el reloj no funciona.",
-         "Conclusión: la definición de saber no es perfecta. Los filósofos lo siguen discutiendo."
+         "Parece que sí: busca que sientas pena y rabia.",
+         "Pero quito la emoción y quedan razones: datos reales y una forma de pedir ayuda.",
+         "No me mete prisa ni me esconde nada. Un mensaje puede emocionar y ser honesto.",
+         "Conclusión: el problema no es la emoción, sino usarla en lugar de razones."
         ],
-        "pregunta": "¿Sabe esa chica qué hora es?"
+        "pregunta": "Te emociona mucho… ¿entonces te está manipulando?"
        }
       ]
      }
     ],
     "resumen": [
-     "Creer es pensar que algo es verdad, y puede fallar.",
-     "Solemos decir que saber es creer algo verdadero con buenas razones, aunque hay casos difíciles.",
-     "Sentirse seguro es un sentimiento: me puedo sentir seguro y estar equivocado."
+     "Persuadir es intentar que alguien crea o haga algo.",
+     "Convencer es dar razones; manipular es esquivar tu juicio o esconderte información.",
+     "Emocionar no es manipular. Pregunta: ¿me meten prisa, me esconden algo, solo me emocionan?"
     ],
     "hoja": [
      {
@@ -479,13 +646,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué diferencia hay entre creer y saber?"
+        "pregunta": "Explica con tus palabras la diferencia entre convencer y manipular."
        },
        {
-        "pregunta": "Escribe un ejemplo de algo que estabas seguro de que era verdad y resultó falso."
+        "pregunta": "Escribe un mensaje que intente convencer a alguien dando razones."
        },
        {
-        "pregunta": "Un chico dice: «Sé que el sábado ganará el Athletic. Lo noto». ¿Lo sabe o lo cree? ¿Por qué?"
+        "pregunta": "Un anuncio dice: «Solo hoy. Si no lo compras ahora, te arrepentirás». ¿Convence o manipula? ¿Por qué?"
        }
       ]
      },
@@ -494,7 +661,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 1) ¿En qué se diferencia el desconfiado del pensador crítico?"
+        "pregunta": "(Repaso de la sesión 3) Un anuncio dice: «Ya lo usa todo tu barrio». ¿Qué camino de creencia usa: costumbre, grupo, autoridad o emoción? ¿Es una razón?"
        }
       ]
      },
@@ -503,14 +670,1170 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Un chico está seguro de que 7 × 8 = 56: se lo sabe desde primaria y lo ha comprobado muchas veces. ¿Su seguridad es solo un sentimiento?"
+        "pregunta": "Un chico recibe un mensaje: «Tu cuenta del videojuego se cerrará en 1 hora. Pulsa aquí para salvarla». ¿Qué trucos de manipulación ves? ¿Qué haría un pensador crítico?"
        }
       ]
      }
     ]
    },
    {
-    "n": 4,
+    "n": 5,
+    "titulo": "Repaso y examen de la unidad 1",
+    "idea": "Repasamos la unidad: pensar críticamente, hechos y opiniones, por qué creemos lo que creemos, y convencer o manipular.",
+    "arranque": {
+     "texto": "En esta unidad has aprendido cuatro herramientas para no creerte cualquier cosa.",
+     "pregunta": "¿Cuál de ellas has usado ya fuera de clase?"
+    },
+    "bloques": [
+     {
+      "titulo": "Repaso de la unidad",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Sesión 1 · Pensar críticamente",
+        "texto": "Pensar críticamente es **pedir** y **dar** razones antes de aceptar o rechazar una idea.",
+        "puntos": [
+         "No es criticarlo todo ni desconfiar de todo",
+         "El crédulo se lo cree todo; el desconfiado, nada",
+         "Pregunta clave: «¿cómo lo sabes?»"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Sesión 2 · Hechos, gustos y opiniones",
+        "cabecera": [
+         "Tipo",
+         "Cómo se reconoce",
+         "Ejemplo"
+        ],
+        "filas": [
+         [
+          "**Hecho**",
+          "Dice cómo son las cosas: verdadero o falso",
+          "«San Mamés está en Bilbao»"
+         ],
+         [
+          "**Gusto**",
+          "Habla de lo que me gusta a mí",
+          "«Me encanta el recreo»"
+         ],
+         [
+          "**Opinión**",
+          "Qué es bueno o qué deberíamos hacer: con razones",
+          "«Habría que alargar el recreo»"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Sesión 3 · ¿Por qué creemos lo que creemos?",
+        "texto": "Cuatro caminos que, por sí solos, no son razones:",
+        "puntos": [
+         "**Costumbre:** «siempre se ha hecho así»",
+         "**Grupo:** «lo cree toda mi cuadrilla»",
+         "**Autoridad:** «lo ha dicho alguien importante»",
+         "**Emoción:** «me gusta creerlo» o «me da miedo»",
+         "El rey que cojeaba: todo el palacio cojeaba sin razón"
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Sesión 4 · Convencer y manipular",
+        "izq": {
+         "titulo": "Manipular",
+         "puntos": [
+          "**Esquivar** tu juicio: prisa, miedo",
+          "Esconder información",
+          "La emoción en lugar de las razones"
+         ]
+        },
+        "der": {
+         "titulo": "Convencer",
+         "puntos": [
+          "Dar razones que puedes comprobar",
+          "Enseñar los datos y dejar tiempo",
+          "Pregunta siempre: ¿qué **gana** quien me lo dice?"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "Un caso con todo",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Agua con limón",
+        "caso": "Un chico lee en Instagram: «El agua con limón en ayunas quema grasa. Lo dice una influencer de fitness y lo hace todo mi gimnasio». Está seguro de que es verdad.",
+        "pasos": [
+         "¿Hecho, gusto u opinión? Es una afirmación de hecho: verdadera o falsa.",
+         "¿Qué caminos hay? Autoridad (la influencer) y grupo (el gimnasio).",
+         "¿Qué gana quien lo dice? Una influencer de fitness puede cobrar por anunciar productos o buscar visitas.",
+         "Conclusión: la pregunta es «¿cómo lo sabes?». Hay que mirar qué dicen fuentes médicas."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "¿Interés = manipulación?",
+        "caso": "Tu dentista te dice que te cepilles los dientes tres veces al día. Vive de cuidar dientes.",
+        "pasos": [
+         "Parece que sí: tiene un **interés** en el tema.",
+         "Pero no gana nada más porque te cepilles; da razones que se pueden comprobar (caries, estudios).",
+         "No te mete prisa ni te esconde nada.",
+         "Conclusión: tener un interés no es manipular. Lo tengo en cuenta, pero miro las razones."
+        ],
+        "pregunta": "Gana dinero con los dientes… ¿entonces te está manipulando?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Pensar críticamente es pedir y dar razones: «¿cómo lo sabes?».",
+     "Los hechos dicen cómo son las cosas; los gustos hablan de mí; las opiniones se defienden con razones.",
+     "Costumbre, grupo, autoridad o emoción no son razones por sí solas; convencer da razones y manipular las esquiva."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es pensar críticamente?"
+       },
+       {
+        "pregunta": "Un chico se cree todo lo que ve en TikTok. ¿Es crédulo, desconfiado o pensador crítico?"
+       },
+       {
+        "pregunta": "¿Hecho, gusto u opinión? a) «Bilbao está en Bizkaia». b) «Me gusta más Bilbao que Donostia». c) «Bilbao debería tener más carriles bici»."
+       },
+       {
+        "pregunta": "Explica con tus palabras la diferencia entre convencer y manipular."
+       },
+       {
+        "pregunta": "Un anuncio dice: «¡Solo quedan 2! Oferta válida 10 minutos». ¿Qué truco de manipulación usa?"
+       },
+       {
+        "pregunta": "Una chica cree que un champú es muy bueno porque lo anuncia su cantante favorita. ¿Qué camino de creencia es?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 2) ¿Una afirmación de hecho es siempre verdadera? Explícalo."
+       },
+       {
+        "pregunta": "(Repaso de la sesión 1) ¿Qué pide la pregunta «¿cómo lo sabes?»?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un chico recibe un audio reenviado por WhatsApp: «Mañana cierran el metro de Bilbao por una huelga. Lo dice mi tío, que trabaja allí. Todos los grupos lo están compartiendo». Está seguro de que es verdad. Analiza el mensaje con lo que has aprendido en la unidad."
+       }
+      ]
+     }
+    ],
+    "examen": true
+   }
+  ]
+ },
+ {
+  "unidad": 2,
+  "titulo": "Autoridad e influencia",
+  "trimestre": "1.er trimestre · Razonar",
+  "sesiones": [
+   {
+    "n": 6,
+    "titulo": "¿Qué es una autoridad?",
+    "idea": "Una autoridad por poder puede mandarte; una autoridad por saber te da buenas razones para creer algo.",
+    "arranque": {
+     "texto": "Tu entrenador te dice: «Sal al campo». Tu médica te dice: «Tómate este jarabe». Los dos «mandan».",
+     "pregunta": "¿Les haces caso por el mismo motivo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Dos tipos de autoridad",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Autoridad",
+        "texto": "Una autoridad es alguien a quien hacemos caso por lo que es o por lo que sabe.",
+        "puntos": [
+         "**Por poder:** puede mandar, porque tiene un cargo",
+         "**Por saber:** sabe mucho de un tema",
+         "Una misma persona puede tener las dos"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Poder y saber",
+        "cabecera": [
+         "",
+         "Autoridad por poder",
+         "Autoridad por saber"
+        ],
+        "filas": [
+         [
+          "**Qué tiene**",
+          "Un cargo: puede mandar",
+          "Conocimiento de un tema"
+         ],
+         [
+          "**Ejemplos**",
+          "Directora, árbitro, policía",
+          "Médica, mecánico, profesor de Química"
+         ],
+         [
+          "**Qué me pide**",
+          "Que obedezca",
+          "Que me crea lo que dice"
+         ],
+         [
+          "**Por qué hacer caso**",
+          "Por las normas del grupo",
+          "Porque sabe y tiene pruebas"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Cuidado: tener poder no es tener razón",
+        "puntos": [
+         "El árbitro manda en el partido, pero puede equivocarse",
+         "Obedecer no significa que quien manda tenga razón",
+         "Nadie sabe de todo por ser jefe",
+         "Por su saber, un experto no puede mandarte: solo darte razones"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El árbitro",
+        "caso": "En un partido del Athletic, el árbitro pita penalti. En la repetición se ve claro que no lo era.",
+        "pasos": [
+         "¿Qué autoridad tiene el árbitro? Por poder: el reglamento le da la última palabra.",
+         "¿Acierta siempre? No: es una persona y puede equivocarse.",
+         "¿Hay que obedecerle? En el partido, sí: su decisión cuenta.",
+         "Conclusión: obedecer al árbitro no significa creer que tiene razón."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · La mecánica",
+        "caso": "Una chica lleva la bici al taller. La mecánica le dice que la cadena está gastada y que hay que cambiarla.",
+        "pasos": [
+         "¿Qué autoridad tiene? Por saber: arregla bicis todos los días.",
+         "¿Puede obligar a esa chica? No: no manda sobre ella.",
+         "¿Por qué creerla? Porque sabe del tema y puede enseñarle la cadena gastada.",
+         "Conclusión: le hago caso por lo que sabe, no porque me mande."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · La directora y el fútbol",
+        "caso": "La directora del instituto dice en el patio: «Este año el Athletic gana la Liga, seguro».",
+        "pasos": [
+         "¿Tiene autoridad? Por poder, en el instituto: puede poner normas.",
+         "¿Tiene autoridad por saber sobre fútbol? No más que cualquier aficionado.",
+         "Su cargo no hace que su opinión sobre fútbol valga más.",
+         "Conclusión: el poder en un sitio no da saber en todos los temas."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "El socorrista",
+        "caso": "En la playa, el socorrista pita: «¡Fuera del agua, hay corrientes!». Un chico: «Solo tiene poder. Tener poder no es tener razón».",
+        "pasos": [
+         "Tiene poder: su cargo le deja mandar en la playa.",
+         "Pero también sabe: está formado para ver corrientes y mira el mar todo el día.",
+         "Aquí las dos autoridades van juntas, y hay muy buenas razones para salir.",
+         "Conclusión: «tener poder no es tener razón» no quiere decir que quien manda se equivoque. Mira si también sabe."
+        ],
+        "pregunta": "¿Obedecerle es solo obedecer al que manda?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Una autoridad es alguien a quien hacemos caso por su poder o por su saber.",
+     "La autoridad por poder puede mandar; la autoridad por saber da razones.",
+     "Tener poder no es lo mismo que tener razón, aunque a veces se tienen las dos."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué diferencia hay entre una autoridad por poder y una autoridad por saber?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de una autoridad por saber a la que tú haces caso."
+       },
+       {
+        "pregunta": "Un chico dice: «El entrenador dice que el agua con gas engorda, y es el entrenador». ¿Qué autoridad tiene el entrenador? ¿Le sirve para este tema?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 4) ¿Qué diferencia hay entre convencer y manipular? Pon un ejemplo de cada."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "En un cuento chino, un zorro camina delante de un tigre y todos los animales huyen. El tigre cree que le tienen miedo al zorro. ¿De dónde saca el zorro su «autoridad»? ¿Tiene poder o saber de verdad?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 7,
+    "titulo": "¿Cuándo fiarse de un experto?",
+    "idea": "Antes de fiarte de un experto, mira cuatro cosas: su campo, el consenso, sus intereses y sus pruebas.",
+    "arranque": {
+     "texto": "Una dentista con muchos seguidores dice en Instagram que un dentífrico es «el mejor del mundo». Debajo pone: «colaboración pagada».",
+     "pregunta": "¿Te fías igual que si te lo dijera tu dentista en la consulta?"
+    },
+    "bloques": [
+     {
+      "titulo": "Cuatro preguntas para un experto",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Experto",
+        "texto": "Un experto es una persona que sabe mucho de un tema porque lo ha estudiado o trabajado durante años.",
+        "puntos": [
+         "Sabe de **su** tema, no de todos",
+         "Puede equivocarse, como todos",
+         "Nos ahorra tener que comprobarlo todo nosotros"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Las cuatro preguntas",
+        "cabecera": [
+         "Mira…",
+         "Pregunta"
+        ],
+        "filas": [
+         [
+          "**Su campo**",
+          "¿Habla de lo que ha estudiado?"
+         ],
+         [
+          "**El consenso**",
+          "¿Qué dicen la mayoría de los expertos del tema?"
+         ],
+         [
+          "**Sus intereses**",
+          "¿Gana algo si le creo?"
+         ],
+         [
+          "**Sus pruebas**",
+          "¿Explica cómo lo sabe?"
+         ]
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Consenso",
+        "texto": "El consenso es cuando casi todos los expertos de un tema están de acuerdo después de mirar las pruebas.",
+        "puntos": [
+         "Vale más que la opinión de un experto solo",
+         "Uno puede equivocarse; casi todos a la vez, es más raro",
+         "Ejemplo: la Tierra gira alrededor del Sol"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La dentista de Instagram",
+        "caso": "Una dentista dice en Instagram que un dentífrico es «el mejor del mundo». Debajo pone: «colaboración pagada».",
+        "pasos": [
+         "¿Su campo? Sí: es dentista y habla de dientes.",
+         "¿Sus intereses? Le pagan por decirlo. No quiere decir que mienta, pero hay que mirar con más cuidado.",
+         "¿Sus pruebas? No dice cómo lo sabe. «El mejor del mundo» no se puede medir así.",
+         "Conclusión: sabe del tema, pero tiene un interés. Mejor preguntar a una dentista que no cobre por anunciarlo."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Un genio fuera de su campo",
+        "caso": "Imagina que un premio Nobel de Física dice en una entrevista que comer ajo crudo cura el resfriado.",
+        "pasos": [
+         "¿Su campo? No: sabe muchísimo de física, no de medicina.",
+         "¿El consenso? Los médicos no dicen que el ajo cure el resfriado.",
+         "¿Sus pruebas? No da ninguna: solo su opinión.",
+         "Conclusión: es un gran experto, pero no en esto. En este tema, su palabra no vale más que la de cualquiera."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · La vacuna",
+        "caso": "El pediatra de un chico le recomienda una vacuna. Lo mismo dicen Sanidad y casi todos los médicos.",
+        "pasos": [
+         "¿Su campo? Sí: es médico de niños y habla de salud.",
+         "¿El consenso? Sí: casi todos los expertos dicen lo mismo.",
+         "¿Sus intereses y pruebas? No cobra más por recomendarla, y hay muchos estudios detrás.",
+         "Conclusión: pasa las cuatro preguntas. Fiarse aquí es razonable."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Contra el consenso",
+        "caso": "Años 80: casi todos los médicos creen que las úlceras de estómago vienen del estrés. Barry Marshall dice que las causa una bacteria.",
+        "pasos": [
+         "Casi siempre, quien va contra el consenso se equivoca. Pero no siempre.",
+         "Marshall tenía pruebas: encontró la bacteria con Robin Warren. Él mismo se la bebió para demostrarlo.",
+         "Otros comprobaron sus pruebas y el consenso cambió. En 2005 les dieron el Nobel.",
+         "Conclusión: el consenso es una muy buena razón, pero no es infalible. Lo que lo cambia son pruebas, no opiniones."
+        ],
+        "pregunta": "Va contra el consenso… ¿entonces seguro que se equivoca?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Un experto sabe mucho de su tema, pero no de todos.",
+     "Antes de fiarte, mira su campo, el consenso, sus intereses y sus pruebas.",
+     "Si pasa las cuatro preguntas, fiarse es razonable, aunque los expertos también pueden fallar."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es el consenso de los expertos?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de alguien que habla fuera de su campo."
+       },
+       {
+        "pregunta": "Una web que vende pastillas para dormir dice: «Nuestro médico las recomienda». ¿Cuál de las cuatro preguntas falla más? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 6) ¿Qué diferencia hay entre una autoridad por poder y una autoridad por saber?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un chico lee dos cosas sobre el cambio climático. Un blog de un vendedor de coches dice que no existe. Un informe hecho por cientos de científicos del clima dice que sí. ¿A quién es más razonable creer? Usa las cuatro preguntas."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 8,
+    "titulo": "La falacia de autoridad",
+    "idea": "La falacia de autoridad es creer algo solo porque lo dice alguien famoso o que parece experto, sin mirar si sabe del tema.",
+    "arranque": {
+     "texto": "«Nueve de cada diez dentistas lo recomiendan.» Lo has oído en algún anuncio.",
+     "pregunta": "¿Quiénes son esos dentistas? ¿Cómo podrías saberlo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Qué es la falacia de autoridad",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Falacia de autoridad (ad verecundiam)",
+        "texto": "Creer algo solo porque lo dice alguien importante o famoso, aunque no sea experto en ese tema.",
+        "puntos": [
+         "Recuerda: una **falacia** parece un buen argumento y no lo es",
+         "Fiarse de un experto **de verdad**, en su campo, no es falacia",
+         "El fallo es fiarse **sin mirar** las cuatro preguntas"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Tres trucos de la falacia de autoridad",
+        "puntos": [
+         "**El famoso:** un deportista o un influencer que opina de salud",
+         "**La bata blanca:** alguien vestido de médico o de científico",
+         "**«Los expertos dicen»:** expertos sin nombre y sin pruebas"
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Fiarse mal y fiarse bien",
+        "izq": {
+         "titulo": "Falacia",
+         "puntos": [
+          "«Lo dice un futbolista, así que es sano»",
+          "«Un actor con bata lo recomienda»",
+          "«Los expertos dicen…» (¿quiénes?)"
+         ]
+        },
+        "der": {
+         "titulo": "Buena razón",
+         "puntos": [
+          "«Lo dice mi médica, que me ha examinado»",
+          "«Lo dicen casi todos los expertos del tema»",
+          "«El estudio explica cómo lo midió»"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El gamer y las vitaminas",
+        "caso": "Un chico sigue a un gamer con dos millones de seguidores. El gamer dice que unas gominolas de vitaminas «te hacen más listo».",
+        "pasos": [
+         "¿Quién lo dice? Un gamer: sabe de videojuegos, no de alimentación.",
+         "¿Tiene intereses? Puede que cobre por anunciarlas: hay que mirarlo.",
+         "¿Da pruebas? No: solo su palabra. Y sus seguidores no son pruebas.",
+         "Conclusión: falacia de autoridad, con el truco del famoso."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · La bata blanca",
+        "caso": "Anuncio de champú: una mujer con bata blanca, en un laboratorio, dice que el champú «repara el pelo desde dentro».",
+        "pasos": [
+         "¿Quién es? No lo dicen: puede ser una actriz.",
+         "La bata y el laboratorio son decorado: dan aspecto de ciencia.",
+         "¿Hay pruebas? No: «desde dentro» no explica nada.",
+         "Conclusión: falacia de autoridad, con el truco de la bata blanca. La ropa no es una razón."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · «Los expertos dicen»",
+        "caso": "Un vídeo de TikTok: «Los expertos dicen que dormir con el móvil al lado da dolor de cabeza».",
+        "pasos": [
+         "¿Qué expertos? No dice nombres ni dónde trabajan.",
+         "¿Qué pruebas? Ninguna.",
+         "¿Es falso seguro? No: puede ser verdad o no. Pero así no lo puedo saber.",
+         "Conclusión: creerlo solo por «los expertos dicen» es fiarse a ciegas. Busco quiénes son y cómo lo saben."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Una bata de verdad",
+        "caso": "Un vídeo del servicio de salud: una médica con bata blanca explica cómo lavarse bien las manos. Un chico: «El truco de la bata blanca. Falacia».",
+        "pasos": [
+         "La bata blanca es uno de los trucos, sí.",
+         "Pero aquí no es decorado: es médica de verdad y habla de su campo.",
+         "Dice lo mismo que casi todos los médicos, y no vende nada.",
+         "Conclusión: no es falacia. La bata no es una razón, pero tampoco la quita: mira quién es y qué sabe."
+        ],
+        "pregunta": "Hay bata blanca… ¿es falacia de autoridad?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La falacia de autoridad es creer algo solo porque lo dice alguien importante que no sabe del tema.",
+     "Sus trucos: el famoso, la bata blanca y «los expertos dicen».",
+     "Fiarse de un experto de verdad, en su campo y con pruebas, no es falacia."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "Explica con tus palabras qué es la falacia de autoridad."
+       },
+       {
+        "pregunta": "Inventa un anuncio que use el truco del famoso."
+       },
+       {
+        "pregunta": "Una chica: «Mi médica me ha mirado la garganta y dice que es un virus, así que no necesito antibiótico». ¿Es falacia de autoridad? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 7) Antes de fiarte de un experto, ¿qué cuatro cosas miras?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una lámina muestra a un delantero famoso vestido con bata blanca de médico. Sonríe y sujeta un bote de pastillas: «Yo me cuido con esto». ¿Qué trucos de la falacia de autoridad ves? ¿Qué preguntarías?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 9,
+    "titulo": "Todo el mundo lo hace",
+    "idea": "La falacia ad populum es creer que algo es verdad o está bien solo porque mucha gente lo cree o lo hace.",
+    "arranque": {
+     "texto": "Un vídeo tiene diez millones de «me gusta». Un restaurante tiene una cola que da la vuelta a la esquina.",
+     "pregunta": "¿Eso te dice que el vídeo es verdad? ¿Que en el restaurante se come bien?"
+    },
+    "bloques": [
+     {
+      "titulo": "La mayoría y la prueba social",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Apelación a la mayoría (ad populum)",
+        "texto": "Decir que algo es verdad o está bien solo porque mucha gente lo cree o lo hace.",
+        "puntos": [
+         "«Todo el mundo lo hace», «millones no pueden equivocarse»",
+         "Que muchos lo crean no es **prueba**: la mayoría también falla",
+         "Antes, casi todos creían que el Sol giraba alrededor de la Tierra"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Prueba social",
+        "texto": "Es copiar lo que hacen los demás cuando no sabemos qué hacer. Es un atajo de la mente.",
+        "puntos": [
+         "Si hay cola, pensamos que algo es bueno",
+         "Si tiene muchos «me gusta», nos parece verdad",
+         "A veces ayuda; a veces nos engaña"
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "¿Cuándo cuenta lo que hacen los demás?",
+        "izq": {
+         "titulo": "No es una buena razón",
+         "puntos": [
+          "Cuando solo cuenta «me gusta» o visitas",
+          "Cuando todos copian sin mirar",
+          "Para decidir si algo está **bien**: muchos pueden hacer algo mal"
+         ]
+        },
+        "der": {
+         "titulo": "Puede ser una pista",
+         "puntos": [
+          "Cuando muchos lo han probado y lo cuentan con detalle",
+          "Cuando cada uno lo ha comprobado por su cuenta",
+          "Cuando la mayoría son expertos que miraron pruebas (el consenso, sesión 7)"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Los «me gusta»",
+        "caso": "Un vídeo con diez millones de «me gusta» dice que, si cenas después de las ocho, engordas el doble.",
+        "pasos": [
+         "¿Qué razón me dan? Que le gusta a mucha gente.",
+         "¿Los «me gusta» son pruebas? No: miden si algo gusta, no si es verdad.",
+         "¿Qué falta? Quién lo dice y cómo lo sabe.",
+         "Conclusión: ad populum. Diez millones de «me gusta» no hacen que algo sea verdad."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Las zapatillas",
+        "caso": "Una chica quiere unas zapatillas de 150 euros: «Las lleva toda la clase».",
+        "pasos": [
+         "¿Qué me piden creer? Que tiene que comprarlas.",
+         "¿Qué razón da? Que las llevan muchos: es prueba social.",
+         "¿Viene a cuento? Querer ir como los demás se entiende, pero no dice que sean mejores ni que las necesite.",
+         "Conclusión: razón débil. Mejores preguntas: ¿las necesito?, ¿me gustan a mí?"
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · Cuando la mayoría sí es una pista",
+        "caso": "Un chico busca dónde comer en Aste Nagusia. Un bar tiene 2.000 opiniones y casi todas dicen que se come bien (ejemplo inventado).",
+        "pasos": [
+         "¿Es ad populum? No del todo: esas personas han comido allí.",
+         "Opinan de algo que conocen, y a menudo cuentan detalles.",
+         "Aun así, puede haber opiniones falsas o pagadas.",
+         "Conclusión: es una pista razonable, no una prueba segura."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Conducir en Londres",
+        "caso": "Una chica llega a Londres y pregunta a su prima por qué lado van los coches. La prima: «Por la izquierda: aquí lo hace todo el mundo».",
+        "pasos": [
+         "Tiene la forma: «es así porque todos lo hacen».",
+         "Pero esa chica no pregunta qué es verdad sobre el mundo ni qué está bien. Pregunta cuál es la costumbre.",
+         "En costumbres y normas (conducir, saludar, hablar), lo que hace todo el mundo es justo lo que hay que saber.",
+         "Conclusión: no es falacia. Lo que hacen todos dice cuál es la costumbre, no qué es verdad ni qué está bien."
+        ],
+        "pregunta": "«Porque lo hace todo el mundo»… ¿ad populum?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Ad populum es creer que algo es verdad o está bien solo porque lo hacen muchos.",
+     "La prueba social es el atajo de copiar a los demás cuando no sabemos qué hacer.",
+     "Que muchos lo hagan puede ser una pista, pero no es una prueba."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es la apelación a la mayoría?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de prueba social en tu vida (instituto, redes, compras…)."
+       },
+       {
+        "pregunta": "Un chico dice: «Todos mis amigos copian en los exámenes, así que no está mal». ¿Qué falacia es? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 7) Escribe las cuatro cosas que hay que mirar antes de fiarse de un experto."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una lámina muestra una cola larguísima delante de una puerta sin cartel. Una chica pregunta al último: «¿Para qué es la cola?». Él contesta: «No lo sé, pero si hay tanta gente, será algo bueno». ¿Qué le pasa? ¿Es una buena razón?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 10,
+    "titulo": "Obedecer y seguir al grupo",
+    "idea": "Los experimentos de Asch y Milgram muestran que el grupo y la autoridad pueden hacernos actuar contra lo que pensamos.",
+    "arranque": {
+     "texto": "Siete personas dicen en voz alta una respuesta que tú ves clarísimamente que está mal. Ahora te toca a ti.",
+     "pregunta": "¿Dirías lo que ves o lo mismo que ellos?"
+    },
+    "bloques": [
+     {
+      "titulo": "Asch: seguir al grupo (1951)",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Conformidad",
+        "texto": "La conformidad es cambiar lo que decimos o hacemos para coincidir con el grupo.",
+        "puntos": [
+         "La estudió el psicólogo **Solomon Asch**, en Estados Unidos",
+         "Pasa aunque el grupo esté equivocado",
+         "Recuerda la sesión 9: la prueba social"
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Así era el experimento de Asch",
+        "caso": "Un grupo mira una línea y dice, uno por uno y en voz alta, cuál de otras tres (A, B o C) mide igual. Es facilísimo.",
+        "pasos": [
+         "El truco: todos menos uno eran actores de acuerdo. El participante de verdad contestaba casi el último.",
+         "En algunas rondas, los actores daban a propósito la misma respuesta equivocada.",
+         "En esas rondas, 2 de cada 3 respuestas fueron correctas. Pero 1 de cada 3 siguió al grupo.",
+         "Conclusión: unas **3 de cada 4** personas cedieron alguna vez; 1 de cada 4, nunca. Con un aliado, casi todos resistían."
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Milgram: obedecer a una autoridad (1961-1962)",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Obediencia",
+        "texto": "La obediencia es hacer lo que manda una autoridad, aunque no estemos de acuerdo.",
+        "puntos": [
+         "Obedecer normas justas es necesario para convivir",
+         "El problema es obedecer **sin pensar**",
+         "Recuerda la sesión 6: autoridad por poder"
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Así era el experimento de Milgram",
+        "caso": "Stanley Milgram, psicólogo de la Universidad de Yale (Estados Unidos), dijo a unos voluntarios que estudiaba cómo afecta el castigo a la memoria.",
+        "pasos": [
+         "El voluntario era el «**maestro**». El «**alumno**», atado a una silla en otra sala, era un actor.",
+         "Por cada error, el maestro daba una descarga eléctrica cada vez más fuerte. Las descargas eran **falsas**, pero él no lo sabía.",
+         "El actor protestaba, golpeaba la pared y al final dejaba de contestar. Si el maestro dudaba, el científico decía: «Continúe, por favor».",
+         "Conclusión: en la versión más conocida, el **65 %** llegó hasta la descarga más fuerte, de 450 voltios."
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Las críticas al experimento de Milgram",
+        "puntos": [
+         "Los voluntarios **sufrieron**: sudaban, temblaban, algunos tenían ataques de risa nerviosa",
+         "Los **engañaron**: no sabían de qué iba de verdad",
+         "Era muy difícil **dejarlo**: el científico insistía",
+         "Hoy un experimento así, entero, **no estaría permitido**"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Lo que todavía se discute",
+        "puntos": [
+         "Milgram hizo muchas versiones: en unas obedeció casi nadie, en otras casi todos",
+         "Algunos voluntarios dudaban de que las descargas fueran reales",
+         "Cuando el científico decía «No tiene otra opción», muchos se negaban",
+         "Quizá muchos no obedecían a ciegas: creían que ayudaban a la ciencia"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Qué aprendemos",
+      "diapositivas": [
+       {
+        "tipo": "tabla",
+        "titulo": "Asch y Milgram",
+        "cabecera": [
+         "",
+         "Asch",
+         "Milgram"
+        ],
+        "filas": [
+         [
+          "**Qué estudia**",
+          "Conformidad: seguir al grupo",
+          "Obediencia: seguir a una autoridad"
+         ],
+         [
+          "**Quién presiona**",
+          "Un grupo de iguales",
+          "Un científico con bata"
+         ],
+         [
+          "**Qué pasó**",
+          "3 de cada 4 cedieron alguna vez; 1 de cada 4, nunca",
+          "El 65 % llegó al final en la versión más conocida"
+         ],
+         [
+          "**Qué ayudó a resistir**",
+          "Tener un aliado",
+          "Ver a otros negarse; la autoridad lejos"
+         ]
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "El simulacro de incendio",
+        "caso": "Suena la alarma del simulacro. El profesor dice: «En fila, por la escalera B». Todos salen en fila. Una chica también, sin discutir.",
+        "pasos": [
+         "Sí: obedece a una autoridad y hace lo mismo que los demás.",
+         "Pero la orden es razonable: el profesor conoce el plan de evacuación y no pide hacer daño a nadie.",
+         "En una emergencia, discutir cada orden sería peligroso.",
+         "Conclusión: obedecer o seguir al grupo no es malo en sí. Lo malo es hacerlo cuando te piden algo que está mal."
+        ],
+        "pregunta": "Obedece y hace lo mismo que el grupo… ¿como en Asch y Milgram?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Asch: muchos cedieron alguna vez ante el grupo, aunque la mayoría de respuestas fueron correctas.",
+     "Milgram: muchos obedecieron hasta el final, pero cuántos depende mucho de la situación.",
+     "Un solo aliado ayuda a resistir, y tú puedes ser ese aliado."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es la conformidad?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de conformidad en el instituto o en las redes."
+       },
+       {
+        "pregunta": "El líder del clan de un videojuego le escribe a una chica: «Échale del grupo, te lo ordeno». Ella no quiere, pero lo hace. ¿Se parece más al experimento de las líneas (seguir al grupo) o al de las descargas (obedecer)? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 6) ¿Qué diferencia hay entre obedecer al árbitro y creer a la mecánica?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una lámina muestra una clase en la que todos entrecierran los ojos y dicen: «No se ve nada en la pantalla». Una alumna nueva la ve perfectamente, pero empieza a entrecerrar los ojos también. ¿Qué experimento te recuerda? ¿Qué podría hacer ella? (Alternativa para otra semana: En el cine, los amigos de una chica dicen que la pantalla se ve borrosa. Ella la ve perfectamente, pero empieza a decir que sí, que se ve mal. ¿Qué experimento te recuerda? ¿Qué podría hacer ella?)"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 11,
+    "titulo": "Repaso y examen de la unidad 2",
+    "idea": "Repasamos la autoridad por poder y por saber, cuándo fiarse de un experto, las falacias de autoridad y ad populum, y Asch y Milgram.",
+    "arranque": {
+     "texto": "Cinco sesiones sobre a quién hacemos caso y por qué.",
+     "pregunta": "¿Qué idea de esta unidad te ha sorprendido más?"
+    },
+    "bloques": [
+     {
+      "titulo": "Repaso de la unidad",
+      "diapositivas": [
+       {
+        "tipo": "tabla",
+        "titulo": "Dos tipos de autoridad (sesión 6)",
+        "cabecera": [
+         "",
+         "Por poder",
+         "Por saber"
+        ],
+        "filas": [
+         [
+          "**Qué tiene**",
+          "Un cargo: puede mandar",
+          "Conocimiento de un tema"
+         ],
+         [
+          "**Qué me pide**",
+          "Que obedezca",
+          "Que me crea lo que dice"
+         ],
+         [
+          "**Ejemplo**",
+          "El árbitro",
+          "La mecánica"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Cuatro preguntas a un experto (sesión 7)",
+        "cabecera": [
+         "Mira…",
+         "Pregunta"
+        ],
+        "filas": [
+         [
+          "**Su campo**",
+          "¿Habla de lo que ha estudiado?"
+         ],
+         [
+          "**El consenso**",
+          "¿Qué dicen la mayoría de los expertos?"
+         ],
+         [
+          "**Sus intereses**",
+          "¿Gana algo si le creo?"
+         ],
+         [
+          "**Sus pruebas**",
+          "¿Explica cómo lo sabe?"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Dos falacias (sesiones 8 y 9)",
+        "cabecera": [
+         "Falacia",
+         "Qué dice",
+         "Trucos"
+        ],
+        "filas": [
+         [
+          "**De autoridad**",
+          "«Lo dice alguien importante»",
+          "El famoso, la bata blanca, «los expertos dicen»"
+         ],
+         [
+          "**De la mayoría**",
+          "«Lo hace todo el mundo»",
+          "Los «me gusta», las colas, las modas"
+         ]
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Asch y Milgram (sesión 10)",
+        "cabecera": [
+         "",
+         "Asch",
+         "Milgram"
+        ],
+        "filas": [
+         [
+          "**Qué estudia**",
+          "Conformidad: seguir al grupo",
+          "Obediencia: seguir a una autoridad"
+         ],
+         [
+          "**Qué pasó**",
+          "3 de cada 4 cedieron alguna vez; 1 de cada 4, nunca",
+          "El 65 % llegó al final en la versión más conocida"
+         ],
+         [
+          "**Qué ayudó a resistir**",
+          "Tener un aliado",
+          "Ver a otros negarse"
+         ]
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "La idea de la unidad",
+        "texto": "Hacer caso a otros no es malo. Lo malo es hacerlo sin mirar las razones.",
+        "puntos": [
+         "¿Sabe del tema y tiene pruebas?",
+         "¿Cuántos lo dicen, y por qué lo dicen?",
+         "¿Obedezco porque tiene razón o por miedo?"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Un caso que lo mezcla todo",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso · El anuncio del doctor",
+        "caso": "Anuncio inventado: «Un doctor famoso en TikTok recomienda ZenSleep para dormir. ¡Ya lo usan un millón de personas!»",
+        "pasos": [
+         "«Doctor» famoso en TikTok: ¿doctor en qué? ¿Cobra? Creerlo solo por eso sería falacia de autoridad.",
+         "«Un millón de personas»: usarlo como prueba es ad populum. Comprarlo no es comprobarlo.",
+         "¿Qué haría falta? Saber qué dicen médicos del sueño que no cobren, y qué estudios hay.",
+         "Conclusión: dos falacias juntas. No me lo creo hasta ver pruebas."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "¿Doble falacia?",
+        "caso": "Un chico: «Sanidad y casi todos los médicos dicen que fumar causa cáncer, y lo repite todo el mundo. ¡Falacia de autoridad y ad populum!».",
+        "pasos": [
+         "Parecen los dos trucos: «lo dicen los expertos» y «lo dice todo el mundo».",
+         "Pero son expertos de su campo, casi todos de acuerdo y con muchísimos estudios: es consenso.",
+         "Y aquí «todo el mundo» repite algo comprobado, no una moda.",
+         "Conclusión: no es falacia. Fiarse del consenso es razonable; el error es fiarse sin mirar por qué."
+        ],
+        "pregunta": "Hay expertos y hay «todo el mundo»… ¿tiene razón ese chico?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La autoridad por poder manda; la autoridad por saber da razones.",
+     "La falacia de autoridad y ad populum usan a otros en lugar de pruebas.",
+     "Asch y Milgram muestran que el grupo y la autoridad nos empujan, pero muchos resisten."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "(Sesión 6) Escribe un ejemplo de autoridad por poder y otro de autoridad por saber."
+       },
+       {
+        "pregunta": "(Sesión 7) ¿Qué es el consenso de los expertos?"
+       },
+       {
+        "pregunta": "(Sesión 8) Un chico: «Esta crema quita los granos: la anuncia un actor vestido de médico». ¿Qué falacia es y qué truco usa?"
+       },
+       {
+        "pregunta": "(Sesión 9) Una chica: «Si esta canción tiene mil millones de visitas, su letra tiene que ser verdad». ¿Qué falacia es?"
+       },
+       {
+        "pregunta": "(Sesión 10) Explica en dos o tres frases el experimento de las líneas y su resultado."
+       },
+       {
+        "pregunta": "(Sesión 10) En el experimento de las descargas, ¿quién era el «alumno»? ¿Eran de verdad las descargas? ¿Por qué se critica?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 3) «Lo hago porque siempre se ha hecho así.» ¿Qué camino de creencia es? ¿Es una razón?"
+       },
+       {
+        "pregunta": "(Repaso de la sesión 4) Un mensaje dice: «Solo quedan 3 entradas. Compra ya». ¿Convence o manipula? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "En el grupo del equipo de una chica, un youtuber famoso dice en un vídeo que beber mucha agua antes del examen sube la nota. Todo el equipo lo comparte y dice: «Si lo dice él y lo hace todo el mundo, será verdad». ¿Qué ideas de la unidad ves? ¿Qué podría hacer esa chica?"
+       }
+      ]
+     }
+    ],
+    "examen": true
+   }
+  ]
+ },
+ {
+  "unidad": 3,
+  "titulo": "Argumentar",
+  "trimestre": "1.er trimestre · Razonar",
+  "sesiones": [
+   {
+    "n": 12,
     "titulo": "Hacer buenas preguntas",
     "idea": "Las preguntas cerradas piden un dato; las abiertas piden explicar. «¿Cómo lo sabes?» pide la fuente y las razones.",
     "arranque": {
@@ -687,376 +2010,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 5,
-    "titulo": "¿Por qué creemos lo que creemos?",
-    "idea": "Muchas creencias no vienen de razones, sino de la costumbre, el grupo, la autoridad o la emoción, como en el cuento del rey que cojeaba.",
-    "arranque": {
-     "texto": "Todos en la clase de una chica llevan las mismas zapatillas. Sin darse cuenta, ella empieza a pensar que son las mejores.",
-     "pregunta": "¿Lo piensa por una razón… o por otra cosa?"
-    },
-    "bloques": [
-     {
-      "titulo": "Cuatro caminos para creer",
-      "diapositivas": [
-       {
-        "tipo": "lista",
-        "titulo": "¿De dónde vienen nuestras creencias?",
-        "texto": "Muchas cosas las creemos sin mirar sus razones. Hay cuatro caminos:",
-        "puntos": [
-         "**Costumbre:** «siempre se ha hecho así»",
-         "**Grupo:** «lo cree toda mi cuadrilla»",
-         "**Autoridad:** «lo ha dicho alguien importante»",
-         "**Emoción:** «me gusta creerlo» o «me da miedo»"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Los cuatro caminos, con ejemplos",
-        "cabecera": [
-         "Camino",
-         "Ejemplo",
-         "Pregunta para revisarla"
-        ],
-        "filas": [
-         [
-          "**Costumbre**",
-          "«Se hace así porque siempre se ha hecho así»",
-          "¿Hay alguna razón, o solo es costumbre?"
-         ],
-         [
-          "**Grupo**",
-          "«Esa serie es malísima: lo dicen todos mis amigos»",
-          "¿La he visto yo?"
-         ],
-         [
-          "**Autoridad**",
-          "«Lo dice un youtuber con millones de seguidores»",
-          "¿Sabe de ese tema?"
-         ],
-         [
-          "**Emoción**",
-          "«No ha sido falta: es mi equipo»",
-          "¿Diría lo mismo si fuera el otro equipo?"
-         ]
-        ]
-       },
-       {
-        "tipo": "contraste",
-        "titulo": "¿Son siempre malos estos caminos?",
-        "izq": {
-         "titulo": "Error",
-         "puntos": [
-          "«Si lo cree el grupo, es falso»",
-          "«Nunca hay que hacer caso a nadie»",
-          "«Las emociones no sirven para nada»"
-         ]
-        },
-        "der": {
-         "titulo": "Mejor así",
-         "puntos": [
-          "Casi todo lo sabemos porque nos lo cuentan",
-          "Confiar en quien **sabe del tema** es razonable",
-          "Las emociones informan: el miedo avisa de peligros",
-          "El problema es no revisarlas nunca"
-         ]
-        }
-       }
-      ]
-     },
-     {
-      "titulo": "El rey que cojeaba",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "El cuento (1) · Todo el palacio cojea",
-        "caso": "Había una vez un rey que era cojo. Sus cortesanos, para caerle bien, empezaron a cojear. Pronto cojeaba todo el palacio: ministros, guardias, cocineros… Nadie caminaba recto.",
-        "pasos": [
-         "¿Por qué cojeaban? No les dolía nada.",
-         "Al principio, para agradar a la **autoridad**: el rey.",
-         "Después, porque lo hacían todos: el **grupo**. Y al final ya era **costumbre**.",
-         "Conclusión: nadie tenía una buena razón para cojear."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "El cuento (2) · El caballero",
-        "caso": "Llega un caballero de fuera que camina recto. Todos se ríen. El rey se enfada. El caballero dice: «Majestad, cojeo de los dos pies a la vez».",
-        "pasos": [
-         "¿Por qué se ríen? Porque es distinto al grupo, no porque haga algo mal.",
-         "Aquí actúa la **emoción**: la burla y el miedo a quedar mal.",
-         "Su respuesta es ingeniosa: se burla de la costumbre y a la vez se libra del castigo.",
-         "Conclusión: el único que camina bien parece el raro. Lo normal no siempre es lo razonable."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso de hoy · Una crema para granos",
-        "caso": "Una chica cree que una crema para granos funciona. La usa toda su cuadrilla, la anuncia su influencer favorita y a ella le hace mucha ilusión.",
-        "pasos": [
-         "«La usa toda su cuadrilla»: camino del **grupo**.",
-         "«La anuncia su influencer»: camino de la **autoridad**. Pero ¿sabe de piel?",
-         "«Le hace mucha ilusión»: camino de la **emoción**.",
-         "Conclusión: nada de eso dice si la crema funciona. Mejor preguntar a quien sabe: un médico o una farmacéutica."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "¿Autoridad = mala razón?",
-        "caso": "Un chico cree que la Tierra gira alrededor del Sol. Nunca lo ha comprobado: se lo explicó su profesora.",
-        "pasos": [
-         "Sí, es el camino de la autoridad.",
-         "Pero la profesora **sabe del tema**, y la ciencia lo ha comprobado muchísimas veces.",
-         "No es como el influencer de la crema: él no sabe de piel.",
-         "Conclusión: el problema no es fiarse de alguien, sino fiarse de quien no sabe."
-        ],
-        "pregunta": "Lo cree por autoridad… ¿entonces es una mala razón?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Muchas creencias vienen de la costumbre, el grupo, la autoridad o la emoción.",
-     "Esos caminos pueden acertar o fallar: fiarse de quien sabe del tema es razonable.",
-     "Lo importante es poder revisarlas, no creer como el palacio que cojeaba."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "Escribe los cuatro caminos por los que creemos cosas sin mirar sus razones."
-       },
-       {
-        "pregunta": "Escribe un ejemplo de algo que se cree o se hace por costumbre."
-       },
-       {
-        "pregunta": "Un chico dice: «Ese videojuego es malísimo: en mi clase lo dice todo el mundo». ¿Qué camino es? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 3) ¿Por qué estar seguro no es lo mismo que saber?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Imagina la lámina del rey cojo: el rey cojea y, detrás, toda la corte cojea igual. Un cortesano dice: «Yo cojeo porque, si no, el rey se enfada y pierdo mi puesto». ¿Qué camino le hace cojear? ¿Es una buena razón para cojear?"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 6,
-    "titulo": "Repaso y examen de la unidad 1",
-    "idea": "Repasamos la unidad: pensar críticamente, hechos y opiniones, creer y saber, buenas preguntas y por qué creemos lo que creemos.",
-    "arranque": {
-     "texto": "En esta unidad has aprendido cinco herramientas para no creerte cualquier cosa.",
-     "pregunta": "¿Cuál de ellas has usado ya fuera de clase?"
-    },
-    "bloques": [
-     {
-      "titulo": "Repaso de la unidad",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Sesión 1 · Pensar críticamente",
-        "texto": "Pensar críticamente es **pedir** y **dar** razones antes de aceptar o rechazar una idea.",
-        "puntos": [
-         "No es criticarlo todo ni desconfiar de todo",
-         "El crédulo se lo cree todo; el desconfiado, nada",
-         "Pregunta clave: «¿cómo lo sabes?»"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Sesión 2 · Hechos, gustos y opiniones",
-        "cabecera": [
-         "Tipo",
-         "Cómo se reconoce",
-         "Ejemplo"
-        ],
-        "filas": [
-         [
-          "**Hecho**",
-          "Dice cómo son las cosas: verdadero o falso",
-          "«San Mamés está en Bilbao»"
-         ],
-         [
-          "**Gusto**",
-          "Habla de lo que me gusta a mí",
-          "«Me encanta el recreo»"
-         ],
-         [
-          "**Opinión**",
-          "Qué es bueno o qué deberíamos hacer: con razones",
-          "«Habría que alargar el recreo»"
-         ]
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Sesión 3 · Creer, saber y estar seguro",
-        "cabecera": [
-         "Palabra",
-         "Qué es"
-        ],
-        "filas": [
-         [
-          "**Creer**",
-          "Pensar que algo es verdad"
-         ],
-         [
-          "**Saber**",
-          "Creer algo verdadero con buenas razones"
-         ],
-         [
-          "**Estar seguro**",
-          "Un sentimiento: puede fallar"
-         ]
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Sesión 4 · Hacer buenas preguntas",
-        "cabecera": [
-         "Pregunta",
-         "Qué pide",
-         "Ejemplo"
-        ],
-        "filas": [
-         [
-          "**Cerrada**",
-          "Sí, no o un dato corto",
-          "«¿Has cenado?»"
-         ],
-         [
-          "**Abierta**",
-          "Explicar, contar o dar razones",
-          "«¿Qué te pareció?»"
-         ],
-         [
-          "**«¿Cómo lo sabes?»**",
-          "La fuente y las razones",
-          "«¿Dónde lo has leído?»"
-         ]
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Sesión 5 · ¿Por qué creemos lo que creemos?",
-        "texto": "Cuatro caminos que, por sí solos, no son razones:",
-        "puntos": [
-         "**Costumbre:** «siempre se ha hecho así»",
-         "**Grupo:** «lo cree toda mi cuadrilla»",
-         "**Autoridad:** «lo ha dicho alguien importante»",
-         "**Emoción:** «me gusta creerlo» o «me da miedo»",
-         "El rey que cojeaba: todo el palacio cojeaba sin razón"
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Un caso con todo",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Agua con limón",
-        "caso": "Un chico lee en Instagram: «El agua con limón en ayunas quema grasa. Lo dice una influencer de fitness y lo hace todo mi gimnasio». Está seguro de que es verdad.",
-        "pasos": [
-         "¿Hecho, gusto u opinión? Es una afirmación de hecho: verdadera o falsa.",
-         "¿Qué caminos hay? Autoridad (la influencer) y grupo (el gimnasio).",
-         "¿Lo sabe? No: estar seguro no basta. Le faltan buenas razones.",
-         "Conclusión: la pregunta es «¿cómo lo sabes?». Hay que mirar qué dicen fuentes médicas."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "Lo sé seguro",
-        "caso": "Un chico: «Sé seguro que el agua con limón adelgaza. Lo he visto en un vídeo con tres millones de visitas».",
-        "pasos": [
-         "«Adelgaza» dice cómo son las cosas: es una afirmación de hecho, verdadera o falsa.",
-         "«Seguro» es un sentimiento. Las visitas son el camino del grupo.",
-         "No tiene buenas razones: no sabe quién lo dice ni cómo lo sabe.",
-         "Conclusión: decir «sé» no es saber. Lo cree, y todavía no ha preguntado «¿cómo lo sabes?»."
-        ],
-        "pregunta": "Dice «sé» y «seguro». ¿Lo sabe?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Pensar críticamente es pedir y dar razones: «¿cómo lo sabes?».",
-     "Los hechos dicen cómo son las cosas; los gustos hablan de mí; las opiniones se defienden con razones.",
-     "Sentirse seguro no es saber, y costumbre, grupo, autoridad o emoción no son razones por sí solos."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué es pensar críticamente?"
-       },
-       {
-        "pregunta": "Un chico se cree todo lo que ve en TikTok. ¿Es crédulo, desconfiado o pensador crítico?"
-       },
-       {
-        "pregunta": "¿Hecho, gusto u opinión? a) «Bilbao está en Bizkaia». b) «Me gusta más Bilbao que Donostia». c) «Bilbao debería tener más carriles bici»."
-       },
-       {
-        "pregunta": "Explica la diferencia entre saber y estar seguro."
-       },
-       {
-        "pregunta": "Escribe una pregunta cerrada y una abierta sobre el último partido que viste."
-       },
-       {
-        "pregunta": "Una chica cree que un champú es muy bueno porque lo anuncia su cantante favorita. ¿Qué camino de creencia es?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 2) ¿Una afirmación de hecho es siempre verdadera? Explícalo."
-       },
-       {
-        "pregunta": "(Repaso de la sesión 4) ¿Qué pide la pregunta «¿cómo lo sabes?»?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Un chico recibe un audio reenviado por WhatsApp: «Mañana cierran el metro de Bilbao por una huelga. Lo dice mi tío, que trabaja allí. Todos los grupos lo están compartiendo». Está seguro de que es verdad. Analiza el mensaje con lo que has aprendido en la unidad."
-       }
-      ]
-     }
-    ],
-    "examen": true
-   }
-  ]
- },
- {
-  "unidad": 2,
-  "titulo": "Argumentar",
-  "trimestre": "1.er trimestre · Razonar",
-  "sesiones": [
-   {
-    "n": 7,
+    "n": 13,
     "titulo": "¿Qué es un argumento?",
     "idea": "Un argumento es una conclusión apoyada en premisas; palabras como «porque» o «por tanto» ayudan a encontrar cada parte.",
     "arranque": {
@@ -1213,7 +2167,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 3) Un chico acierta una pregunta de test al azar. ¿Sabía la respuesta? ¿Por qué?"
+        "pregunta": "(Repaso de la sesión 12) ¿Qué diferencia hay entre una pregunta cerrada y una abierta? Pon un ejemplo de cada."
        }
       ]
      },
@@ -1229,7 +2183,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 8,
+    "n": 14,
     "titulo": "Reconstruir argumentos",
     "idea": "Reconstruir un argumento es escribirlo ordenado, quitar lo que sobra y descubrir las premisas ocultas que no se dicen.",
     "arranque": {
@@ -1374,7 +2328,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 4) Convierte en abierta esta pregunta cerrada: «¿Te ha gustado el libro?»."
+        "pregunta": "(Repaso de la sesión 12) Convierte en abierta esta pregunta cerrada: «¿Te ha gustado el libro?»."
        }
       ]
      },
@@ -1390,7 +2344,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 9,
+    "n": 15,
     "titulo": "Buenas razones",
     "idea": "Una buena razón pasa tres preguntas: ¿es verdad?, ¿viene a cuento?, ¿es suficiente? Si falla una, no sirve para esa conclusión.",
     "arranque": {
@@ -1543,7 +2497,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 7) Escribe dos indicadores de conclusión."
+        "pregunta": "(Repaso de la sesión 13) Escribe dos indicadores de conclusión."
        }
       ]
      },
@@ -1559,7 +2513,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 10,
+    "n": 16,
     "titulo": "Deducción e inducción",
     "idea": "En una deducción bien hecha, la conclusión es segura si las premisas son verdad; en una inducción, solo es probable.",
     "arranque": {
@@ -1651,7 +2605,7 @@ const CURSO = [
          "Era una **inducción**: muchos casos vistos y una conclusión general.",
          "Muchísimos casos no la hacían segura.",
          "Bastó ver cisnes negros para tumbarla.",
-         "Conclusión: una inducción puede fallar, aunque tenga muchos casos. Lo veremos en la sesión 11."
+         "Conclusión: una inducción puede fallar, aunque tenga muchos casos. Lo veremos en la sesión 17."
         ]
        },
        {
@@ -1720,7 +2674,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 8) ¿Qué es reconstruir un argumento?"
+        "pregunta": "(Repaso de la sesión 14) ¿Qué es reconstruir un argumento?"
        }
       ]
      },
@@ -1736,7 +2690,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 11,
+    "n": 17,
     "titulo": "Ejemplos, contraejemplos y analogías",
     "idea": "Los ejemplos apoyan una idea, un solo contraejemplo basta para tumbar un «todos» y una analogía compara dos cosas parecidas.",
     "arranque": {
@@ -1754,7 +2708,7 @@ const CURSO = [
         "puntos": [
          "Ayuda a entender",
          "Muchos ejemplos hacen una idea más probable",
-         "Pero no demuestran un «todos» (sesión 10)"
+         "Pero no demuestran un «todos» (sesión 16)"
         ]
        },
        {
@@ -1871,7 +2825,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 9) Un chico dice: «Tienes que prestarme la bici, porque si no, no te invito a mi cumple». ¿Es una buena razón? ¿Qué es?"
+        "pregunta": "(Repaso de la sesión 15) Un chico dice: «Tienes que prestarme la bici, porque si no, no te invito a mi cumple». ¿Es una buena razón? ¿Qué es?"
        }
       ]
      },
@@ -1887,8 +2841,8 @@ const CURSO = [
     ]
    },
    {
-    "n": 12,
-    "titulo": "Repaso y examen de la unidad 2",
+    "n": 18,
+    "titulo": "Repaso y examen de la unidad 3",
     "idea": "Repasamos la unidad: qué es un argumento, cómo reconstruirlo, las tres preguntas, deducción e inducción, y contraejemplos y analogías.",
     "arranque": {
      "texto": "Un argumento es como una silla: la conclusión es el asiento y las premisas son las patas.",
@@ -1900,7 +2854,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "Sesión 7 · ¿Qué es un argumento?",
+        "titulo": "Sesión 13 · ¿Qué es un argumento?",
         "texto": "Un argumento es una **conclusión** apoyada en **premisas** (razones).",
         "puntos": [
          "Antes de premisa: «porque», «ya que», «como»",
@@ -1910,7 +2864,7 @@ const CURSO = [
        },
        {
         "tipo": "lista",
-        "titulo": "Sesión 8 · Reconstruir argumentos",
+        "titulo": "Sesión 14 · Reconstruir argumentos",
         "puntos": [
          "1. Busca la conclusión",
          "2. Busca las premisas",
@@ -1920,7 +2874,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Sesión 9 · Buenas razones",
+        "titulo": "Sesión 15 · Buenas razones",
         "cabecera": [
          "Pregunta",
          "Si falla…",
@@ -1946,7 +2900,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Sesión 10 · Deducción e inducción",
+        "titulo": "Sesión 16 · Deducción e inducción",
         "cabecera": [
          "Tipo",
          "Conclusión",
@@ -1967,7 +2921,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Sesión 11 · Ejemplos, contraejemplos y analogías",
+        "titulo": "Sesión 17 · Ejemplos, contraejemplos y analogías",
         "cabecera": [
          "Herramienta",
          "Qué hace"
@@ -2056,7 +3010,7 @@ const CURSO = [
         "pregunta": "(Repaso de la sesión 2) ¿Hecho, gusto u opinión? a) «San Mamés está en Bilbao». b) «Me encanta ir a San Mamés». c) «Habría que bajar el precio de las entradas»."
        },
        {
-        "pregunta": "(Repaso de la sesión 3) ¿Por qué sentirse seguro no es lo mismo que saber?"
+        "pregunta": "(Repaso de la sesión 9) «Todo el mundo lo hace, así que estará bien.» ¿Qué falacia es?"
        }
       ]
      },
@@ -2075,12 +3029,12 @@ const CURSO = [
   ]
  },
  {
-  "unidad": 3,
+  "unidad": 4,
   "titulo": "Falacias I: atacar, desviar, emocionar",
   "trimestre": "1.er trimestre · Razonar",
   "sesiones": [
    {
-    "n": 13,
+    "n": 19,
     "titulo": "¿Qué es una falacia?",
     "idea": "Una falacia es un argumento que parece bueno pero no lo es: sus razones no sostienen la conclusión.",
     "arranque": {
@@ -2103,7 +3057,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "¿Dónde falla una falacia? (sesión 9)",
+        "titulo": "¿Dónde falla una falacia? (sesión 15)",
         "cabecera": [
          "Pregunta",
          "Si falla…"
@@ -2225,7 +3179,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 7) ¿Qué es la conclusión de un argumento? Escribe una palabra que suela ir delante de ella."
+        "pregunta": "(Repaso de la sesión 13) ¿Qué es la conclusión de un argumento? Escribe una palabra que suela ir delante de ella."
        }
       ]
      },
@@ -2241,7 +3195,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 14,
+    "n": 20,
     "titulo": "Ataque a la persona",
     "idea": "Atacar a quien habla, o decirle que él también lo hace, no demuestra que su idea sea falsa.",
     "arranque": {
@@ -2399,7 +3353,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 11) ¿Qué es un contraejemplo? ¿Para qué sirve?"
+        "pregunta": "(Repaso de la sesión 17) ¿Qué es un contraejemplo? ¿Para qué sirve?"
        }
       ]
      },
@@ -2415,7 +3369,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 15,
+    "n": 21,
     "titulo": "El hombre de paja",
     "idea": "El hombre de paja deforma la idea del otro para atacar una versión más fácil de tumbar.",
     "arranque": {
@@ -2571,7 +3525,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 13) Una falacia puede tener una conclusión verdadera. Explica qué quiere decir esto."
+        "pregunta": "(Repaso de la sesión 19) Una falacia puede tener una conclusión verdadera. Explica qué quiere decir esto."
        }
       ]
      },
@@ -2587,7 +3541,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 16,
+    "n": 22,
     "titulo": "Apelar a las emociones",
     "idea": "Las emociones importan y a veces son razones; la falacia es asustar o dar pena en lugar de dar razones.",
     "arranque": {
@@ -2748,7 +3702,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) Un chico responde a una idea de una chica: «Qué sabrás tú, si eres la más pequeña de la cuadrilla». ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 20) Un chico responde a una idea de una chica: «Qué sabrás tú, si eres la más pequeña de la cuadrilla». ¿Qué falacia es?"
        }
       ]
      },
@@ -2764,7 +3718,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 17,
+    "n": 23,
     "titulo": "La pista falsa",
     "idea": "La pista falsa cambia de tema para no responder, y la discusión acaba lejos de la pregunta.",
     "arranque": {
@@ -2848,11 +3802,11 @@ const CURSO = [
         ],
         "filas": [
          [
-          "Ataque a la persona (sesión 14)",
+          "Ataque a la persona (sesión 20)",
           "Cambia el tema **a la persona**"
          ],
          [
-          "Hombre de paja (sesión 15)",
+          "Hombre de paja (sesión 21)",
           "Cambia **la idea** por otra peor"
          ],
          [
@@ -2902,7 +3856,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 15) ¿Qué pregunta desmonta el hombre de paja?"
+        "pregunta": "(Repaso de la sesión 21) ¿Qué pregunta desmonta el hombre de paja?"
        }
       ]
      },
@@ -2918,8 +3872,8 @@ const CURSO = [
     ]
    },
    {
-    "n": 18,
-    "titulo": "Repaso y examen de la unidad 3",
+    "n": 24,
+    "titulo": "Repaso y examen de la unidad 4",
     "idea": "Repasamos qué es una falacia y las que atacan a la persona, deforman la idea, desvían el tema o usan emociones.",
     "arranque": {
      "texto": "«Tú no opinas, que siempre llegas tarde. Además, si no me das la razón, te quedas sin amigos. Y, por cierto, ¿has visto el partido?»",
@@ -2931,7 +3885,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "Falacia (sesión 13)",
+        "titulo": "Falacia (sesión 19)",
         "texto": "Un argumento que parece bueno, pero no lo es: sus razones no sostienen la conclusión.",
         "puntos": [
          "Suele fallar: ¿viene a cuento? o ¿es suficiente?",
@@ -2940,7 +3894,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Atacar y deformar (sesiones 14 y 15)",
+        "titulo": "Atacar y deformar (sesiones 20 y 21)",
         "cabecera": [
          "Falacia",
          "El truco",
@@ -2966,7 +3920,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Emocionar y desviar (sesiones 16 y 17)",
+        "titulo": "Emocionar y desviar (sesiones 22 y 23)",
         "cabecera": [
          "Falacia",
          "El truco",
@@ -3088,7 +4042,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 7) Señala la conclusión y el indicador: «Hoy llueve mucho, así que el partido se aplaza»."
+        "pregunta": "(Repaso de la sesión 13) Señala la conclusión y el indicador: «Hoy llueve mucho, así que el partido se aplaza»."
        },
        {
         "pregunta": "(Repaso de la sesión 2) ¿Qué diferencia hay entre un hecho y una opinión? Pon un ejemplo de cada."
@@ -3110,12 +4064,12 @@ const CURSO = [
   ]
  },
  {
-  "unidad": 4,
+  "unidad": 5,
   "titulo": "Falacias II: razonar mal",
-  "trimestre": "1.er trimestre · Razonar",
+  "trimestre": "2.º trimestre · Informarse",
   "sesiones": [
    {
-    "n": 19,
+    "n": 25,
     "titulo": "Generalización apresurada",
     "idea": "La generalización apresurada saca una conclusión sobre todos a partir de pocos casos que no bastan.",
     "arranque": {
@@ -3132,7 +4086,7 @@ const CURSO = [
         "texto": "Sacar una conclusión sobre todos (o sobre «siempre») a partir de pocos casos que no bastan.",
         "puntos": [
          "También se llama generalización **precipitada**",
-         "Falla la pregunta **¿es suficiente?** (sesión 9)",
+         "Falla la pregunta **¿es suficiente?** (sesión 15)",
          "Pregunta: **¿cuántos casos has mirado? ¿Son suficientes?**"
         ]
        },
@@ -3203,7 +4157,7 @@ const CURSO = [
          "¿Cuántos casos? Muchos: 500.",
          "¿Son variados? Sí: de 20 institutos distintos.",
          "¿Es suficiente? Para decir «la mayoría», sí; para decir «todos», no. Y no dice nada de cada alumno.",
-         "Conclusión: no es falacia. Generalizar con muchos casos variados es una inducción bien hecha (sesión 10)."
+         "Conclusión: no es falacia. Generalizar con muchos casos variados es una inducción bien hecha (sesión 16)."
         ]
        },
        {
@@ -3272,7 +4226,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 16) ¿Qué pregunta desmonta la apelación al miedo?"
+        "pregunta": "(Repaso de la sesión 22) ¿Qué pregunta desmonta la apelación al miedo?"
        }
       ]
      },
@@ -3288,7 +4242,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 20,
+    "n": 26,
     "titulo": "Falso dilema",
     "idea": "El falso dilema presenta solo dos opciones, como si fueran las únicas, cuando en realidad hay más salidas.",
     "arranque": {
@@ -3424,7 +4378,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 17) ¿Qué es la falacia de la pista falsa?"
+        "pregunta": "(Repaso de la sesión 23) ¿Qué es la falacia de la pista falsa?"
        }
       ]
      },
@@ -3440,7 +4394,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 21,
+    "n": 27,
     "titulo": "Pendiente resbaladiza",
     "idea": "La pendiente resbaladiza encadena consecuencias cada vez peores sin dar razones de que cada paso lleve al siguiente.",
     "arranque": {
@@ -3468,7 +4422,7 @@ const CURSO = [
          "Empieza con algo pequeño y acaba en algo **terrible**",
          "Muchos «y entonces…» seguidos",
          "Nadie explica **por qué** cada paso lleva al siguiente",
-         "Se parece a la apelación al miedo: asusta con el final (sesión 16)"
+         "Se parece a la apelación al miedo: asusta con el final (sesión 22)"
         ]
        }
       ]
@@ -3575,7 +4529,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 19) ¿Qué pregunta desmonta la generalización apresurada?"
+        "pregunta": "(Repaso de la sesión 25) ¿Qué pregunta desmonta la generalización apresurada?"
        }
       ]
      },
@@ -3591,7 +4545,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 22,
+    "n": 28,
     "titulo": "Causa falsa",
     "idea": "Que una cosa pase después de otra, o a la vez, no basta para saber que la primera sea su causa.",
     "arranque": {
@@ -3727,7 +4681,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 20) Escribe un falso dilema y una tercera opción que lo desmonte."
+        "pregunta": "(Repaso de la sesión 26) Escribe un falso dilema y una tercera opción que lo desmonte."
        }
       ]
      },
@@ -3743,7 +4697,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 23,
+    "n": 29,
     "titulo": "Ignorancia y razonamiento circular",
     "idea": "No saber que algo es falso no lo hace verdadero, y una conclusión escondida en la premisa no demuestra nada.",
     "arranque": {
@@ -3900,7 +4854,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 21) Escribe la pregunta que desmonta la pendiente resbaladiza."
+        "pregunta": "(Repaso de la sesión 27) Escribe la pregunta que desmonta la pendiente resbaladiza."
        }
       ]
      },
@@ -3916,8 +4870,8 @@ const CURSO = [
     ]
    },
    {
-    "n": 24,
-    "titulo": "Repaso y examen de la unidad 4",
+    "n": 30,
+    "titulo": "Repaso y examen de la unidad 5",
     "idea": "Repasamos las falacias que razonan mal: generalización apresurada, falso dilema, pendiente resbaladiza, causa falsa, ignorancia y razonamiento circular.",
     "arranque": {
      "texto": "«Dos amigos míos dejaron el fútbol y suspendieron. O juegas al fútbol o suspendes. Y nadie ha demostrado lo contrario.»",
@@ -3929,8 +4883,8 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "Razonar mal (unidad 4)",
-        "texto": "En la unidad 3, las razones no venían a cuento. En esta, las razones no bastan para la conclusión.",
+        "titulo": "Razonar mal (unidad 5)",
+        "texto": "En la unidad 4, las razones no venían a cuento. En esta, las razones no bastan para la conclusión.",
         "puntos": [
          "Pocos casos, pocas opciones, pasos sin razones",
          "Causas inventadas, vacíos de pruebas y círculos"
@@ -3938,7 +4892,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Sesiones 19, 20 y 21",
+        "titulo": "Sesiones 25, 26 y 27",
         "cabecera": [
          "Falacia",
          "El truco",
@@ -3964,7 +4918,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Sesiones 22 y 23",
+        "titulo": "Sesiones 28 y 29",
         "cabecera": [
          "Falacia",
          "El truco",
@@ -4042,7 +4996,7 @@ const CURSO = [
      }
     ],
     "resumen": [
-     "En la unidad 4, las razones no bastan para la conclusión.",
+     "En la unidad 5, las razones no bastan para la conclusión.",
      "Pocos casos, dos opciones, cadenas exageradas, causas falsas, vacíos de pruebas y círculos.",
      "Cada falacia tiene su pregunta: hazla antes de creerte la conclusión."
     ],
@@ -4076,10 +5030,10 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 15) ¿Qué es el hombre de paja?"
+        "pregunta": "(Repaso de la sesión 21) ¿Qué es el hombre de paja?"
        },
        {
-        "pregunta": "(Repaso de la sesión 14) Una chica: «No hagas caso a un compañero sobre el reciclaje, que siempre lleva la ropa sucia». ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 20) Una chica: «No hagas caso a un compañero sobre el reciclaje, que siempre lleva la ropa sucia». ¿Qué falacia es?"
        }
       ]
      },
@@ -4088,991 +5042,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Encuentra dos falacias de la unidad 4 en este mensaje. Di su nombre y por qué. Una chica: «Desde que tengo el móvil nuevo saco mejores notas. O te compras este móvil o vas a suspender»."
-       }
-      ]
-     }
-    ],
-    "examen": true
-   }
-  ]
- },
- {
-  "unidad": 5,
-  "titulo": "Autoridad e influencia",
-  "trimestre": "2.º trimestre · Informarse",
-  "sesiones": [
-   {
-    "n": 25,
-    "titulo": "¿Qué es una autoridad?",
-    "idea": "Una autoridad por poder puede mandarte; una autoridad por saber te da buenas razones para creer algo.",
-    "arranque": {
-     "texto": "Tu entrenador te dice: «Sal al campo». Tu médica te dice: «Tómate este jarabe». Los dos «mandan».",
-     "pregunta": "¿Les haces caso por el mismo motivo?"
-    },
-    "bloques": [
-     {
-      "titulo": "Dos tipos de autoridad",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Autoridad",
-        "texto": "Una autoridad es alguien a quien hacemos caso por lo que es o por lo que sabe.",
-        "puntos": [
-         "**Por poder:** puede mandar, porque tiene un cargo",
-         "**Por saber:** sabe mucho de un tema",
-         "Una misma persona puede tener las dos"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Poder y saber",
-        "cabecera": [
-         "",
-         "Autoridad por poder",
-         "Autoridad por saber"
-        ],
-        "filas": [
-         [
-          "**Qué tiene**",
-          "Un cargo: puede mandar",
-          "Conocimiento de un tema"
-         ],
-         [
-          "**Ejemplos**",
-          "Directora, árbitro, policía",
-          "Médica, mecánico, profesor de Química"
-         ],
-         [
-          "**Qué me pide**",
-          "Que obedezca",
-          "Que me crea lo que dice"
-         ],
-         [
-          "**Por qué hacer caso**",
-          "Por las normas del grupo",
-          "Porque sabe y tiene pruebas"
-         ]
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Cuidado: tener poder no es tener razón",
-        "puntos": [
-         "El árbitro manda en el partido, pero puede equivocarse",
-         "Obedecer no significa que quien manda tenga razón",
-         "Nadie sabe de todo por ser jefe",
-         "Por su saber, un experto no puede mandarte: solo darte razones"
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · El árbitro",
-        "caso": "En un partido del Athletic, el árbitro pita penalti. En la repetición se ve claro que no lo era.",
-        "pasos": [
-         "¿Qué autoridad tiene el árbitro? Por poder: el reglamento le da la última palabra.",
-         "¿Acierta siempre? No: es una persona y puede equivocarse.",
-         "¿Hay que obedecerle? En el partido, sí: su decisión cuenta.",
-         "Conclusión: obedecer al árbitro no significa creer que tiene razón."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · La mecánica",
-        "caso": "Una chica lleva la bici al taller. La mecánica le dice que la cadena está gastada y que hay que cambiarla.",
-        "pasos": [
-         "¿Qué autoridad tiene? Por saber: arregla bicis todos los días.",
-         "¿Puede obligar a esa chica? No: no manda sobre ella.",
-         "¿Por qué creerla? Porque sabe del tema y puede enseñarle la cadena gastada.",
-         "Conclusión: le hago caso por lo que sabe, no porque me mande."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · La directora y el fútbol",
-        "caso": "La directora del instituto dice en el patio: «Este año el Athletic gana la Liga, seguro».",
-        "pasos": [
-         "¿Tiene autoridad? Por poder, en el instituto: puede poner normas.",
-         "¿Tiene autoridad por saber sobre fútbol? No más que cualquier aficionado.",
-         "Su cargo no hace que su opinión sobre fútbol valga más.",
-         "Conclusión: el poder en un sitio no da saber en todos los temas."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "El socorrista",
-        "caso": "En la playa, el socorrista pita: «¡Fuera del agua, hay corrientes!». Un chico: «Solo tiene poder. Tener poder no es tener razón».",
-        "pasos": [
-         "Tiene poder: su cargo le deja mandar en la playa.",
-         "Pero también sabe: está formado para ver corrientes y mira el mar todo el día.",
-         "Aquí las dos autoridades van juntas, y hay muy buenas razones para salir.",
-         "Conclusión: «tener poder no es tener razón» no quiere decir que quien manda se equivoque. Mira si también sabe."
-        ],
-        "pregunta": "¿Obedecerle es solo obedecer al que manda?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Una autoridad es alguien a quien hacemos caso por su poder o por su saber.",
-     "La autoridad por poder puede mandar; la autoridad por saber da razones.",
-     "Tener poder no es lo mismo que tener razón, aunque a veces se tienen las dos."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué diferencia hay entre una autoridad por poder y una autoridad por saber?"
-       },
-       {
-        "pregunta": "Escribe un ejemplo de una autoridad por saber a la que tú haces caso."
-       },
-       {
-        "pregunta": "Un chico dice: «El entrenador dice que el agua con gas engorda, y es el entrenador». ¿Qué autoridad tiene el entrenador? ¿Le sirve para este tema?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 22) Explica con un ejemplo por qué «después de» no es lo mismo que «por culpa de»."
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "En un cuento chino, un zorro camina delante de un tigre y todos los animales huyen. El tigre cree que le tienen miedo al zorro. ¿De dónde saca el zorro su «autoridad»? ¿Tiene poder o saber de verdad?"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 26,
-    "titulo": "¿Cuándo fiarse de un experto?",
-    "idea": "Antes de fiarte de un experto, mira cuatro cosas: su campo, el consenso, sus intereses y sus pruebas.",
-    "arranque": {
-     "texto": "Una dentista con muchos seguidores dice en Instagram que un dentífrico es «el mejor del mundo». Debajo pone: «colaboración pagada».",
-     "pregunta": "¿Te fías igual que si te lo dijera tu dentista en la consulta?"
-    },
-    "bloques": [
-     {
-      "titulo": "Cuatro preguntas para un experto",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Experto",
-        "texto": "Un experto es una persona que sabe mucho de un tema porque lo ha estudiado o trabajado durante años.",
-        "puntos": [
-         "Sabe de **su** tema, no de todos",
-         "Puede equivocarse, como todos",
-         "Nos ahorra tener que comprobarlo todo nosotros"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Las cuatro preguntas",
-        "cabecera": [
-         "Mira…",
-         "Pregunta"
-        ],
-        "filas": [
-         [
-          "**Su campo**",
-          "¿Habla de lo que ha estudiado?"
-         ],
-         [
-          "**El consenso**",
-          "¿Qué dicen la mayoría de los expertos del tema?"
-         ],
-         [
-          "**Sus intereses**",
-          "¿Gana algo si le creo?"
-         ],
-         [
-          "**Sus pruebas**",
-          "¿Explica cómo lo sabe?"
-         ]
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Consenso",
-        "texto": "El consenso es cuando casi todos los expertos de un tema están de acuerdo después de mirar las pruebas.",
-        "puntos": [
-         "Vale más que la opinión de un experto solo",
-         "Uno puede equivocarse; casi todos a la vez, es más raro",
-         "Ejemplo: la Tierra gira alrededor del Sol"
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · La dentista de Instagram",
-        "caso": "Una dentista dice en Instagram que un dentífrico es «el mejor del mundo». Debajo pone: «colaboración pagada».",
-        "pasos": [
-         "¿Su campo? Sí: es dentista y habla de dientes.",
-         "¿Sus intereses? Le pagan por decirlo. No quiere decir que mienta, pero hay que mirar con más cuidado.",
-         "¿Sus pruebas? No dice cómo lo sabe. «El mejor del mundo» no se puede medir así.",
-         "Conclusión: sabe del tema, pero tiene un interés. Mejor preguntar a una dentista que no cobre por anunciarlo."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · Un genio fuera de su campo",
-        "caso": "Imagina que un premio Nobel de Física dice en una entrevista que comer ajo crudo cura el resfriado.",
-        "pasos": [
-         "¿Su campo? No: sabe muchísimo de física, no de medicina.",
-         "¿El consenso? Los médicos no dicen que el ajo cure el resfriado.",
-         "¿Sus pruebas? No da ninguna: solo su opinión.",
-         "Conclusión: es un gran experto, pero no en esto. En este tema, su palabra no vale más que la de cualquiera."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · La vacuna",
-        "caso": "El pediatra de un chico le recomienda una vacuna. Lo mismo dicen Sanidad y casi todos los médicos.",
-        "pasos": [
-         "¿Su campo? Sí: es médico de niños y habla de salud.",
-         "¿El consenso? Sí: casi todos los expertos dicen lo mismo.",
-         "¿Sus intereses y pruebas? No cobra más por recomendarla, y hay muchos estudios detrás.",
-         "Conclusión: pasa las cuatro preguntas. Fiarse aquí es razonable."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "Contra el consenso",
-        "caso": "Años 80: casi todos los médicos creen que las úlceras de estómago vienen del estrés. Barry Marshall dice que las causa una bacteria.",
-        "pasos": [
-         "Casi siempre, quien va contra el consenso se equivoca. Pero no siempre.",
-         "Marshall tenía pruebas: encontró la bacteria con Robin Warren. Él mismo se la bebió para demostrarlo.",
-         "Otros comprobaron sus pruebas y el consenso cambió. En 2005 les dieron el Nobel.",
-         "Conclusión: el consenso es una muy buena razón, pero no es infalible. Lo que lo cambia son pruebas, no opiniones."
-        ],
-        "pregunta": "Va contra el consenso… ¿entonces seguro que se equivoca?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Un experto sabe mucho de su tema, pero no de todos.",
-     "Antes de fiarte, mira su campo, el consenso, sus intereses y sus pruebas.",
-     "Si pasa las cuatro preguntas, fiarse es razonable, aunque los expertos también pueden fallar."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué es el consenso de los expertos?"
-       },
-       {
-        "pregunta": "Pon un ejemplo de alguien que habla fuera de su campo."
-       },
-       {
-        "pregunta": "Una web que vende pastillas para dormir dice: «Nuestro médico las recomienda». ¿Cuál de las cuatro preguntas falla más? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 20) ¿Qué es un falso dilema? Pon un ejemplo."
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Un chico lee dos cosas sobre el cambio climático. Un blog de un vendedor de coches dice que no existe. Un informe hecho por cientos de científicos del clima dice que sí. ¿A quién es más razonable creer? Usa las cuatro preguntas."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 27,
-    "titulo": "La falacia de autoridad",
-    "idea": "La falacia de autoridad es creer algo solo porque lo dice alguien famoso o que parece experto, sin mirar si sabe del tema.",
-    "arranque": {
-     "texto": "«Nueve de cada diez dentistas lo recomiendan.» Lo has oído en algún anuncio.",
-     "pregunta": "¿Quiénes son esos dentistas? ¿Cómo podrías saberlo?"
-    },
-    "bloques": [
-     {
-      "titulo": "Qué es la falacia de autoridad",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Falacia de autoridad (ad verecundiam)",
-        "texto": "Creer algo solo porque lo dice alguien importante o famoso, aunque no sea experto en ese tema.",
-        "puntos": [
-         "Recuerda: una **falacia** parece un buen argumento y no lo es",
-         "Fiarse de un experto **de verdad**, en su campo, no es falacia",
-         "El fallo es fiarse **sin mirar** las cuatro preguntas"
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Tres trucos de la falacia de autoridad",
-        "puntos": [
-         "**El famoso:** un deportista o un influencer que opina de salud",
-         "**La bata blanca:** alguien vestido de médico o de científico",
-         "**«Los expertos dicen»:** expertos sin nombre y sin pruebas"
-        ]
-       },
-       {
-        "tipo": "contraste",
-        "titulo": "Fiarse mal y fiarse bien",
-        "izq": {
-         "titulo": "Falacia",
-         "puntos": [
-          "«Lo dice un futbolista, así que es sano»",
-          "«Un actor con bata lo recomienda»",
-          "«Los expertos dicen…» (¿quiénes?)"
-         ]
-        },
-        "der": {
-         "titulo": "Buena razón",
-         "puntos": [
-          "«Lo dice mi médica, que me ha examinado»",
-          "«Lo dicen casi todos los expertos del tema»",
-          "«El estudio explica cómo lo midió»"
-         ]
-        }
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · El gamer y las vitaminas",
-        "caso": "Un chico sigue a un gamer con dos millones de seguidores. El gamer dice que unas gominolas de vitaminas «te hacen más listo».",
-        "pasos": [
-         "¿Quién lo dice? Un gamer: sabe de videojuegos, no de alimentación.",
-         "¿Tiene intereses? Puede que cobre por anunciarlas: hay que mirarlo.",
-         "¿Da pruebas? No: solo su palabra. Y sus seguidores no son pruebas.",
-         "Conclusión: falacia de autoridad, con el truco del famoso."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · La bata blanca",
-        "caso": "Anuncio de champú: una mujer con bata blanca, en un laboratorio, dice que el champú «repara el pelo desde dentro».",
-        "pasos": [
-         "¿Quién es? No lo dicen: puede ser una actriz.",
-         "La bata y el laboratorio son decorado: dan aspecto de ciencia.",
-         "¿Hay pruebas? No: «desde dentro» no explica nada.",
-         "Conclusión: falacia de autoridad, con el truco de la bata blanca. La ropa no es una razón."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · «Los expertos dicen»",
-        "caso": "Un vídeo de TikTok: «Los expertos dicen que dormir con el móvil al lado da dolor de cabeza».",
-        "pasos": [
-         "¿Qué expertos? No dice nombres ni dónde trabajan.",
-         "¿Qué pruebas? Ninguna.",
-         "¿Es falso seguro? No: puede ser verdad o no. Pero así no lo puedo saber.",
-         "Conclusión: creerlo solo por «los expertos dicen» es fiarse a ciegas. Busco quiénes son y cómo lo saben."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "Una bata de verdad",
-        "caso": "Un vídeo del servicio de salud: una médica con bata blanca explica cómo lavarse bien las manos. Un chico: «El truco de la bata blanca. Falacia».",
-        "pasos": [
-         "La bata blanca es uno de los trucos, sí.",
-         "Pero aquí no es decorado: es médica de verdad y habla de su campo.",
-         "Dice lo mismo que casi todos los médicos, y no vende nada.",
-         "Conclusión: no es falacia. La bata no es una razón, pero tampoco la quita: mira quién es y qué sabe."
-        ],
-        "pregunta": "Hay bata blanca… ¿es falacia de autoridad?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "La falacia de autoridad es creer algo solo porque lo dice alguien importante que no sabe del tema.",
-     "Sus trucos: el famoso, la bata blanca y «los expertos dicen».",
-     "Fiarse de un experto de verdad, en su campo y con pruebas, no es falacia."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "Explica con tus palabras qué es la falacia de autoridad."
-       },
-       {
-        "pregunta": "Inventa un anuncio que use el truco del famoso."
-       },
-       {
-        "pregunta": "Una chica: «Mi médica me ha mirado la garganta y dice que es un virus, así que no necesito antibiótico». ¿Es falacia de autoridad? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 23) Una chica dice: «Nadie ha demostrado que los fantasmas no existen, así que existen». ¿Qué falla en su razonamiento?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Una lámina muestra a un delantero famoso vestido con bata blanca de médico. Sonríe y sujeta un bote de pastillas: «Yo me cuido con esto». ¿Qué trucos de la falacia de autoridad ves? ¿Qué preguntarías?"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 28,
-    "titulo": "Todo el mundo lo hace",
-    "idea": "La falacia ad populum es creer que algo es verdad o está bien solo porque mucha gente lo cree o lo hace.",
-    "arranque": {
-     "texto": "Un vídeo tiene diez millones de «me gusta». Un restaurante tiene una cola que da la vuelta a la esquina.",
-     "pregunta": "¿Eso te dice que el vídeo es verdad? ¿Que en el restaurante se come bien?"
-    },
-    "bloques": [
-     {
-      "titulo": "La mayoría y la prueba social",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Apelación a la mayoría (ad populum)",
-        "texto": "Decir que algo es verdad o está bien solo porque mucha gente lo cree o lo hace.",
-        "puntos": [
-         "«Todo el mundo lo hace», «millones no pueden equivocarse»",
-         "Que muchos lo crean no es **prueba**: la mayoría también falla",
-         "Antes, casi todos creían que el Sol giraba alrededor de la Tierra"
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Prueba social",
-        "texto": "Es copiar lo que hacen los demás cuando no sabemos qué hacer. Es un atajo de la mente.",
-        "puntos": [
-         "Si hay cola, pensamos que algo es bueno",
-         "Si tiene muchos «me gusta», nos parece verdad",
-         "A veces ayuda; a veces nos engaña"
-        ]
-       },
-       {
-        "tipo": "contraste",
-        "titulo": "¿Cuándo cuenta lo que hacen los demás?",
-        "izq": {
-         "titulo": "No es una buena razón",
-         "puntos": [
-          "Cuando solo cuenta «me gusta» o visitas",
-          "Cuando todos copian sin mirar",
-          "Para decidir si algo está **bien**: muchos pueden hacer algo mal"
-         ]
-        },
-        "der": {
-         "titulo": "Puede ser una pista",
-         "puntos": [
-          "Cuando muchos lo han probado y lo cuentan con detalle",
-          "Cuando cada uno lo ha comprobado por su cuenta",
-          "Cuando la mayoría son expertos que miraron pruebas (el consenso, sesión 26)"
-         ]
-        }
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · Los «me gusta»",
-        "caso": "Un vídeo con diez millones de «me gusta» dice que, si cenas después de las ocho, engordas el doble.",
-        "pasos": [
-         "¿Qué razón me dan? Que le gusta a mucha gente.",
-         "¿Los «me gusta» son pruebas? No: miden si algo gusta, no si es verdad.",
-         "¿Qué falta? Quién lo dice y cómo lo sabe.",
-         "Conclusión: ad populum. Diez millones de «me gusta» no hacen que algo sea verdad."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · Las zapatillas",
-        "caso": "Una chica quiere unas zapatillas de 150 euros: «Las lleva toda la clase».",
-        "pasos": [
-         "¿Qué me piden creer? Que tiene que comprarlas.",
-         "¿Qué razón da? Que las llevan muchos: es prueba social.",
-         "¿Viene a cuento? Querer ir como los demás se entiende, pero no dice que sean mejores ni que las necesite.",
-         "Conclusión: razón débil. Mejores preguntas: ¿las necesito?, ¿me gustan a mí?"
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · Cuando la mayoría sí es una pista",
-        "caso": "Un chico busca dónde comer en Aste Nagusia. Un bar tiene 2.000 opiniones y casi todas dicen que se come bien (ejemplo inventado).",
-        "pasos": [
-         "¿Es ad populum? No del todo: esas personas han comido allí.",
-         "Opinan de algo que conocen, y a menudo cuentan detalles.",
-         "Aun así, puede haber opiniones falsas o pagadas.",
-         "Conclusión: es una pista razonable, no una prueba segura."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "Conducir en Londres",
-        "caso": "Una chica llega a Londres y pregunta a su prima por qué lado van los coches. La prima: «Por la izquierda: aquí lo hace todo el mundo».",
-        "pasos": [
-         "Tiene la forma: «es así porque todos lo hacen».",
-         "Pero esa chica no pregunta qué es verdad sobre el mundo ni qué está bien. Pregunta cuál es la costumbre.",
-         "En costumbres y normas (conducir, saludar, hablar), lo que hace todo el mundo es justo lo que hay que saber.",
-         "Conclusión: no es falacia. Lo que hacen todos dice cuál es la costumbre, no qué es verdad ni qué está bien."
-        ],
-        "pregunta": "«Porque lo hace todo el mundo»… ¿ad populum?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Ad populum es creer que algo es verdad o está bien solo porque lo hacen muchos.",
-     "La prueba social es el atajo de copiar a los demás cuando no sabemos qué hacer.",
-     "Que muchos lo hagan puede ser una pista, pero no es una prueba."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué es la apelación a la mayoría?"
-       },
-       {
-        "pregunta": "Pon un ejemplo de prueba social en tu vida (instituto, redes, compras…)."
-       },
-       {
-        "pregunta": "Un chico dice: «Todos mis amigos copian en los exámenes, así que no está mal». ¿Qué falacia es? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 26) Escribe las cuatro cosas que hay que mirar antes de fiarse de un experto."
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Una lámina muestra una cola larguísima delante de una puerta sin cartel. Una chica pregunta al último: «¿Para qué es la cola?». Él contesta: «No lo sé, pero si hay tanta gente, será algo bueno». ¿Qué le pasa? ¿Es una buena razón?"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 29,
-    "titulo": "Obedecer y seguir al grupo",
-    "idea": "Los experimentos de Asch y Milgram muestran que el grupo y la autoridad pueden hacernos actuar contra lo que pensamos.",
-    "arranque": {
-     "texto": "Siete personas dicen en voz alta una respuesta que tú ves clarísimamente que está mal. Ahora te toca a ti.",
-     "pregunta": "¿Dirías lo que ves o lo mismo que ellos?"
-    },
-    "bloques": [
-     {
-      "titulo": "Asch: seguir al grupo (1951)",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Conformidad",
-        "texto": "La conformidad es cambiar lo que decimos o hacemos para coincidir con el grupo.",
-        "puntos": [
-         "La estudió el psicólogo **Solomon Asch**, en Estados Unidos",
-         "Pasa aunque el grupo esté equivocado",
-         "Recuerda la sesión 28: la prueba social"
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Así era el experimento de Asch",
-        "caso": "Un grupo mira una línea y dice, uno por uno y en voz alta, cuál de otras tres (A, B o C) mide igual. Es facilísimo.",
-        "pasos": [
-         "El truco: todos menos uno eran actores de acuerdo. El participante de verdad contestaba casi el último.",
-         "En algunas rondas, los actores daban a propósito la misma respuesta equivocada.",
-         "En esas rondas, 2 de cada 3 respuestas fueron correctas. Pero 1 de cada 3 siguió al grupo.",
-         "Conclusión: unas **3 de cada 4** personas cedieron alguna vez; 1 de cada 4, nunca. Con un aliado, casi todos resistían."
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Milgram: obedecer a una autoridad (1961-1962)",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Obediencia",
-        "texto": "La obediencia es hacer lo que manda una autoridad, aunque no estemos de acuerdo.",
-        "puntos": [
-         "Obedecer normas justas es necesario para convivir",
-         "El problema es obedecer **sin pensar**",
-         "Recuerda la sesión 25: autoridad por poder"
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Así era el experimento de Milgram",
-        "caso": "Stanley Milgram, psicólogo de la Universidad de Yale (Estados Unidos), dijo a unos voluntarios que estudiaba cómo afecta el castigo a la memoria.",
-        "pasos": [
-         "El voluntario era el «**maestro**». El «**alumno**», atado a una silla en otra sala, era un actor.",
-         "Por cada error, el maestro daba una descarga eléctrica cada vez más fuerte. Las descargas eran **falsas**, pero él no lo sabía.",
-         "El actor protestaba, golpeaba la pared y al final dejaba de contestar. Si el maestro dudaba, el científico decía: «Continúe, por favor».",
-         "Conclusión: en la versión más conocida, el **65 %** llegó hasta la descarga más fuerte, de 450 voltios."
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Las críticas al experimento de Milgram",
-        "puntos": [
-         "Los voluntarios **sufrieron**: sudaban, temblaban, algunos tenían ataques de risa nerviosa",
-         "Los **engañaron**: no sabían de qué iba de verdad",
-         "Era muy difícil **dejarlo**: el científico insistía",
-         "Hoy un experimento así, entero, **no estaría permitido**"
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Lo que todavía se discute",
-        "puntos": [
-         "Milgram hizo muchas versiones: en unas obedeció casi nadie, en otras casi todos",
-         "Algunos voluntarios dudaban de que las descargas fueran reales",
-         "Cuando el científico decía «No tiene otra opción», muchos se negaban",
-         "Quizá muchos no obedecían a ciegas: creían que ayudaban a la ciencia"
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Qué aprendemos",
-      "diapositivas": [
-       {
-        "tipo": "tabla",
-        "titulo": "Asch y Milgram",
-        "cabecera": [
-         "",
-         "Asch",
-         "Milgram"
-        ],
-        "filas": [
-         [
-          "**Qué estudia**",
-          "Conformidad: seguir al grupo",
-          "Obediencia: seguir a una autoridad"
-         ],
-         [
-          "**Quién presiona**",
-          "Un grupo de iguales",
-          "Un científico con bata"
-         ],
-         [
-          "**Qué pasó**",
-          "3 de cada 4 cedieron alguna vez; 1 de cada 4, nunca",
-          "El 65 % llegó al final en la versión más conocida"
-         ],
-         [
-          "**Qué ayudó a resistir**",
-          "Tener un aliado",
-          "Ver a otros negarse; la autoridad lejos"
-         ]
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "El simulacro de incendio",
-        "caso": "Suena la alarma del simulacro. El profesor dice: «En fila, por la escalera B». Todos salen en fila. Una chica también, sin discutir.",
-        "pasos": [
-         "Sí: obedece a una autoridad y hace lo mismo que los demás.",
-         "Pero la orden es razonable: el profesor conoce el plan de evacuación y no pide hacer daño a nadie.",
-         "En una emergencia, discutir cada orden sería peligroso.",
-         "Conclusión: obedecer o seguir al grupo no es malo en sí. Lo malo es hacerlo cuando te piden algo que está mal."
-        ],
-        "pregunta": "Obedece y hace lo mismo que el grupo… ¿como en Asch y Milgram?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Asch: muchos cedieron alguna vez ante el grupo, aunque la mayoría de respuestas fueron correctas.",
-     "Milgram: muchos obedecieron hasta el final, pero cuántos depende mucho de la situación.",
-     "Un solo aliado ayuda a resistir, y tú puedes ser ese aliado."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué es la conformidad?"
-       },
-       {
-        "pregunta": "Pon un ejemplo de conformidad en el instituto o en las redes."
-       },
-       {
-        "pregunta": "El líder del clan de un videojuego le escribe a una chica: «Échale del grupo, te lo ordeno». Ella no quiere, pero lo hace. ¿Se parece más al experimento de las líneas (seguir al grupo) o al de las descargas (obedecer)? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 25) ¿Qué diferencia hay entre obedecer al árbitro y creer a la mecánica?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Una lámina muestra una clase en la que todos entrecierran los ojos y dicen: «No se ve nada en la pantalla». Una alumna nueva la ve perfectamente, pero empieza a entrecerrar los ojos también. ¿Qué experimento te recuerda? ¿Qué podría hacer ella? (Alternativa para otra semana: En el cine, los amigos de una chica dicen que la pantalla se ve borrosa. Ella la ve perfectamente, pero empieza a decir que sí, que se ve mal. ¿Qué experimento te recuerda? ¿Qué podría hacer ella?)"
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 30,
-    "titulo": "Repaso y examen de la unidad 5",
-    "idea": "Repasamos la autoridad por poder y por saber, cuándo fiarse de un experto, las falacias de autoridad y ad populum, y Asch y Milgram.",
-    "arranque": {
-     "texto": "Cinco sesiones sobre a quién hacemos caso y por qué.",
-     "pregunta": "¿Qué idea de esta unidad te ha sorprendido más?"
-    },
-    "bloques": [
-     {
-      "titulo": "Repaso de la unidad",
-      "diapositivas": [
-       {
-        "tipo": "tabla",
-        "titulo": "Dos tipos de autoridad (sesión 25)",
-        "cabecera": [
-         "",
-         "Por poder",
-         "Por saber"
-        ],
-        "filas": [
-         [
-          "**Qué tiene**",
-          "Un cargo: puede mandar",
-          "Conocimiento de un tema"
-         ],
-         [
-          "**Qué me pide**",
-          "Que obedezca",
-          "Que me crea lo que dice"
-         ],
-         [
-          "**Ejemplo**",
-          "El árbitro",
-          "La mecánica"
-         ]
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Cuatro preguntas a un experto (sesión 26)",
-        "cabecera": [
-         "Mira…",
-         "Pregunta"
-        ],
-        "filas": [
-         [
-          "**Su campo**",
-          "¿Habla de lo que ha estudiado?"
-         ],
-         [
-          "**El consenso**",
-          "¿Qué dicen la mayoría de los expertos?"
-         ],
-         [
-          "**Sus intereses**",
-          "¿Gana algo si le creo?"
-         ],
-         [
-          "**Sus pruebas**",
-          "¿Explica cómo lo sabe?"
-         ]
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Dos falacias (sesiones 27 y 28)",
-        "cabecera": [
-         "Falacia",
-         "Qué dice",
-         "Trucos"
-        ],
-        "filas": [
-         [
-          "**De autoridad**",
-          "«Lo dice alguien importante»",
-          "El famoso, la bata blanca, «los expertos dicen»"
-         ],
-         [
-          "**De la mayoría**",
-          "«Lo hace todo el mundo»",
-          "Los «me gusta», las colas, las modas"
-         ]
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Asch y Milgram (sesión 29)",
-        "cabecera": [
-         "",
-         "Asch",
-         "Milgram"
-        ],
-        "filas": [
-         [
-          "**Qué estudia**",
-          "Conformidad: seguir al grupo",
-          "Obediencia: seguir a una autoridad"
-         ],
-         [
-          "**Qué pasó**",
-          "3 de cada 4 cedieron alguna vez; 1 de cada 4, nunca",
-          "El 65 % llegó al final en la versión más conocida"
-         ],
-         [
-          "**Qué ayudó a resistir**",
-          "Tener un aliado",
-          "Ver a otros negarse"
-         ]
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "La idea de la unidad",
-        "texto": "Hacer caso a otros no es malo. Lo malo es hacerlo sin mirar las razones.",
-        "puntos": [
-         "¿Sabe del tema y tiene pruebas?",
-         "¿Cuántos lo dicen, y por qué lo dicen?",
-         "¿Obedezco porque tiene razón o por miedo?"
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Un caso que lo mezcla todo",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso · El anuncio del doctor",
-        "caso": "Anuncio inventado: «Un doctor famoso en TikTok recomienda ZenSleep para dormir. ¡Ya lo usan un millón de personas!»",
-        "pasos": [
-         "«Doctor» famoso en TikTok: ¿doctor en qué? ¿Cobra? Creerlo solo por eso sería falacia de autoridad.",
-         "«Un millón de personas»: usarlo como prueba es ad populum. Comprarlo no es comprobarlo.",
-         "¿Qué haría falta? Saber qué dicen médicos del sueño que no cobren, y qué estudios hay.",
-         "Conclusión: dos falacias juntas. No me lo creo hasta ver pruebas."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "¿Doble falacia?",
-        "caso": "Un chico: «Sanidad y casi todos los médicos dicen que fumar causa cáncer, y lo repite todo el mundo. ¡Falacia de autoridad y ad populum!».",
-        "pasos": [
-         "Parecen los dos trucos: «lo dicen los expertos» y «lo dice todo el mundo».",
-         "Pero son expertos de su campo, casi todos de acuerdo y con muchísimos estudios: es consenso.",
-         "Y aquí «todo el mundo» repite algo comprobado, no una moda.",
-         "Conclusión: no es falacia. Fiarse del consenso es razonable; el error es fiarse sin mirar por qué."
-        ],
-        "pregunta": "Hay expertos y hay «todo el mundo»… ¿tiene razón ese chico?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "La autoridad por poder manda; la autoridad por saber da razones.",
-     "La falacia de autoridad y ad populum usan a otros en lugar de pruebas.",
-     "Asch y Milgram muestran que el grupo y la autoridad nos empujan, pero muchos resisten."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "(Sesión 25) Escribe un ejemplo de autoridad por poder y otro de autoridad por saber."
-       },
-       {
-        "pregunta": "(Sesión 26) ¿Qué es el consenso de los expertos?"
-       },
-       {
-        "pregunta": "(Sesión 27) Un chico: «Esta crema quita los granos: la anuncia un actor vestido de médico». ¿Qué falacia es y qué truco usa?"
-       },
-       {
-        "pregunta": "(Sesión 28) Una chica: «Si esta canción tiene mil millones de visitas, su letra tiene que ser verdad». ¿Qué falacia es?"
-       },
-       {
-        "pregunta": "(Sesión 29) Explica en dos o tres frases el experimento de las líneas y su resultado."
-       },
-       {
-        "pregunta": "(Sesión 29) En el experimento de las descargas, ¿quién era el «alumno»? ¿Eran de verdad las descargas? ¿Por qué se critica?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 14) Una chica dice: «No hagas caso a lo que dice un compañero del reciclaje: ¡si él tira papeles al suelo!». ¿Qué falacia es?"
-       },
-       {
-        "pregunta": "(Repaso de la sesión 19) «Dos chicos de ese instituto me empujaron, así que los de ese instituto son todos unos brutos.» ¿Qué falacia es?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "En el grupo del equipo de una chica, un youtuber famoso dice en un vídeo que beber mucha agua antes del examen sube la nota. Todo el equipo lo comparte y dice: «Si lo dice él y lo hace todo el mundo, será verdad». ¿Qué ideas de la unidad ves? ¿Qué podría hacer esa chica?"
+        "pregunta": "Encuentra dos falacias de la unidad 5 en este mensaje. Di su nombre y por qué. Una chica: «Desde que tengo el móvil nuevo saco mejores notas. O te compras este móvil o vas a suspender»."
        }
       ]
      }
@@ -5088,6 +5058,167 @@ const CURSO = [
   "sesiones": [
    {
     "n": 31,
+    "titulo": "Creer, saber y estar seguro",
+    "idea": "Sentirse seguro no es lo mismo que saber. Solemos decir que alguien sabe algo cuando lo cree, es verdad y tiene buenas razones.",
+    "arranque": {
+     "texto": "Un chico está segurísimo de que dejó las llaves en la mochila. Las busca… y no están.",
+     "pregunta": "¿Ese chico sabía dónde estaban las llaves, o solo lo creía?"
+    },
+    "bloques": [
+     {
+      "titulo": "Tres palabras que se confunden",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Creer",
+        "texto": "Creer es pensar que algo es **verdad**. Lo que creo puede ser verdad… o no.",
+        "puntos": [
+         "«Creo que mañana lloverá»",
+         "Todos creemos muchas cosas sin comprobarlas",
+         "Creer no es malo: lo malo es no revisar nunca"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Saber",
+        "texto": "Solemos decir que alguien **sabe** algo cuando lo cree, es verdad y tiene **buenas razones**.",
+        "puntos": [
+         "Si era falso, no lo sabía: solo lo creía",
+         "Si acierto por suerte, tampoco lo sé",
+         "Los filósofos llevan siglos discutiendo esta definición"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Estar seguro",
+        "texto": "**Sentirse** seguro es un sentimiento: la sensación de que no me equivoco.",
+        "puntos": [
+         "Me puedo sentir seguro y estar equivocado",
+         "El sentimiento, solo, no es una razón",
+         "Estar seguro **con razones** es otra cosa: «lo he comprobado»"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Las tres palabras, juntas",
+        "cabecera": [
+         "Palabra",
+         "Qué es",
+         "¿Puede fallar?"
+        ],
+        "filas": [
+         [
+          "**Creer**",
+          "Pensar que algo es verdad",
+          "Sí"
+         ],
+         [
+          "**Saber**",
+          "Creer algo verdadero con buenas razones",
+          "No: si falla, no era saber"
+         ],
+         [
+          "**Sentirse seguro**",
+          "Un sentimiento",
+          "Sí, muchas veces"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Las llaves",
+        "caso": "Un chico está segurísimo: «Las llaves están en la mochila». No están. Al final aparecen en la mesa de la cocina.",
+        "pasos": [
+         "¿Estaba seguro? Sí, muchísimo.",
+         "¿Era verdad lo que creía? No: estaban en la cocina.",
+         "Entonces, ¿lo sabía? No. Solo lo creía, y con mucha fuerza.",
+         "Conclusión: sentirse seguro no es lo mismo que saber."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Acertar por suerte",
+        "caso": "Un chico no ha estudiado. En una pregunta de test elige la b) al azar… y acierta.",
+        "pasos": [
+         "¿Su respuesta es verdadera? Sí.",
+         "¿Tenía razones para elegir la b)? No: la eligió al azar.",
+         "¿Sabía la respuesta? No: acertó por suerte.",
+         "Conclusión: para saber no basta con acertar. Hacen falta buenas razones."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · Saber de verdad",
+        "caso": "Una chica dice: «El agua hierve a 100 grados a nivel del mar». Lo explicaron en clase y ella lo midió en el laboratorio.",
+        "pasos": [
+         "¿Es verdad? Sí: es un dato muy comprobado.",
+         "¿Tiene buenas razones? Sí: se lo explicaron y lo midió ella misma.",
+         "Conclusión: esa chica lo sabe. Es verdad y tiene buenas razones."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "El reloj parado",
+        "caso": "Una chica mira el reloj del pasillo: marca las 10:15. Son las 10:15. Pero el reloj está parado desde ayer a las 10:15.",
+        "pasos": [
+         "¿Lo cree? Sí. ¿Es verdad? Sí: son las 10:15.",
+         "¿Tiene una razón? Sí: los relojes del pasillo suelen funcionar.",
+         "Y aun así acierta por suerte: el reloj no funciona.",
+         "Conclusión: la definición de saber no es perfecta. Los filósofos lo siguen discutiendo."
+        ],
+        "pregunta": "¿Sabe esa chica qué hora es?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Creer es pensar que algo es verdad, y puede fallar.",
+     "Solemos decir que saber es creer algo verdadero con buenas razones, aunque hay casos difíciles.",
+     "Sentirse seguro es un sentimiento: me puedo sentir seguro y estar equivocado."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué diferencia hay entre creer y saber?"
+       },
+       {
+        "pregunta": "Escribe un ejemplo de algo que estabas seguro de que era verdad y resultó falso."
+       },
+       {
+        "pregunta": "Un chico dice: «Sé que el sábado ganará el Athletic. Lo noto». ¿Lo sabe o lo cree? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 1) ¿En qué se diferencia el desconfiado del pensador crítico?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un chico está seguro de que 7 × 8 = 56: se lo sabe desde primaria y lo ha comprobado muchas veces. ¿Su seguridad es solo un sentimiento?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 32,
     "titulo": "¿Qué es una fuente fiable?",
     "idea": "Ninguna fuente es fiable para todo: miramos quién lo dice, cómo lo sabe, qué gana y cómo ha acertado antes.",
     "arranque": {
@@ -5230,7 +5361,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 27) ¿Qué es la falacia de autoridad? Escribe uno de sus trucos."
+        "pregunta": "(Repaso de la sesión 8) ¿Qué es la falacia de autoridad? Escribe uno de sus trucos."
        }
       ]
      },
@@ -5246,7 +5377,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 32,
+    "n": 33,
     "titulo": "Titulares y clickbait",
     "idea": "Un titular clickbait promete más de lo que cuenta la noticia para que hagas clic; por eso hay que leer la noticia entera.",
     "arranque": {
@@ -5368,7 +5499,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 28) ¿Qué es la prueba social? Pon un ejemplo."
+        "pregunta": "(Repaso de la sesión 9) ¿Qué es la prueba social? Pon un ejemplo."
        }
       ]
      },
@@ -5384,7 +5515,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 33,
+    "n": 34,
     "titulo": "Bulos",
     "idea": "Un bulo es una mentira que se hace pasar por noticia; alguien lo fabrica para engañar y lo compartimos porque nos emociona.",
     "arranque": {
@@ -5517,7 +5648,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 29) ¿Qué pasaba en el experimento de las líneas cuando había un solo aliado en el grupo?"
+        "pregunta": "(Repaso de la sesión 10) ¿Qué pasaba en el experimento de las líneas cuando había un solo aliado en el grupo?"
        }
       ]
      },
@@ -5533,7 +5664,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 34,
+    "n": 35,
     "titulo": "Verificar",
     "idea": "Para verificar, sal de la página y mira qué dicen otros (lectura lateral), mira la fecha y busca el origen de la imagen.",
     "arranque": {
@@ -5607,7 +5738,7 @@ const CURSO = [
         "pasos": [
          "Lectura lateral: descubres que la web vende aparatos «contra las ondas».",
          "¿Qué dicen los organismos de salud? No han encontrado daño con los niveles normales del wifi.",
-         "La web tiene un interés y va contra el consenso (sesión 26).",
+         "La web tiene un interés y va contra el consenso (sesión 7).",
          "Conclusión: el diseño bonito no era una razón. No me lo creo."
         ]
        },
@@ -5674,7 +5805,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 32) Escribe dos señales de un titular clickbait."
+        "pregunta": "(Repaso de la sesión 33) Escribe dos señales de un titular clickbait."
        }
       ]
      },
@@ -5690,7 +5821,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 35,
+    "n": 36,
     "titulo": "Imágenes y vídeos manipulados",
     "idea": "Una imagen puede engañar con recortes, montajes, sacándola de contexto o con deepfakes hechos con inteligencia artificial.",
     "arranque": {
@@ -5718,7 +5849,7 @@ const CURSO = [
          [
           "**Montaje**",
           "Se juntan o cambian partes de imágenes",
-          "El tiburón en la autopista (sesión 34)"
+          "El tiburón en la autopista (sesión 35)"
          ],
          [
           "**Fuera de contexto**",
@@ -5748,7 +5879,7 @@ const CURSO = [
         "titulo": "Ante una imagen dudosa",
         "puntos": [
          "**Para:** si te da mucha emoción, sospecha",
-         "**Busca su origen:** búsqueda inversa (sesión 34)",
+         "**Busca su origen:** búsqueda inversa (sesión 35)",
          "**Mira el contexto:** ¿quién la publicó, dónde y cuándo?",
          "**Busca la fuente:** ¿lo cuentan medios serios o la propia persona?"
         ]
@@ -5832,7 +5963,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 31) Escribe las tres preguntas que hay que hacerle a una fuente."
+        "pregunta": "(Repaso de la sesión 32) Escribe las tres preguntas que hay que hacerle a una fuente."
        }
       ]
      },
@@ -5848,7 +5979,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 36,
+    "n": 37,
     "titulo": "Repaso y examen de la unidad 6",
     "idea": "Repasamos qué hace fiable una fuente, el clickbait, los bulos, cómo verificar y cómo se manipulan imágenes y vídeos.",
     "arranque": {
@@ -5861,7 +5992,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "tabla",
-        "titulo": "Tres preguntas a una fuente (sesión 31)",
+        "titulo": "Tres preguntas a una fuente (sesión 32)",
         "cabecera": [
          "Pregunta",
          "Qué miro"
@@ -5883,7 +6014,7 @@ const CURSO = [
        },
        {
         "tipo": "lista",
-        "titulo": "Titulares y clickbait (sesión 32)",
+        "titulo": "Titulares y clickbait (sesión 33)",
         "texto": "El clickbait exagera o esconde información para que hagas clic.",
         "puntos": [
          "Esconde el dato: «No creerás lo que pasó»",
@@ -5894,7 +6025,7 @@ const CURSO = [
        },
        {
         "tipo": "lista",
-        "titulo": "Bulos (sesión 33)",
+        "titulo": "Bulos (sesión 34)",
         "texto": "Un bulo es una mentira inventada que se hace pasar por noticia.",
         "puntos": [
          "Ingredientes: urgencia, emoción fuerte, fuente vaga, sin fecha",
@@ -5905,7 +6036,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Tres pasos para verificar (sesión 34)",
+        "titulo": "Tres pasos para verificar (sesión 35)",
         "cabecera": [
          "Paso",
          "Qué hago"
@@ -5931,7 +6062,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Imágenes manipuladas (sesión 35)",
+        "titulo": "Imágenes manipuladas (sesión 36)",
         "cabecera": [
          "Truco",
          "Qué es"
@@ -5997,22 +6128,22 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "(Sesión 31) Una web que vende suplementos dice que sus pastillas «mejoran la memoria». ¿Qué pregunta de las tres falla más? ¿Por qué?"
+        "pregunta": "(Sesión 32) Una web que vende suplementos dice que sus pastillas «mejoran la memoria». ¿Qué pregunta de las tres falla más? ¿Por qué?"
        },
        {
-        "pregunta": "(Sesión 32) ¿Qué es el clickbait?"
+        "pregunta": "(Sesión 33) ¿Qué es el clickbait?"
        },
        {
-        "pregunta": "(Sesión 33) Escribe tres ingredientes de un bulo."
+        "pregunta": "(Sesión 34) Escribe tres ingredientes de un bulo."
        },
        {
-        "pregunta": "(Sesión 34) ¿Qué es la lectura lateral?"
+        "pregunta": "(Sesión 35) ¿Qué es la lectura lateral?"
        },
        {
-        "pregunta": "(Sesión 34) Te llega hoy una noticia: «Cierran todos los colegios por una epidemia». Al mirarla, es de hace seis años. ¿Qué paso de la verificación te ha servido?"
+        "pregunta": "(Sesión 35) Te llega hoy una noticia: «Cierran todos los colegios por una epidemia». Al mirarla, es de hace seis años. ¿Qué paso de la verificación te ha servido?"
        },
        {
-        "pregunta": "(Sesión 35) Un vídeo muestra a una cantante famosa anunciando un producto, pero ella dice que nunca lo grabó. ¿Qué puede ser?"
+        "pregunta": "(Sesión 36) Un vídeo muestra a una cantante famosa anunciando un producto, pero ella dice que nunca lo grabó. ¿Qué puede ser?"
        }
       ]
      },
@@ -6021,10 +6152,10 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 27) «Este colchón es el mejor: lo recomienda un tenista famoso.» ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 8) «Este colchón es el mejor: lo recomienda un tenista famoso.» ¿Qué falacia es?"
        },
        {
-        "pregunta": "(Repaso de la sesión 22) «Desde que tengo este móvil, saco mejores notas. El móvil me hace más listo.» ¿Qué falacia es?"
+        "pregunta": "(Repaso de la sesión 28) «Desde que tengo este móvil, saco mejores notas. El móvil me hace más listo.» ¿Qué falacia es?"
        }
       ]
      },
@@ -6044,229 +6175,107 @@ const CURSO = [
  },
  {
   "unidad": 7,
-  "titulo": "Números que engañan",
-  "trimestre": "2.º trimestre · Informarse",
+  "titulo": "Emociones, conflictos y dilemas",
+  "trimestre": "2.º trimestre · Convivir",
   "sesiones": [
    {
-    "n": 37,
-    "titulo": "Porcentajes y cifras",
-    "idea": "Una cifra sola puede engañar: «el doble» de casi nada sigue siendo casi nada, así que hay que preguntar «¿de cuántos?».",
-    "arranque": {
-     "texto": "«¡Los accidentes con patinete en nuestro barrio han subido un 100 %!» (Titular inventado.)",
-     "pregunta": "¿Es mucho o poco? ¿Qué número te falta para saberlo?"
-    },
-    "bloques": [
-     {
-      "titulo": "Cifras sueltas",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Porcentaje",
-        "texto": "Un porcentaje dice cuántos hay de cada 100. El 25 % significa 25 de cada 100.",
-        "puntos": [
-         "**50 %** = la mitad",
-         "**25 %** = la cuarta parte",
-         "**100 %** = todos",
-         "Siempre es un porcentaje **de algo**"
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Cifra absoluta y cifra relativa",
-        "texto": "La cifra absoluta dice cuántos hay. La cifra relativa compara con el total, por ejemplo con un porcentaje.",
-        "puntos": [
-         "**Absoluta:** aprobaron 30 alumnos",
-         "**Relativa:** aprobó el 60 % (30 de 50)",
-         "Hacen falta las dos para entender bien"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "«El doble» de casi nada (ejemplos inventados)",
-        "cabecera": [
-         "Titular",
-         "Antes → después",
-         "¿Mucho o poco?"
-        ],
-        "filas": [
-         [
-          "«¡Suben un 100 %!»",
-          "1 caso → 2 casos",
-          "Casi nada: 1 caso más"
-         ],
-         [
-          "«¡Bajan un 50 %!»",
-          "2.000 → 1.000",
-          "Mucho: 1.000 menos"
-         ],
-         [
-          "«¡El triple de riesgo!»",
-          "1 de cada 10.000 → 3 de cada 10.000",
-          "Riesgo relativo: triple. Absoluto: sigue siendo muy raro"
-         ]
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · El patinete",
-        "caso": "El titular del principio: «¡Los accidentes con patinete en el barrio han subido un 100 %!» (Ejemplo inventado.)",
-        "pasos": [
-         "¿Qué significa subir un 100 %? Que ahora hay el doble que antes.",
-         "¿El doble de cuánto? Miro el dato: el año pasado hubo 2 accidentes; este año, 4.",
-         "Son 2 accidentes más. Importa, pero con números tan pequeños no es una ola de accidentes.",
-         "Conclusión: un porcentaje sin la cifra de partida puede asustar sin motivo. Pregunto «¿de cuántos?»."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · El yogur",
-        "caso": "Un anuncio: «Ahora con un 30 % menos de azúcar». (Ejemplo inventado.)",
-        "pasos": [
-         "¿Un 30 % menos que qué? ¿Que el yogur de antes? ¿Que otra marca?",
-         "Imagina que antes tenía 20 gramos de azúcar. Un 30 % menos son 14 gramos.",
-         "14 gramos sigue siendo bastante azúcar para un yogur pequeño.",
-         "Conclusión: «menos» no significa «poco». Hay que mirar la cifra de verdad en la etiqueta."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · Dos institutos",
-        "caso": "En el instituto A hay 20 aprobados. En el instituto B hay 15. ¿Qué instituto lo hizo mejor? (Ejemplo inventado.)",
-        "pasos": [
-         "La cifra absoluta dice que A tiene más aprobados.",
-         "Pero pregunto el total: A tiene 40 alumnos y B tiene 20.",
-         "A: 20 de 40 = 50 %. B: 15 de 20 = 75 %.",
-         "Conclusión: B lo hizo mejor. Para comparar grupos de distinto tamaño hace falta la cifra relativa."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "¿Suben un 10 %?",
-        "caso": "En un instituto, los aprobados de inglés pasan del 40 % al 50 %. Titular: «¡Los aprobados suben un 10 %!». (Ejemplo inventado.)",
-        "pasos": [
-         "Del 40 % al 50 % hay 10 **puntos**: es la resta de los dos porcentajes.",
-         "Pero en proporción: 10 más sobre 40 es la cuarta parte. Los aprobados han subido un 25 %.",
-         "Las dos cifras son verdad, pero dicen cosas distintas. El titular las mezcla.",
-         "Conclusión: subir 10 puntos no es subir un 10 %. Pregunto: ¿puntos o por ciento?"
-        ],
-        "pregunta": "50 menos 40 son 10. ¿Han subido un 10 %?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Un porcentaje dice cuántos hay de cada 100, y siempre es un porcentaje de algo.",
-     "«El doble» de casi nada sigue siendo casi nada: pregunta «¿de cuántos?».",
-     "No confundas puntos con por ciento: del 40 % al 50 % son 10 puntos, un 25 % más."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué significa «el 25 % de los alumnos»?"
-       },
-       {
-        "pregunta": "Inventa un titular con un porcentaje que asuste, pero que en realidad sea «casi nada». Añade las cifras de verdad."
-       },
-       {
-        "pregunta": "Una app anuncia: «¡Tenemos el doble de usuarios que el mes pasado!». El mes pasado tenía 5 usuarios. ¿Es un gran éxito? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 32) ¿Qué diferencia suele haber entre un titular clickbait y la noticia que hay detrás?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Una chica lee (ejemplo inventado): «En el instituto A suspendieron 30 alumnos; en el B, solo 12. El B es mucho mejor». El A tiene 300 alumnos y el B, 60. ¿Tiene razón? Haz las cuentas."
-       }
-      ]
-     }
-    ]
-   },
-   {
     "n": 38,
-    "titulo": "Gráficos engañosos",
-    "idea": "Un gráfico puede engañar aunque los datos sean verdad: con el eje cortado, una escala rara, colores que asustan o fechas recortadas.",
+    "titulo": "¿Para qué sirven las emociones?",
+    "idea": "Las emociones no son buenas ni malas: informan de lo que nos importa. Pero pueden equivocarse, y decidir en caliente suele salir mal.",
     "arranque": {
-     "texto": "Dos gráficos muestran las mismas ventas. En uno parece que se disparan. En el otro, que casi no cambian.",
-     "pregunta": "¿Cómo puede ser, si los números son iguales?"
+     "texto": "Una chica ve que una amiga ha leído su mensaje hace una hora y no contesta. Se enfada. Escribe «Pues vale, pasa de mí» y lo envía.",
+     "pregunta": "¿Qué ha sentido esa chica? ¿Tenía razones para sentirlo?"
     },
     "bloques": [
      {
-      "titulo": "Los trucos de los gráficos",
+      "titulo": "Emoción, sentimiento e idea",
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "El eje",
-        "texto": "El eje vertical marca los valores del gráfico. En un gráfico de barras, lo normal es que empiece en 0.",
+        "titulo": "Emoción",
+        "texto": "Es una reacción rápida del cuerpo y de la mente ante algo que nos importa.",
         "puntos": [
-         "**Eje cortado:** empieza en otro número, por ejemplo en 90",
-         "Así, en las barras, diferencias pequeñas parecen enormes",
-         "Mira siempre dónde empieza el eje"
+         "Aparece **sola**: no la elegimos",
+         "Dura **poco**: segundos o minutos",
+         "Se nota en el **cuerpo**: corazón, cara, estómago"
         ]
        },
        {
         "tipo": "tabla",
-        "titulo": "Mismos puntos, eje distinto (ejemplo inventado)",
+        "titulo": "Tres cosas que solemos mezclar",
         "cabecera": [
-         "Puntos en un videojuego",
-         "Eje de 0 a 100",
-         "Eje de 90 a 100"
+         "",
+         "Qué es",
+         "Ejemplo: la nota de Mates"
         ],
         "filas": [
          [
-          "Una chica: 92 puntos",
-          "Barra llena al 92 %",
-          "Barra llena al 20 %"
+          "**Emoción**",
+          "Reacción rápida que dura poco",
+          "Se me encoge el estómago al ver un 3"
          ],
          [
-          "Un chico: 98 puntos",
-          "Barra llena al 98 %",
-          "Barra llena al 80 %"
+          "**Sentimiento**",
+          "Emoción que dura y en la que pienso",
+          "Llevo toda la semana preocupada"
          ],
          [
-          "¿Qué parece?",
-          "Casi iguales",
-          "¡El chico tiene cuatro veces más!"
+          "**Idea**",
+          "Lo que pienso de lo que pasa",
+          "«Voy a suspender el curso entero»"
          ]
         ]
        },
        {
-        "tipo": "lista",
-        "titulo": "Otros trucos",
-        "puntos": [
-         "**Escala estirada o aplastada:** la misma subida parece un muro o una llanura",
-         "**Dibujos que crecen en ancho y alto:** el doble parece cuatro veces más",
-         "**Colores:** el rojo asusta aunque el dato sea pequeño",
-         "**Recortar fechas:** enseñar solo los meses que convienen"
+        "tipo": "tabla",
+        "titulo": "Cada emoción es un aviso",
+        "cabecera": [
+         "Emoción",
+         "Me avisa de que…",
+         "Me empuja a…"
+        ],
+        "filas": [
+         [
+          "**Miedo**",
+          "puede haber un peligro",
+          "tener cuidado o protegerme"
+         ],
+         [
+          "**Enfado**",
+          "algo me parece injusto o me bloquea",
+          "defenderme y poner límites"
+         ],
+         [
+          "**Tristeza**",
+          "he perdido algo que me importa",
+          "parar y buscar apoyo"
+         ],
+         [
+          "**Alegría**",
+          "algo me va bien",
+          "repetirlo y acercarme a otros"
+         ]
         ]
        },
        {
-        "tipo": "lista",
-        "titulo": "Antes de creerte un gráfico",
-        "puntos": [
-         "¿Dónde empieza el eje?",
-         "¿Qué fechas o datos faltan?",
-         "¿Qué dicen los números, no el dibujo?",
-         "¿Quién ha hecho el gráfico y qué gana? (sesión 31)"
-        ]
+        "tipo": "contraste",
+        "titulo": "Las emociones informan, no mandan",
+        "izq": {
+         "titulo": "No son",
+         "puntos": [
+          "Buenas o malas",
+          "Órdenes que hay que obedecer",
+          "Siempre verdad"
+         ]
+        },
+        "der": {
+         "titulo": "Sí son",
+         "puntos": [
+          "Agradables o desagradables",
+          "Señales que **informan** de lo que me importa",
+          "Una pista que hay que comprobar: «¿cómo lo sé?»"
+         ]
+        }
        }
       ]
      },
@@ -6275,56 +6284,60 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · El precio del bocadillo",
-        "caso": "Un gráfico del bar: el bocadillo pasa de 2,00 € a 2,20 €. La barra nueva parece el triple de alta. (Ejemplo inventado.)",
+        "titulo": "Caso 1 · El mensaje sin contestar",
+        "caso": "Una chica piensa: «Mi amiga pasa de mí» y se enfada. Una hora después, la amiga escribe: «Perdona, me quedé sin batería en el metro».",
         "pasos": [
-         "Miro el eje: empieza en 1,90 €, no en 0.",
-         "Desde 1,90, la barra de 2,00 mide 0,10 y la de 2,20 mide 0,30: el triple.",
-         "Pero el precio real ha subido 20 céntimos: un 10 %.",
-         "Conclusión: el eje cortado hace que una subida del 10 % parezca el triple."
+         "¿Qué pasó? La amiga leyó el mensaje y no contestó.",
+         "¿Qué idea tuvo la chica? «Pasa de mí». De esa idea salió el enfado.",
+         "¿Cómo lo sabía? No lo sabía: había otras explicaciones posibles.",
+         "Conclusión: muchas veces sentimos lo que sentimos por la idea que nos hacemos. Y la idea puede ser falsa."
         ]
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · El mapa rojo",
-        "caso": "Un mapa de Bizkaia pinta de rojo intenso los pueblos donde «suben los robos de bicis». (Ejemplo inventado.)",
+        "titulo": "Caso 2 · Decidir en caliente",
+        "caso": "En Aste Nagusia, a un chico se le cae el bocadillo porque otro le empuja sin querer. El primero, furioso, le suelta un insulto delante de todos.",
         "pasos": [
-         "El rojo intenso da sensación de peligro.",
-         "Miro los números: en muchos pueblos se pasa de 1 robo a 2.",
-         "La leyenda usa el mismo rojo para cualquier subida, sea de 1 o de 100.",
-         "Conclusión: el color transmite una emoción que los datos no justifican. Leo la leyenda y las cifras."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · Solo los meses buenos",
-        "caso": "Un youtuber enseña un gráfico: sus seguidores suben de marzo a junio. «¡Crezco sin parar!» (Ejemplo inventado.)",
-        "pasos": [
-         "¿Qué fechas enseña? Solo de marzo a junio.",
-         "¿Y el resto del año? En enero tenía más seguidores que en junio.",
-         "Ha recortado el gráfico para enseñar solo la parte que sube.",
-         "Conclusión: un gráfico también engaña por lo que deja fuera. Pregunto qué fechas faltan."
+         "¿Era razonable enfadarse? Sí: ha perdido la cena. El enfado informa de algo real.",
+         "¿Era buena la decisión? No: decidió en caliente, sin mirar si fue sin querer.",
+         "En caliente pensamos peor: decidimos rápido y sin razones (sesión 22).",
+         "Conclusión: la emoción puede ser razonable y la decisión, mala. Primero calmarse y esperar, luego decidir."
         ]
        },
        {
         "tipo": "trampa",
-        "titulo": "Las temperaturas",
-        "caso": "Un gráfico de líneas muestra la temperatura media de agosto en Bilbao durante 30 años. El eje va de 18 °C a 22 °C. (Ejemplo inventado.)",
+        "titulo": "«Las emociones no son malas»",
+        "caso": "Un chico empuja a otro en el patio. Luego explica: «Estaba enfadado. Y en clase dijimos que las emociones no son malas».",
         "pasos": [
-         "En las barras, el largo es la cantidad: por eso su eje debe empezar en 0.",
-         "Aquí hay una línea, y 0 °C no es «nada de calor»: es cuando se hiela el agua.",
-         "Con el eje de 0 a 22, una subida de 1 o 2 grados, que importa mucho, casi no se vería.",
-         "Conclusión: un eje que no empieza en 0 no siempre engaña. Pregunto si la diferencia que enseña importa."
+         "Parece que ese chico tiene razón: hemos dicho que enfadarse no es malo.",
+         "Pero no se ha limitado a sentir: ha empujado. Eso es una conducta.",
+         "Las emociones no se eligen; lo que hacemos con ellas, sí.",
+         "Conclusión: el enfado no es malo, pero empujar sí puede serlo. Sentir y hacer son cosas distintas."
         ],
-        "pregunta": "El eje no empieza en 0. ¿Es un gráfico engañoso?"
+        "pregunta": "Si las emociones no son malas, ¿ese chico no ha hecho nada malo?"
+       }
+      ]
+     },
+     {
+      "titulo": "Antes de decidir en caliente",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Tres pasos cuando la emoción es fuerte",
+        "texto": "Como vimos en la sesión 22, quien asusta quiere que decidas rápido.",
+        "puntos": [
+         "**Nombrar:** «Estoy enfadado».",
+         "**Esperar:** no enviar, no contestar, no decidir todavía.",
+         "**Preguntar:** ¿qué idea me hago? ¿Cómo lo sé? ¿Hay otra explicación?"
+        ]
        }
       ]
      }
     ],
     "resumen": [
-     "Un gráfico puede engañar aunque los números sean verdad.",
-     "Mira dónde empieza el eje, qué fechas faltan y qué emoción buscan los colores.",
-     "Un eje cortado exagera las barras, pero en temperaturas puede estar bien."
+     "Una emoción es una reacción rápida ante algo que nos importa; un sentimiento dura más.",
+     "Las emociones no son buenas ni malas: informan, pero pueden equivocarse.",
+     "La emoción no se elige; lo que hacemos con ella, sí. En caliente, mejor esperar."
     ],
     "hoja": [
      {
@@ -6332,13 +6345,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué es un eje cortado?"
+        "pregunta": "¿Qué diferencia hay entre una emoción y un sentimiento?"
        },
        {
-        "pregunta": "Pon un ejemplo de truco en un gráfico que no sea el eje cortado."
+        "pregunta": "Elige una emoción (miedo, enfado, tristeza o alegría) y escribe de qué nos avisa, con un ejemplo."
        },
        {
-        "pregunta": "Un gráfico de notas tiene el eje de 6 a 7. Un chico tiene un 6,2 y una chica un 6,6. La barra de la chica parece el triple de alta. ¿Qué pasa?"
+        "pregunta": "Una chica ve que no la han etiquetado en una foto de la cuadrilla. Piensa: «No me quieren en el grupo» y se pone triste. ¿Qué parte es la idea? ¿Qué debería preguntarse?"
        }
       ]
      },
@@ -6347,7 +6360,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 35) Nombra dos formas de manipular una imagen o un vídeo."
+        "pregunta": "(Repaso de la sesión 22) ¿Cuándo es falacia apelar a las emociones y cuándo no?"
        }
       ]
      },
@@ -6356,7 +6369,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una noticia (inventada) dice «¡Se dispara el abono del autobús!». El gráfico tiene el eje de 30 € a 32 €. El abono ha pasado de 30,50 € a 31,00 €. ¿Se ha disparado? ¿Qué truco hay?"
+        "pregunta": "Un chico pierde una partida online y escribe al rival: «Eres un tramposo, te voy a denunciar». Luego dice: «Tenía derecho a estar enfadado». ¿Tiene razón? Explica qué ha fallado."
        }
       ]
      }
@@ -6364,61 +6377,77 @@ const CURSO = [
    },
    {
     "n": 39,
-    "titulo": "Encuestas y muestras",
-    "idea": "Una encuesta es más fiable si la muestra se parece a la población; muchas respuestas no arreglan una muestra sesgada.",
+    "titulo": "El conflicto no es una pelea",
+    "idea": "Un conflicto es un choque de intereses o necesidades; se puede afrontar de varias maneras, y ayuda distinguir lo que pido de lo que necesito.",
     "arranque": {
-     "texto": "Una youtuber de videojuegos pregunta a sus seguidores: «¿Te gustan los videojuegos?». El 95 % dice que sí.",
-     "pregunta": "¿Significa eso que al 95 % de los jóvenes les gustan los videojuegos?"
+     "texto": "Una chica y su hermano quieren el ordenador de casa a la misma hora. Cada uno grita: «¡Lo pedí yo primero!». Nadie cede.",
+     "pregunta": "¿Qué quiere de verdad cada uno? ¿Hay alguna salida en la que ganen los dos?"
     },
     "bloques": [
      {
-      "titulo": "Qué es una muestra",
+      "titulo": "Qué es un conflicto",
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "Muestra",
-        "texto": "Una muestra es el grupo de personas a las que se pregunta, para sacar conclusiones sobre un grupo mayor.",
+        "titulo": "Conflicto",
+        "texto": "Es un choque entre personas que quieren o necesitan cosas que, en ese momento, parecen incompatibles.",
         "puntos": [
-         "**Población:** todo el grupo del que se habla",
-         "**Muestra:** la parte a la que se pregunta",
-         "Como probar una cucharada para saber cómo está la sopa (bien removida)",
-         "**Al azar:** por sorteo, sin elegir a quién"
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Tres preguntas a una encuesta",
-        "puntos": [
-         "**¿A cuántos?** Con 5 personas se puede decir muy poco de miles",
-         "**¿A quiénes?** La muestra tiene que parecerse a la población",
-         "**¿Cómo se preguntó?** La pregunta también puede empujar la respuesta",
-         "Una muestra que no se parece está **sesgada**: torcida, inclinada hacia un lado"
+         "Es **normal**: aparece en cualquier grupo",
+         "No es lo mismo que una **pelea**",
+         "La pelea es una mala forma de **afrontarlo**"
         ]
        },
        {
         "tipo": "tabla",
-        "titulo": "Muestras malas y mejores",
+        "titulo": "Tipos de conflicto según lo que choca",
         "cabecera": [
-         "Quiero saber…",
-         "Muestra mala",
-         "Muestra mejor"
+         "Tipo",
+         "Qué choca",
+         "Ejemplo"
         ],
         "filas": [
          [
-          "Qué deporte prefiere el alumnado",
-          "Solo el equipo de fútbol",
-          "Alumnos al azar de todos los cursos"
+          "**De recursos**",
+          "Hay una cosa y la quieren dos",
+          "El ordenador, el mando, el balón"
          ],
          [
-          "Si gusta el comedor",
-          "Los 3 amigos de un chico",
-          "100 alumnos elegidos al azar"
+          "**De necesidades**",
+          "Uno necesita algo que molesta al otro",
+          "Estudiar en silencio y escuchar música"
          ],
          [
-          "Cuánto usan el móvil en 2.º ESO",
-          "Solo quien contesta en Instagram",
-          "Todos los grupos de 2.º, encuesta anónima"
+          "**De ideas o valores**",
+          "Piensan distinto sobre lo importante",
+          "Qué es justo en un reparto"
+         ],
+         [
+          "**Malentendido**",
+          "Uno entiende mal lo que el otro dijo",
+          "Un mensaje leído con otro tono"
          ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Cinco actitudes ante un conflicto",
+        "texto": "Es un modelo conocido, de Thomas y Kilmann (1974). No es una ley: sirve para pensar.",
+        "puntos": [
+         "**Evitar:** hago como si no pasara nada.",
+         "**Ceder:** dejo que el otro consiga lo suyo.",
+         "**Competir:** intento ganar yo, aunque el otro pierda.",
+         "**Pactar:** cada uno renuncia a una parte.",
+         "**Colaborar:** buscamos juntos una salida buena para los dos."
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Postura e interés",
+        "texto": "La postura es lo que pido. El interés es lo que necesito de verdad, la razón por la que lo pido.",
+        "puntos": [
+         "Las **posturas** chocan más que los intereses",
+         "Pregunta clave: «¿Para qué lo quieres?»",
+         "Idea de Roger Fisher y William Ury (Harvard, 1981)"
         ]
        }
       ]
@@ -6428,56 +6457,45 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · La encuesta del principio",
-        "caso": "Una youtuber de videojuegos pregunta a sus seguidores si les gustan los videojuegos. El 95 % dice que sí.",
+        "titulo": "Caso 1 · El ordenador de casa",
+        "caso": "Postura de la chica: «Quiero el ordenador ya». Postura de su hermano: «Lo quiero yo». Su madre les pregunta a cada uno: «¿Para qué lo necesitas?».",
         "pasos": [
-         "¿A quiénes preguntó? A sus seguidores: gente que ya ve vídeos de videojuegos.",
-         "¿Se parecen a todos los jóvenes? No: quien no juega no la sigue.",
-         "La muestra está sesgada: se inclina hacia un lado.",
-         "Conclusión: el 95 % habla de sus seguidores, no de todos los jóvenes."
+         "Interés de la chica: entregar un trabajo antes de las 20:00.",
+         "Interés de su hermano: jugar online con su cuadrilla, que queda a las 21:00.",
+         "Las posturas chocaban; los intereses, no: caben los dos en la tarde.",
+         "Conclusión: la chica lo usa hasta las 20:00 y su hermano después. Mirar el interés permite colaborar."
         ]
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · «9 de cada 10»",
-        "caso": "Anuncio: «9 de cada 10 usuarios recomiendan nuestras zapatillas». En letra pequeña: «Encuesta a 10 clientes de nuestra tienda». (Ejemplo inventado.)",
+        "titulo": "Caso 2 · El asiento del autobús",
+        "caso": "Excursión a Urdaibai. Un chico quiere ir en la ventanilla. A una compañera le da igual, pero él se marea si no mira fuera.",
         "pasos": [
-         "¿A cuántos? Solo a 10 personas.",
-         "¿A quiénes? A clientes que ya las compraron en su tienda.",
-         "Muestra pequeña y sesgada: quien las compró ya tenía buena opinión de ellas.",
-         "Conclusión: «9 de cada 10» suena a mucho, pero son 9 personas elegidas por la marca."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · La pregunta que empuja",
-        "caso": "Encuesta del instituto (inventada): «¿Estás de acuerdo en que el recreo es demasiado corto y hay que alargarlo?»",
-        "pasos": [
-         "La pregunta ya dice lo que piensa quien pregunta: «demasiado corto».",
-         "Empuja a contestar que sí.",
-         "Una pregunta neutral sería: «¿Qué te parece la duración del recreo?»",
-         "Conclusión: además de a quién se pregunta, importa cómo se pregunta. Lo vimos en la sesión 4."
+         "¿Qué actitud tiene sentido para la compañera? Ceder.",
+         "¿Por qué ceder? A ella casi no le importa y a él le importa mucho.",
+         "Ceder no es perder: es elegir bien cuando el tema es pequeño para ti.",
+         "Conclusión: ninguna actitud es siempre la buena. La buena depende de cuánto le importa a cada uno."
         ]
        },
        {
         "tipo": "trampa",
-        "titulo": "Dos millones de respuestas",
-        "caso": "EE. UU., 1936. Una revista recibe más de dos millones de respuestas sobre quién ganará las elecciones. Otra encuesta pregunta a muchas menos personas, elegidas para parecerse al país.",
+        "titulo": "La cuadrilla perfecta",
+        "caso": "Un chico presume: «En mi cuadrilla nunca hay conflictos». Pero una del grupo siempre cede, y otro se calla cuando algo no le gusta.",
         "pasos": [
-         "No: la revista falló por mucho. Quienes le contestaron no se parecían al conjunto de votantes.",
-         "La encuesta pequeña acertó el ganador: su muestra se parecía más al país.",
-         "Más respuestas no arreglan una muestra sesgada: repiten el mismo error muchas más veces.",
-         "Conclusión: primero, ¿a quiénes?; luego, ¿a cuántos? Una muestra grande pero sesgada sigue fallando."
+         "Parece que sí: no hay gritos ni peleas.",
+         "Pero una siempre cede y otro siempre evita. Los conflictos están, solo que escondidos.",
+         "Un conflicto escondido no desaparece: puede crecer y estallar más tarde.",
+         "Conclusión: que no haya peleas no significa que no haya conflictos. A veces falta alguien que diga «no»."
         ],
-        "pregunta": "¿Cuál acertó? La de dos millones, ¿no?"
+        "pregunta": "Si nunca discuten, ¿es una cuadrilla sin conflictos?"
        }
       ]
      }
     ],
     "resumen": [
-     "Una muestra es la parte del grupo a la que se pregunta.",
-     "Importa a cuántos, pero más a quiénes: una muestra grande pero sesgada sigue fallando.",
-     "Mira también cómo se hizo la pregunta: puede empujar la respuesta."
+     "Un conflicto es un choque de intereses o necesidades; es normal y no es una pelea.",
+     "Hay cinco actitudes: evitar, ceder, competir, pactar y colaborar; ninguna vale siempre.",
+     "La postura es lo que pido; el interés, lo que necesito. Preguntar «¿para qué?» ayuda."
     ],
     "hoja": [
      {
@@ -6485,13 +6503,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué es una muestra?"
+        "pregunta": "¿Qué es un conflicto? ¿Es lo mismo que una pelea?"
        },
        {
-        "pregunta": "Pon un ejemplo de muestra sesgada."
+        "pregunta": "Pon un ejemplo de conflicto de recursos en casa o en el instituto."
        },
        {
-        "pregunta": "Para saber si gusta el nuevo menú del comedor, un chico pregunta a los 4 amigos que se sientan con él. Di dos problemas de su encuesta."
+        "pregunta": "Un chico y una chica quieren elegir la peli. El chico dice: «Yo elijo hoy y tú el viernes». ¿Qué actitud es: evitar, ceder, competir, pactar o colaborar?"
        }
       ]
      },
@@ -6500,7 +6518,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 37) En el instituto A aprueban 18 de 30 alumnos y en el instituto B, 12 de 15. ¿Qué instituto tiene mejor resultado? Calcula los porcentajes."
+        "pregunta": "(Repaso de la sesión 38) ¿Para qué sirven las emociones? ¿Hay emociones buenas y malas?"
        }
       ]
      },
@@ -6509,7 +6527,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una web de noticias pone una encuesta (inventada): «¿Crees que los jóvenes usan demasiado el móvil?». Vota quien quiere. Sale un 85 % de «sí». ¿Qué problemas ves?"
+        "pregunta": "Un chico quiere la ventana del aula abierta; una chica, cerrada. El chico tiene calor; a la chica le da el aire en la espalda. Escribe la postura y el interés de cada uno y una salida para colaborar."
        }
       ]
      }
@@ -6517,60 +6535,56 @@ const CURSO = [
    },
    {
     "n": 40,
-    "titulo": "Correlación y causa, con datos",
-    "idea": "Que dos datos cambien juntos (correlación) no basta para saber que uno causa el otro; si se descartan otras explicaciones, sí puede ser prueba.",
+    "titulo": "Conflictos en las redes",
+    "idea": "En las redes los conflictos crecen más porque no hay cara y todo queda guardado y a la vista; allí también hay derechos y deberes.",
     "arranque": {
-     "texto": "En verano se venden más helados. En verano también hay más personas ahogadas.",
-     "pregunta": "¿Los helados provocan ahogamientos?"
+     "texto": "Alguien hace una captura de un audio privado de una chica y la sube al chat del equipo de balonmano. En diez minutos la han visto sesenta personas.",
+     "pregunta": "¿Por qué esto hace más daño que si se lo hubiera dicho a una sola persona?"
     },
     "bloques": [
      {
-      "titulo": "Correlación no es causa",
+      "titulo": "Por qué en las redes se escala más",
       "diapositivas": [
        {
-        "tipo": "concepto",
-        "titulo": "Correlación",
-        "texto": "Hay correlación cuando dos datos cambian juntos: cuando uno sube, el otro también sube (o baja).",
+        "tipo": "lista",
+        "titulo": "Cuatro razones por las que un conflicto crece en las redes",
+        "texto": "Escalar = hacerse cada vez más grande.",
         "puntos": [
-         "**Causa:** una cosa **produce** la otra",
-         "Sola, la correlación es una pista, no una prueba",
-         "Sesión 22: «después de» no es «por culpa de»"
+         "**Sin cara:** no ves si el otro se ríe o llora. Falta el tono.",
+         "**Anonimato:** detrás de una cuenta falsa, algunos se atreven a más.",
+         "**Captura:** todo queda guardado y se puede reenviar, recortar o sacar de contexto.",
+         "**Público:** lo ve mucha gente, y cada «me gusta» anima a seguir."
         ]
        },
        {
-        "tipo": "lista",
-        "titulo": "Cuatro explicaciones posibles",
-        "texto": "Si A y B suben juntas, puede ser que…",
+        "tipo": "concepto",
+        "titulo": "Ciberacoso",
+        "texto": "Es hacer daño a alguien a propósito y de forma repetida usando el móvil, las redes o los videojuegos.",
         "puntos": [
-         "**A causa B** (a veces es verdad)",
-         "**B causa A** (al revés)",
-         "**Una tercera causa** produce las dos",
-         "**Casualidad:** coinciden sin tener nada que ver"
+         "**Intención** de hacer daño",
+         "**Repetición:** una publicación puede dañar una y otra vez",
+         "**Desequilibrio:** la víctima no puede defenderse fácilmente"
         ]
        },
        {
         "tipo": "tabla",
-        "titulo": "Helados y ahogamientos (cifras inventadas)",
+        "titulo": "Derechos y deberes en las redes",
         "cabecera": [
-         "Mes",
-         "Helados vendidos",
-         "Personas ahogadas"
+         "Tengo derecho a…",
+         "Por eso tengo el deber de…"
         ],
         "filas": [
          [
-          "Enero",
-          "1.000",
-          "2"
+          "**Privacidad:** que mis mensajes privados sigan siendo privados",
+          "No reenviar capturas de chats privados de otros"
          ],
          [
-          "Abril",
-          "3.000",
-          "5"
+          "**Propia imagen:** decidir dónde sale mi foto",
+          "Pedir permiso antes de subir fotos o vídeos de otros"
          ],
          [
-          "Julio",
-          "9.000",
-          "12"
+          "**Respeto:** que no me insulten ni me humillen",
+          "No insultar ni humillar, aunque sea desde el anonimato"
          ]
         ]
        }
@@ -6581,56 +6595,60 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · Helados y ahogamientos",
-        "caso": "En la tabla, los dos datos suben juntos. ¿Comer helado hace que la gente se ahogue?",
+        "titulo": "Caso 1 · La captura",
+        "caso": "Enfadada, una chica escribe en privado a una amiga: «Una compañera es una pesada». La amiga hace una captura y la sube al chat del equipo de balonmano.",
         "pasos": [
-         "¿A causa B? No: nadie se ahoga por comer un helado.",
-         "¿B causa A? Tampoco: ahogarse no hace vender helados.",
-         "Tercera causa: el calor. Con calor se comen más helados y más gente se baña.",
-         "Conclusión: hay correlación, pero ninguno causa el otro. La causa común es el calor del verano."
+         "La chica escribió en caliente (sesión 38), pero en privado.",
+         "La amiga ha roto la privacidad de la chica: el mensaje era para ella sola.",
+         "Ahora lo lee toda la clase, incluida la compañera de la que hablaba. Sin cara, sin tono y guardado: el conflicto crece.",
+         "Conclusión: quien reenvía también es responsable. Reenviar no es neutral."
         ]
        },
        {
         "tipo": "caso",
-        "titulo": "Caso 2 · Móvil y notas",
-        "caso": "Un estudio (inventado) encuentra que los alumnos que usan más el móvil por la noche sacan peores notas.",
+        "titulo": "Caso 2 · La cuenta sin nombre",
+        "caso": "Una cuenta sin foto ni nombre comenta cada foto de un chico: «Qué pintas», «Nadie te aguanta». Lleva así tres semanas.",
         "pasos": [
-         "¿El móvil causa las malas notas? Es posible: quita horas de sueño.",
-         "¿Al revés? Quien va mal en clase quizá se refugia en el móvil.",
-         "¿Tercera causa? Estrés o problemas en casa podrían producir las dos cosas.",
-         "Conclusión: la correlación es una pista. Para saber la causa hacen falta más estudios."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · Pura casualidad",
-        "caso": "La web de Tyler Vigen encontró que en EE. UU., entre 1999 y 2009, los ahogados en piscinas subían y bajaban igual que las películas de Nicolas Cage.",
-        "pasos": [
-         "¿Las películas de Nicolas Cage ahogan a la gente? Claro que no.",
-         "¿Hay una tercera causa? No se ve ninguna.",
-         "Si comparas miles de datos, algunos coinciden por casualidad.",
-         "Conclusión: dos líneas que se mueven juntas pueden no tener nada que ver."
+         "¿Intención de hacer daño? Sí: los comentarios buscan humillar.",
+         "¿Repetición? Sí: tres semanas. ¿Desequilibrio? Sí: el chico no sabe quién es.",
+         "Es ciberacoso. Ese chico no debe contestar en caliente: guarda capturas, bloquea y lo denuncia.",
+         "Conclusión: el ciberacoso no se aguanta solo. Hay que contárselo a un adulto de confianza."
         ]
        },
        {
         "tipo": "trampa",
-        "titulo": "Tabaco y cáncer",
-        "caso": "Los fumadores tienen muchos más casos de cáncer de pulmón que quienes no fuman. Alguien dice: «Correlación no es causa. No está demostrado».",
+        "titulo": "«Solo era una broma»",
+        "caso": "Un chico graba a otro fallando un tiro en el partido, le pone música graciosa y lo sube. Muchos se ríen. El primero dice: «Solo era una broma».",
         "pasos": [
-         "Es verdad que una correlación sola no basta. Pero aquí no está sola.",
-         "Los científicos descartaron otras causas (edad, trabajo…). Y cuanto más fumas, más riesgo; si lo dejas, baja.",
-         "Además, saben cómo pasa: el humo tiene sustancias que dañan las células del pulmón.",
-         "Conclusión: la correlación sí prueba una causa cuando se **descartan** las otras explicaciones. La frase no es un comodín."
+         "Parece que no: no quería hacer daño y la gente se ríe.",
+         "Pero ¿se ríe el otro? ¿Dio permiso? Su imagen es suya.",
+         "Una broma lo es si se ríen todos, también quien sale. Si no, es reírse de alguien.",
+         "Conclusión: la intención no borra el daño. Sin permiso, subir el vídeo no respeta al otro."
         ],
-        "pregunta": "¿Tiene razón? ¿No sabemos si el tabaco causa cáncer?"
+        "pregunta": "Si lo hizo de broma, ¿no pasa nada?"
+       }
+      ]
+     },
+     {
+      "titulo": "Si te pasa o lo ves",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Qué hacer ante un conflicto en las redes",
+        "puntos": [
+         "**No contestar en caliente:** nombrar, esperar y preguntar.",
+         "**No reenviar:** si no lo difundes, dejas de hacerlo crecer.",
+         "**Guardar pruebas,** bloquear y denunciar en la propia aplicación.",
+         "**Contarlo** a un adulto de confianza. También existe el teléfono **017** (INCIBE), gratuito."
+        ]
        }
       ]
      }
     ],
     "resumen": [
-     "Hay correlación cuando dos datos cambian juntos.",
-     "Una correlación sola no prueba la causa: puede ser al revés, una tercera causa o casualidad.",
-     "Si se descartan las otras explicaciones, la correlación sí puede probar una causa."
+     "En las redes los conflictos crecen: sin cara, anonimato, todo queda guardado y lo ve mucha gente.",
+     "El ciberacoso es hacer daño a propósito y de forma repetida con la tecnología.",
+     "Tu imagen y tus mensajes privados son tuyos; los de los demás, también."
     ],
     "hoja": [
      {
@@ -6638,13 +6656,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "Explica con tus palabras qué es una correlación."
+        "pregunta": "¿Qué es el ciberacoso? Escribe sus tres rasgos."
        },
        {
-        "pregunta": "Pon un ejemplo de dos cosas que suben juntas por una tercera causa."
+        "pregunta": "Escribe un ejemplo de algo que no respeta el derecho a la propia imagen."
        },
        {
-        "pregunta": "Un chico lee: «Los niños con los pies más grandes leen mejor». ¿Leer hace crecer los pies? ¿Cuál es la tercera causa?"
+        "pregunta": "Un chico recibe en el grupo una foto de una compañera dormida en el autobús con un texto de burla. Solo la reenvía a su cuadrilla. ¿Tiene alguna responsabilidad? ¿Por qué?"
        }
       ]
      },
@@ -6653,7 +6671,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 38) ¿Por qué hay que mirar dónde empieza el eje de un gráfico?"
+        "pregunta": "(Repaso de la sesión 38) ¿Qué tres pasos conviene dar cuando una emoción es muy fuerte, antes de decidir?"
        }
       ]
      },
@@ -6662,7 +6680,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Una noticia dice: «Las ciudades con más bibliotecas tienen más robos. ¡Las bibliotecas atraen a los ladrones!». ¿Qué otra explicación darías?"
+        "pregunta": "Circula una captura de un chat en la que un chico parece insultar a otro. El primero dice que está recortada. El segundo está furioso y quiere contestar ya en el grupo. ¿Qué le aconsejarías y por qué?"
        }
       ]
      }
@@ -6670,61 +6688,188 @@ const CURSO = [
    },
    {
     "n": 41,
-    "titulo": "Medias y anécdotas",
-    "idea": "La media resume, pero puede esconder diferencias (la mediana ayuda); una anécdota no prueba una regla general, aunque puede tumbar un «siempre».",
+    "titulo": "¿Qué es un dilema ético?",
+    "idea": "Un dilema ético es un problema con buenas razones para dos respuestas, porque chocan dos valores. Difícil no quiere decir que todo valga.",
     "arranque": {
-     "texto": "«En esta empresa el sueldo medio es de 5.000 € al mes.» Trabajan un jefe y cuatro empleados. (Ejemplo inventado.)",
-     "pregunta": "¿Cuánto crees que cobran los empleados?"
+     "texto": "Una chica ve que su mejor amiga copia en un examen. Al día siguiente, la profesora le pregunta si vio algo.",
+     "pregunta": "¿Qué debería hacer? ¿Por qué cuesta tanto decidir?"
     },
     "bloques": [
      {
-      "titulo": "La media y la anécdota",
+      "titulo": "Qué es un dilema",
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "Media",
-        "texto": "La media se calcula sumando todos los datos y dividiendo entre cuántos datos hay.",
+        "titulo": "Valor",
+        "texto": "Un **valor** es algo que consideramos importante y que guía lo que hacemos.",
         "puntos": [
-         "Notas 4, 6 y 8 → (4+6+8) : 3 = 6",
-         "Resume muchos datos en un solo número",
-         "Pero **esconde** cómo son los datos por dentro",
-         "La **mediana** es el dato del medio, ordenados de menor a mayor"
+         "Ejemplos: sinceridad, lealtad, justicia, cuidar a otros",
+         "No es un gusto: no habla solo de mí",
+         "Casi todos compartimos muchos valores"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Dilema ético",
+        "texto": "Un problema sobre qué está **bien** hacer en el que hay **buenas razones** para dos respuestas.",
+        "puntos": [
+         "Aparece cuando dos **valores** chocan",
+         "Decidas lo que decidas, algo se pierde",
+         "Por eso cuesta: no es una pregunta de examen con solución fácil"
         ]
        },
        {
         "tipo": "tabla",
-        "titulo": "Dos institutos con media 5 (ejemplo inventado)",
+        "titulo": "Valores que suelen chocar",
         "cabecera": [
-         "Instituto",
-         "Notas",
-         "Media"
+         "Choque",
+         "Ejemplo"
         ],
         "filas": [
          [
-          "Instituto A",
-          "5, 5, 5, 5",
-          "5"
+          "**Lealtad** y **justicia**",
+          "Callar lo que hizo mi amiga o ser justo con los demás"
          ],
          [
-          "Instituto B",
-          "0, 0, 10, 10",
-          "5"
+          "**Sinceridad** y **no hacer daño**",
+          "Decir lo que pienso de un dibujo o no herir a su autor"
          ],
          [
-          "¿Iguales?",
-          "A: todos aprueban justo. B: la mitad suspende",
-          "Misma media, institutos muy distintos"
+          "**Libertad** y **seguridad**",
+          "Volver tarde de una fiesta o que mi familia esté tranquila"
          ]
         ]
        },
        {
-        "tipo": "concepto",
-        "titulo": "Anécdota",
-        "texto": "Una anécdota es un caso suelto que alguien cuenta. Puede ser verdad, pero no dice cómo es la mayoría.",
+        "tipo": "contraste",
+        "titulo": "¿Es un dilema?",
+        "izq": {
+         "titulo": "No es un dilema",
+         "puntos": [
+          "Elegir entre dos **gustos**: pizza o hamburguesa",
+          "Saber qué está bien y no apetecer hacerlo",
+          "Una opción claramente injusta contra otra justa"
+         ]
+        },
+        "der": {
+         "titulo": "Sí es un dilema",
+         "puntos": [
+          "Las dos opciones tienen buenas razones",
+          "Chocan dos valores importantes",
+          "Hay que pensar qué pesa más"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La amiga que copia",
+        "caso": "Una chica vio a su mejor amiga copiar en un examen. La profesora le pregunta si vio algo. (Ejemplo inventado.)",
+        "pasos": [
+         "¿Qué valores chocan? La **lealtad** con su amiga y la **justicia** con quienes estudiaron.",
+         "Razones para callar: es su amiga, no quiere hacerle daño ni que la vean como chivata.",
+         "Razones para contarlo: no es justo para los demás, y mentir a la profesora también cuesta.",
+         "Conclusión: hay buenas razones en los dos lados. Por eso es un dilema y no un capricho."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "¿Cada uno lo suyo?",
+        "caso": "Un chico dice: «En un dilema no hay respuesta mejor ni peor. Cada uno piensa lo que quiere, como con los gustos».",
+        "pasos": [
+         "Parece que sí: los dos lados tienen razones.",
+         "Pero un dilema no es un gusto: es una opinión sobre qué está bien, y se discute con **razones** (sesión 2).",
+         "Unas razones pesan más que otras, y algunas son malas: «callo para que luego me deje copiar a mí».",
+         "Conclusión: que sea difícil no quiere decir que todo valga. Se comparan las razones."
+        ],
+        "pregunta": "Si hay razones para las dos respuestas, ¿da igual lo que elijas?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Un dilema ético es un problema con buenas razones para dos respuestas.",
+     "Aparece cuando chocan dos valores, como la lealtad y la justicia.",
+     "Que sea difícil no quiere decir que todo valga: se comparan las razones."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es un dilema ético? ¿Qué tienen que ver los valores?"
+       },
+       {
+        "pregunta": "¿Es un dilema? a) «¿Pido pizza o hamburguesa?». b) «Mi amigo me pide que le cubra una mentira ante sus padres». c) «Se le caen 20 € a alguien delante de mí: ¿se los devuelvo?»."
+       },
+       {
+        "pregunta": "Inventa un dilema (con personajes inventados) y escribe qué dos valores chocan."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 40) ¿Por qué un conflicto crece más en las redes que cara a cara? Da dos razones."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un chico encuentra en el patio el móvil de otro con el que se lleva fatal. Piensa: «Que lo busque. Se lo merece». ¿Es un dilema? ¿Por qué?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 42,
+    "titulo": "Pensar un dilema paso a paso",
+    "idea": "Para pensar un dilema: ver qué valores chocan, buscar más salidas, mirar las consecuencias y preguntarse si aceptaría que todos hicieran lo mismo.",
+    "arranque": {
+     "texto": "Un chico le cuenta un secreto a su mejor amigo y le hace prometer que no se lo dirá a nadie. Después, el amigo se da cuenta de que puede estar en peligro.",
+     "pregunta": "¿Una promesa hay que cumplirla siempre? ¿Qué necesitarías saber para decidir?"
+    },
+    "bloques": [
+     {
+      "titulo": "Cuatro preguntas",
+      "diapositivas": [
+       {
+        "tipo": "lista",
+        "titulo": "Cuatro preguntas para pensar un dilema",
         "puntos": [
-         "«Mi abuelo fumó toda la vida y vivió 95 años»",
-         "Un caso suelto **no dice** cómo es la mayoría",
-         "Los datos salen de **muchos** casos contados bien"
+         "1 · ¿Qué **valores** chocan?",
+         "2 · ¿Hay más **salidas** que las dos primeras?",
+         "3 · ¿Qué **consecuencias** tiene cada opción, y para quién?",
+         "4 · ¿Aceptaría que **todos** hicieran lo mismo en mi lugar?"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Buscar más salidas",
+        "texto": "Muchos dilemas parecen de dos opciones, pero hay **más salidas**. Si las olvidamos, caemos en un falso dilema (sesión 26).",
+        "puntos": [
+         "Ejemplo: ni chivarse ni callar, sino hablar antes con la amiga",
+         "Una salida nueva puede salvar los dos valores"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "¿Y si todos lo hicieran?",
+        "texto": "Una buena razón vale también si yo estuviera en el **lugar** del otro.",
+        "puntos": [
+         "Pregunta: ¿y si me lo hicieran a mí?",
+         "Si una razón solo vale cuando me conviene, es una **excusa**"
         ]
        }
       ]
@@ -6734,81 +6879,34 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso 1 · El sueldo del principio",
-        "caso": "Empresa inventada: el jefe cobra 20.000 € al mes y cada uno de los cuatro empleados, 1.250 €.",
+        "titulo": "Caso 1 · La promesa",
+        "caso": "Un chico le cuenta a su mejor amigo que lleva semanas sin comer casi nada para adelgazar. Le hace prometer que no se lo dirá a nadie. (Ejemplo inventado.)",
         "pasos": [
-         "Sumo y divido: 20.000 + 4 × 1.250 = 25.000 €; 25.000 : 5 = 5.000 €. La media es verdad.",
-         "Pero ningún empleado cobra 5.000 €: el sueldo del jefe tira de la media hacia arriba.",
-         "Ordeno: 1.250, 1.250, **1.250**, 1.250, 20.000. La mediana, el dato del medio, es 1.250 €.",
-         "Conclusión: un dato muy grande deforma la media. Aquí la mediana dice mejor lo que cobra la mayoría."
+         "Valores: la **lealtad** (cumplir la promesa) y **cuidar** al amigo.",
+         "Más salidas: hablar primero con él y proponerle ir juntos a contárselo a un adulto de confianza.",
+         "Consecuencias: callar puede dañar su salud; contarlo puede enfadarle un tiempo.",
+         "Conclusión: si hay un peligro serio, cuidar pesa más que la promesa. Contarlo a un adulto no es traicionar."
         ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · El abuelo fumador",
-        "caso": "Un chico: «Fumar no es tan malo. Mi abuelo fumó toda la vida y vivió 95 años».",
-        "pasos": [
-         "¿Es verdad lo del abuelo? Puede que sí.",
-         "¿Es suficiente? No: es un caso entre millones de fumadores.",
-         "Los datos no dicen que «todos» los fumadores mueren jóvenes: dicen que, de media, viven bastantes años menos.",
-         "Conclusión: el abuelo solo tumbaría «todos los fumadores mueren jóvenes», y los datos no dicen eso. Una anécdota no los tumba."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 3 · Un gol por partido",
-        "caso": "El entrenador del equipo del barrio: «Un chico marca de media un gol por partido». Han jugado 10 partidos. (Ejemplo inventado.)",
-        "pasos": [
-         "¿Marca en cada partido? No lo sé: la media no lo dice.",
-         "Puede que marcara 10 goles en un partido y 0 en los otros nueve.",
-         "10 goles : 10 partidos = 1 de media, igual que marcando uno cada día.",
-         "Conclusión: la misma media puede esconder situaciones muy distintas."
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Error típico y caso trampa",
-      "diapositivas": [
-       {
-        "tipo": "contraste",
-        "titulo": "¿Qué sirve como prueba?",
-        "izq": {
-         "titulo": "Solo, no basta como prueba",
-         "puntos": [
-          "«A mi primo le funcionó»",
-          "«Conozco a uno que…»",
-          "Un vídeo viral de un solo caso"
-         ]
-        },
-        "der": {
-         "titulo": "Pruebas más fuertes",
-         "puntos": [
-          "Muchos casos contados bien",
-          "Comparar con un grupo que no lo hizo",
-          "Varios estudios que coinciden"
-         ]
-        }
        },
        {
         "tipo": "trampa",
-        "titulo": "El casco que «nunca» falla",
-        "caso": "Anuncio (inventado): «Con nuestro casco, nunca te harás una herida en la cabeza». Un chico se cayó con ese casco puesto y se hizo una herida.",
+        "titulo": "La razón que solo vale para mí",
+        "caso": "Un chico recibe 10 € de más en el cambio de un supermercado. Se los queda: «Es una empresa enorme, no le hago daño a nadie».",
         "pasos": [
-         "Para saber cómo es la mayoría, un caso no basta.",
-         "Pero el anuncio dice «nunca». Para tumbar un «nunca», basta un **contraejemplo**: un caso que dice lo contrario.",
-         "Si lo del chico es verdad, el anuncio es falso, aunque el casco proteja mucho.",
-         "Conclusión: una anécdota no prueba una regla general, pero sí puede tumbar un «nunca» o un «siempre»."
+         "Parece una razón: la empresa es grande y no lo notará.",
+         "Pregunta 4: ¿aceptaría él que alguien se quedara 10 € de una tienda suya? No.",
+         "Además, el dinero puede faltarle a quien estaba en la caja al cerrar.",
+         "Conclusión: una razón que solo vale cuando me conviene es una excusa. No había dilema: había ganas de quedárselo."
         ],
-        "pregunta": "Es solo una anécdota. ¿Entonces no sirve para nada?"
+        "pregunta": "Da una razón… ¿entonces es un dilema bien resuelto?"
        }
       ]
      }
     ],
     "resumen": [
-     "La media suma y divide; la mediana es el dato del medio.",
-     "La media resume, pero esconde: un dato muy grande o muy pequeño la deforma.",
-     "Una anécdota no prueba cómo es la mayoría, pero sí puede tumbar un «nunca»."
+     "Para pensar un dilema: qué valores chocan, qué otras salidas hay y qué consecuencias tiene cada una.",
+     "Una buena razón valdría también si yo estuviera en el lugar del otro.",
+     "Si hay un peligro serio, contarlo a un adulto no es traicionar."
     ],
     "hoja": [
      {
@@ -6816,13 +6914,13 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "¿Qué es una anécdota?"
+        "pregunta": "Escribe las cuatro preguntas para pensar un dilema."
        },
        {
-        "pregunta": "Pon un ejemplo de anécdota que alguien usa como si fuera una prueba."
+        "pregunta": "Una chica ve que su prima ha cogido dinero del monedero de su madre. La prima le dice: «O te callas o no te vuelvo a hablar». ¿Hay solo dos salidas? Escribe una más."
        },
        {
-        "pregunta": "Una chica dice: «En mi calle la edad media es 40 años, así que casi todos tienen unos 40». En su calle viven 5 niños de 10 años y 5 personas de 70. ¿Tiene razón?"
+        "pregunta": "Un chico se cuela en la fila del comedor: «Es que tengo prisa». Usa la pregunta 4. ¿Es una razón o una excusa?"
        }
       ]
      },
@@ -6831,7 +6929,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 39) ¿Qué preguntas le haces a una encuesta para saber si es fiable?"
+        "pregunta": "(Repaso de la sesión 41) ¿Qué es un dilema ético? Pon un ejemplo y di qué valores chocan."
        }
       ]
      },
@@ -6840,146 +6938,106 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Dos frases inventadas. Un chico lee en un foro: «Probé la crema X una semana y se me quitaron los granos. ¡Funciona!». Una web dice: «Los youtubers ganan de media 3.000 € al mes». ¿Qué problema tiene cada una?"
+        "pregunta": "Un chico ha prometido a su hermano pequeño no contar que rompió la tablet de casa. Ahora su madre va a castigar a otro hermano, que no ha sido. Usa las cuatro preguntas para decidir qué debería hacer."
        }
       ]
      }
     ]
    },
    {
-    "n": 42,
+    "n": 43,
     "titulo": "Repaso y examen de la unidad 7",
-    "idea": "Repasamos cómo engañan los números: porcentajes, gráficos, encuestas, correlaciones, medias y anécdotas.",
+    "idea": "Repasamos la unidad: para qué sirven las emociones, cómo afrontar un conflicto, los conflictos en las redes y cómo pensar un dilema ético.",
     "arranque": {
-     "texto": "Un anuncio (inventado): «¡El 80 % duerme mejor con la almohada Nube!». En letra pequeña: «Encuesta a 10 clientes». Y un gráfico con el eje cortado.",
-     "pregunta": "¿Cuántos trucos de la unidad encuentras?"
+     "texto": "En esta unidad has visto que sentir, chocar con otros y dudar sobre qué está bien es normal. Lo importante es qué hacemos con ello.",
+     "pregunta": "¿Qué idea de la unidad te ha servido ya fuera de clase?"
     },
     "bloques": [
      {
-      "titulo": "Repaso de la unidad 7",
+      "titulo": "Repaso de la unidad",
       "diapositivas": [
        {
-        "tipo": "tabla",
-        "titulo": "Porcentajes y cifras (sesión 37)",
-        "cabecera": [
-         "Idea",
-         "Qué preguntar"
-        ],
-        "filas": [
-         [
-          "Porcentaje = cuántos de cada 100",
-          "¿Porcentaje de qué?"
-         ],
-         [
-          "«El doble» de casi nada",
-          "¿De cuántos se parte?"
-         ],
-         [
-          "Cifra absoluta y cifra relativa",
-          "¿Cuántos eran en total?"
-         ],
-         [
-          "Puntos y por ciento",
-          "¿Es la resta o la proporción?"
-         ]
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Gráficos engañosos (sesión 38)",
-        "puntos": [
-         "**Eje cortado en barras:** exagera las diferencias (en temperaturas puede estar bien)",
-         "**Escala y dibujos:** estiran o agrandan la impresión",
-         "**Colores:** el rojo asusta aunque el dato sea pequeño",
-         "**Fechas recortadas:** enseñan solo lo que conviene"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Encuestas y muestras (sesión 39)",
-        "cabecera": [
-         "Pregunta",
-         "Qué buscar"
-        ],
-        "filas": [
-         [
-          "¿A cuántos?",
-          "Bastantes personas, no 5 ni 10"
-         ],
-         [
-          "¿A quiénes?",
-          "Parecidos a la población, al azar (lo más importante)"
-         ],
-         [
-          "¿Cómo se preguntó?",
-          "Una pregunta neutral, que no empuje"
-         ]
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Correlación y causa (sesión 40)",
-        "texto": "Si dos datos suben juntos, puede ser que…",
-        "puntos": [
-         "A cause B (se sabe si se descartan las demás)",
-         "B cause A",
-         "Una tercera causa produzca los dos",
-         "Sea pura casualidad"
-        ]
-       },
-       {
         "tipo": "contraste",
-        "titulo": "Medias y anécdotas (sesión 41)",
+        "titulo": "Sesión 38 · Las emociones informan, no mandan",
         "izq": {
-         "titulo": "No es suficiente",
+         "titulo": "No es así",
          "puntos": [
-          "Una media sola, sin ver los datos",
-          "Una anécdota como prueba de lo que pasa en general"
+          "«Hay emociones buenas y malas»",
+          "«Si lo siento, tengo que hacerlo»"
          ]
         },
         "der": {
-         "titulo": "Sí ayuda",
+         "titulo": "Así sí",
          "puntos": [
-          "Mirar los datos por dentro y la mediana",
-          "Muchos casos contados bien"
+          "Son agradables o desagradables, e **informan**",
+          "En caliente: nombrar, **esperar** y preguntar"
          ]
         }
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Sesión 39 · El conflicto no es una pelea",
+        "texto": "Un **conflicto** es un choque de intereses o necesidades. Es normal; la pelea es una mala forma de afrontarlo.",
+        "puntos": [
+         "Cinco actitudes: evitar, ceder, competir, pactar y colaborar",
+         "La **postura** es lo que pido; el **interés**, lo que necesito"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Sesión 40 · Conflictos en las redes",
+        "texto": "En las redes los conflictos crecen: sin cara, con anonimato, todo queda guardado y lo ve mucha gente.",
+        "puntos": [
+         "Ciberacoso: hacer daño a propósito y de forma repetida",
+         "Quien reenvía un mensaje dañino también es responsable"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Sesiones 41 y 42 · Dilemas éticos",
+        "texto": "Un dilema tiene buenas razones para dos respuestas porque chocan dos **valores**.",
+        "puntos": [
+         "¿Qué valores chocan?",
+         "¿Hay más salidas?",
+         "¿Qué consecuencias tiene cada opción?",
+         "¿Aceptaría que todos hicieran lo mismo?"
+        ]
        }
       ]
      },
      {
-      "titulo": "Un caso que lo mezcla todo",
+      "titulo": "Un caso con todo",
       "diapositivas": [
        {
         "tipo": "caso",
-        "titulo": "Caso · La almohada Nube",
-        "caso": "Anuncio inventado: «¡El 80 % duerme mejor con la almohada Nube!». En letra pequeña: «Encuesta a 10 clientes». El gráfico tiene el eje de 70 a 80.",
+        "titulo": "El comentario en caliente",
+        "caso": "Una cuenta muy seguida se burla del equipo de fútbol de una chica. Le da rabia y está a punto de contestar con un insulto, como ya hacen cientos. (Ejemplo inventado.)",
         "pasos": [
-         "Porcentaje: el 80 % de 10 son solo 8 personas.",
-         "Muestra: 10 clientes que ya compraron la almohada. Pequeña y sesgada.",
-         "Gráfico: son barras y el eje empieza en 70, así que cualquier diferencia parece enorme.",
-         "Conclusión: tres trucos de números en un solo anuncio. Todavía no me convence."
+         "Emoción: rabia. Informa de que algo le importa, pero no manda: mejor esperar antes de escribir.",
+         "¿Dilema? Defender a su equipo y no hacer daño pueden ir juntos: insultar no es una buena razón.",
+         "Redes: el comentario queda guardado y lo ve mucha gente. Sumarse a una ola de insultos también es responsabilidad suya.",
+         "Conclusión: no insulta. Si quiere responder, que sea en frío y con razones."
         ]
        },
        {
         "tipo": "trampa",
-        "titulo": "«Solo» 1 de cada 1.000",
-        "caso": "Una vacuna baja las muertes por una enfermedad de 2 de cada 1.000 a 1 de cada 1.000. Alguien dice: «Solo 1 de cada 1.000: casi nada». (Ejemplo inventado.)",
+        "titulo": "Colaborar siempre",
+        "caso": "Un chico dice: «Ante cualquier conflicto, lo mejor es colaborar. Las otras actitudes siempre son peores».",
         "pasos": [
-         "En cifra absoluta, 1 de cada 1.000 parece poco.",
-         "Pero si se vacuna un millón de personas, son 1.000 muertes menos.",
-         "«Casi nada» también puede engañar: depende de cuántas personas y de lo grave que sea.",
-         "Conclusión: una cifra pequeña no siempre es poco importante. Pregunto de cuántos y qué está en juego."
+         "Parece que sí: colaborar busca una salida buena para los dos.",
+         "Pero colaborar lleva tiempo y ganas por las dos partes.",
+         "Si importa poco, ceder o pactar puede ir mejor. Ante el acoso no se colabora: se pide ayuda.",
+         "Conclusión: ninguna actitud vale siempre. Depende de cuánto le importa a cada uno y de si hay respeto."
         ],
-        "pregunta": "¿Es una mejora tan pequeña que no importa?"
+        "pregunta": "Colaborar suena a lo mejor… ¿vale siempre?"
        }
       ]
      }
     ],
     "resumen": [
-     "Ante un porcentaje, pregunta siempre «¿de cuántos?» y «¿de qué?».",
-     "Mira dónde empieza el eje del gráfico y a quién preguntó la encuesta.",
-     "Correlación no es causa, la media esconde y una anécdota no es un dato."
+     "Las emociones informan, pero no mandan: en caliente, mejor esperar.",
+     "Un conflicto es un choque de intereses; ayuda separar lo que pido de lo que necesito.",
+     "En un dilema chocan dos valores: se piensa con valores, salidas, consecuencias y «¿y si todos?»."
     ],
     "hoja": [
      {
@@ -6987,22 +7045,22 @@ const CURSO = [
       "puntos": 6,
       "items": [
        {
-        "pregunta": "En el instituto A suspenden 10 de 50 alumnos; en el B, 10 de 20. ¿Dónde suspenden más, en proporción? Calcula los porcentajes."
+        "pregunta": "¿Hay emociones buenas y malas? Explícalo."
        },
        {
-        "pregunta": "¿Qué quiere decir «el doble de casi nada sigue siendo casi nada»? Pon un ejemplo."
+        "pregunta": "¿Qué tres pasos conviene dar cuando una emoción es muy fuerte?"
        },
        {
-        "pregunta": "¿Qué es un eje cortado y qué efecto tiene en un gráfico de barras?"
+        "pregunta": "Escribe las cinco actitudes ante un conflicto."
        },
        {
-        "pregunta": "Para saber qué música escucha el alumnado del instituto, una chica pregunta solo a los que tocan en la banda del barrio. ¿Qué problema tiene su muestra?"
+        "pregunta": "Dos hermanos quieren el ordenador a la vez. Uno dice: «Lo quiero ahora». ¿Cuál es su postura? Inventa cuál podría ser su interés."
        },
        {
-        "pregunta": "Los días que se venden más ventiladores hay más quemaduras de sol. ¿Los ventiladores queman? ¿Cuál es la tercera causa?"
+        "pregunta": "¿Qué es el ciberacoso? ¿Qué se hace si lo ves?"
        },
        {
-        "pregunta": "¿Por qué una anécdota no sirve como prueba de lo que pasa en general?"
+        "pregunta": "¿Qué es un dilema ético? Escribe las cuatro preguntas para pensarlo."
        }
       ]
      },
@@ -7011,10 +7069,10 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la unidad 6) Escribe dos preguntas para saber si una fuente es fiable."
+        "pregunta": "(Repaso de la sesión 4) ¿Qué diferencia hay entre convencer y manipular?"
        },
        {
-        "pregunta": "(Repaso de la unidad 4) ¿Qué es la falacia de causa falsa?"
+        "pregunta": "(Repaso de la sesión 26) ¿Qué es un falso dilema? ¿Qué tiene que ver con los dilemas éticos?"
        }
       ]
      },
@@ -7023,7 +7081,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "Un vídeo (inventado) dice: «En una encuesta en nuestro canal, el 90 % de los que juegan más de 3 horas al día aprueba inglés. ¡Jugar te hace bilingüe!». Analízalo con al menos dos ideas de la unidad."
+        "pregunta": "Un chico ha prometido a un amigo no contar que este compró un pase de un videojuego con la tarjeta de su madre, sin permiso. La madre ha visto el cargo, cree que es un fraude de internet y va a denunciarlo al banco. Analiza el caso con lo que has aprendido en la unidad. ¿Qué debería hacer el chico?"
        }
       ]
      }
@@ -7038,7 +7096,7 @@ const CURSO = [
   "trimestre": "3.er trimestre · Decidir",
   "sesiones": [
    {
-    "n": 43,
+    "n": 44,
     "titulo": "¿Qué es un sesgo cognitivo?",
     "idea": "Un sesgo cognitivo es un error que se repite de forma predecible. Suele venir de atajos mentales que casi siempre nos ayudan.",
     "arranque": {
@@ -7184,7 +7242,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 40) ¿Qué quiere decir «correlación no es causa»?"
+        "pregunta": "(Repaso de la sesión 42) ¿Qué cuatro preguntas ayudan a pensar un dilema ético?"
        }
       ]
      },
@@ -7200,7 +7258,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 44,
+    "n": 45,
     "titulo": "Sesgo de confirmación",
     "idea": "El sesgo de confirmación es buscar, recordar y creer solo lo que nos da la razón, y olvidar lo que nos la quita.",
     "arranque": {
@@ -7284,7 +7342,7 @@ const CURSO = [
          "Mucha gente prueba 8-10-12, 20-22-24… Todas cumplen. «¡La regla es sumar 2!».",
          "Pero la regla era más sencilla: «tres números que van subiendo».",
          "Pocos probaron series que pudieran fallar, como 6-4-2 o 1-5-100.",
-         "Conclusión: buscamos ejemplos que confirman nuestra idea. Es mejor buscar contraejemplos, como en la sesión 11."
+         "Conclusión: buscamos ejemplos que confirman nuestra idea. Es mejor buscar contraejemplos, como en la sesión 17."
         ]
        },
        {
@@ -7343,7 +7401,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 41) ¿Por qué «mi abuelo fumó y vivió 95 años» no demuestra que fumar no sea malo?"
+        "pregunta": "(Repaso de la sesión 28) ¿Por qué «después de» no es lo mismo que «por culpa de»? Pon un ejemplo."
        }
       ]
      },
@@ -7359,7 +7417,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 45,
+    "n": 46,
     "titulo": "Efecto halo y primeras impresiones",
     "idea": "El efecto halo es juzgar a una persona entera por un solo rasgo, como su aspecto, su fama o una primera impresión.",
     "arranque": {
@@ -7388,7 +7446,7 @@ const CURSO = [
         "puntos": [
          "Basta ver una cara un instante para juzgar si parece de fiar",
          "Esa primera idea suele costar cambiarla",
-         "Luego buscamos pruebas que la confirmen (sesión 44)",
+         "Luego buscamos pruebas que la confirmen (sesión 45)",
          "Pero una cara o una ropa dicen muy poco de cómo es alguien"
         ]
        },
@@ -7436,7 +7494,7 @@ const CURSO = [
          "¿Qué rasgo veo? Que juega muy bien al fútbol.",
          "¿Qué deduzco? Que sabe de champús. No tiene nada que ver.",
          "Es el efecto halo, y la marca lo sabe: por eso le paga.",
-         "Conclusión: ser bueno en una cosa no te hace experto en otra. Lo vimos en la sesión 27."
+         "Conclusión: ser bueno en una cosa no te hace experto en otra. Lo vimos en la sesión 8."
         ]
        },
        {
@@ -7456,7 +7514,7 @@ const CURSO = [
         "caso": "El primer día de campamento, un chico no saludó a nadie. Algunos decidieron: «Es un borde». En realidad, estaba nervioso.",
         "pasos": [
          "La primera impresión se formó en un momento.",
-         "Después, todo lo que hacía ese chico parecía confirmarla (sesión 44).",
+         "Después, todo lo que hacía ese chico parecía confirmarla (sesión 45).",
          "Nadie pensó en otras explicaciones: nervios, timidez, un mal día.",
          "Conclusión: una primera impresión es una suposición, no un juicio final. Dale tiempo a la persona."
         ]
@@ -7502,7 +7560,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 43) ¿Qué es un atajo mental? ¿Es siempre malo?"
+        "pregunta": "(Repaso de la sesión 44) ¿Qué es un atajo mental? ¿Es siempre malo?"
        }
       ]
      },
@@ -7518,7 +7576,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 46,
+    "n": 47,
     "titulo": "Anclaje y encuadre",
     "idea": "El primer número que oímos (anclaje) y la forma de decir algo (encuadre) cambian nuestra decisión, aunque los datos sean los mismos.",
     "arranque": {
@@ -7655,7 +7713,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 41) Calcula la media de 2, 4 y 9. ¿Alguno de los tres números vale lo mismo que la media?"
+        "pregunta": "(Repaso de la sesión 45) ¿Qué es el sesgo de confirmación? Pon un ejemplo."
        }
       ]
      },
@@ -7671,7 +7729,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 47,
+    "n": 48,
     "titulo": "Exceso de confianza",
     "idea": "El exceso de confianza es creer que sabemos o hacemos algo mejor de lo que de verdad lo sabemos o lo hacemos.",
     "arranque": {
@@ -7687,7 +7745,7 @@ const CURSO = [
         "titulo": "Exceso de confianza",
         "texto": "Es estar más seguro de lo que sabemos, o de lo bien que lo hacemos, de lo que dicen las pruebas.",
         "puntos": [
-         "Sesión 3: sentirse seguro no es lo mismo que saber",
+         "Sesión 31: sentirse seguro no es lo mismo que saber",
          "Nos pasa a casi todos en algún tema",
          "Es más fácil verlo en los demás que en uno mismo"
         ]
@@ -7804,7 +7862,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 45) ¿Por qué el efecto halo hace que muchos anuncios usen famosos?"
+        "pregunta": "(Repaso de la sesión 46) ¿Por qué el efecto halo hace que muchos anuncios usen famosos?"
        }
       ]
      },
@@ -7820,7 +7878,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 48,
+    "n": 49,
     "titulo": "Repaso y examen de la unidad 8",
     "idea": "Repasamos los sesgos: atajos mentales, confirmación, efecto halo, anclaje, encuadre y exceso de confianza.",
     "arranque": {
@@ -7833,7 +7891,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "tabla",
-        "titulo": "Sesgo cognitivo (sesión 43)",
+        "titulo": "Sesgo cognitivo (sesión 44)",
         "cabecera": [
          "Idea",
          "En pocas palabras"
@@ -7855,7 +7913,7 @@ const CURSO = [
        },
        {
         "tipo": "lista",
-        "titulo": "Los cinco sesgos de la unidad (sesiones 44-47)",
+        "titulo": "Los cinco sesgos de la unidad (sesiones 45-48)",
         "puntos": [
          "**Confirmación:** buscar y recordar solo lo que me da la razón",
          "**Halo:** juzgar a alguien entero por un solo rasgo",
@@ -7961,10 +8019,10 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la unidad 7) Un gráfico tiene el eje vertical empezando en 95, no en 0. ¿Qué efecto tiene?"
+        "pregunta": "(Repaso de la unidad 7) En un conflicto, ¿qué diferencia hay entre la postura y el interés? Pon un ejemplo."
        },
        {
-        "pregunta": "(Repaso de la unidad 5) ¿Qué es la falacia de autoridad? Pon un ejemplo."
+        "pregunta": "(Repaso de la unidad 2) ¿Qué es la falacia de autoridad? Pon un ejemplo."
        }
       ]
      },
@@ -7987,161 +8045,6 @@ const CURSO = [
   "titulo": "Persuasión y manipulación",
   "trimestre": "3.er trimestre · Decidir",
   "sesiones": [
-   {
-    "n": 49,
-    "titulo": "Convencer y manipular",
-    "idea": "Convencer es darte razones para que decidas tú; manipular es esquivar tu juicio o esconderte información para que no pienses.",
-    "arranque": {
-     "texto": "Dos mensajes para vender la misma zapatilla. A: «Pesa 200 gramos y dura dos años». B: «Todos tus amigos ya la tienen. ¿Y tú?»",
-     "pregunta": "¿Cuál te da razones? ¿Cuál intenta que no pienses?"
-    },
-    "bloques": [
-     {
-      "titulo": "Convencer y manipular",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Persuadir",
-        "texto": "Persuadir es intentar que alguien crea o haga algo. Se puede hacer bien o mal.",
-        "puntos": [
-         "**Convencer:** dar razones que el otro puede examinar",
-         "**Manipular:** esquivar su juicio o esconderle información",
-         "La pregunta: ¿te dejan pensar y ver los datos?",
-         "Muchos mensajes mezclan las dos cosas: hay grises"
-        ]
-       },
-       {
-        "tipo": "contraste",
-        "titulo": "Manipular y convencer",
-        "izq": {
-         "titulo": "Manipular",
-         "puntos": [
-          "Esconde información",
-          "Mete prisa para que no pienses",
-          "Usa el miedo para que no pienses",
-          "Quiere que no preguntes"
-         ]
-        },
-        "der": {
-         "titulo": "Convencer",
-         "puntos": [
-          "Enseña los datos",
-          "Te deja tiempo para decidir",
-          "Da razones que puedes comprobar",
-          "Acepta tus preguntas"
-         ]
-        }
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Tres preguntas para detectar la manipulación",
-        "cabecera": [
-         "Pregunta",
-         "Si la respuesta es «sí»…"
-        ],
-        "filas": [
-         [
-          "¿Me meten **prisa**?",
-          "Quieren que decida antes de pensar"
-         ],
-         [
-          "¿Me **esconden** algo?",
-          "Quieren que no compare"
-         ],
-         [
-          "¿Solo me **emocionan**?",
-          "Quieren que la emoción ocupe el lugar de las razones (sesión 16)"
-         ]
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · El móvil de un chico",
-        "caso": "Un chico quiere un móvil nuevo. Le dice a su padre: «El mío tiene 5 años, la batería dura 2 horas y arreglarla cuesta casi lo mismo».",
-        "pasos": [
-         "¿Qué quiere el chico? Que su padre le compre un móvil.",
-         "¿Cómo lo intenta? Con datos: la edad del móvil, la batería, el precio del arreglo.",
-         "¿Puede su padre comprobarlo? Sí: puede mirar la batería y pedir presupuesto.",
-         "Conclusión: el chico intenta convencer. Da razones y deja pensar a su padre."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · Una oferta en una app",
-        "caso": "«¡Última oportunidad! 9 personas están viendo esta oferta. Termina en 04:59.» No dice el precio normal ni qué pasa si esperas.",
-        "pasos": [
-         "¿Qué quieren? Que compre ya.",
-         "¿Cómo lo intentan? Con prisa (el reloj) y con presión (las 9 personas).",
-         "¿Me dan razones sobre el producto? No: no sé si es bueno ni si es barato.",
-         "Conclusión: es manipulación. Quieren que decida antes de pensar."
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Caso trampa",
-      "diapositivas": [
-       {
-        "tipo": "trampa",
-        "titulo": "¿Emocionar = manipular?",
-        "caso": "Una campaña contra el abandono de animales enseña a un perro atado en una gasolinera. Da datos reales y un teléfono de ayuda.",
-        "pasos": [
-         "Parece que sí: busca que sientas pena y rabia.",
-         "Pero quito la emoción y quedan razones: datos reales y una forma de pedir ayuda.",
-         "No me mete prisa ni me esconde nada. Un mensaje puede emocionar y ser honesto.",
-         "Conclusión: el problema no es la emoción, sino usarla en lugar de razones."
-        ],
-        "pregunta": "Te emociona mucho… ¿entonces te está manipulando?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Persuadir es intentar que alguien crea o haga algo.",
-     "Convencer es dar razones; manipular es esquivar tu juicio o esconderte información.",
-     "Emocionar no es manipular. Pregunta: ¿me meten prisa, me esconden algo, solo me emocionan?"
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "Explica con tus palabras la diferencia entre convencer y manipular."
-       },
-       {
-        "pregunta": "Escribe un mensaje que intente convencer a alguien dando razones."
-       },
-       {
-        "pregunta": "Un anuncio dice: «Solo hoy. Si no lo compras ahora, te arrepentirás». ¿Convence o manipula? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 46) Una tienda pone «Antes 120 €, ahora 60 €». ¿Qué es el anclaje y cómo lo usa la tienda?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Un chico recibe un mensaje: «Tu cuenta del videojuego se cerrará en 1 hora. Pulsa aquí para salvarla». ¿Qué trucos de manipulación ves? ¿Qué haría un pensador crítico?"
-       }
-      ]
-     }
-    ]
-   },
    {
     "n": 50,
     "titulo": "Técnicas de la publicidad",
@@ -8201,7 +8104,7 @@ const CURSO = [
         "puntos": [
          "**Urgencia y escasez:** tenemos miedo a perder una oportunidad.",
          "**Simpatía:** nos fiamos más de quien nos cae bien.",
-         "**Pertenencia:** queremos encajar en el grupo (sesión 28).",
+         "**Pertenencia:** queremos encajar en el grupo (sesión 9).",
          "Las cuatro pueden hacer que decidas sin pensar en el **producto**."
         ]
        }
@@ -8288,7 +8191,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 45) ¿Qué es el efecto halo? ¿Por qué crees que los anuncios usan a gente guapa y famosa?"
+        "pregunta": "(Repaso de la sesión 46) ¿Qué es el efecto halo? ¿Por qué crees que los anuncios usan a gente guapa y famosa?"
        }
       ]
      },
@@ -8414,7 +8317,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 27) ¿Qué es la falacia de autoridad? Pon un ejemplo con un famoso."
+        "pregunta": "(Repaso de la sesión 8) ¿Qué es la falacia de autoridad? Pon un ejemplo con un famoso."
        }
       ]
      },
@@ -8570,7 +8473,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 47) Un chico dice: «A mí las apps no me enganchan. Yo lo controlo todo». ¿Qué sesgo puede tener? Explícalo."
+        "pregunta": "(Repaso de la sesión 48) Un chico dice: «A mí las apps no me enganchan. Yo lo controlo todo». ¿Qué sesgo puede tener? Explícalo."
        }
       ]
      },
@@ -8614,7 +8517,7 @@ const CURSO = [
         "puntos": [
          "Idea que hizo famosa el activista Eli Pariser en 2011",
          "Desde dentro no se ve: parece que el mundo es así",
-         "Se junta con el sesgo de confirmación (sesión 44)",
+         "Se junta con el sesgo de confirmación (sesión 45)",
          "Ojo: muchos estudios la ven menos cerrada de lo que se temía"
         ]
        },
@@ -8721,7 +8624,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 44) ¿Qué es el sesgo de confirmación?"
+        "pregunta": "(Repaso de la sesión 45) ¿Qué es el sesgo de confirmación?"
        }
       ]
      },
@@ -8750,7 +8653,7 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "contraste",
-        "titulo": "Sesión 49 · Convencer y manipular",
+        "titulo": "Sesión 4 · Convencer y manipular",
         "izq": {
          "titulo": "Manipular",
          "puntos": [
@@ -8915,7 +8818,7 @@ const CURSO = [
         "pregunta": "(Repaso de la unidad 8) ¿Qué es un sesgo cognitivo?"
        },
        {
-        "pregunta": "(Repaso de la unidad 5) «Todo el mundo lo hace, así que estará bien». ¿Qué falacia es?"
+        "pregunta": "(Repaso de la unidad 2) «Todo el mundo lo hace, así que estará bien». ¿Qué falacia es?"
        }
       ]
      },
@@ -9009,7 +8912,7 @@ const CURSO = [
         "titulo": "Caso 2 · Una chica y la médica",
         "caso": "Una chica tiene tos. Su médica le receta un jarabe y se lo toma. ¿Ha dejado de pensar por sí misma?",
         "pasos": [
-         "Esa chica no sabe de medicina; la médica sí (sesión 26).",
+         "Esa chica no sabe de medicina; la médica sí (sesión 7).",
          "Nadie puede comprobarlo todo: fiarse de un experto en su campo es una buena razón.",
          "Kant criticaba otra cosa: dejar que otros piensen siempre por ti, por pereza o por miedo.",
          "Conclusión: decide ella, con buenas razones. Autonomía no es hacerlo todo solo."
@@ -9139,7 +9042,7 @@ const CURSO = [
         "puntos": [
          "No miente a propósito: escribe lo que suena probable",
          "Por eso suena igual de segura",
-         "Sentirse seguro no es saber (sesión 3)"
+         "Sentirse seguro no es saber (sesión 31)"
         ]
        }
       ]
@@ -9152,7 +9055,7 @@ const CURSO = [
         "titulo": "Cuatro comprobaciones",
         "puntos": [
          "**Busca la fuente:** ¿existe ese libro, ese enlace, esa cita?",
-         "**Lectura lateral:** mira qué dicen otras fuentes fiables (sesión 34).",
+         "**Lectura lateral:** mira qué dicen otras fuentes fiables (sesión 35).",
          "**Datos y fechas:** compruébalos siempre fuera de la IA.",
          "**Pide la fuente** a la IA, y compruébala tú: también puede inventarla."
         ]
@@ -9186,7 +9089,7 @@ const CURSO = [
         "pasos": [
          "Las IA inventan a veces, no siempre. Muchas veces aciertan.",
          "Ese chico lo busca en la web del museo: se inauguró en 1997. Es verdad.",
-         "Rechazarlo por venir de una IA es juzgar el origen, no el dato (como en la sesión 14).",
+         "Rechazarlo por venir de una IA es juzgar el origen, no el dato (como en la sesión 20).",
          "Conclusión: un dato no es verdad ni mentira por venir de una IA. Se comprueba."
         ],
         "pregunta": "Las IA inventan cosas. ¿Entonces el dato es falso?"
@@ -9262,7 +9165,7 @@ const CURSO = [
         "titulo": "¿Por qué cuesta tanto?",
         "puntos": [
          "**Orgullo:** parece que pierdo o que quedo mal.",
-         "**Sesgo de confirmación:** busco solo lo que me da la razón (sesión 44).",
+         "**Sesgo de confirmación:** busco solo lo que me da la razón (sesión 45).",
          "**Grupo:** mis amigos piensan lo mismo.",
          "**Costumbre:** llevo mucho tiempo creyéndolo."
         ]
@@ -9299,7 +9202,7 @@ const CURSO = [
         "pasos": [
          "Primera opinión: «Es malísimo». Razón: un partido malo.",
          "Nueva razón: los datos de toda la temporada.",
-         "¿Cuál pesa más? Toda la temporada: un caso suelto no es una prueba general (sesión 41).",
+         "¿Cuál pesa más? Toda la temporada: un caso suelto no es una prueba general.",
          "Conclusión: lo razonable era cambiar. Bastaba con decir: «Vale, me equivoqué»."
         ]
        },
@@ -9403,7 +9306,7 @@ const CURSO = [
         "texto": "Es entender la idea del otro en su versión más razonable antes de criticarla.",
         "puntos": [
          "Aquí «caridad» significa generosidad al interpretar",
-         "Es lo contrario del hombre de paja (sesión 15)",
+         "Es lo contrario del hombre de paja (sesión 21)",
          "No es darle la razón: es entenderle bien"
         ]
        },
@@ -9475,7 +9378,7 @@ const CURSO = [
         "caso": "Un chico escribe: «Todos los que juegan a la consola son unos vagos». Una chica contesta: «O sea, que un compañero, que juega y saca sobresalientes, es un vago».",
         "pasos": [
          "¿Qué dijo el chico? «Todos». La chica no cambia sus palabras.",
-         "Saca lo que se sigue de lo que él dijo: es un contraejemplo (sesión 11), no una deformación.",
+         "Saca lo que se sigue de lo que él dijo: es un contraejemplo (sesión 17), no una deformación.",
          "Con caridad podría preguntar: «¿Quieres decir todos o algunos?». Pero no puede inventarse otra idea.",
          "Conclusión: criticar lo que el otro dijo de verdad no es hombre de paja, aunque le deje mal."
         ],
@@ -9577,10 +9480,10 @@ const CURSO = [
         "tipo": "lista",
         "titulo": "Cinco preguntas de todo el curso",
         "puntos": [
-         "**¿Qué me piden creer?** (unidades 1 y 2)",
-         "**¿Qué razones dan? ¿Son buenas?** (unidades 2, 3 y 4)",
-         "**¿Quién lo dice y qué gana?** (unidades 5 y 6)",
-         "**¿Los números dicen lo que parece?** (unidad 7)",
+         "**¿Qué me piden creer?** (unidades 1 y 3)",
+         "**¿Qué razones dan? ¿Son buenas?** (unidades 3, 4 y 5)",
+         "**¿Quién lo dice y qué gana?** (unidades 2 y 6)",
+         "**¿Los números dicen lo que parece?**",
          "**¿Qué trucos y sesgos usan?** (unidades 8 y 9)"
         ]
        }
@@ -9605,7 +9508,7 @@ const CURSO = [
         "titulo": "Paso 2 · Quién lo dice",
         "caso": "Un youtuber famoso con bata blanca recomienda la bebida. No aparece #publi.",
         "pasos": [
-         "La bata no lo convierte en experto: creerle por eso es falacia de autoridad (sesión 27).",
+         "La bata no lo convierte en experto: creerle por eso es falacia de autoridad (sesión 8).",
          "Simpatía: nos cae bien y bajamos la guardia (sesión 50).",
          "Sin #publi: posible publicidad encubierta (sesión 51).",
          "Conclusión: su opinión no es una prueba, y puede que cobre por darla."
@@ -9616,9 +9519,9 @@ const CURSO = [
         "titulo": "Paso 3 · Los números",
         "caso": "«Mejora la memoria un 40 %.» «9 de cada 10 estudiantes ya la toman.»",
         "pasos": [
-         "¿Un 40 % más que qué? ¿Medido cómo? Sin esos datos, la cifra no dice nada (sesión 37).",
-         "¿9 de cada 10 de quién? ¿A cuántos preguntaron? (sesión 39)",
-         "Aunque fuera cierto, que muchos la tomen no prueba que funcione: ad populum (sesión 28).",
+         "¿Un 40 % más que qué? ¿Medido cómo? Sin esos datos, la cifra no dice nada.",
+         "¿9 de cada 10 de quién? ¿A cuántos preguntaron?",
+         "Aunque fuera cierto, que muchos la tomen no prueba que funcione: ad populum (sesión 9).",
          "Conclusión: números que suenan bien, pero sin origen ni muestra."
         ]
        },
@@ -9645,7 +9548,7 @@ const CURSO = [
         "pasos": [
          "Sí emociona y sale una bata, como en VITAFOCUS.",
          "Pero ella sabe del tema, y los estudios muestran que el casco reduce las lesiones en la cabeza.",
-         "La emoción acompaña a una razón que se puede comprobar; no la sustituye (sesión 16).",
+         "La emoción acompaña a una razón que se puede comprobar; no la sustituye (sesión 22).",
          "Conclusión: emoción o autoridad no son trampa por sí solas. Mira si hay razones debajo."
         ],
         "pregunta": "Emoción y bata blanca, como VITAFOCUS. ¿También manipula?"
@@ -9715,20 +9618,20 @@ const CURSO = [
         ],
         "filas": [
          [
-          "U1 · Pensar, creer y saber",
-          "Hechos, opiniones y saber: «¿cómo lo sabes?»"
+          "U1 · Pensar críticamente",
+          "Pedir razones; convencer no es manipular"
          ],
          [
-          "U2 · Argumentar",
+          "U2 · Autoridad e influencia",
+          "Fiarse del experto en su campo; la fama no es saber"
+         ],
+         [
+          "U3 · Argumentar",
           "¿Es verdad?, ¿viene a cuento?, ¿es suficiente?"
          ],
          [
-          "U3 · Falacias I",
+          "U4 · Falacias I",
           "Atacar, deformar o desviar no son razones; la emoción no basta"
-         ],
-         [
-          "U4 · Falacias II",
-          "Generalizar, falsos dilemas y causas falsas"
          ]
         ]
        },
@@ -9741,16 +9644,16 @@ const CURSO = [
         ],
         "filas": [
          [
-          "U5 · Autoridad e influencia",
-          "Fiarse del experto en su campo; la fama no es saber"
+          "U5 · Falacias II",
+          "Generalizar, falsos dilemas y causas falsas"
          ],
          [
           "U6 · Información y fuentes",
           "Quién lo dice, cómo lo sabe y qué gana"
          ],
          [
-          "U7 · Números que engañan",
-          "Porcentajes, gráficos y muestras: mirar de dónde salen"
+          "U7 · Emociones, conflictos y dilemas",
+          "Las emociones informan; conflictos y dilemas se piensan con razones"
          ]
         ]
        },
@@ -9808,7 +9711,7 @@ const CURSO = [
         "caso": "«Mañana no hay clase. Lo ha dicho mi primo, que lo ha leído en un grupo de WhatsApp.»",
         "pasos": [
          "¿Cómo lo sabe mi primo? Solo lo ha leído en un grupo. ¿Quién lo dijo primero? (unidad 6)",
-         "Se comparte rápido y sin origen: puede ser un bulo (sesión 33).",
+         "Se comparte rápido y sin origen: puede ser un bulo (sesión 34).",
          "¿Me lo creo porque quiero que sea verdad? Cuidado con los sesgos (unidad 8).",
          "Conclusión: lo compruebo en la web del instituto. Como el primer día: pedir razones."
         ]
@@ -9819,7 +9722,7 @@ const CURSO = [
         "caso": "«Casi todos los médicos del mundo dicen que fumar provoca cáncer.»",
         "pasos": [
          "Parece las dos: «muchos lo dicen» y «lo dicen expertos».",
-         "Pero no es gente cualquiera: son expertos en su campo, y casi todos de acuerdo (consenso, sesión 26).",
+         "Pero no es gente cualquiera: son expertos en su campo, y casi todos de acuerdo (consenso, sesión 7).",
          "Y no piden fe: hay muchísimos estudios que lo muestran.",
          "Conclusión: fiarse del consenso de los expertos es razonable. La falacia es fiarse de quien no sabe."
         ],
@@ -9863,7 +9766,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la unidad 7) Un anuncio dice: «El 80 % recomienda este producto». Solo preguntaron a 10 clientes en su propia tienda. ¿Qué falla?"
+        "pregunta": "(Repaso de la unidad 7) Un chico dice: «Ante un conflicto, lo mejor es ceder siempre». ¿Es verdad? ¿Por qué?"
        },
        {
         "pregunta": "(Repaso de la unidad 9) ¿Cuál es la diferencia entre convencer y manipular?"
@@ -10040,7 +9943,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) ¿Qué es el ataque a la persona? Pon un ejemplo."
+        "pregunta": "(Repaso de la sesión 20) ¿Qué es el ataque a la persona? Pon un ejemplo."
        }
       ]
      },
@@ -10140,7 +10043,7 @@ const CURSO = [
         "caso": "Un chico dice que le gusta una serie. Otro chico le suelta: «¿Por qué? ¿Cómo lo sabes? ¿Seguro? ¿Y eso por qué?», sin esperar las respuestas, para dejarle en ridículo.",
         "pasos": [
          "Parece que sí: pedir razones es una herramienta del diálogo.",
-         "Pero no espera las respuestas: no escucha. Y pregunta para pillar, no para entender (sesión 4).",
+         "Pero no espera las respuestas: no escucha. Y pregunta para pillar, no para entender (sesión 12).",
          "Además, «me gusta» es un gusto: habla del primero y no hay que demostrarlo (sesión 2).",
          "Conclusión: preguntar ayuda al diálogo solo si es para entender y escuchas la respuesta."
         ],
@@ -10158,7 +10061,7 @@ const CURSO = [
          "titulo": "No es",
          "puntos": [
           "Repetir como un loro, palabra por palabra",
-          "Cambiar lo que dijo (hombre de paja, sesión 15)",
+          "Cambiar lo que dijo (hombre de paja, sesión 21)",
           "Darle la razón"
          ]
         },
@@ -10200,7 +10103,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 4) ¿Qué diferencia hay entre una pregunta cerrada y una abierta? Pon un ejemplo de cada una."
+        "pregunta": "(Repaso de la sesión 12) ¿Qué diferencia hay entre una pregunta cerrada y una abierta? Pon un ejemplo de cada una."
        }
       ]
      },
@@ -10234,7 +10137,7 @@ const CURSO = [
          "**Escuchar de verdad:** poder repetir lo que dice el otro.",
          "**Dar razones, no gritar:** cuenta el mejor argumento, no la voz más alta.",
          "**Responder a la mejor versión** de lo que dice el otro (sesión 58).",
-         "**Criticar la idea, no la persona** (sesión 14).",
+         "**Criticar la idea, no la persona** (sesión 20).",
          "**Poder cambiar de idea** si hay razones mejores (sesión 57)."
         ]
        },
@@ -10280,7 +10183,7 @@ const CURSO = [
         "titulo": "Caso 1 · Del ataque a la idea",
         "caso": "Una chica: «Los videojuegos deberían tener un límite de horas». Un chico: «Lo dices porque eres malísima jugando».",
         "pasos": [
-         "El chico ataca a la chica, no a su idea: es un ataque a la persona (sesión 14).",
+         "El chico ataca a la chica, no a su idea: es un ataque a la persona (sesión 20).",
          "Sin ataque, el chico podría decir: «No lo veo así: prefiero que cada familia decida su límite».",
          "Ahora hay una razón que la chica puede pensar y contestar.",
          "Conclusión: la misma opinión contraria, dicha sin ataque, hace avanzar la conversación."
@@ -10379,7 +10282,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 15) ¿Qué es el hombre de paja? ¿Por qué estropea una conversación?"
+        "pregunta": "(Repaso de la sesión 21) ¿Qué es el hombre de paja? ¿Por qué estropea una conversación?"
        }
       ]
      },
@@ -10523,7 +10426,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 19) Un chico ve a dos chicos de una cuadrilla gritando en el metro y dice: «Los de esa cuadrilla son todos unos maleducados». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "(Repaso de la sesión 25) Un chico ve a dos chicos de una cuadrilla gritando en el metro y dice: «Los de esa cuadrilla son todos unos maleducados». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -10579,7 +10482,7 @@ const CURSO = [
          "titulo": "No es cohesión",
          "puntos": [
           "Que todos piensen igual",
-          "Callar lo que piensas para no desentonar (la conformidad, sesión 29)",
+          "Callar lo que piensas para no desentonar (la conformidad, sesión 10)",
           "Cerrarse a los de fuera",
           "Dejar a alguien fuera"
          ]
@@ -10672,7 +10575,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 29) En el experimento de las líneas, ¿qué pasaba cuando una sola persona del grupo decía la respuesta correcta?"
+        "pregunta": "(Repaso de la sesión 10) En el experimento de las líneas, ¿qué pasaba cuando una sola persona del grupo decía la respuesta correcta?"
        }
       ]
      },
@@ -10706,7 +10609,7 @@ const CURSO = [
         "puntos": [
          "Nuestro grupo: **nosotros**. El de fuera: **ellos**",
          "Aparece muy rápido, incluso con grupos hechos al azar",
-         "Puede acabar en estereotipos: ideas fijas sobre «ellos» (sesión 19)"
+         "Puede acabar en estereotipos: ideas fijas sobre «ellos» (sesión 25)"
         ]
        },
        {
@@ -10732,7 +10635,7 @@ const CURSO = [
         "puntos": [
          "Lo estudió el psicólogo **Irving Janis** (1972)",
          "Todos creen que los demás están de acuerdo",
-         "Recuerda la sesión 29: la conformidad de Asch"
+         "Recuerda la sesión 10: la conformidad de Asch"
         ]
        },
        {
@@ -10758,7 +10661,7 @@ const CURSO = [
          "**Grupo nominal:** cada uno escribe sus ideas en silencio; luego se puntúan todas",
          "Así cuentan también las ideas de quien habla menos, y no mandan siempre los mismos",
          "**Dos columnas:** de cada propuesta, sus ventajas y las consecuencias que no queremos",
-         "Se juzga la propuesta, no a quien la hizo (sesión 14: ad hominem)"
+         "Se juzga la propuesta, no a quien la hizo (sesión 20: ad hominem)"
         ]
        },
        {
@@ -10802,7 +10705,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 14) Una chica propone un plan para la cuadrilla y un chico contesta: «Tú qué vas a saber, si siempre llegas tarde». ¿Qué falacia es? ¿Por qué?"
+        "pregunta": "(Repaso de la sesión 20) Una chica propone un plan para la cuadrilla y un chico contesta: «Tú qué vas a saber, si siempre llegas tarde». ¿Qué falacia es? ¿Por qué?"
        }
       ]
      },
@@ -10973,7 +10876,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 31) Escribe las tres preguntas que le hacemos a una fuente."
+        "pregunta": "(Repaso de la sesión 32) Escribe las tres preguntas que le hacemos a una fuente."
        }
       ]
      },
@@ -11022,7 +10925,7 @@ const CURSO = [
        },
        {
         "tipo": "tabla",
-        "titulo": "Tres formas de comparar países (como en la sesión 37)",
+        "titulo": "Tres formas de comparar países (como en la sesión 87)",
         "cabecera": [
          "Pregunta",
          "Qué cifra es",
@@ -11135,7 +11038,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 38) Un gráfico de barras sobre el CO₂ tiene el eje vertical empezando en 90. ¿Qué efecto produce?"
+        "pregunta": "(Repaso de la sesión 88) Un gráfico de barras sobre el CO₂ tiene el eje vertical empezando en 90. ¿Qué efecto produce?"
        }
       ]
      },
@@ -11175,7 +11078,7 @@ const CURSO = [
        {
         "tipo": "lista",
         "titulo": "Señales de greenwashing",
-        "texto": "Son pistas, no pruebas (como en la sesión 31).",
+        "texto": "Son pistas, no pruebas (como en la sesión 32).",
         "puntos": [
          "**Palabras vagas** sin datos: «eco», «natural», «verde», «sostenible»",
          "**Dibujos** de hojas, árboles o planetas que no dicen nada",
@@ -11233,7 +11136,7 @@ const CURSO = [
         "pasos": [
          "¿Quién lo dice? Una empresa que vende petróleo.",
          "¿Qué gana? Según sus críticos, que miremos los gestos de cada persona más que la energía que vende ella.",
-         "¿Eso hace falsa la huella personal? No: rechazar una idea por quién la dice es un ataque a la persona (sesión 14).",
+         "¿Eso hace falsa la huella personal? No: rechazar una idea por quién la dice es un ataque a la persona (sesión 20).",
          "Conclusión: la huella personal es útil, pero no es toda la historia. Miro también a empresas y gobiernos."
         ]
        }
@@ -11256,7 +11159,7 @@ const CURSO = [
         "tipo": "contraste",
         "titulo": "¿Lo que hago yo o lo que decidimos juntos?",
         "izq": {
-         "titulo": "Falso dilema (sesión 20)",
+         "titulo": "Falso dilema (sesión 26)",
          "puntos": [
           "«Solo cuenta lo que hago yo»",
           "«Lo que hago yo no sirve de nada»",
@@ -11517,7 +11420,7 @@ const CURSO = [
         "texto": "Hoy construyes el tuyo: tú solo y por escrito.",
         "puntos": [
          "**1. Conclusión:** lo que defiendo, dicho claro y en una frase.",
-         "**2. Razones:** dos o tres, que pasen las tres preguntas (sesión 9).",
+         "**2. Razones:** dos o tres, que pasen las tres preguntas (sesión 15).",
          "**3. Ejemplo:** un caso que muestre lo que digo.",
          "**4. Objeción y respuesta:** qué diría quien no está de acuerdo, y mi respuesta."
         ]
@@ -11600,7 +11503,7 @@ const CURSO = [
         "caso": "Un chico defiende el móvil en el recreo y escribe: «Alguien dirá que los que quieren prohibirlo odian la tecnología. Pero eso es ridículo».",
         "pasos": [
          "Parece que sí: tiene la pieza 4.",
-         "Pero esa objeción está deformada: nadie ha dicho eso. Es un hombre de paja (sesión 15).",
+         "Pero esa objeción está deformada: nadie ha dicho eso. Es un hombre de paja (sesión 21).",
          "Con el principio de caridad (sesión 58), busca la objeción más fuerte: «el móvil aísla y se deja de jugar juntos».",
          "Conclusión: responder a una objeción débil es trampa. La buena objeción es la mejor versión del otro."
         ],
@@ -11651,7 +11554,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 11) ¿Qué es un contraejemplo? ¿Cuántos hacen falta para tumbar un «todos»?"
+        "pregunta": "(Repaso de la sesión 17) ¿Qué es un contraejemplo? ¿Cuántos hacen falta para tumbar un «todos»?"
        }
       ]
      },
@@ -11774,7 +11677,7 @@ const CURSO = [
         "caso": "Un chico suspende un examen de mates. Esa tarde dice: «Soy malo en mates. Yo soy así y no voy a cambiar».",
         "pasos": [
          "¿Cómo lo sabes? Ese chico solo tiene un examen.",
-         "Es una generalización **apresurada** (sesión 19): de un caso pasa a «siempre».",
+         "Es una generalización **apresurada** (sesión 25): de un caso pasa a «siempre».",
          "Además, las habilidades se entrenan: no son una marca fija.",
          "Conclusión: «He suspendido este examen» es un hecho. «Soy malo en mates» es una etiqueta que se pone él mismo."
         ]
@@ -11785,7 +11688,7 @@ const CURSO = [
         "caso": "En el equipo todos llaman a un chico «el gracioso». Un día llega serio y callado. Le dicen: «¿Qué te pasa? Tú no eres así».",
         "pasos": [
          "Una **etiqueta** es una palabra que resume a alguien y deja fuera casi todo.",
-         "Pasa como en el efecto halo (sesión 45): un rasgo tapa todo lo demás.",
+         "Pasa como en el efecto halo (sesión 46): un rasgo tapa todo lo demás.",
          "Ese chico también puede estar triste, tener miedo o hablar en serio.",
          "Conclusión: el «yo» no es una etiqueta. Una persona es muchas cosas a la vez."
         ]
@@ -11927,7 +11830,7 @@ const CURSO = [
          "Parece lógico: sin grupos, no habría rivalidades.",
          "Pero pertenecer da apoyo, compañía y sentido. Todos lo necesitamos.",
          "El problema no es tener un «nosotros», sino despreciar a «ellos» o reducirlos a una sola cosa.",
-         "Conclusión: es un falso **dilema** (sesión 20). Se puede pertenecer a grupos y tratar bien a los de fuera."
+         "Conclusión: es un falso **dilema** (sesión 26). Se puede pertenecer a grupos y tratar bien a los de fuera."
         ],
         "pregunta": "¿Es buena idea no pertenecer a ningún grupo?"
        }
@@ -12148,526 +12051,11 @@ const CURSO = [
  },
  {
   "unidad": 16,
-  "titulo": "Emociones y conflictos",
-  "trimestre": "Ampliación · Crecer y convivir",
-  "sesiones": [
-   {
-    "n": 75,
-    "titulo": "¿Para qué sirven las emociones?",
-    "idea": "Las emociones no son buenas ni malas: informan de lo que nos importa. Pero pueden equivocarse, y decidir en caliente suele salir mal.",
-    "arranque": {
-     "texto": "Una chica ve que una amiga ha leído su mensaje hace una hora y no contesta. Se enfada. Escribe «Pues vale, pasa de mí» y lo envía.",
-     "pregunta": "¿Qué ha sentido esa chica? ¿Tenía razones para sentirlo?"
-    },
-    "bloques": [
-     {
-      "titulo": "Emoción, sentimiento e idea",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Emoción",
-        "texto": "Es una reacción rápida del cuerpo y de la mente ante algo que nos importa.",
-        "puntos": [
-         "Aparece **sola**: no la elegimos",
-         "Dura **poco**: segundos o minutos",
-         "Se nota en el **cuerpo**: corazón, cara, estómago"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Tres cosas que solemos mezclar",
-        "cabecera": [
-         "",
-         "Qué es",
-         "Ejemplo: la nota de Mates"
-        ],
-        "filas": [
-         [
-          "**Emoción**",
-          "Reacción rápida que dura poco",
-          "Se me encoge el estómago al ver un 3"
-         ],
-         [
-          "**Sentimiento**",
-          "Emoción que dura y en la que pienso",
-          "Llevo toda la semana preocupada"
-         ],
-         [
-          "**Idea**",
-          "Lo que pienso de lo que pasa",
-          "«Voy a suspender el curso entero»"
-         ]
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Cada emoción es un aviso",
-        "cabecera": [
-         "Emoción",
-         "Me avisa de que…",
-         "Me empuja a…"
-        ],
-        "filas": [
-         [
-          "**Miedo**",
-          "puede haber un peligro",
-          "tener cuidado o protegerme"
-         ],
-         [
-          "**Enfado**",
-          "algo me parece injusto o me bloquea",
-          "defenderme y poner límites"
-         ],
-         [
-          "**Tristeza**",
-          "he perdido algo que me importa",
-          "parar y buscar apoyo"
-         ],
-         [
-          "**Alegría**",
-          "algo me va bien",
-          "repetirlo y acercarme a otros"
-         ]
-        ]
-       },
-       {
-        "tipo": "contraste",
-        "titulo": "Las emociones informan, no mandan",
-        "izq": {
-         "titulo": "No son",
-         "puntos": [
-          "Buenas o malas",
-          "Órdenes que hay que obedecer",
-          "Siempre verdad"
-         ]
-        },
-        "der": {
-         "titulo": "Sí son",
-         "puntos": [
-          "Agradables o desagradables",
-          "Señales que **informan** de lo que me importa",
-          "Una pista que hay que comprobar: «¿cómo lo sé?»"
-         ]
-        }
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · El mensaje sin contestar",
-        "caso": "Una chica piensa: «Mi amiga pasa de mí» y se enfada. Una hora después, la amiga escribe: «Perdona, me quedé sin batería en el metro».",
-        "pasos": [
-         "¿Qué pasó? La amiga leyó el mensaje y no contestó.",
-         "¿Qué idea tuvo la chica? «Pasa de mí». De esa idea salió el enfado.",
-         "¿Cómo lo sabía? No lo sabía: había otras explicaciones posibles.",
-         "Conclusión: muchas veces sentimos lo que sentimos por la idea que nos hacemos. Y la idea puede ser falsa."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · Decidir en caliente",
-        "caso": "En Aste Nagusia, a un chico se le cae el bocadillo porque otro le empuja sin querer. El primero, furioso, le suelta un insulto delante de todos.",
-        "pasos": [
-         "¿Era razonable enfadarse? Sí: ha perdido la cena. El enfado informa de algo real.",
-         "¿Era buena la decisión? No: decidió en caliente, sin mirar si fue sin querer.",
-         "En caliente pensamos peor: decidimos rápido y sin razones (sesión 16).",
-         "Conclusión: la emoción puede ser razonable y la decisión, mala. Primero calmarse y esperar, luego decidir."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "«Las emociones no son malas»",
-        "caso": "Un chico empuja a otro en el patio. Luego explica: «Estaba enfadado. Y en clase dijimos que las emociones no son malas».",
-        "pasos": [
-         "Parece que ese chico tiene razón: hemos dicho que enfadarse no es malo.",
-         "Pero no se ha limitado a sentir: ha empujado. Eso es una conducta.",
-         "Las emociones no se eligen; lo que hacemos con ellas, sí.",
-         "Conclusión: el enfado no es malo, pero empujar sí puede serlo. Sentir y hacer son cosas distintas."
-        ],
-        "pregunta": "Si las emociones no son malas, ¿ese chico no ha hecho nada malo?"
-       }
-      ]
-     },
-     {
-      "titulo": "Antes de decidir en caliente",
-      "diapositivas": [
-       {
-        "tipo": "lista",
-        "titulo": "Tres pasos cuando la emoción es fuerte",
-        "texto": "Como vimos en la sesión 16, quien asusta quiere que decidas rápido.",
-        "puntos": [
-         "**Nombrar:** «Estoy enfadado».",
-         "**Esperar:** no enviar, no contestar, no decidir todavía.",
-         "**Preguntar:** ¿qué idea me hago? ¿Cómo lo sé? ¿Hay otra explicación?"
-        ]
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Una emoción es una reacción rápida ante algo que nos importa; un sentimiento dura más.",
-     "Las emociones no son buenas ni malas: informan, pero pueden equivocarse.",
-     "La emoción no se elige; lo que hacemos con ella, sí. En caliente, mejor esperar."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué diferencia hay entre una emoción y un sentimiento?"
-       },
-       {
-        "pregunta": "Elige una emoción (miedo, enfado, tristeza o alegría) y escribe de qué nos avisa, con un ejemplo."
-       },
-       {
-        "pregunta": "Una chica ve que no la han etiquetado en una foto de la cuadrilla. Piensa: «No me quieren en el grupo» y se pone triste. ¿Qué parte es la idea? ¿Qué debería preguntarse?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 16) ¿Cuándo es falacia apelar a las emociones y cuándo no?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Un chico pierde una partida online y escribe al rival: «Eres un tramposo, te voy a denunciar». Luego dice: «Tenía derecho a estar enfadado». ¿Tiene razón? Explica qué ha fallado."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 76,
-    "titulo": "El conflicto no es una pelea",
-    "idea": "Un conflicto es un choque de intereses o necesidades; se puede afrontar de varias maneras, y ayuda distinguir lo que pido de lo que necesito.",
-    "arranque": {
-     "texto": "Una chica y su hermano quieren el ordenador de casa a la misma hora. Cada uno grita: «¡Lo pedí yo primero!». Nadie cede.",
-     "pregunta": "¿Qué quiere de verdad cada uno? ¿Hay alguna salida en la que ganen los dos?"
-    },
-    "bloques": [
-     {
-      "titulo": "Qué es un conflicto",
-      "diapositivas": [
-       {
-        "tipo": "concepto",
-        "titulo": "Conflicto",
-        "texto": "Es un choque entre personas que quieren o necesitan cosas que, en ese momento, parecen incompatibles.",
-        "puntos": [
-         "Es **normal**: aparece en cualquier grupo",
-         "No es lo mismo que una **pelea**",
-         "La pelea es una mala forma de **afrontarlo**"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Tipos de conflicto según lo que choca",
-        "cabecera": [
-         "Tipo",
-         "Qué choca",
-         "Ejemplo"
-        ],
-        "filas": [
-         [
-          "**De recursos**",
-          "Hay una cosa y la quieren dos",
-          "El ordenador, el mando, el balón"
-         ],
-         [
-          "**De necesidades**",
-          "Uno necesita algo que molesta al otro",
-          "Estudiar en silencio y escuchar música"
-         ],
-         [
-          "**De ideas o valores**",
-          "Piensan distinto sobre lo importante",
-          "Qué es justo en un reparto"
-         ],
-         [
-          "**Malentendido**",
-          "Uno entiende mal lo que el otro dijo",
-          "Un mensaje leído con otro tono"
-         ]
-        ]
-       },
-       {
-        "tipo": "lista",
-        "titulo": "Cinco actitudes ante un conflicto",
-        "texto": "Es un modelo conocido, de Thomas y Kilmann (1974). No es una ley: sirve para pensar.",
-        "puntos": [
-         "**Evitar:** hago como si no pasara nada.",
-         "**Ceder:** dejo que el otro consiga lo suyo.",
-         "**Competir:** intento ganar yo, aunque el otro pierda.",
-         "**Pactar:** cada uno renuncia a una parte.",
-         "**Colaborar:** buscamos juntos una salida buena para los dos."
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Postura e interés",
-        "texto": "La postura es lo que pido. El interés es lo que necesito de verdad, la razón por la que lo pido.",
-        "puntos": [
-         "Las **posturas** chocan más que los intereses",
-         "Pregunta clave: «¿Para qué lo quieres?»",
-         "Idea de Roger Fisher y William Ury (Harvard, 1981)"
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · El ordenador de casa",
-        "caso": "Postura de la chica: «Quiero el ordenador ya». Postura de su hermano: «Lo quiero yo». Su madre les pregunta a cada uno: «¿Para qué lo necesitas?».",
-        "pasos": [
-         "Interés de la chica: entregar un trabajo antes de las 20:00.",
-         "Interés de su hermano: jugar online con su cuadrilla, que queda a las 21:00.",
-         "Las posturas chocaban; los intereses, no: caben los dos en la tarde.",
-         "Conclusión: la chica lo usa hasta las 20:00 y su hermano después. Mirar el interés permite colaborar."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · El asiento del autobús",
-        "caso": "Excursión a Urdaibai. Un chico quiere ir en la ventanilla. A una compañera le da igual, pero él se marea si no mira fuera.",
-        "pasos": [
-         "¿Qué actitud tiene sentido para la compañera? Ceder.",
-         "¿Por qué ceder? A ella casi no le importa y a él le importa mucho.",
-         "Ceder no es perder: es elegir bien cuando el tema es pequeño para ti.",
-         "Conclusión: ninguna actitud es siempre la buena. La buena depende de cuánto le importa a cada uno."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "La cuadrilla perfecta",
-        "caso": "Un chico presume: «En mi cuadrilla nunca hay conflictos». Pero una del grupo siempre cede, y otro se calla cuando algo no le gusta.",
-        "pasos": [
-         "Parece que sí: no hay gritos ni peleas.",
-         "Pero una siempre cede y otro siempre evita. Los conflictos están, solo que escondidos.",
-         "Un conflicto escondido no desaparece: puede crecer, como en el pensamiento de grupo (sesión 66).",
-         "Conclusión: que no haya peleas no significa que no haya conflictos. A veces falta alguien que diga «no»."
-        ],
-        "pregunta": "Si nunca discuten, ¿es una cuadrilla sin conflictos?"
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "Un conflicto es un choque de intereses o necesidades; es normal y no es una pelea.",
-     "Hay cinco actitudes: evitar, ceder, competir, pactar y colaborar; ninguna vale siempre.",
-     "La postura es lo que pido; el interés, lo que necesito. Preguntar «¿para qué?» ayuda."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué es un conflicto? ¿Es lo mismo que una pelea?"
-       },
-       {
-        "pregunta": "Pon un ejemplo de conflicto de recursos en casa o en el instituto."
-       },
-       {
-        "pregunta": "Un chico y una chica quieren elegir la peli. El chico dice: «Yo elijo hoy y tú el viernes». ¿Qué actitud es: evitar, ceder, competir, pactar o colaborar?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 66) ¿Qué es el pensamiento de grupo?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Un chico quiere la ventana del aula abierta; una chica, cerrada. El chico tiene calor; a la chica le da el aire en la espalda. Escribe la postura y el interés de cada uno y una salida para colaborar."
-       }
-      ]
-     }
-    ]
-   },
-   {
-    "n": 77,
-    "titulo": "Conflictos en las redes",
-    "idea": "En las redes los conflictos crecen más porque no hay cara y todo queda guardado y a la vista; allí también hay derechos y deberes.",
-    "arranque": {
-     "texto": "Alguien hace una captura de un audio privado de una chica y la sube al chat del equipo de balonmano. En diez minutos la han visto sesenta personas.",
-     "pregunta": "¿Por qué esto hace más daño que si se lo hubiera dicho a una sola persona?"
-    },
-    "bloques": [
-     {
-      "titulo": "Por qué en las redes se escala más",
-      "diapositivas": [
-       {
-        "tipo": "lista",
-        "titulo": "Cuatro razones por las que un conflicto crece en las redes",
-        "texto": "Escalar = hacerse cada vez más grande.",
-        "puntos": [
-         "**Sin cara:** no ves si el otro se ríe o llora. Falta el tono.",
-         "**Anonimato:** detrás de una cuenta falsa, algunos se atreven a más.",
-         "**Captura:** todo queda guardado y se puede reenviar, recortar o sacar de contexto.",
-         "**Público:** lo ve mucha gente, y cada «me gusta» anima a seguir."
-        ]
-       },
-       {
-        "tipo": "concepto",
-        "titulo": "Ciberacoso",
-        "texto": "Es hacer daño a alguien a propósito y de forma repetida usando el móvil, las redes o los videojuegos.",
-        "puntos": [
-         "**Intención** de hacer daño",
-         "**Repetición:** una publicación puede dañar una y otra vez",
-         "**Desequilibrio:** la víctima no puede defenderse fácilmente"
-        ]
-       },
-       {
-        "tipo": "tabla",
-        "titulo": "Derechos y deberes en las redes",
-        "cabecera": [
-         "Tengo derecho a…",
-         "Por eso tengo el deber de…"
-        ],
-        "filas": [
-         [
-          "**Privacidad:** que mis mensajes privados sigan siendo privados",
-          "No reenviar capturas de chats privados de otros"
-         ],
-         [
-          "**Propia imagen:** decidir dónde sale mi foto",
-          "Pedir permiso antes de subir fotos o vídeos de otros"
-         ],
-         [
-          "**Respeto:** que no me insulten ni me humillen",
-          "No insultar ni humillar, aunque sea desde el anonimato"
-         ]
-        ]
-       }
-      ]
-     },
-     {
-      "titulo": "Casos resueltos",
-      "diapositivas": [
-       {
-        "tipo": "caso",
-        "titulo": "Caso 1 · La captura",
-        "caso": "Enfadada, una chica escribe en privado a una amiga: «Una compañera es una pesada». La amiga hace una captura y la sube al chat del equipo de balonmano.",
-        "pasos": [
-         "La chica escribió en caliente (sesión 75), pero en privado.",
-         "La amiga ha roto la privacidad de la chica: el mensaje era para ella sola.",
-         "Ahora lo lee toda la clase, incluida la compañera de la que hablaba. Sin cara, sin tono y guardado: el conflicto crece.",
-         "Conclusión: quien reenvía también es responsable. Reenviar no es neutral."
-        ]
-       },
-       {
-        "tipo": "caso",
-        "titulo": "Caso 2 · La cuenta sin nombre",
-        "caso": "Una cuenta sin foto ni nombre comenta cada foto de un chico: «Qué pintas», «Nadie te aguanta». Lleva así tres semanas.",
-        "pasos": [
-         "¿Intención de hacer daño? Sí: los comentarios buscan humillar.",
-         "¿Repetición? Sí: tres semanas. ¿Desequilibrio? Sí: el chico no sabe quién es.",
-         "Es ciberacoso. Ese chico no debe contestar en caliente: guarda capturas, bloquea y lo denuncia.",
-         "Conclusión: el ciberacoso no se aguanta solo. Hay que contárselo a un adulto de confianza."
-        ]
-       },
-       {
-        "tipo": "trampa",
-        "titulo": "«Solo era una broma»",
-        "caso": "Un chico graba a otro fallando un tiro en el partido, le pone música graciosa y lo sube. Muchos se ríen. El primero dice: «Solo era una broma».",
-        "pasos": [
-         "Parece que no: no quería hacer daño y la gente se ríe.",
-         "Pero ¿se ríe el otro? ¿Dio permiso? Su imagen es suya.",
-         "Una broma lo es si se ríen todos, también quien sale. Si no, es reírse de alguien.",
-         "Conclusión: la intención no borra el daño. Sin permiso, subir el vídeo no respeta al otro."
-        ],
-        "pregunta": "Si lo hizo de broma, ¿no pasa nada?"
-       }
-      ]
-     },
-     {
-      "titulo": "Si te pasa o lo ves",
-      "diapositivas": [
-       {
-        "tipo": "lista",
-        "titulo": "Qué hacer ante un conflicto en las redes",
-        "puntos": [
-         "**No contestar en caliente:** nombrar, esperar y preguntar.",
-         "**No reenviar:** si no lo difundes, dejas de hacerlo crecer.",
-         "**Guardar pruebas,** bloquear y denunciar en la propia aplicación.",
-         "**Contarlo** a un adulto de confianza. También existe el teléfono **017** (INCIBE), gratuito."
-        ]
-       }
-      ]
-     }
-    ],
-    "resumen": [
-     "En las redes los conflictos crecen: sin cara, anonimato, todo queda guardado y lo ve mucha gente.",
-     "El ciberacoso es hacer daño a propósito y de forma repetida con la tecnología.",
-     "Tu imagen y tus mensajes privados son tuyos; los de los demás, también."
-    ],
-    "hoja": [
-     {
-      "nombre": "Peldaño 1 · Todos",
-      "puntos": 6,
-      "items": [
-       {
-        "pregunta": "¿Qué es el ciberacoso? Escribe sus tres rasgos."
-       },
-       {
-        "pregunta": "Escribe un ejemplo de algo que no respeta el derecho a la propia imagen."
-       },
-       {
-        "pregunta": "Un chico recibe en el grupo una foto de una compañera dormida en el autobús con un texto de burla. Solo la reenvía a su cuadrilla. ¿Tiene alguna responsabilidad? ¿Por qué?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 2 · Repaso",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "(Repaso de la sesión 75) ¿Qué tres pasos conviene dar cuando una emoción es muy fuerte, antes de decidir?"
-       }
-      ]
-     },
-     {
-      "nombre": "Peldaño 3 · Reto",
-      "puntos": 2,
-      "items": [
-       {
-        "pregunta": "Circula una captura de un chat en la que un chico parece insultar a otro. El primero dice que está recortada. El segundo está furioso y quiere contestar ya en el grupo. ¿Qué le aconsejarías y por qué?"
-       }
-      ]
-     }
-    ]
-   }
-  ]
- },
- {
-  "unidad": 17,
   "titulo": "Amistad, amor y familias",
   "trimestre": "Ampliación · Crecer y convivir",
   "sesiones": [
    {
-    "n": 78,
+    "n": 75,
     "titulo": "¿Qué es un amigo?",
     "idea": "Aristóteles distingue amistades por utilidad, por placer y por virtud; un buen amigo quiere tu bien, aunque a veces eso sea decir que no.",
     "arranque": {
@@ -12750,7 +12138,7 @@ const CURSO = [
         "titulo": "Caso 2 · La presión del grupo",
         "caso": "La cuadrilla de una chica se ríe en el grupo de un árbitro que se equivocó. Ella no quiere, pero piensa: «Si no me río, me dejan fuera». (Ejemplo inventado.)",
         "pasos": [
-         "Es **presión del grupo**: hacer algo para no quedarte fuera, como en el experimento de Asch (sesión 29).",
+         "Es **presión del grupo**: hacer algo para no quedarte fuera, como en el experimento de Asch (sesión 10).",
          "Pregunta útil: ¿me quieren a mí, o solo que haga lo que hace el grupo?",
          "En el experimento de Asch, con un solo **aliado** casi todos resistían. Un «no» ayuda a otros a decirlo.",
          "Conclusión: un amigo de verdad no te pide hacer daño a alguien para seguir siendo tu amigo."
@@ -12797,7 +12185,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 29) ¿Qué es la conformidad?"
+        "pregunta": "(Repaso de la sesión 10) ¿Qué es la conformidad?"
        }
       ]
      },
@@ -12813,7 +12201,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 79,
+    "n": 76,
     "titulo": "Los mitos del amor romántico",
     "idea": "Los mitos del amor romántico son creencias falsas o exageradas sobre el amor, como que los celos prueban amor; pueden disfrazar el control de cariño.",
     "arranque": {
@@ -12830,7 +12218,7 @@ const CURSO = [
         "texto": "Un **mito** del amor romántico es una creencia sobre el amor que mucha gente da por verdadera, pero es falsa o exagerada.",
         "puntos": [
          "Lo aprendemos de películas, canciones, series y redes",
-         "Lo creemos por **costumbre** y por el grupo (sesión 5)",
+         "Lo creemos por **costumbre** y por el grupo (sesión 3)",
          "La idea de la «otra mitad» ya sale en «El banquete», de Platón",
          "El psicólogo Carlos Yela los estudió y clasificó en España"
         ]
@@ -12873,7 +12261,7 @@ const CURSO = [
         "puntos": [
          "«Él protege y decide; ella espera y cede»",
          "«Si un chico llora o pide ayuda, es débil»",
-         "Son **estereotipos** (sesión 45): no describen a las personas reales",
+         "Son **estereotipos** (sesión 46): no describen a las personas reales",
          "Hay muchas formas de relación, y no tener pareja también es una opción"
         ]
        },
@@ -12976,7 +12364,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 5) Escribe dos de los cuatro caminos por los que creemos cosas sin razones."
+        "pregunta": "(Repaso de la sesión 3) Escribe dos de los cuatro caminos por los que creemos cosas sin razones."
        }
       ]
      },
@@ -12992,7 +12380,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 80,
+    "n": 77,
     "titulo": "Familias diversas",
     "idea": "Hay muchos modelos de familia; lo común es el cuidado y el vínculo. Tomar la mía como «la normal» es generalizar deprisa.",
     "arranque": {
@@ -13045,7 +12433,7 @@ const CURSO = [
         "caso": "Un chico vive con su madre y su abuela. En clase oye: «Las familias normales son padre, madre e hijos». Se siente raro. (Ejemplo inventado.)",
         "pasos": [
          "¿Cómo lo sabe quien lo dice? Seguramente mira su casa y la de sus amigos.",
-         "Pocos casos y poco variados: es una **generalización apresurada** (sesión 19).",
+         "Pocos casos y poco variados: es una **generalización apresurada** (sesión 25).",
          "En cualquier instituto de Bilbao hay familias de muchos tipos.",
          "Conclusión: la familia de ese chico no es menos familia. Hay cuidado y hay vínculo."
         ]
@@ -13076,7 +12464,7 @@ const CURSO = [
          "titulo": "Pensar mejor",
          "puntos": [
           "Mi familia es **una** de muchas",
-          "¿Cuántos casos he mirado? (sesión 19)",
+          "¿Cuántos casos he mirado? (sesión 25)",
           "Lo común: cuidado y vínculo"
          ]
         }
@@ -13122,7 +12510,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 45) ¿Qué es el efecto halo?"
+        "pregunta": "(Repaso de la sesión 46) ¿Qué es el efecto halo?"
        }
       ]
      },
@@ -13140,12 +12528,12 @@ const CURSO = [
   ]
  },
  {
-  "unidad": 18,
+  "unidad": 17,
   "titulo": "Diferentes, pero iguales",
   "trimestre": "Ampliación · Crecer y convivir",
   "sesiones": [
    {
-    "n": 81,
+    "n": 78,
     "titulo": "Sexo y género",
     "idea": "Solemos distinguir el sexo, que es biológico, del género: los roles y expectativas que cada sociedad asocia a ser hombre o mujer.",
     "arranque": {
@@ -13219,8 +12607,8 @@ const CURSO = [
         "titulo": "Estereotipo de género",
         "texto": "Un estereotipo de género es una idea fija y simplificada sobre cómo son o deben ser hombres o mujeres.",
         "puntos": [
-         "Nace de **generalizar** deprisa, como vimos en la sesión 19",
-         "Se parece al **efecto halo** (sesión 45): un rasgo decide todo",
+         "Nace de **generalizar** deprisa, como vimos en la sesión 25",
+         "Se parece al **efecto halo** (sesión 46): un rasgo decide todo",
          "Pregunta que lo desmonta: «¿**cómo lo sabes**? ¿Todas? ¿Todos?»"
         ]
        },
@@ -13287,7 +12675,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 45) ¿Qué es el efecto halo? Pon un ejemplo."
+        "pregunta": "(Repaso de la sesión 46) ¿Qué es el efecto halo? Pon un ejemplo."
        }
       ]
      },
@@ -13303,7 +12691,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 82,
+    "n": 79,
     "titulo": "La desigualdad de género",
     "idea": "Ser diferentes no es lo mismo que ser desiguales; los datos muestran desigualdades de género, y cada diferencia pide preguntar por qué.",
     "arranque": {
@@ -13376,7 +12764,7 @@ const CURSO = [
         "titulo": "Caso 1 · ¿Cobran menos por el mismo trabajo?",
         "caso": "Una chica lee: «Las mujeres cobran de media menos que los hombres». Concluye: «Entonces a mi madre le pagan menos que a su compañero por hacer lo mismo».",
         "pasos": [
-         "La media compara a **todas** las mujeres con **todos** los hombres, no el mismo puesto (sesión 41).",
+         "La media compara a **todas** las mujeres con **todos** los hombres, no el mismo puesto (sesión 91).",
          "Pagar distinto por el mismo trabajo está **prohibido** por ley en España. Si pasa, se puede denunciar.",
          "La diferencia de media sale de varias causas: más jornada parcial, trabajos peor pagados, parones para cuidar… y a veces discriminación.",
          "Conclusión: el dato es real y muestra desigualdad. Pero no dice qué pasa en un caso concreto."
@@ -13387,7 +12775,7 @@ const CURSO = [
         "titulo": "Caso 2 · Una diferencia pide un porqué",
         "caso": "En un instituto, 9 de cada 10 alumnos del ciclo de Informática son chicos (ejemplo inventado).",
         "pasos": [
-         "El dato no se explica solo. Como en las sesiones 22 y 40: ¿cuál es la **causa**?",
+         "El dato no se explica solo. Como en las sesiones 28 y 90: ¿cuál es la **causa**?",
          "¿Que a las chicas «no se les da»? Eso sería un estereotipo, sin pruebas.",
          "Otras causas posibles: pocas informáticas conocidas, comentarios en casa, miedo a ser «la única».",
          "Conclusión: ante una diferencia, no saltes a la primera explicación. Pregunta por qué y busca pruebas."
@@ -13434,7 +12822,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 22) Cuando dos cosas van juntas, ¿qué tres explicaciones olvida la causa falsa?"
+        "pregunta": "(Repaso de la sesión 28) Cuando dos cosas van juntas, ¿qué tres explicaciones olvida la causa falsa?"
        }
       ]
      },
@@ -13450,7 +12838,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 83,
+    "n": 80,
     "titulo": "Diversidad y respeto",
     "idea": "Las personas son diversas en su orientación y su identidad; respetar es no burlarse ni excluir, y en las relaciones solo sí es sí.",
     "arranque": {
@@ -13549,7 +12937,7 @@ const CURSO = [
         "pasos": [
          "¿Qué dice la frase sin decirlo? Que ser gay es algo malo, algo de lo que reírse.",
          "¿A quién hace daño? A ese chico y a cualquier persona gay que lo oiga, aunque calle.",
-         "Que todos se rían no lo hace bueno: recuerda «todo el mundo lo hace» (sesión 28).",
+         "Que todos se rían no lo hace bueno: recuerda «todo el mundo lo hace» (sesión 9).",
          "Conclusión: una broma que usa a un grupo como insulto es una burla. Y deja a ese grupo fuera."
         ]
        },
@@ -13559,7 +12947,7 @@ const CURSO = [
         "caso": "Un chico ve un vídeo de un cantante con las uñas pintadas y comenta: «Se nota que es gay».",
         "pasos": [
          "Parece una pista: «los chicos no se pintan las uñas».",
-         "Pero eso es un **rol de género** (sesión 81). Y el rol no dice nada de la orientación.",
+         "Pero eso es un **rol de género** (sesión 78). Y el rol no dice nada de la orientación.",
          "La orientación es hacia quién siente atracción alguien. No se ve en la ropa ni en las uñas: ¿cómo lo sabes?",
          "Conclusión: la orientación no se adivina por la apariencia. Y además es asunto de cada persona."
         ],
@@ -13612,12 +13000,12 @@ const CURSO = [
   ]
  },
  {
-  "unidad": 19,
+  "unidad": 18,
   "titulo": "Glocal: culturas y migraciones",
   "trimestre": "Ampliación · Crecer y convivir",
   "sesiones": [
    {
-    "n": 84,
+    "n": 81,
     "titulo": "¿Qué es una cultura?",
     "idea": "Una cultura es la forma de vivir que un grupo aprende y comparte; respetarla no obliga a aceptar lo que daña a las personas.",
     "arranque": {
@@ -13784,7 +13172,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 5) Nombra dos causas por las que creemos cosas sin haberlas pensado."
+        "pregunta": "(Repaso de la sesión 3) Nombra dos causas por las que creemos cosas sin haberlas pensado."
        }
       ]
      },
@@ -13800,7 +13188,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 85,
+    "n": 82,
     "titulo": "Globalización y migraciones",
     "idea": "El mundo está cada vez más conectado y las personas siempre han migrado; sobre los migrantes circulan bulos y generalizaciones que hay que comprobar.",
     "arranque": {
@@ -13872,8 +13260,8 @@ const CURSO = [
         "titulo": "Caso 1 · Un mensaje en la familia",
         "caso": "Al grupo de la familia de un chico llega: «¡URGENTE! A los inmigrantes les dan miles de euros solo por llegar. Lo ha dicho un amigo que trabaja en el ayuntamiento. ¡Pásalo!».",
         "pasos": [
-         "Tiene los ingredientes de un bulo (sesión 33): urgencia, emoción fuerte y fuente vaga.",
-         "¿Quién lo dice? «Un amigo». ¿Cómo lo sabe? No lo explica. No hay fuente fiable (sesión 31).",
+         "Tiene los ingredientes de un bulo (sesión 34): urgencia, emoción fuerte y fuente vaga.",
+         "¿Quién lo dice? «Un amigo». ¿Cómo lo sabe? No lo explica. No hay fuente fiable (sesión 32).",
          "Da una cifra sin decir de dónde sale. Antes de creerla, hay que buscarla en fuentes fiables.",
          "Conclusión: son señales de bulo. No se reenvía hasta comprobarlo."
         ]
@@ -13883,9 +13271,9 @@ const CURSO = [
         "titulo": "Caso 2 · «Lo que yo decía»",
         "caso": "Frase inventada, de las que se oyen por ahí. Vamos a ver por qué falla. Un chico lee una noticia sobre un robo. El detenido nació en otro país. Ese chico comenta: «Lo que yo decía: los de fuera vienen a robar».",
         "pasos": [
-         "De un caso saca una conclusión sobre todos: generalización apresurada (sesión 19).",
+         "De un caso saca una conclusión sobre todos: generalización apresurada (sesión 25).",
          "¿Cuántos casos ha mirado? Uno. En Bilbao viven muchísimas personas de fuera que trabajan y estudian.",
-         "«Lo que yo decía»: se fija en lo que confirma su idea (sesión 44).",
+         "«Lo que yo decía»: se fija en lo que confirma su idea (sesión 45).",
          "Conclusión: un caso no dice nada de todo un grupo. Cada persona responde de lo que hace."
         ]
        },
@@ -13896,7 +13284,7 @@ const CURSO = [
         "pasos": [
          "Parece que sí: su intención es buena y no ataca a nadie.",
          "Pero dice «todos»: habla de millones de personas distintas como si fueran una sola.",
-         "Es otra generalización apresurada, aunque sea positiva (sesión 19).",
+         "Es otra generalización apresurada, aunque sea positiva (sesión 25).",
          "Conclusión: los migrantes son personas variadas, como todas. Ni «todos malos» ni «todos buenos»."
         ],
         "pregunta": "Esa chica defiende a los migrantes. ¿Está razonando bien?"
@@ -13930,7 +13318,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 31) Escribe las tres preguntas para saber si una fuente es fiable."
+        "pregunta": "(Repaso de la sesión 32) Escribe las tres preguntas para saber si una fuente es fiable."
        }
       ]
      },
@@ -13946,7 +13334,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 86,
+    "n": 83,
     "titulo": "Aporofobia, racismo y otras exclusiones",
     "idea": "Un prejuicio es juzgar a alguien por su grupo antes de conocerle; así nacen la aporofobia, el racismo y otras formas de exclusión.",
     "arranque": {
@@ -13977,7 +13365,7 @@ const CURSO = [
         ],
         "filas": [
          [
-          "**Estereotipo** (sesión 45)",
+          "**Estereotipo** (sesión 46)",
           "Una idea fija sobre un grupo",
           "«Los de ese barrio son conflictivos»"
          ],
@@ -14050,7 +13438,7 @@ const CURSO = [
         "titulo": "Caso 2 · Por qué no se va",
         "caso": "Un chico cree que los de un barrio inventado son conflictivos. Si uno hace algo mal, lo recuerda durante meses. Los cien que no hacen nada malo, ni los ve.",
         "pasos": [
-         "Ese chico se fija solo en lo que confirma su idea: sesgo de confirmación (sesión 44).",
+         "Ese chico se fija solo en lo que confirma su idea: sesgo de confirmación (sesión 45).",
          "Además, ve a «los de ese barrio» como un bloque: nosotros y ellos (sesión 66).",
          "Así, cada caso nuevo parece darle la razón, y el prejuicio crece.",
          "Conclusión: el prejuicio se mantiene porque solo mira los casos que le convienen."
@@ -14078,8 +13466,8 @@ const CURSO = [
         "titulo": "Cuatro preguntas contra un prejuicio",
         "puntos": [
          "**¿Cómo lo sabes?** ¿Lo has comprobado o lo has oído?",
-         "**¿Cuántos casos has mirado?** Uno no basta (sesión 19).",
-         "**¿Busco solo lo que me da la razón?** (sesión 44).",
+         "**¿Cuántos casos has mirado?** Uno no basta (sesión 25).",
+         "**¿Busco solo lo que me da la razón?** (sesión 45).",
          "**¿Veo a la persona o solo su grupo?**"
         ]
        }
@@ -14130,12 +13518,12 @@ const CURSO = [
   ]
  },
  {
-  "unidad": 20,
+  "unidad": 19,
   "titulo": "Modas, ocio y futuro",
   "trimestre": "Ampliación · Crecer y convivir",
   "sesiones": [
    {
-    "n": 87,
+    "n": 84,
     "titulo": "¿Por qué seguimos las modas?",
     "idea": "Seguimos las modas para pertenecer y para distinguirnos; pensar bien es ver por qué las sigo y separar lo que se lleva de lo bueno.",
     "arranque": {
@@ -14200,7 +13588,7 @@ const CURSO = [
         "titulo": "Caso 2 · «Si todos las llevan, serán las mejores»",
         "caso": "Un chico va a correr la carrera del instituto con unas zapatillas de moda: «Las lleva todo el mundo, así que serán las mejores para correr».",
         "pasos": [
-         "Es la **prueba social** (sesión 28): copiar a los demás cuando no sabemos qué hacer.",
+         "Es la **prueba social** (sesión 9): copiar a los demás cuando no sabemos qué hacer.",
          "Pero la moda dice qué **se lleva**, no qué es **bueno** para correr.",
          "¿Cómo lo sabe? Mejor preguntar a alguien que corre o buscar pruebas.",
          "Conclusión: que algo esté de moda es una pista de que gusta, no de que funcione."
@@ -14211,7 +13599,7 @@ const CURSO = [
         "titulo": "Caso 3 · ¿El rosa es de chicas?",
         "caso": "Un chico dice: «El rosa siempre ha sido de chicas y el azul, de chicos. Es natural».",
         "pasos": [
-         "¿Cómo lo sabe? Mira a su alrededor y generaliza (sesión 19).",
+         "¿Cómo lo sabe? Mira a su alrededor y generaliza (sesión 25).",
          "La historiadora Jo Paoletti cuenta que hace unos cien años algunas tiendas de EE. UU. recomendaban rosa para niños.",
          "Y azul para niñas. Los colores «de chico» y «de chica» han cambiado con el tiempo.",
          "Conclusión: muchos roles de la moda son **costumbres**, no naturaleza. Cada uno puede vestir como quiera."
@@ -14274,7 +13662,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 88,
+    "n": 85,
     "titulo": "Ocio, drogas y adicciones",
     "idea": "El ocio es tiempo libre elegido; una adicción es perder el control. Ante los mitos sobre drogas, pregunto: ¿cómo lo sabes y quién lo dice?",
     "arranque": {
@@ -14355,7 +13743,7 @@ const CURSO = [
         "titulo": "Caso 1 · El vídeo del vaper",
         "caso": "El vídeo del principio: «Es solo vapor de agua con sabor a fresa». Lo publica una cuenta que vende vapers. (Ejemplo inventado.)",
         "pasos": [
-         "¿Quién lo dice? Una cuenta que vende vapers. ¿Qué gana? Vender más (sesión 31).",
+         "¿Quién lo dice? Una cuenta que vende vapers. ¿Qué gana? Vender más (sesión 32).",
          "¿Cómo lo sabe? No da ninguna prueba: solo lo afirma.",
          "Contrasto con fuentes sanitarias, como el Ministerio de Sanidad o la OMS: dicen que no es solo vapor.",
          "Conclusión: el mito cae con las preguntas de siempre. No hace falta un sermón: hace falta mirar la fuente."
@@ -14366,7 +13754,7 @@ const CURSO = [
         "titulo": "Caso 2 · «Si lo hace todo el mundo»",
         "caso": "En Aste Nagusia, alguien de la cuadrilla le pasa un vaper a un chico: «Venga, si lo hace todo el mundo». (Ejemplo inventado.)",
         "pasos": [
-         "Es una apelación a la mayoría (sesión 28): «si todos lo hacen, estará bien».",
+         "Es una apelación a la mayoría (sesión 9): «si todos lo hacen, estará bien».",
          "¿Es verdad? Muchos estudios encuentran que creemos que los demás consumen **más** de lo que consumen.",
          "Y aunque fuera verdad, que muchos lo hagan no dice si es bueno para mí.",
          "Conclusión: «todo el mundo» no es una razón. Y, como en Asch, un solo aliado ayuda a resistir."
@@ -14445,7 +13833,7 @@ const CURSO = [
     ]
    },
    {
-    "n": 89,
+    "n": 86,
     "titulo": "¿Y después de la ESO?",
     "idea": "Tras 4.º de ESO hay varios caminos que se cruzan; lo que cuenta es elegir con buenas razones, conociendo derechos y deberes.",
     "arranque": {
@@ -14572,7 +13960,7 @@ const CURSO = [
         "tipo": "contraste",
         "titulo": "¿Escalera o mapa?",
         "izq": {
-         "titulo": "Falso dilema (sesión 20)",
+         "titulo": "Falso dilema (sesión 26)",
          "puntos": [
           "«O universidad o fracaso»",
           "«La FP es para los que no valen»",
@@ -14618,7 +14006,7 @@ const CURSO = [
       "puntos": 2,
       "items": [
        {
-        "pregunta": "(Repaso de la sesión 87) Según Simmel, ¿qué dos ganas junta la moda?"
+        "pregunta": "(Repaso de la sesión 84) Según Simmel, ¿qué dos ganas junta la moda?"
        }
       ]
      },
@@ -14632,6 +14020,996 @@ const CURSO = [
       ]
      }
     ]
+   }
+  ]
+ },
+ {
+  "unidad": 20,
+  "titulo": "Números que engañan",
+  "trimestre": "Ampliación · Informarse",
+  "sesiones": [
+   {
+    "n": 87,
+    "titulo": "Porcentajes y cifras",
+    "idea": "Una cifra sola puede engañar: «el doble» de casi nada sigue siendo casi nada, así que hay que preguntar «¿de cuántos?».",
+    "arranque": {
+     "texto": "«¡Los accidentes con patinete en nuestro barrio han subido un 100 %!» (Titular inventado.)",
+     "pregunta": "¿Es mucho o poco? ¿Qué número te falta para saberlo?"
+    },
+    "bloques": [
+     {
+      "titulo": "Cifras sueltas",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Porcentaje",
+        "texto": "Un porcentaje dice cuántos hay de cada 100. El 25 % significa 25 de cada 100.",
+        "puntos": [
+         "**50 %** = la mitad",
+         "**25 %** = la cuarta parte",
+         "**100 %** = todos",
+         "Siempre es un porcentaje **de algo**"
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Cifra absoluta y cifra relativa",
+        "texto": "La cifra absoluta dice cuántos hay. La cifra relativa compara con el total, por ejemplo con un porcentaje.",
+        "puntos": [
+         "**Absoluta:** aprobaron 30 alumnos",
+         "**Relativa:** aprobó el 60 % (30 de 50)",
+         "Hacen falta las dos para entender bien"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "«El doble» de casi nada (ejemplos inventados)",
+        "cabecera": [
+         "Titular",
+         "Antes → después",
+         "¿Mucho o poco?"
+        ],
+        "filas": [
+         [
+          "«¡Suben un 100 %!»",
+          "1 caso → 2 casos",
+          "Casi nada: 1 caso más"
+         ],
+         [
+          "«¡Bajan un 50 %!»",
+          "2.000 → 1.000",
+          "Mucho: 1.000 menos"
+         ],
+         [
+          "«¡El triple de riesgo!»",
+          "1 de cada 10.000 → 3 de cada 10.000",
+          "Riesgo relativo: triple. Absoluto: sigue siendo muy raro"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El patinete",
+        "caso": "El titular del principio: «¡Los accidentes con patinete en el barrio han subido un 100 %!» (Ejemplo inventado.)",
+        "pasos": [
+         "¿Qué significa subir un 100 %? Que ahora hay el doble que antes.",
+         "¿El doble de cuánto? Miro el dato: el año pasado hubo 2 accidentes; este año, 4.",
+         "Son 2 accidentes más. Importa, pero con números tan pequeños no es una ola de accidentes.",
+         "Conclusión: un porcentaje sin la cifra de partida puede asustar sin motivo. Pregunto «¿de cuántos?»."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · El yogur",
+        "caso": "Un anuncio: «Ahora con un 30 % menos de azúcar». (Ejemplo inventado.)",
+        "pasos": [
+         "¿Un 30 % menos que qué? ¿Que el yogur de antes? ¿Que otra marca?",
+         "Imagina que antes tenía 20 gramos de azúcar. Un 30 % menos son 14 gramos.",
+         "14 gramos sigue siendo bastante azúcar para un yogur pequeño.",
+         "Conclusión: «menos» no significa «poco». Hay que mirar la cifra de verdad en la etiqueta."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · Dos institutos",
+        "caso": "En el instituto A hay 20 aprobados. En el instituto B hay 15. ¿Qué instituto lo hizo mejor? (Ejemplo inventado.)",
+        "pasos": [
+         "La cifra absoluta dice que A tiene más aprobados.",
+         "Pero pregunto el total: A tiene 40 alumnos y B tiene 20.",
+         "A: 20 de 40 = 50 %. B: 15 de 20 = 75 %.",
+         "Conclusión: B lo hizo mejor. Para comparar grupos de distinto tamaño hace falta la cifra relativa."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "¿Suben un 10 %?",
+        "caso": "En un instituto, los aprobados de inglés pasan del 40 % al 50 %. Titular: «¡Los aprobados suben un 10 %!». (Ejemplo inventado.)",
+        "pasos": [
+         "Del 40 % al 50 % hay 10 **puntos**: es la resta de los dos porcentajes.",
+         "Pero en proporción: 10 más sobre 40 es la cuarta parte. Los aprobados han subido un 25 %.",
+         "Las dos cifras son verdad, pero dicen cosas distintas. El titular las mezcla.",
+         "Conclusión: subir 10 puntos no es subir un 10 %. Pregunto: ¿puntos o por ciento?"
+        ],
+        "pregunta": "50 menos 40 son 10. ¿Han subido un 10 %?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Un porcentaje dice cuántos hay de cada 100, y siempre es un porcentaje de algo.",
+     "«El doble» de casi nada sigue siendo casi nada: pregunta «¿de cuántos?».",
+     "No confundas puntos con por ciento: del 40 % al 50 % son 10 puntos, un 25 % más."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué significa «el 25 % de los alumnos»?"
+       },
+       {
+        "pregunta": "Inventa un titular con un porcentaje que asuste, pero que en realidad sea «casi nada». Añade las cifras de verdad."
+       },
+       {
+        "pregunta": "Una app anuncia: «¡Tenemos el doble de usuarios que el mes pasado!». El mes pasado tenía 5 usuarios. ¿Es un gran éxito? ¿Por qué?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 33) ¿Qué diferencia suele haber entre un titular clickbait y la noticia que hay detrás?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una chica lee (ejemplo inventado): «En el instituto A suspendieron 30 alumnos; en el B, solo 12. El B es mucho mejor». El A tiene 300 alumnos y el B, 60. ¿Tiene razón? Haz las cuentas."
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 88,
+    "titulo": "Gráficos engañosos",
+    "idea": "Un gráfico puede engañar aunque los datos sean verdad: con el eje cortado, una escala rara, colores que asustan o fechas recortadas.",
+    "arranque": {
+     "texto": "Dos gráficos muestran las mismas ventas. En uno parece que se disparan. En el otro, que casi no cambian.",
+     "pregunta": "¿Cómo puede ser, si los números son iguales?"
+    },
+    "bloques": [
+     {
+      "titulo": "Los trucos de los gráficos",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "El eje",
+        "texto": "El eje vertical marca los valores del gráfico. En un gráfico de barras, lo normal es que empiece en 0.",
+        "puntos": [
+         "**Eje cortado:** empieza en otro número, por ejemplo en 90",
+         "Así, en las barras, diferencias pequeñas parecen enormes",
+         "Mira siempre dónde empieza el eje"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Mismos puntos, eje distinto (ejemplo inventado)",
+        "cabecera": [
+         "Puntos en un videojuego",
+         "Eje de 0 a 100",
+         "Eje de 90 a 100"
+        ],
+        "filas": [
+         [
+          "Una chica: 92 puntos",
+          "Barra llena al 92 %",
+          "Barra llena al 20 %"
+         ],
+         [
+          "Un chico: 98 puntos",
+          "Barra llena al 98 %",
+          "Barra llena al 80 %"
+         ],
+         [
+          "¿Qué parece?",
+          "Casi iguales",
+          "¡El chico tiene cuatro veces más!"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Otros trucos",
+        "puntos": [
+         "**Escala estirada o aplastada:** la misma subida parece un muro o una llanura",
+         "**Dibujos que crecen en ancho y alto:** el doble parece cuatro veces más",
+         "**Colores:** el rojo asusta aunque el dato sea pequeño",
+         "**Recortar fechas:** enseñar solo los meses que convienen"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Antes de creerte un gráfico",
+        "puntos": [
+         "¿Dónde empieza el eje?",
+         "¿Qué fechas o datos faltan?",
+         "¿Qué dicen los números, no el dibujo?",
+         "¿Quién ha hecho el gráfico y qué gana? (sesión 32)"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El precio del bocadillo",
+        "caso": "Un gráfico del bar: el bocadillo pasa de 2,00 € a 2,20 €. La barra nueva parece el triple de alta. (Ejemplo inventado.)",
+        "pasos": [
+         "Miro el eje: empieza en 1,90 €, no en 0.",
+         "Desde 1,90, la barra de 2,00 mide 0,10 y la de 2,20 mide 0,30: el triple.",
+         "Pero el precio real ha subido 20 céntimos: un 10 %.",
+         "Conclusión: el eje cortado hace que una subida del 10 % parezca el triple."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · El mapa rojo",
+        "caso": "Un mapa de Bizkaia pinta de rojo intenso los pueblos donde «suben los robos de bicis». (Ejemplo inventado.)",
+        "pasos": [
+         "El rojo intenso da sensación de peligro.",
+         "Miro los números: en muchos pueblos se pasa de 1 robo a 2.",
+         "La leyenda usa el mismo rojo para cualquier subida, sea de 1 o de 100.",
+         "Conclusión: el color transmite una emoción que los datos no justifican. Leo la leyenda y las cifras."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · Solo los meses buenos",
+        "caso": "Un youtuber enseña un gráfico: sus seguidores suben de marzo a junio. «¡Crezco sin parar!» (Ejemplo inventado.)",
+        "pasos": [
+         "¿Qué fechas enseña? Solo de marzo a junio.",
+         "¿Y el resto del año? En enero tenía más seguidores que en junio.",
+         "Ha recortado el gráfico para enseñar solo la parte que sube.",
+         "Conclusión: un gráfico también engaña por lo que deja fuera. Pregunto qué fechas faltan."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Las temperaturas",
+        "caso": "Un gráfico de líneas muestra la temperatura media de agosto en Bilbao durante 30 años. El eje va de 18 °C a 22 °C. (Ejemplo inventado.)",
+        "pasos": [
+         "En las barras, el largo es la cantidad: por eso su eje debe empezar en 0.",
+         "Aquí hay una línea, y 0 °C no es «nada de calor»: es cuando se hiela el agua.",
+         "Con el eje de 0 a 22, una subida de 1 o 2 grados, que importa mucho, casi no se vería.",
+         "Conclusión: un eje que no empieza en 0 no siempre engaña. Pregunto si la diferencia que enseña importa."
+        ],
+        "pregunta": "El eje no empieza en 0. ¿Es un gráfico engañoso?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Un gráfico puede engañar aunque los números sean verdad.",
+     "Mira dónde empieza el eje, qué fechas faltan y qué emoción buscan los colores.",
+     "Un eje cortado exagera las barras, pero en temperaturas puede estar bien."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es un eje cortado?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de truco en un gráfico que no sea el eje cortado."
+       },
+       {
+        "pregunta": "Un gráfico de notas tiene el eje de 6 a 7. Un chico tiene un 6,2 y una chica un 6,6. La barra de la chica parece el triple de alta. ¿Qué pasa?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 36) Nombra dos formas de manipular una imagen o un vídeo."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una noticia (inventada) dice «¡Se dispara el abono del autobús!». El gráfico tiene el eje de 30 € a 32 €. El abono ha pasado de 30,50 € a 31,00 €. ¿Se ha disparado? ¿Qué truco hay?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 89,
+    "titulo": "Encuestas y muestras",
+    "idea": "Una encuesta es más fiable si la muestra se parece a la población; muchas respuestas no arreglan una muestra sesgada.",
+    "arranque": {
+     "texto": "Una youtuber de videojuegos pregunta a sus seguidores: «¿Te gustan los videojuegos?». El 95 % dice que sí.",
+     "pregunta": "¿Significa eso que al 95 % de los jóvenes les gustan los videojuegos?"
+    },
+    "bloques": [
+     {
+      "titulo": "Qué es una muestra",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Muestra",
+        "texto": "Una muestra es el grupo de personas a las que se pregunta, para sacar conclusiones sobre un grupo mayor.",
+        "puntos": [
+         "**Población:** todo el grupo del que se habla",
+         "**Muestra:** la parte a la que se pregunta",
+         "Como probar una cucharada para saber cómo está la sopa (bien removida)",
+         "**Al azar:** por sorteo, sin elegir a quién"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Tres preguntas a una encuesta",
+        "puntos": [
+         "**¿A cuántos?** Con 5 personas se puede decir muy poco de miles",
+         "**¿A quiénes?** La muestra tiene que parecerse a la población",
+         "**¿Cómo se preguntó?** La pregunta también puede empujar la respuesta",
+         "Una muestra que no se parece está **sesgada**: torcida, inclinada hacia un lado"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Muestras malas y mejores",
+        "cabecera": [
+         "Quiero saber…",
+         "Muestra mala",
+         "Muestra mejor"
+        ],
+        "filas": [
+         [
+          "Qué deporte prefiere el alumnado",
+          "Solo el equipo de fútbol",
+          "Alumnos al azar de todos los cursos"
+         ],
+         [
+          "Si gusta el comedor",
+          "Los 3 amigos de un chico",
+          "100 alumnos elegidos al azar"
+         ],
+         [
+          "Cuánto usan el móvil en 2.º ESO",
+          "Solo quien contesta en Instagram",
+          "Todos los grupos de 2.º, encuesta anónima"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · La encuesta del principio",
+        "caso": "Una youtuber de videojuegos pregunta a sus seguidores si les gustan los videojuegos. El 95 % dice que sí.",
+        "pasos": [
+         "¿A quiénes preguntó? A sus seguidores: gente que ya ve vídeos de videojuegos.",
+         "¿Se parecen a todos los jóvenes? No: quien no juega no la sigue.",
+         "La muestra está sesgada: se inclina hacia un lado.",
+         "Conclusión: el 95 % habla de sus seguidores, no de todos los jóvenes."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · «9 de cada 10»",
+        "caso": "Anuncio: «9 de cada 10 usuarios recomiendan nuestras zapatillas». En letra pequeña: «Encuesta a 10 clientes de nuestra tienda». (Ejemplo inventado.)",
+        "pasos": [
+         "¿A cuántos? Solo a 10 personas.",
+         "¿A quiénes? A clientes que ya las compraron en su tienda.",
+         "Muestra pequeña y sesgada: quien las compró ya tenía buena opinión de ellas.",
+         "Conclusión: «9 de cada 10» suena a mucho, pero son 9 personas elegidas por la marca."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · La pregunta que empuja",
+        "caso": "Encuesta del instituto (inventada): «¿Estás de acuerdo en que el recreo es demasiado corto y hay que alargarlo?»",
+        "pasos": [
+         "La pregunta ya dice lo que piensa quien pregunta: «demasiado corto».",
+         "Empuja a contestar que sí.",
+         "Una pregunta neutral sería: «¿Qué te parece la duración del recreo?»",
+         "Conclusión: además de a quién se pregunta, importa cómo se pregunta. Lo vimos en la sesión 12."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Dos millones de respuestas",
+        "caso": "EE. UU., 1936. Una revista recibe más de dos millones de respuestas sobre quién ganará las elecciones. Otra encuesta pregunta a muchas menos personas, elegidas para parecerse al país.",
+        "pasos": [
+         "No: la revista falló por mucho. Quienes le contestaron no se parecían al conjunto de votantes.",
+         "La encuesta pequeña acertó el ganador: su muestra se parecía más al país.",
+         "Más respuestas no arreglan una muestra sesgada: repiten el mismo error muchas más veces.",
+         "Conclusión: primero, ¿a quiénes?; luego, ¿a cuántos? Una muestra grande pero sesgada sigue fallando."
+        ],
+        "pregunta": "¿Cuál acertó? La de dos millones, ¿no?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Una muestra es la parte del grupo a la que se pregunta.",
+     "Importa a cuántos, pero más a quiénes: una muestra grande pero sesgada sigue fallando.",
+     "Mira también cómo se hizo la pregunta: puede empujar la respuesta."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es una muestra?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de muestra sesgada."
+       },
+       {
+        "pregunta": "Para saber si gusta el nuevo menú del comedor, un chico pregunta a los 4 amigos que se sientan con él. Di dos problemas de su encuesta."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 87) En el instituto A aprueban 18 de 30 alumnos y en el instituto B, 12 de 15. ¿Qué instituto tiene mejor resultado? Calcula los porcentajes."
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una web de noticias pone una encuesta (inventada): «¿Crees que los jóvenes usan demasiado el móvil?». Vota quien quiere. Sale un 85 % de «sí». ¿Qué problemas ves?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 90,
+    "titulo": "Correlación y causa, con datos",
+    "idea": "Que dos datos cambien juntos (correlación) no basta para saber que uno causa el otro; si se descartan otras explicaciones, sí puede ser prueba.",
+    "arranque": {
+     "texto": "En verano se venden más helados. En verano también hay más personas ahogadas.",
+     "pregunta": "¿Los helados provocan ahogamientos?"
+    },
+    "bloques": [
+     {
+      "titulo": "Correlación no es causa",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Correlación",
+        "texto": "Hay correlación cuando dos datos cambian juntos: cuando uno sube, el otro también sube (o baja).",
+        "puntos": [
+         "**Causa:** una cosa **produce** la otra",
+         "Sola, la correlación es una pista, no una prueba",
+         "Sesión 28: «después de» no es «por culpa de»"
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Cuatro explicaciones posibles",
+        "texto": "Si A y B suben juntas, puede ser que…",
+        "puntos": [
+         "**A causa B** (a veces es verdad)",
+         "**B causa A** (al revés)",
+         "**Una tercera causa** produce las dos",
+         "**Casualidad:** coinciden sin tener nada que ver"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Helados y ahogamientos (cifras inventadas)",
+        "cabecera": [
+         "Mes",
+         "Helados vendidos",
+         "Personas ahogadas"
+        ],
+        "filas": [
+         [
+          "Enero",
+          "1.000",
+          "2"
+         ],
+         [
+          "Abril",
+          "3.000",
+          "5"
+         ],
+         [
+          "Julio",
+          "9.000",
+          "12"
+         ]
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · Helados y ahogamientos",
+        "caso": "En la tabla, los dos datos suben juntos. ¿Comer helado hace que la gente se ahogue?",
+        "pasos": [
+         "¿A causa B? No: nadie se ahoga por comer un helado.",
+         "¿B causa A? Tampoco: ahogarse no hace vender helados.",
+         "Tercera causa: el calor. Con calor se comen más helados y más gente se baña.",
+         "Conclusión: hay correlación, pero ninguno causa el otro. La causa común es el calor del verano."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · Móvil y notas",
+        "caso": "Un estudio (inventado) encuentra que los alumnos que usan más el móvil por la noche sacan peores notas.",
+        "pasos": [
+         "¿El móvil causa las malas notas? Es posible: quita horas de sueño.",
+         "¿Al revés? Quien va mal en clase quizá se refugia en el móvil.",
+         "¿Tercera causa? Estrés o problemas en casa podrían producir las dos cosas.",
+         "Conclusión: la correlación es una pista. Para saber la causa hacen falta más estudios."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · Pura casualidad",
+        "caso": "La web de Tyler Vigen encontró que en EE. UU., entre 1999 y 2009, los ahogados en piscinas subían y bajaban igual que las películas de Nicolas Cage.",
+        "pasos": [
+         "¿Las películas de Nicolas Cage ahogan a la gente? Claro que no.",
+         "¿Hay una tercera causa? No se ve ninguna.",
+         "Si comparas miles de datos, algunos coinciden por casualidad.",
+         "Conclusión: dos líneas que se mueven juntas pueden no tener nada que ver."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "Tabaco y cáncer",
+        "caso": "Los fumadores tienen muchos más casos de cáncer de pulmón que quienes no fuman. Alguien dice: «Correlación no es causa. No está demostrado».",
+        "pasos": [
+         "Es verdad que una correlación sola no basta. Pero aquí no está sola.",
+         "Los científicos descartaron otras causas (edad, trabajo…). Y cuanto más fumas, más riesgo; si lo dejas, baja.",
+         "Además, saben cómo pasa: el humo tiene sustancias que dañan las células del pulmón.",
+         "Conclusión: la correlación sí prueba una causa cuando se **descartan** las otras explicaciones. La frase no es un comodín."
+        ],
+        "pregunta": "¿Tiene razón? ¿No sabemos si el tabaco causa cáncer?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Hay correlación cuando dos datos cambian juntos.",
+     "Una correlación sola no prueba la causa: puede ser al revés, una tercera causa o casualidad.",
+     "Si se descartan las otras explicaciones, la correlación sí puede probar una causa."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "Explica con tus palabras qué es una correlación."
+       },
+       {
+        "pregunta": "Pon un ejemplo de dos cosas que suben juntas por una tercera causa."
+       },
+       {
+        "pregunta": "Un chico lee: «Los niños con los pies más grandes leen mejor». ¿Leer hace crecer los pies? ¿Cuál es la tercera causa?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 88) ¿Por qué hay que mirar dónde empieza el eje de un gráfico?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Una noticia dice: «Las ciudades con más bibliotecas tienen más robos. ¡Las bibliotecas atraen a los ladrones!». ¿Qué otra explicación darías?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 91,
+    "titulo": "Medias y anécdotas",
+    "idea": "La media resume, pero puede esconder diferencias (la mediana ayuda); una anécdota no prueba una regla general, aunque puede tumbar un «siempre».",
+    "arranque": {
+     "texto": "«En esta empresa el sueldo medio es de 5.000 € al mes.» Trabajan un jefe y cuatro empleados. (Ejemplo inventado.)",
+     "pregunta": "¿Cuánto crees que cobran los empleados?"
+    },
+    "bloques": [
+     {
+      "titulo": "La media y la anécdota",
+      "diapositivas": [
+       {
+        "tipo": "concepto",
+        "titulo": "Media",
+        "texto": "La media se calcula sumando todos los datos y dividiendo entre cuántos datos hay.",
+        "puntos": [
+         "Notas 4, 6 y 8 → (4+6+8) : 3 = 6",
+         "Resume muchos datos en un solo número",
+         "Pero **esconde** cómo son los datos por dentro",
+         "La **mediana** es el dato del medio, ordenados de menor a mayor"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Dos institutos con media 5 (ejemplo inventado)",
+        "cabecera": [
+         "Instituto",
+         "Notas",
+         "Media"
+        ],
+        "filas": [
+         [
+          "Instituto A",
+          "5, 5, 5, 5",
+          "5"
+         ],
+         [
+          "Instituto B",
+          "0, 0, 10, 10",
+          "5"
+         ],
+         [
+          "¿Iguales?",
+          "A: todos aprueban justo. B: la mitad suspende",
+          "Misma media, institutos muy distintos"
+         ]
+        ]
+       },
+       {
+        "tipo": "concepto",
+        "titulo": "Anécdota",
+        "texto": "Una anécdota es un caso suelto que alguien cuenta. Puede ser verdad, pero no dice cómo es la mayoría.",
+        "puntos": [
+         "«Mi abuelo fumó toda la vida y vivió 95 años»",
+         "Un caso suelto **no dice** cómo es la mayoría",
+         "Los datos salen de **muchos** casos contados bien"
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Casos resueltos",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso 1 · El sueldo del principio",
+        "caso": "Empresa inventada: el jefe cobra 20.000 € al mes y cada uno de los cuatro empleados, 1.250 €.",
+        "pasos": [
+         "Sumo y divido: 20.000 + 4 × 1.250 = 25.000 €; 25.000 : 5 = 5.000 €. La media es verdad.",
+         "Pero ningún empleado cobra 5.000 €: el sueldo del jefe tira de la media hacia arriba.",
+         "Ordeno: 1.250, 1.250, **1.250**, 1.250, 20.000. La mediana, el dato del medio, es 1.250 €.",
+         "Conclusión: un dato muy grande deforma la media. Aquí la mediana dice mejor lo que cobra la mayoría."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 2 · El abuelo fumador",
+        "caso": "Un chico: «Fumar no es tan malo. Mi abuelo fumó toda la vida y vivió 95 años».",
+        "pasos": [
+         "¿Es verdad lo del abuelo? Puede que sí.",
+         "¿Es suficiente? No: es un caso entre millones de fumadores.",
+         "Los datos no dicen que «todos» los fumadores mueren jóvenes: dicen que, de media, viven bastantes años menos.",
+         "Conclusión: el abuelo solo tumbaría «todos los fumadores mueren jóvenes», y los datos no dicen eso. Una anécdota no los tumba."
+        ]
+       },
+       {
+        "tipo": "caso",
+        "titulo": "Caso 3 · Un gol por partido",
+        "caso": "El entrenador del equipo del barrio: «Un chico marca de media un gol por partido». Han jugado 10 partidos. (Ejemplo inventado.)",
+        "pasos": [
+         "¿Marca en cada partido? No lo sé: la media no lo dice.",
+         "Puede que marcara 10 goles en un partido y 0 en los otros nueve.",
+         "10 goles : 10 partidos = 1 de media, igual que marcando uno cada día.",
+         "Conclusión: la misma media puede esconder situaciones muy distintas."
+        ]
+       }
+      ]
+     },
+     {
+      "titulo": "Error típico y caso trampa",
+      "diapositivas": [
+       {
+        "tipo": "contraste",
+        "titulo": "¿Qué sirve como prueba?",
+        "izq": {
+         "titulo": "Solo, no basta como prueba",
+         "puntos": [
+          "«A mi primo le funcionó»",
+          "«Conozco a uno que…»",
+          "Un vídeo viral de un solo caso"
+         ]
+        },
+        "der": {
+         "titulo": "Pruebas más fuertes",
+         "puntos": [
+          "Muchos casos contados bien",
+          "Comparar con un grupo que no lo hizo",
+          "Varios estudios que coinciden"
+         ]
+        }
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "El casco que «nunca» falla",
+        "caso": "Anuncio (inventado): «Con nuestro casco, nunca te harás una herida en la cabeza». Un chico se cayó con ese casco puesto y se hizo una herida.",
+        "pasos": [
+         "Para saber cómo es la mayoría, un caso no basta.",
+         "Pero el anuncio dice «nunca». Para tumbar un «nunca», basta un **contraejemplo**: un caso que dice lo contrario.",
+         "Si lo del chico es verdad, el anuncio es falso, aunque el casco proteja mucho.",
+         "Conclusión: una anécdota no prueba una regla general, pero sí puede tumbar un «nunca» o un «siempre»."
+        ],
+        "pregunta": "Es solo una anécdota. ¿Entonces no sirve para nada?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "La media suma y divide; la mediana es el dato del medio.",
+     "La media resume, pero esconde: un dato muy grande o muy pequeño la deforma.",
+     "Una anécdota no prueba cómo es la mayoría, pero sí puede tumbar un «nunca»."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "¿Qué es una anécdota?"
+       },
+       {
+        "pregunta": "Pon un ejemplo de anécdota que alguien usa como si fuera una prueba."
+       },
+       {
+        "pregunta": "Una chica dice: «En mi calle la edad media es 40 años, así que casi todos tienen unos 40». En su calle viven 5 niños de 10 años y 5 personas de 70. ¿Tiene razón?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la sesión 89) ¿Qué preguntas le haces a una encuesta para saber si es fiable?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Dos frases inventadas. Un chico lee en un foro: «Probé la crema X una semana y se me quitaron los granos. ¡Funciona!». Una web dice: «Los youtubers ganan de media 3.000 € al mes». ¿Qué problema tiene cada una?"
+       }
+      ]
+     }
+    ]
+   },
+   {
+    "n": 92,
+    "titulo": "Repaso y examen de la unidad 20",
+    "idea": "Repasamos cómo engañan los números: porcentajes, gráficos, encuestas, correlaciones, medias y anécdotas.",
+    "arranque": {
+     "texto": "Un anuncio (inventado): «¡El 80 % duerme mejor con la almohada Nube!». En letra pequeña: «Encuesta a 10 clientes». Y un gráfico con el eje cortado.",
+     "pregunta": "¿Cuántos trucos de la unidad encuentras?"
+    },
+    "bloques": [
+     {
+      "titulo": "Repaso de la unidad 20",
+      "diapositivas": [
+       {
+        "tipo": "tabla",
+        "titulo": "Porcentajes y cifras (sesión 87)",
+        "cabecera": [
+         "Idea",
+         "Qué preguntar"
+        ],
+        "filas": [
+         [
+          "Porcentaje = cuántos de cada 100",
+          "¿Porcentaje de qué?"
+         ],
+         [
+          "«El doble» de casi nada",
+          "¿De cuántos se parte?"
+         ],
+         [
+          "Cifra absoluta y cifra relativa",
+          "¿Cuántos eran en total?"
+         ],
+         [
+          "Puntos y por ciento",
+          "¿Es la resta o la proporción?"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Gráficos engañosos (sesión 88)",
+        "puntos": [
+         "**Eje cortado en barras:** exagera las diferencias (en temperaturas puede estar bien)",
+         "**Escala y dibujos:** estiran o agrandan la impresión",
+         "**Colores:** el rojo asusta aunque el dato sea pequeño",
+         "**Fechas recortadas:** enseñan solo lo que conviene"
+        ]
+       },
+       {
+        "tipo": "tabla",
+        "titulo": "Encuestas y muestras (sesión 89)",
+        "cabecera": [
+         "Pregunta",
+         "Qué buscar"
+        ],
+        "filas": [
+         [
+          "¿A cuántos?",
+          "Bastantes personas, no 5 ni 10"
+         ],
+         [
+          "¿A quiénes?",
+          "Parecidos a la población, al azar (lo más importante)"
+         ],
+         [
+          "¿Cómo se preguntó?",
+          "Una pregunta neutral, que no empuje"
+         ]
+        ]
+       },
+       {
+        "tipo": "lista",
+        "titulo": "Correlación y causa (sesión 90)",
+        "texto": "Si dos datos suben juntos, puede ser que…",
+        "puntos": [
+         "A cause B (se sabe si se descartan las demás)",
+         "B cause A",
+         "Una tercera causa produzca los dos",
+         "Sea pura casualidad"
+        ]
+       },
+       {
+        "tipo": "contraste",
+        "titulo": "Medias y anécdotas (sesión 91)",
+        "izq": {
+         "titulo": "No es suficiente",
+         "puntos": [
+          "Una media sola, sin ver los datos",
+          "Una anécdota como prueba de lo que pasa en general"
+         ]
+        },
+        "der": {
+         "titulo": "Sí ayuda",
+         "puntos": [
+          "Mirar los datos por dentro y la mediana",
+          "Muchos casos contados bien"
+         ]
+        }
+       }
+      ]
+     },
+     {
+      "titulo": "Un caso que lo mezcla todo",
+      "diapositivas": [
+       {
+        "tipo": "caso",
+        "titulo": "Caso · La almohada Nube",
+        "caso": "Anuncio inventado: «¡El 80 % duerme mejor con la almohada Nube!». En letra pequeña: «Encuesta a 10 clientes». El gráfico tiene el eje de 70 a 80.",
+        "pasos": [
+         "Porcentaje: el 80 % de 10 son solo 8 personas.",
+         "Muestra: 10 clientes que ya compraron la almohada. Pequeña y sesgada.",
+         "Gráfico: son barras y el eje empieza en 70, así que cualquier diferencia parece enorme.",
+         "Conclusión: tres trucos de números en un solo anuncio. Todavía no me convence."
+        ]
+       },
+       {
+        "tipo": "trampa",
+        "titulo": "«Solo» 1 de cada 1.000",
+        "caso": "Una vacuna baja las muertes por una enfermedad de 2 de cada 1.000 a 1 de cada 1.000. Alguien dice: «Solo 1 de cada 1.000: casi nada». (Ejemplo inventado.)",
+        "pasos": [
+         "En cifra absoluta, 1 de cada 1.000 parece poco.",
+         "Pero si se vacuna un millón de personas, son 1.000 muertes menos.",
+         "«Casi nada» también puede engañar: depende de cuántas personas y de lo grave que sea.",
+         "Conclusión: una cifra pequeña no siempre es poco importante. Pregunto de cuántos y qué está en juego."
+        ],
+        "pregunta": "¿Es una mejora tan pequeña que no importa?"
+       }
+      ]
+     }
+    ],
+    "resumen": [
+     "Ante un porcentaje, pregunta siempre «¿de cuántos?» y «¿de qué?».",
+     "Mira dónde empieza el eje del gráfico y a quién preguntó la encuesta.",
+     "Correlación no es causa, la media esconde y una anécdota no es un dato."
+    ],
+    "hoja": [
+     {
+      "nombre": "Peldaño 1 · Todos",
+      "puntos": 6,
+      "items": [
+       {
+        "pregunta": "En el instituto A suspenden 10 de 50 alumnos; en el B, 10 de 20. ¿Dónde suspenden más, en proporción? Calcula los porcentajes."
+       },
+       {
+        "pregunta": "¿Qué quiere decir «el doble de casi nada sigue siendo casi nada»? Pon un ejemplo."
+       },
+       {
+        "pregunta": "¿Qué es un eje cortado y qué efecto tiene en un gráfico de barras?"
+       },
+       {
+        "pregunta": "Para saber qué música escucha el alumnado del instituto, una chica pregunta solo a los que tocan en la banda del barrio. ¿Qué problema tiene su muestra?"
+       },
+       {
+        "pregunta": "Los días que se venden más ventiladores hay más quemaduras de sol. ¿Los ventiladores queman? ¿Cuál es la tercera causa?"
+       },
+       {
+        "pregunta": "¿Por qué una anécdota no sirve como prueba de lo que pasa en general?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 2 · Repaso",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "(Repaso de la unidad 6) Escribe dos preguntas para saber si una fuente es fiable."
+       },
+       {
+        "pregunta": "(Repaso de la unidad 5) ¿Qué es la falacia de causa falsa?"
+       }
+      ]
+     },
+     {
+      "nombre": "Peldaño 3 · Reto",
+      "puntos": 2,
+      "items": [
+       {
+        "pregunta": "Un vídeo (inventado) dice: «En una encuesta en nuestro canal, el 90 % de los que juegan más de 3 horas al día aprueba inglés. ¡Jugar te hace bilingüe!». Analízalo con al menos dos ideas de la unidad."
+       }
+      ]
+     }
+    ],
+    "examen": true
    }
   ]
  }
