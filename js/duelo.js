@@ -130,6 +130,7 @@ const DUELO_REACCIONES = [
 const DUELO_TEMAS = [
  {
   "id": "moviles",
+  "grupo": "dia",
   "nivel": [
    "eso"
   ],
@@ -196,6 +197,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "comida",
+  "grupo": "dia",
   "nivel": [
    "eso"
   ],
@@ -263,6 +265,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "mascota",
+  "grupo": "dia",
   "nivel": [
    "eso"
   ],
@@ -329,6 +332,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "trasimaco",
+  "grupo": "socrates",
   "nivel": [
    "fil",
    "hf"
@@ -419,6 +423,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "atheismusstreit",
+  "grupo": "contemporanea",
   "nivel": [
    "hf"
   ],
@@ -505,6 +510,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "descartes-dualismo",
+  "grupo": "moderna",
   "nivel": [
    "fil",
    "hf"
@@ -591,6 +597,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "hegel-kant",
+  "grupo": "contemporanea",
   "nivel": [
    "hf"
   ],
@@ -676,6 +683,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "calicles",
+  "grupo": "socrates",
   "nivel": [
    "fil",
    "hf"
@@ -763,6 +771,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "eutifron",
+  "grupo": "socrates",
   "nivel": [
    "fil",
    "hf"
@@ -848,6 +857,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "eutidemo",
+  "grupo": "socrates",
   "nivel": [
    "fil",
    "hf"
@@ -937,6 +947,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "criton",
+  "grupo": "socrates",
   "nivel": [
    "fil",
    "hf"
@@ -1027,6 +1038,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "pol-erasmo-lutero",
+  "grupo": "moderna",
   "nivel": [
    "fil",
    "hf"
@@ -1113,6 +1125,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "pol-leibniz-newton-clarke",
+  "grupo": "moderna",
   "nivel": [
    "fil",
    "hf"
@@ -1199,6 +1212,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "pol-voltaire-rousseau-lisboa",
+  "grupo": "moderna",
   "nivel": [
    "fil",
    "hf"
@@ -1285,6 +1299,7 @@ const DUELO_TEMAS = [
  },
  {
   "id": "pol-sartre-camus",
+  "grupo": "contemporanea",
   "nivel": [
    "fil",
    "hf"
@@ -1365,6 +1380,615 @@ const DUELO_TEMAS = [
    },
    {
     "t": "O condena usted todos los campos, o es cómplice de asesinos: elija.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-maniqueos",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Agustín contra los maniqueos (Hipona, 392): ¿de dónde viene el mal?",
+  "cpuLado": "El ordenador es Fortunato, sacerdote maniqueo: hay dos sustancias eternas en lucha, la luz y las tinieblas.",
+  "tuLado": "Eres Agustín: hay un solo Dios bueno, todo lo que hizo es bueno, y el mal nace de nuestra libre voluntad.",
+  "estrat": [
+   {
+    "t": "“Tú fuiste de los nuestros nueve años: ¿con qué cara nos criticas ahora?”",
+    "nombre": "el reproche del pasado",
+    "schop": "ad hominem",
+    "q": "Haber pensado otra cosa antes no decide quién tiene razón ahora. Vuelve al argumento."
+   },
+   {
+    "t": "“Aquí todo el mundo sabe que los maniqueos somos gente honrada; tú solo repites calumnias.”",
+    "nombre": "el desvío a la reputación",
+    "schop": "cambiar de tema",
+    "q": "No discuto vuestras costumbres, sino de dónde viene el mal."
+   },
+   {
+    "t": "“Eso que dices es filosofía de griegos, no fe de Cristo.”",
+    "nombre": "la etiqueta sospechosa",
+    "schop": "subsumir en una categoría aborrecible",
+    "q": "Llamarlo «de griegos» no lo refuta. ¿Qué tiene de falso?"
+   }
+  ],
+  "opp": [
+   {
+    "t": "Todos sentimos dentro una lucha entre dos fuerzas que tiran en sentidos contrarios: eso muestra que hay dos naturalezas.",
+    "f": null
+   },
+   {
+    "t": "Si todo viene de un Dios bueno y todopoderoso, ¿de dónde sale tanto mal que nadie quiere?",
+    "f": null
+   },
+   {
+    "t": "O el mal es una sustancia tan real como el bien, o no existe y todo el sufrimiento es una ilusión: elige.",
+    "f": "dos",
+    "peso": 2
+   },
+   {
+    "t": "Según tú, Dios es el autor del mal, porque todo lo hizo él.",
+    "f": "deformar",
+    "peso": 3
+   },
+   {
+    "t": "Mani fue enviado como el Paráclito prometido por Cristo: ¿vas a corregirle tú?",
+    "f": "famoso",
+    "peso": 2
+   },
+   {
+    "t": "Si niegas el principio de las tinieblas, cargarás tú solo con la culpa de todos tus pecados: ¿quieres eso?",
+    "f": "miedo",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Si a Dios nada puede dañarle, ¿por qué iba a mandar una parte de sí mismo a sufrir en este mundo? Y si algo pudiera dañarle, no sería Dios.",
+    "str": 3
+   },
+   {
+    "t": "Si el mal no es culpa nuestra, sino de otra naturaleza, no tiene sentido ni arrepentirse, ni castigar, ni premiar.",
+    "str": 3
+   },
+   {
+    "t": "Dios hizo todas las cosas buenas; lo único que se llama mal es nuestro pecado voluntario, que no es una sustancia, sino un querer torcido.",
+    "str": 2
+   },
+   {
+    "t": "La lucha que sentimos dentro no prueba dos naturalezas: prueba una voluntad dividida, que quiere y no acaba de querer.",
+    "str": 2
+   },
+   {
+    "t": "Los maniqueos sois unos hipócritas que predicáis pureza y vivís como todos.",
+    "f": "persona"
+   },
+   {
+    "t": "O aceptas un solo Dios, o adoras al demonio: no hay más.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-jeronimo",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Agustín contra Jerónimo (394-405): ¿se puede mentir por una buena causa?",
+  "cpuLado": "El ordenador es Jerónimo: la reprensión de Pablo a Pedro fue una acomodación prudente, no una mentira.",
+  "tuLado": "Eres Agustín: si se admite una sola mentira «útil» en la Escritura, ya no se puede fiar de ningún pasaje.",
+  "estrat": [
+   {
+    "t": "“Un joven no debe provocar a un viejo en el campo de las Escrituras: el buey cansado pisa más fuerte.”",
+    "nombre": "el peso de la edad",
+    "schop": "apelar a la propia autoridad",
+    "q": "La edad no decide si un texto miente. Respóndeme a eso."
+   },
+   {
+    "t": "“Tu carta ha corrido por media Italia antes de llegarme: ¿buscas fama a mi costa?”",
+    "nombre": "la sospecha de intenciones",
+    "schop": "ad hominem",
+    "q": "Mis intenciones no cambian el argumento. ¿Hubo mentira o no?"
+   },
+   {
+    "t": "“¿Sabes tú hebreo? Entonces no me enseñes a leer la Biblia.”",
+    "nombre": "el desprecio del experto",
+    "schop": "apelar a la propia autoridad",
+    "q": "No discuto tu hebreo, sino si se puede aceptar una mentira útil."
+   }
+  ],
+  "opp": [
+   {
+    "t": "Pedro y Pablo, por prudencia, hicieron como si cumplieran la Ley para no escandalizar a los judíos: adaptarse no es mentir.",
+    "f": null
+   },
+   {
+    "t": "Hay que leer los textos con los mejores intérpretes y en su lengua original, no con traducciones de traducciones.",
+    "f": null
+   },
+   {
+    "t": "Orígenes y los grandes comentaristas lo leyeron así antes que yo: ¿vas a enmendarlos a todos?",
+    "f": "famoso",
+    "peso": 2
+   },
+   {
+    "t": "Según tú, entonces, los apóstoles se peleaban como niños y la Iglesia empezó con un escándalo.",
+    "f": "deformar",
+    "peso": 2
+   },
+   {
+    "t": "O aceptas mi lectura, o les das la razón a los paganos como Porfirio, que se burlan de los apóstoles.",
+    "f": "dos",
+    "peso": 2
+   },
+   {
+    "t": "Siempre se ha leído así en las escuelas de Alejandría.",
+    "f": "siempre",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Admitida una sola vez una mentira útil en una autoridad tan alta, cualquiera podrá llamar «útil» la frase que le moleste: no quedará pasaje seguro.",
+    "str": 3
+   },
+   {
+    "t": "La autoridad de un texto depende de que no mienta nunca; por eso Pablo tuvo que reprender a Pedro de verdad, porque Pedro había obrado mal.",
+    "str": 3
+   },
+   {
+    "t": "Una cosa es callar algo por prudencia, y otra afirmar lo que es falso: lo primero puede ser sabio, lo segundo es mentir.",
+    "str": 2
+   },
+   {
+    "t": "Que los paganos se burlen no es razón para cambiar el sentido del texto: la verdad no se ajusta al miedo a las burlas.",
+    "str": 2
+   },
+   {
+    "t": "Tú defiendes esto porque eres un viejo orgulloso que no soporta que le corrijan.",
+    "f": "persona"
+   },
+   {
+    "t": "O me das la razón, o eres enemigo de la verdad de la Escritura: elige.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-petiliano",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Agustín contra los donatistas (hacia 400-411): ¿vale un sacramento si lo da un mal sacerdote?",
+  "cpuLado": "El ordenador es Petiliano, obispo donatista: un ministro manchado no puede limpiar a nadie; la Iglesia verdadera es la de los puros.",
+  "tuLado": "Eres Agustín: quien bautiza de verdad es Cristo; el sacerdote es solo un instrumento, y el sacramento vale aunque sea indigno.",
+  "estrat": [
+   {
+    "t": "“Tú fuiste sacerdote de los maniqueos: ¿quién eres para hablar de sacramentos?”",
+    "nombre": "la acusación falsa",
+    "schop": "ad hominem",
+    "q": "Nunca fui sacerdote maniqueo, y aunque lo hubiera sido, eso no responde al argumento."
+   },
+   {
+    "t": "“Eres un dialéctico, un artista del engaño: con palabras retorcidas lo demuestras todo.”",
+    "nombre": "el desprecio de la lógica",
+    "schop": "desacreditar el método",
+    "q": "Razonar con cuidado no es engañar. Señala dónde está el error."
+   },
+   {
+    "t": "“Vuestra Iglesia pactó con los traidores: no tenéis autoridad para hablar.”",
+    "nombre": "la descalificación del grupo",
+    "schop": "ad hominem",
+    "q": "Lo que hicieran otros no decide si el sacramento depende del ministro."
+   }
+  ],
+  "opp": [
+   {
+    "t": "Lo que cuenta es la conciencia del que da el sacramento: una conciencia manchada no puede lavar la del que lo recibe.",
+    "f": null
+   },
+   {
+    "t": "Una Iglesia que acoge como pastores a quienes traicionaron la fe para salvarse pierde su santidad.",
+    "f": null
+   },
+   {
+    "t": "Según tú, da igual que el sacerdote sea un criminal: no importa nada cómo vivan los pastores.",
+    "f": "deformar",
+    "peso": 3
+   },
+   {
+    "t": "O la Iglesia es pura, o es la sinagoga del diablo: no hay término medio.",
+    "f": "dos",
+    "peso": 2
+   },
+   {
+    "t": "Los mártires murieron por no traicionar: si aceptas a los traidores, escupes sobre su sangre.",
+    "f": "pena",
+    "peso": 2
+   },
+   {
+    "t": "En toda Numidia el pueblo está con nosotros.",
+    "f": "todos",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Si el bautismo dependiera de la conciencia del sacerdote, nadie podría estar seguro de estar bautizado, porque la conciencia ajena no se ve.",
+    "str": 3
+   },
+   {
+    "t": "Quien bautiza de verdad es Cristo: el ministro, bueno o malo, solo presta las manos. Por eso la esperanza se pone en Cristo, no en un hombre.",
+    "str": 3
+   },
+   {
+    "t": "No digo que dé igual cómo vivan los pastores: digo que su pecado los condena a ellos, no anula lo que Cristo da por sus manos.",
+    "str": 2
+   },
+   {
+    "t": "Si solo valen los sacramentos de los puros, tendríais que repetir los vuestros cada vez que se descubre un pecado en un obispo vuestro.",
+    "str": 2
+   },
+   {
+    "t": "Los donatistas sois unos fanáticos violentos, así que no tenéis razón.",
+    "f": "persona"
+   },
+   {
+    "t": "O volvéis a la Iglesia católica, o sois herejes condenados: elegid.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-volusiano",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Agustín contra los paganos (408-412): ¿el cristianismo hace peores ciudadanos?",
+  "cpuLado": "El ordenador es Volusiano, un pagano culto: perdonar al enemigo y poner la otra mejilla no conviene a un Estado que tiene que defenderse.",
+  "tuLado": "Eres Agustín: la doctrina cristiana no prohíbe servir a la patria; si todos vivieran según ella, el Estado estaría más sano.",
+  "estrat": [
+   {
+    "t": "“Desde que los emperadores son cristianos, Roma ha caído en manos de Alarico. ¿Hace falta decir más?”",
+    "nombre": "la causa de la catástrofe",
+    "schop": "insinuar sin argumentar",
+    "q": "Que una cosa venga después de otra no prueba que la cause. Sigamos con las razones."
+   },
+   {
+    "t": "“Tú, un africano de provincias, ¿vas a enseñar a un romano qué es la patria?”",
+    "nombre": "el desprecio de origen",
+    "schop": "ad hominem",
+    "q": "Mi origen no decide si el Evangelio daña al Estado."
+   },
+   {
+    "t": "“Cicerón ya lo dijo: el primer deber es la patria. ¿Te atreves a contradecir a Cicerón?”",
+    "nombre": "el gran nombre",
+    "schop": "apelar a la autoridad",
+    "q": "Respeto a Cicerón, pero la cuestión es si la doctrina cristiana destruye ese deber, y no lo hace."
+   }
+  ],
+  "opp": [
+   {
+    "t": "Una moral que manda no devolver mal por mal deja la ciudad indefensa ante quien la saquea.",
+    "f": null
+   },
+   {
+    "t": "Una religión también se juzga por lo que hace con la vida pública, no solo por lo que promete para después de la muerte.",
+    "f": null
+   },
+   {
+    "t": "Roma fue saqueada después de abandonar a sus dioses: los dioses la han castigado.",
+    "f": "causa",
+    "peso": 3
+   },
+   {
+    "t": "Según tú, los soldados deberían tirar las armas y dejarse matar.",
+    "f": "deformar",
+    "peso": 2
+   },
+   {
+    "t": "Nuestros antepasados honraron siempre a los dioses de Roma, y así se hizo grande.",
+    "f": "siempre",
+    "peso": 2
+   },
+   {
+    "t": "Si sigues predicando eso, mañana no quedará nadie que defienda tu Hipona de los bárbaros.",
+    "f": "miedo",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Los que dicen que la doctrina de Cristo es contraria al Estado, que den un ejército como el que esa doctrina pide: soldados que no abusan, no roban y se contentan con su paga.",
+    "str": 3
+   },
+   {
+    "t": "Los males de Roma no empezaron con los cristianos: sus propios autores, como Salustio, ya lamentaban la corrupción de las costumbres.",
+    "str": 3
+   },
+   {
+    "t": "El Evangelio no manda a los soldados dejar las armas, sino no abusar de ellas: Juan Bautista les dijo que se contentaran con su paga, no que desertaran.",
+    "str": 2
+   },
+   {
+    "t": "Poner la otra mejilla es una disposición del corazón para no vengarse, no una ley que obligue a un Estado a no castigar a los criminales.",
+    "str": 2
+   },
+   {
+    "t": "Los paganos sois unos supersticiosos que adoráis estatuas, ¿qué vais a saber vosotros?",
+    "f": "persona"
+   },
+   {
+    "t": "O te haces cristiano, o seguirás siendo culpable de la ruina de Roma.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-pelagio",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Pelagio contra Agustín (411-418): ¿podemos hacer el bien con nuestras propias fuerzas?",
+  "cpuLado": "El ordenador es Agustín: desde Adán nacemos heridos; sin la gracia de Dios, la voluntad no llega a querer ni a hacer el bien.",
+  "tuLado": "Eres Pelagio: Dios nos hizo capaces de no pecar; si Dios manda algo, es que podemos cumplirlo.",
+  "estrat": [
+   {
+    "t": "“En Dióspolis condenaste de palabra lo que sigues defendiendo en tus escritos.”",
+    "nombre": "la acusación de doblez",
+    "schop": "ad hominem",
+    "q": "Si me contradigo, señálalo en el argumento. Lo que se dijera en un concilio no responde a la pregunta."
+   },
+   {
+    "t": "“Eres un monje orgulloso que se cree capaz de salvarse solo.”",
+    "nombre": "la pulla al carácter",
+    "schop": "ad hominem",
+    "q": "Mi carácter no decide si la voluntad puede hacer el bien."
+   },
+   {
+    "t": "“Los concilios de África y el obispo de Roma te han condenado: ¿qué más quieres?”",
+    "nombre": "el peso de la condena",
+    "schop": "apelar a la autoridad",
+    "q": "Una condena no es una razón. ¿Qué tiene de falso lo que digo?"
+   }
+  ],
+  "opp": [
+   {
+    "t": "Sabemos muchas veces qué es lo bueno y aun así no lo hacemos: la voluntad está dividida y necesita ser sanada.",
+    "f": null
+   },
+   {
+    "t": "Si pudiéramos ser buenos con nuestras solas fuerzas, Cristo habría venido solo a dar ejemplo, no a salvar.",
+    "f": null
+   },
+   {
+    "t": "Según tú, el ser humano no necesita a Dios para nada.",
+    "f": "deformar",
+    "peso": 3
+   },
+   {
+    "t": "O todo es gracia de Dios, o todo es mérito del hombre: no hay término medio.",
+    "f": "dos",
+    "peso": 2
+   },
+   {
+    "t": "Ya lo dijo el apóstol Pablo, y quien no lo acepta no es cristiano.",
+    "f": "notrue",
+    "peso": 2
+   },
+   {
+    "t": "Si te escuchan, la gente se llenará de soberbia y nadie rezará.",
+    "f": "miedo",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Si no podemos evitar el pecado, no somos responsables de él, y no tiene sentido exigirnos nada.",
+    "str": 3
+   },
+   {
+    "t": "Si Dios manda algo, es porque podemos cumplirlo: mandar lo imposible sería injusto.",
+    "str": 3
+   },
+   {
+    "t": "La gracia es la capacidad que Dios nos dio al crearnos, junto con la ley y el ejemplo de Cristo: no niego la gracia, digo en qué consiste.",
+    "str": 2
+   },
+   {
+    "t": "Decir que sin la gracia no hacemos el bien da una excusa perfecta al que no quiere esforzarse.",
+    "str": 2
+   },
+   {
+    "t": "Tú sigues siendo maniqueo por dentro: por eso ves mal en todas partes.",
+    "f": "persona"
+   },
+   {
+    "t": "O el hombre es libre del todo, o es una marioneta de Dios: elige.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-julian",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Julián de Eclana contra Agustín (419-430): ¿puede un recién nacido cargar con un pecado ajeno?",
+  "cpuLado": "El ordenador es Agustín: todos nacemos con el pecado original heredado de Adán, y por eso se bautiza también a los niños.",
+  "tuLado": "Eres Julián de Eclana: no hay pecado sin voluntad propia, y un Dios justo no puede culpar a nadie del pecado de otro.",
+  "estrat": [
+   {
+    "t": "“¡Gran protector de los niños! ¿Y los dejas sin bautismo?”",
+    "nombre": "la ironía",
+    "schop": "ridiculizar en vez de refutar",
+    "q": "La ironía no es un argumento. ¿Cómo puede ser culpable quien no ha querido nada?"
+   },
+   {
+    "t": "“Eres un obispo depuesto y desterrado: tu opinión no cuenta.”",
+    "nombre": "la descalificación",
+    "schop": "ad hominem",
+    "q": "Mi destierro no decide si hay pecado sin voluntad."
+   },
+   {
+    "t": "“Defiendes lo mismo que Pelagio, y Pelagio ya está condenado.”",
+    "nombre": "culpa por asociación",
+    "schop": "subsumir en una categoría aborrecible",
+    "q": "Coincidir con alguien condenado no prueba que me equivoque. Responde al argumento."
+   }
+  ],
+  "opp": [
+   {
+    "t": "Todos, desde el principio, estamos inclinados al mal y sufrimos dolor, ignorancia y muerte sin haberlo elegido: eso pide una explicación.",
+    "f": null
+   },
+   {
+    "t": "Si los niños no tuvieran nada de lo que ser salvados, Cristo no sería el salvador de todos.",
+    "f": null
+   },
+   {
+    "t": "Según tú, el ser humano nace perfecto y no necesita a Cristo.",
+    "f": "deformar",
+    "peso": 3
+   },
+   {
+    "t": "La Iglesia bautiza a los niños desde siempre para el perdón de los pecados: luego tienen pecado.",
+    "f": "siempre",
+    "peso": 2
+   },
+   {
+    "t": "Si te hacemos caso, los padres dejarán de bautizar a sus hijos y se perderán.",
+    "f": "miedo",
+    "peso": 2
+   },
+   {
+    "t": "O aceptas el pecado original, o niegas la Escritura entera.",
+    "f": "dos",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Culpar a alguien de lo que no ha hecho es la definición misma de injusticia, y no puede atribuirse a Dios.",
+    "str": 3
+   },
+   {
+    "t": "No hay pecado en el hombre si no hay nada de voluntad propia o de asentimiento, y un recién nacido aún no ha querido nada.",
+    "str": 3
+   },
+   {
+    "t": "El deseo sexual es una fuerza natural creada por Dios, buena si se usa con medida: no es la huella de un pecado.",
+    "str": 2
+   },
+   {
+    "t": "Si la naturaleza humana es mala desde que nace, eso se parece demasiado al principio malo de los maniqueos.",
+    "str": 2
+   },
+   {
+    "t": "Tú no eres más que el Aristóteles de los púnicos, un retórico africano.",
+    "f": "persona"
+   },
+   {
+    "t": "O me das la razón, o haces a Dios culpable de un crimen: elige.",
+    "f": "dos"
+   }
+  ]
+ },
+ {
+  "id": "pol-agustin-maximino",
+  "grupo": "agustin",
+  "nivel": [
+   "fil",
+   "hf"
+  ],
+  "claim": "Agustín contra Maximino (hacia 427-428): ¿el Hijo es igual al Padre?",
+  "cpuLado": "El ordenador es Maximino, obispo arriano: solo el Padre es Dios sin origen; el Hijo es Dios, pero engendrado y subordinado a él.",
+  "tuLado": "Eres Agustín: el Padre, el Hijo y el Espíritu Santo son cada uno Dios, con el mismo poder, y los tres juntos son un solo Dios.",
+  "estrat": [
+   {
+    "t": "“Hablas protegido por el poder de los emperadores: así cualquiera gana un debate.”",
+    "nombre": "la sospecha de ventaja",
+    "schop": "ad hominem",
+    "q": "Quién proteja a quién no decide qué dice la Escritura. Vuelve al argumento."
+   },
+   {
+    "t": "(Habla y habla sin responder, hasta agotar el tiempo.)",
+    "nombre": "gastar el tiempo",
+    "schop": "desviar y alargar",
+    "q": "Alargar el discurso no responde a la pregunta. ¿Es el Hijo igual al Padre o no?"
+   },
+   {
+    "t": "“Eres un viejo de setenta años aferrado a fórmulas.”",
+    "nombre": "la pulla por la edad",
+    "schop": "ad hominem",
+    "q": "Mi edad no cambia el argumento."
+   }
+  ],
+  "opp": [
+   {
+    "t": "Un hijo procede de su padre, y lo que tiene su origen en otro no es igual a él.",
+    "f": null
+   },
+   {
+    "t": "La Escritura muestra al Hijo enviado por el Padre y obediente a él: leída tal como suena, enseña subordinación.",
+    "f": null
+   },
+   {
+    "t": "Trescientos treinta obispos firmaron en Rímini lo que yo defiendo.",
+    "f": "todos",
+    "peso": 2
+   },
+   {
+    "t": "Según tú, el Padre y el Hijo son la misma persona disfrazada.",
+    "f": "deformar",
+    "peso": 3
+   },
+   {
+    "t": "O el Hijo es menor que el Padre, o hay dos dioses: no hay otra salida.",
+    "f": "dos",
+    "peso": 2
+   },
+   {
+    "t": "Los godos, que defienden Roma, creen como yo: ¿vas a enfrentarte a ellos?",
+    "f": "miedo",
+    "peso": 1
+   }
+  ],
+  "counters": [
+   {
+    "t": "Si el Padre es Dios y el Hijo también es Dios, pero otro e inferior, entonces adoráis a dos dioses; y si solo hay un Dios, no adoráis a Cristo.",
+    "str": 3
+   },
+   {
+    "t": "«Escucha, Israel, el Señor tu Dios es uno»: el Padre es Dios, el Hijo es Dios, el Espíritu Santo es Dios, y la misma Trinidad es un solo Dios.",
+    "str": 3
+   },
+   {
+    "t": "Que el Hijo proceda del Padre no lo hace inferior: la luz que sale de una lámpara es tan luz como la lámpara.",
+    "str": 2
+   },
+   {
+    "t": "No digo que sean la misma persona: son tres, distintos entre sí, pero de un solo poder y una sola naturaleza.",
+    "str": 2
+   },
+   {
+    "t": "Vosotros los arrianos sois unos bárbaros que no entendéis nada.",
+    "f": "persona"
+   },
+   {
+    "t": "O aceptas Nicea, o estás fuera de la Iglesia: elige.",
     "f": "dos"
    }
   ]
