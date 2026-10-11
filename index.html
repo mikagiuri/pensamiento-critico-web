@@ -332,6 +332,14 @@
 
   <!-- FUENTES Y AVISO (07-10): en todas las webs, enlazada desde el pie. data-web = webs publicadas que
        llevan esa fuente (student_lib.filterFuentes quita las demás); la web maestra las muestra todas. -->
+  <!-- (11-10) MAPA DE LA WEB: se rellena desde js/mapaview.js con el menú de cada build -->
+  <section class="view" id="mapa">
+    <p class="eyebrow">Orientación</p>
+    <h1 class="title">Mapa de la web</h1>
+    <p class="lead">Todo lo que hay en esta web, en el mismo orden que el menú, y los temas de cada materia. Pulsa cualquier nombre para ir allí.</p>
+    <div id="mapabox"></div>
+  </section>
+
   <section class="view" id="fuentes">
     <p class="eyebrow">Aviso</p>
     <h1 class="title">Fuentes y aviso</h1>
@@ -374,7 +382,7 @@
     </article>
   </section>
 </main>
-<footer class="wrap sitefoot"><a href="#fuentes">Fuentes y aviso</a></footer>
+<footer class="wrap sitefoot"><a href="#mapa">Mapa de la web</a> · <a href="#fuentes">Fuentes y aviso</a></footer>
 
 <script src="js/store.js"></script>
 <script src="js/data.js"></script>
@@ -440,6 +448,7 @@
 <script src="js/search.js"></script>
 <script src="js/resume.js"></script>
 <script src="js/itinerario.js"></script>
+<script src="js/mapaview.js"></script>
 <script src="js/epocas.js"></script>
 <script src="js/compacto.js"></script>
 <script src="js/nav_toc.js"></script>
