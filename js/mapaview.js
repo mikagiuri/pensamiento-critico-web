@@ -29,7 +29,7 @@ const MAPA_DESC = {
   glosario: "Los conceptos de cada tema, con su definición y su origen.",
   ilustres: "Biografías de los pensadores y fichas de cada época.",
   citas: "Frases célebres de los filósofos, explicadas.",
-  adagios: "Lemas clásicos en latín y griego, con su historia.",
+  adagios: "Lemas clásicos en latín y griego, y frases célebres de los filósofos: qué quieren decir y cuándo usarlos.",
   duelo: "Debate contra el ordenador: caza sus falacias o responde con razones más fuertes, sin perder el temple.",
   epocas: "Las fichas de cada época, de la Grecia antigua a hoy, con su imagen del cosmos.",
   polemicas: "Pensadores que coincidieron en el tiempo y se enfrentaron: elige con quién vas y por qué.",
