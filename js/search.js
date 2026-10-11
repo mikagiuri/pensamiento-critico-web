@@ -155,6 +155,10 @@
     if (typeof CITAS !== "undefined" && CITAS && document.getElementById("citas")) CITAS.forEach(function(c){
       if (c && c.c) add(out, { type: "Cita", label: strip(c.c), meta: c.a || "", go: "citas", arg: null, text: strip(c.o || ""), find: strip(c.c).slice(0, 60) });
     });
+    /* polémicas (11-10) */
+    if (typeof POLEMICAS !== "undefined" && POLEMICAS && document.getElementById("polemicas")) POLEMICAS.forEach(function(p){
+      add(out, { type: "Polémica", label: p.a + " / " + p.b, meta: p.fechas, go: "polemicas", arg: p.id, text: strip(p.pregunta + " " + p.contexto + " " + p.tesis_a + " " + p.tesis_b) });
+    });
     /* adagios (09-10) */
     if (typeof ADAGIOS !== "undefined" && ADAGIOS && document.getElementById("adagios")) ADAGIOS.forEach(function(a){
       if (a && a.es) add(out, { type: "Adagio", label: a.es, meta: "", go: "adagios", arg: a.id, text: strip(a.la + " " + (a.sen || "") + " " + (a.o || "")), find: a.es.slice(0, 60) });   // el latín, solo tras λ: se busca pero no se muestra

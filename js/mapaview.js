@@ -30,6 +30,8 @@ const MAPA_DESC = {
   ilustres: "Biografías de los pensadores y fichas de cada época.",
   citas: "Frases célebres de los filósofos, explicadas.",
   adagios: "Lemas clásicos en latín y griego, con su historia.",
+  duelo: "Debate contra el ordenador: caza sus falacias o responde con razones más fuertes, sin perder el temple.",
+  polemicas: "Pensadores que coincidieron en el tiempo y se enfrentaron: elige con quién vas y por qué.",
   mundo: "Si la clase fuera el mundo: los datos del planeta, en tu aula.",
   camino: "Historias en las que eliges qué hacer y ves las consecuencias.",
   eudaimonia: "Juego sobre la felicidad según Aristóteles.",
@@ -63,7 +65,7 @@ const MAPA_DESC = {
   signos: "Curso de lengua de signos."
 };
 /* cuántos elementos tiene cada sección (si su colección está cargada en esta web) */
-const MAPA_CUENTA = { tarjetas: "DECKS", cuestionarios: "QUIZZES", glosario: "GLOSARIO", ilustres: "ILUSTRES", citas: "CITAS", adagios: "ADAGIOS",
+const MAPA_CUENTA = { tarjetas: "DECKS", cuestionarios: "QUIZZES", glosario: "GLOSARIO", ilustres: "ILUSTRES", citas: "CITAS", adagios: "ADAGIOS", polemicas: "POLEMICAS",
   infografias: "INFOGRAFIAS", mapas: "MAPS", esquemas: "ESQUEMAS", cronogramas: "CRONOGRAMAS", genealogias: "GENEALOGIAS", lecturas: "LECTURAS",
   galeria: "GALERIA", dilemas: "DILEMAS", disertaciones: "DISERTACIONES", nudos: "NUDOS", pistas: "PISTAS", materiales: "MATERIALS" };
 function mapaG(name){ try { return (0, eval)("typeof " + name + " !== 'undefined' ? " + name + " : undefined"); } catch (e){ return undefined; } }
