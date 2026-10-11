@@ -31,6 +31,7 @@ const MAPA_DESC = {
   citas: "Frases célebres de los filósofos, explicadas.",
   adagios: "Lemas clásicos en latín y griego, con su historia.",
   duelo: "Debate contra el ordenador: caza sus falacias o responde con razones más fuertes, sin perder el temple.",
+  epocas: "Las fichas de cada época, de la Grecia antigua a hoy, con su imagen del cosmos.",
   polemicas: "Pensadores que coincidieron en el tiempo y se enfrentaron: elige con quién vas y por qué.",
   perseguidos: "Filósofos y científicos castigados por sus ideas: qué pasó y qué se suele contar mal.",
   comunidades: "Escuelas y círculos de pensadores, y los lugares donde se reunían.",
