@@ -45,7 +45,7 @@ const MAPA_DESC = {
   cronogramas: "Líneas de tiempo de autores y épocas.",
   genealogias: "Quién influyó en quién: maestros, discípulos y rivales.",
   esquemas: "Esquemas de las ideas principales de cada tema.",
-  esqautor: "Un esquema por autor, para la PAU.",
+  esqautor: "Un resumen por autor, para la PAU.",
   diapositivas: "Presentaciones de los temas.",
   rescritura: "Aprende a reescribir un texto con tus palabras.",
   pistas: "Problemas con pistas que se van abriendo poco a poco.",
