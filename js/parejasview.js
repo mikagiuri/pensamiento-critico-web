@@ -6,7 +6,7 @@
 const PAR_N = 6;                 // parejas por ronda
 /* «Cómo se juega» (29-09): una línea al abrir el juego; cadena entera para que la traduzca ui/<lang>.json */
 const PAR_HOWTO = { como: "Cómo se juega:", txt: "Pulsa un término y luego su definición (o al revés). Seis parejas por ronda, contrarreloj: acierta seguido para sumar racha." };
-const PAR_BLOCK_NAME = { A: "Bloque A · Antigua-medieval", B: "Bloque B · Moderna", C: "Bloque C · Contemporánea" };
+const PAR_BLOCK_NAME = { A: "Bloque A · Antigua y medieval", B: "Bloque B · Moderna", C: "Bloque C · Contemporánea" };
 /* Grupo de un término: el bloque (glosario de HF, A/B/C) o, si no lo tiene, el tema (glosario de
    Filosofía 1.º: "Filosofía · Tema 1", "Taller de argumentación"…). Así el juego funciona en las
    dos webs con el glosario de cada una. */
