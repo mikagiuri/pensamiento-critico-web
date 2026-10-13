@@ -3,7 +3,9 @@
    Rejilla de ilustraciones del libro (material propio, generado). Filtro por bloque
    y visor a pantalla (lightbox) con anterior/siguiente. Estilos propios con tokens de tema. */
 
-const GAL_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea" };
+const GAL_EPOCAS = { ant: "Antigua", med: "Medieval", mod: "Moderna", ilu: "Ilustración", con: "Contemporánea" };
+/* grupos no-HF (Filosofía 1.º, Arte y pensamiento crítico, Cuentos…): etiquetas dinámicas, las añade galAddIlus */
+const GAL_BLOCKS = {};
 /* Filosofía 1.º: suma las ilustraciones de tema (dominio público) como grupo propio «F1»
    de la Galería. Depende de ilustraciones_fil.js (cargado antes). El crédito va en el pie. */
 function galAddIlus(list, bloque, nombre){
@@ -43,9 +45,25 @@ if (typeof MATERIALS !== "undefined" && Array.isArray(GALERIA)){
       bloque: "CU", unidad: "Cuentos para pensar" });
   });
 }
-/* bloques con alguna imagen (en las webs por materia GALERIA llega ya filtrada: 1.º trae «F1» y «PC»; ESO, «CU») */
-function galBlocksPresent(){ return Object.keys(GAL_BLOCKS).filter(function (b){ return GALERIA.some(function (g){ return g.bloque === b; }); }); }
-let galBloque = galBlocksPresent()[0] || "all";  /* bloque concreto por defecto, nunca «Todos» */
+/* (12-10) época de una ilustración de HF por su contenido (unidad = autor/tema); las no-HF (F1/PC/CU/temas)
+   no tienen época. Los grupos de museo/contexto genéricos (sin autor) caen por bloque: A→Antigua, B→«medmod»
+   (abarca Medieval y Moderna, solo con «Todos»), C→Contemporánea. EDITABLE: una unidad nueva se apunta aquí. */
+const GAL_UNIDAD_EP = {
+  "Agustín de Hipona": "med", "Avicena": "med", "Ockham": "med", "Tomás de Aquino": "med",
+  "Del medievo a la modernidad": "mod", "Renacimiento y ciencia": "mod", "Descartes": "mod", "Racionalismo y empirismo": "mod",
+  "El debate metafísico moderno": "mod", "Sociedad y poder": "mod", "Hume": "mod", "Utilitarismo y liberalismo": "mod",
+  "La Ilustración": "ilu", "La filosofía de Kant": "ilu",
+  "La crisis de la modernidad": "con", "El existencialismo": "con", "El feminismo": "con", "Hannah Arendt": "con",
+  "Las luchas después del marxismo": "con", "Los maestros de la sospecha": "con", "Marx": "con"
+};
+function galEpoca(g){
+  if (GAL_UNIDAD_EP[g.unidad]) return GAL_UNIDAD_EP[g.unidad];
+  return ({ A: "ant", B: "medmod", C: "con" })[g.bloque] || null;
+}
+/* épocas y grupos con alguna imagen (en las webs por materia GALERIA llega ya filtrada: 1.º trae «F1» y «PC»; ESO, «CU») */
+function galEpocasPresent(){ return Object.keys(GAL_EPOCAS).filter(function (b){ return GALERIA.some(function (g){ return galEpoca(g) === b; }); }); }
+function galGruposPresent(){ return Object.keys(GAL_BLOCKS).filter(function (b){ return GALERIA.some(function (g){ return g.bloque === b; }); }); }
+let galBloque = galEpocasPresent().concat(galGruposPresent())[0] || "all";  /* época/grupo concreto por defecto, nunca «Todos» */
 let galList = [];
 let galPos = 0;
 
@@ -98,13 +116,14 @@ function galInject(){
   _galCss = true;
 }
 
-function galFiltered(){ return GALERIA.filter(function (g){ return galBloque === "all" || g.bloque === galBloque; }); }
+function galFiltered(){ return GALERIA.filter(function (g){ return galBloque === "all" || galEpoca(g) === galBloque || g.bloque === galBloque; }); }
 
 function renderGalFilter(){
   const box = document.getElementById("galfilter");
   if (!box) return;
   galInject();
-  const present = galBlocksPresent();
+  const present = galEpocasPresent().concat(galGruposPresent());
+  const label = function (b){ return GAL_EPOCAS[b] || GAL_BLOCKS[b] || b; };
   if (present.length < 2){ box.innerHTML = ""; return; }   /* un solo grupo: sin filtro */
   /* (08-10) más de 6 grupos (Galería de 1.º por temas): lista de temas (.chips), que compacto.js pliega
      en una línea con el elegido, también en escritorio; con pocos, la fila de filtros de siempre */
@@ -117,16 +136,16 @@ function renderGalFilter(){
     }
     box.innerHTML = "";
     chips.innerHTML = present.map(function (b){
-      return '<button class="chip" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' + GAL_BLOCKS[b] + '</button>'; }).join("");
+      return '<button class="chip" data-era="' + b + '" aria-pressed="' + (b === galBloque) + '">' + label(b) + '</button>'; }).join("");
   } else {
     if (chips) chips.remove();
-    box.innerHTML = '<div class="fgroup"><span class="flabel">Bloque</span>' +
+    box.innerHTML = '<div class="fgroup"><span class="flabel">Época</span>' +
       ["all"].concat(present).map(function (b){
-        return '<button class="fbtn" data-gb="' + b + '" aria-pressed="' + (b === galBloque) + '">' +
-          (b === "all" ? "Todos" : GAL_BLOCKS[b]) + '</button>'; }).join("") + '</div>';
+        return '<button class="fbtn" data-era="' + b + '" aria-pressed="' + (b === galBloque) + '">' +
+          (b === "all" ? "Todos" : label(b)) + '</button>'; }).join("") + '</div>';
   }
-  (chips && present.length > 6 ? chips : box).querySelectorAll("[data-gb]").forEach(function (b){ b.addEventListener("click", function (){
-    galBloque = b.dataset.gb; renderGalFilter(); renderGalGrid(); }); });
+  (chips && present.length > 6 ? chips : box).querySelectorAll("[data-era]").forEach(function (b){ b.addEventListener("click", function (){
+    galBloque = b.dataset.era; renderGalFilter(); renderGalGrid(); }); });
 }
 
 function renderGalGrid(){

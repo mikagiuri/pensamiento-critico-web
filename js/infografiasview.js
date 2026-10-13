@@ -137,7 +137,7 @@ let igKey = Object.keys(INFOGRAFIAS)[0];
 let igSubject = "all", igBloque = "all";
 let igAmb = "all";   // (12-10) 1.º: fila «Ámbito»
 const IG_SUBJECTS = { fil: "Filosofía 1.º", hf: "Historia de la Filosofía", ipc: "Pensamiento crítico" };
-const IG_BLOCKS = { A: "Antigua", B: "Medieval-Moderna", C: "Contemporánea" };
+const IG_EPOCAS = { ant: "Antigua", med: "Medieval", mod: "Moderna", ilu: "Ilustración", con: "Contemporánea" };
 /* (12-10) criterio del profesor: en 1.º Infografías criba por ámbito filosófico (orden del curso). Las de 1.º no
    llevan campo tema: ámbito por clave (EDITABLE: una infografía nueva de 1.º se apunta aquí). Mismo criterio que IG_TEMA en itinerario.js. */
 const IG_AMBS = { int: "Introducción", ant: "Antropología", con: "Conocimiento", met: "Metafísica", log: "Lógica", eti: "Ética", pol: "Política", est: "Estética" };
@@ -154,9 +154,9 @@ function renderIgFilter(){
       (s === "all" ? "Todas" : IG_SUBJECTS[s]) + '</button>'; }).join("");
   let blockBtns = "";
   if (igSubject === "hf"){
-    blockBtns = ["all", "A", "B", "C"].map(function (b){
-      return '<button class="fbtn" data-block="' + b + '" aria-pressed="' + (b === igBloque) + '">' +
-        (b === "all" ? "Todos los bloques" : IG_BLOCKS[b]) + '</button>'; }).join("");
+    blockBtns = ["all", "ant", "med", "mod", "ilu", "con"].map(function (b){
+      return '<button class="fbtn" data-era="' + b + '" aria-pressed="' + (b === igBloque) + '">' +
+        (b === "all" ? "Todos" : IG_EPOCAS[b]) + '</button>'; }).join("");
   }
   let ambBtns = "";   // (12-10) 1.º: criba por ámbito, en el orden del curso
   if (igEsFil()){
@@ -167,12 +167,12 @@ function renderIgFilter(){
         (b === "all" ? "Todos" : IG_AMBS[b]) + '</button>'; }).join("");
   }
   box.innerHTML = '<div class="fgroup"><span class="flabel">Materia</span>' + subjBtns + '</div>' +
-    (blockBtns ? '<div class="fgroup"><span class="flabel">Bloque</span>' + blockBtns + '</div>' : '') +
+    (blockBtns ? '<div class="fgroup"><span class="flabel">Época</span>' + blockBtns + '</div>' : '') +
     (ambBtns ? '<div class="fgroup"><span class="flabel">Ámbito</span>' + ambBtns + '</div>' : '');
   box.querySelectorAll("[data-subj]").forEach(function (b){ b.addEventListener("click", function (){
     igSubject = b.dataset.subj; if (igSubject !== "hf") igBloque = "all"; renderIgFilter(); renderIgChips(); }); });
-  box.querySelectorAll("[data-block]").forEach(function (b){ b.addEventListener("click", function (){
-    igBloque = b.dataset.block; renderIgFilter(); renderIgChips(); }); });
+  box.querySelectorAll("[data-era]").forEach(function (b){ b.addEventListener("click", function (){
+    igBloque = b.dataset.era; renderIgFilter(); renderIgChips(); }); });
   box.querySelectorAll("[data-amb]").forEach(function (b){ b.addEventListener("click", function (){
     igAmb = b.dataset.amb; renderIgFilter(); renderIgChips(); }); });
 }
@@ -183,7 +183,7 @@ function renderIgChips(){
   const entries = Object.entries(INFOGRAFIAS).filter(function (e){
     var d = e[1];
     if (igSubject !== "all" && d.subject !== igSubject) return false;
-    if (igSubject === "hf" && igBloque !== "all" && d.block !== igBloque) return false;
+    if (igSubject === "hf" && igBloque !== "all" && window.Epocas && window.Epocas.epocaDe("infografias", e[0], d) !== igBloque) return false;
     if (igEsFil() && igAmb !== "all" && IG_AMB[e[0]] !== igAmb) return false;
     return true;
   });
