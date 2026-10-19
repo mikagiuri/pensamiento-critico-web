@@ -44,6 +44,7 @@ const MAPA_DESC = {
   dilemas: "Casos difíciles para debatir qué está bien.",
   logica: "Tablas de verdad, silogismos, cuadrado de oposición y diagramas.",
   leibniz: "Leibniz y sus inventos: la calculadora, el binario y el cálculo.",
+  universo: "El universo de Aristóteles: los cuatro elementos, la caída de los cuerpos, el alma y los seres vivos, y las grietas que abrió la ciencia moderna.",
   infografias: "Cada tema resumido en una imagen.",
   galeria: "Obras de arte e ilustraciones de los temas.",
   mapas: "Mapas conceptuales de los temas.",
