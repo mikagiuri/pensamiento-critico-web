@@ -58,6 +58,9 @@ const GAL_UNIDAD_EP = {
 };
 function galEpoca(g){
   if (GAL_UNIDAD_EP[g.unidad]) return GAL_UNIDAD_EP[g.unidad];
+  /* (20-10) en las webs traducidas, la clave (ui) y el nombre del grupo (tm) pueden diferir en el apóstrofo o en una palabra */
+  const u = String(g.unidad || "").replace(/[’‘]/g, "'");
+  for (const k in GAL_UNIDAD_EP){ const kk = k.replace(/[’‘]/g, "'"); if (kk === u || (kk.length > 3 && u.indexOf(kk) >= 0)) return GAL_UNIDAD_EP[k]; }
   return ({ A: "ant", B: "medmod", C: "con" })[g.bloque] || null;
 }
 /* épocas y grupos con alguna imagen (en las webs por materia GALERIA llega ya filtrada: 1.º trae «F1» y «PC»; ESO, «CU») */
