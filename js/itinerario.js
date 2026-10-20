@@ -27,6 +27,7 @@
     nTarjetas: "{n} tarjetas", nPreguntas: "{n} preguntas", anterior: "Tema anterior", siguienteTema: "Tema siguiente", anexos: "Exploraciones", epoca: "La época", epocaDe: "Época: {e}", volverTema: "Volver al tema",
     blEstudiar: "Estudiar", blPau: "Preparar la PAU", blPensar: "Pensar y escribir", blAmpliar: "Ampliar", pauBadge: "Lectura PAU",
     cronogramas: "Cronogramas", disertaciones: "Disertaciones", comparativas: "Comparativas", polemicas: "Polémicas", comunidades: "Comunidades",
+    puenteFil: "Lo volverás a ver en 2.º", puenteHf: "Ya lo viste en 1.º", hfSig: "HF",
     perseguidos: "Perseguidos", duelo: "Duelo de razones", juegos: "Juegos", logica: "Rincón de lógica",
     videosEu: "Vídeos en euskera (Ikusgela)", videoEu: "Vídeo en euskera de Ikusgela", transcripcion: "Transcripción", transcripcionT: "Texto del vídeo: subtítulos de Ikusgela", infografia: "Infografía", mapa: "Mapa", esquema: "Esquema", lectura: "Lectura", dilema: "Dilema", comentario: "Comentario",
     pau: "Itinerario PAU", pauLead: "Prepara la PAU en orden: primero cómo es la prueba, luego cada ejercicio y, al final, la práctica por temas.",
@@ -323,6 +324,94 @@
     if (subject === "fil") js.push("rayuela");   /* decisión del profesor (18-10): Rayuela en todos los temas de 1.º */
     return js.filter(function(v){ return view(v); }).map(function(v){ return { go: v, arg: "", label: navLabel(v, "juegos") }; });
   }
+  /* (19-10) puentes 1.º <-> 2.º (informe fil1->hf2 §5.2; borrador de DSH, visto bueno de la 50). Muestra aprobada por el profesor; extendido a todos los temas del mapa (borrador 3 de DSH).
+     En la web completa el enlace abre el tema; en las webs del alumnado, la otra web publicada en la misma lengua. */
+  var PUENTES = {
+    "fil-metafisica": [
+      { k: "hf-medieval", n: 11, tit: "La filosofía medieval: etapas, métodos y el problema de los universales", txt: "En 1.º viste los argumentos medievales sobre Dios, de Anselmo y Tomás; en 2.º verás la Edad Media entera: la relación fe-razón, sus etapas y el problema de los universales." },
+      { k: "hf-fe-razon", n: 12, tit: "Fe y razón: la asimilación de la filosofía griega y la existencia de Dios", txt: "En 1.º viste las cinco vías de Tomás y la distinción esencia-existencia; en 2.º verás cómo el cristianismo asimiló la filosofía griega, con Agustín, Tomás, Avicena y Ockham." },
+      { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el monismo, el dualismo y el materialismo como respuestas sobre la sustancia; en 2.º verás ese debate en la modernidad, con Descartes, Hobbes, Spinoza y Locke." }
+    ],
+    "fil-t1": [
+      { k: "hf-mito", n: 3, tit: "El surgimiento de la filosofía: del mito al logos", txt: "En 1.º viste el paso del mito al logos como nacimiento de la filosofía; en 2.º leerás a los primeros filósofos de Mileto explicando la realidad por la razón, sin dioses." },
+      { k: "hf-preso", n: 4, tit: "El problema de la realidad en los presocráticos", txt: "En 1.º viste a Tales de Mileto buscar el arché como primer principio; en 2.º verás por qué cada presocrático propuso uno distinto y cómo entendían la realidad." }
+    ],
+    "fil-t2": [
+      { k: "hf-antropologia", n: 7, tit: "La antropología clásica: Sócrates, Platón y Aristóteles", txt: "En 1.º viste el alma en el problema mente-cuerpo, con Platón y Aristóteles; en 2.º leerás el giro de Sócrates y las tres concepciones de la psique: alma, virtud y vida buena." },
+      { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el dualismo de Descartes y el materialismo de Hobbes; en 2.º verás ese debate moderno completo, con el monismo de Spinoza y el giro empirista de Locke." }
+    ],
+    "fil-t3": [
+      { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el racionalismo y el empirismo como dos fuentes enfrentadas del conocimiento; en 2.º leerás a Descartes y Hume por dentro: la duda metódica, el cogito y la crítica de la causalidad." },
+      { k: "hf-kant", n: 19, tit: "La filosofía crítica de Kant y el problema de la metafísica", txt: "En 1.º viste el criticismo de Kant unir razón y experiencia; en 2.º verás cómo el espacio, el tiempo y las categorías ordenan la experiencia y por qué no conocemos las cosas «en sí»." }
+    ],
+    "fil-t5": [
+      { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste la virtud como término medio y el intelectualismo de Sócrates; en 2.º leerás la ética clásica entera: la areté, la eudaimonía y las respuestas de Sócrates, Platón y Aristóteles." },
+      { k: "hf-helenismo", n: 10, tit: "El helenismo: cinismo, estoicismo, epicureísmo y escepticismo", txt: "En 1.º viste el hedonismo de Epicuro como una ética de la felicidad; en 2.º verás el helenismo completo: cinismo, estoicismo, epicureísmo y escepticismo respondiendo a cómo vivir en un mundo incierto." },
+      { k: "hf-etica-deber", n: 20, tit: "Éticas de la felicidad y éticas del deber: Kant frente al utilitarismo", txt: "En 1.º viste la ética formal de Kant y el utilitarismo de Bentham y Mill; en 2.º leerás ese choque a fondo: las éticas del deber frente a las de la felicidad." }
+    ],
+    "fil-t6": [
+      { k: "hf-contrato", n: 16, tit: "El origen de la sociedad y el poder: Maquiavelo y el contrato social", txt: "En 1.º viste el contrato social de Hobbes, Locke y Rousseau como origen del Estado; en 2.º leerás además a Maquiavelo y la idea de Montesquieu de limitar el poder." },
+      { k: "hf-utilitarismo", n: 17, tit: "Utilitarismo y liberalismo: las bases del capitalismo", txt: "En 1.º viste el liberalismo político de Locke y el contrato social; en 2.º verás las bases del liberalismo económico: el utilitarismo de Bentham y Mill y el mercado de Adam Smith." },
+      { k: "hf-capitalismo", n: 22, tit: "La crítica del capitalismo: de Marx a Rawls", txt: "En 1.º viste la crítica de Marx al capitalismo: lucha de clases, plusvalía y alienación; en 2.º leerás cómo sigue en Gramsci, la Escuela de Fráncfort, Habermas y Rawls." },
+      { k: "hf-beauvoir", n: 26, tit: "El feminismo contemporáneo: Simone de Beauvoir", txt: "En 1.º viste a Beauvoir en las olas del feminismo y su «No se nace mujer: se llega a serlo»; en 2.º leerás su existencialismo a fondo y a Butler, Fraser y Nussbaum." }
+    ],
+    "hf-antropologia": [
+      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el alma en el problema mente-cuerpo, con el dualismo de Platón y el alma-forma de Aristóteles; aquí has leído el giro de Sócrates y las tres concepciones de la psique." }
+    ],
+    "hf-beauvoir": [
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º a Beauvoir en las olas del feminismo y su «No se nace mujer»; aquí has leído su existencialismo a fondo y a Butler, Fraser y Nussbaum." }
+    ],
+    "hf-capitalismo": [
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º la crítica de Marx al capitalismo: lucha de clases, plusvalía y alienación; aquí has leído su continuación, de Gramsci y la Escuela de Fráncfort a Habermas y Rawls." }
+    ],
+    "hf-contrato": [
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º el contrato social de Hobbes, Locke y Rousseau y el derecho divino; aquí has leído además a Maquiavelo y la separación de poderes de Montesquieu." }
+    ],
+    "hf-etica": [
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la virtud como término medio y el intelectualismo de Sócrates; aquí has leído la ética clásica: qué son la areté y la eudaimonía para Sócrates, Platón y Aristóteles." }
+    ],
+    "hf-etica-deber": [
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la ética formal de Kant y el utilitarismo de Bentham y Mill; aquí has leído ese choque a fondo: las éticas del deber frente a las de la felicidad." }
+    ],
+    "hf-fe-razon": [
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º las cinco vías de Tomás y la distinción esencia-existencia; aquí has leído la síntesis de fe y razón, con Agustín, Tomás, Avicena y Ockham." }
+    ],
+    "hf-helenismo": [
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el hedonismo de Epicuro y su ataraxia; aquí has leído el helenismo completo: cuatro escuelas que responden a cómo vivir bien en un mundo incierto." }
+    ],
+    "hf-kant": [
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el criticismo de Kant como síntesis de racionalismo y empirismo; aquí has leído su filosofía crítica a fondo: fenómeno, noúmeno y los límites de la razón." }
+    ],
+    "hf-medieval": [
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º los argumentos sobre Dios de Anselmo y Tomás; aquí has leído la Edad Media que los enmarca: la relación fe-razón, sus etapas y el problema de los universales." }
+    ],
+    "hf-metafisica": [
+      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el problema mente-cuerpo con el dualismo de Descartes y el materialismo de Hobbes; aquí has leído ese debate moderno completo, con el monismo de Spinoza y el giro de Locke." },
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º el monismo, el dualismo y el materialismo como posturas sobre la sustancia; aquí has leído ese debate en la modernidad, con Descartes, Hobbes, Spinoza y Locke." }
+    ],
+    "hf-mito": [
+      { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el paso del mito al logos y los rasgos del pensamiento mítico; aquí has leído el nacimiento de la filosofía en Jonia, explicando la naturaleza sin lo sobrenatural." }
+    ],
+    "hf-preso": [
+      { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el arché de Tales como primer paso del logos; aquí has recorrido las respuestas de los presocráticos a la pregunta por la realidad y por el principio de todo." }
+    ],
+    "hf-racionalismo": [
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo en la tabla de fuentes del conocimiento; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." }
+    ],
+    "hf-utilitarismo": [
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º el liberalismo político de Locke y el contrato social; aquí has leído las bases del liberalismo económico: el utilitarismo de Bentham y Mill y el mercado de Adam Smith." }
+    ]
+  };
+  var WEB_REPO = { fil: "aula-de-filosofia-web", hf: "historia-filosofia-web" };
+  function puentesHtml(subject, key){
+    var arr = PUENTES[key]; if (!arr || !arr.length) return "";
+    var T = coll("THEORY"), lang = (document.documentElement.lang || "es").slice(0, 2), otra = subject === "fil" ? "hf" : "fil";
+    var url = "https://mikagiuri.github.io/" + WEB_REPO[otra] + (lang === "es" ? "" : "-" + lang) + "/#teoria/";
+    return '<div class="fin-bloque fin-puentes"><h3>' + esc(t(subject === "fil" ? "puenteFil" : "puenteHf")) + '</h3>' + arr.map(function(x){
+      var lab = (otra === "hf" ? t("hfSig") + " · " : "") + (typeof x.n === "number" ? t("tema", { n: x.n }) : x.n) + " · " + x.tit;
+      var a = T && T[x.k] ? btn({ go: "teoria", arg: x.k, label: lab }) : '<a class="itin-lnk" href="' + esc(url + x.k) + '" target="_blank" rel="noopener">' + esc(lab) + ' ↗</a>';
+      return '<div class="fin-puente">' + a + '<p>' + esc(x.txt) + '</p></div>'; }).join("") + '</div>';
+  }
   function finHtml(subject, tema, key){
     var T = coll("THEORY"), teoria = items("teoria", subject, tema);
     var row = function(label, arr){ return arr.length ? '<div class="fin-row"><span class="fin-l">' + esc(label) + '</span><div class="fin-links">' + arr.map(function(x){ return btn(x); }).join("") + '</div></div>' : ""; };
@@ -364,7 +453,7 @@
     var blk = function(titulo, arr){ var inner = arr.filter(Boolean).join(""); return inner ? '<div class="fin-bloque"><h3>' + esc(titulo) + '</h3>' + inner + '</div>' : ""; };
     var amp = function(titulo, arr){ var inner = arr.filter(Boolean).join(""); return inner ? '<details class="fin-bloque fin-amp"><summary>' + esc(titulo) + '</summary>' + inner + '</details>' : ""; };
     var ampComun = [P.anexos].concat(subject === "hf" ? [P.dilemas, P.pistas] : []).concat([P.polemicas, P.comunidades, P.perseguidos, P.duelo, P.juegos, P.videos]);
-    var rowsHtml = blk(t("blEstudiar"), [P.tarjetas, P.cuestionarios, P.infografias, P.mapas, P.esquemas, P.conceptos, P.epoca, P.cronogramas]) +
+    var rowsHtml = puentesHtml(subject, key) + blk(t("blEstudiar"), [P.tarjetas, P.cuestionarios, P.infografias, P.mapas, P.esquemas, P.conceptos, P.epoca, P.cronogramas]) +
       (subject === "hf" ? blk(t("blPau"), [P.lecturas, P.comentario, P.disertaciones, P.comparativas]) : blk(t("blPensar"), [P.lecturas, P.disertaciones, P.dilemas, P.pistas, P.logica])) +
       amp(t("blAmpliar"), ampComun);
     /* tema anterior / siguiente, en el orden de la materia; desde un anexo, solo «Volver al tema» */
@@ -494,7 +583,7 @@
              presocráticos; «Filosofía · Tema 5», helenismo) va sangrado bajo su tema y NO repite la ficha «Tema N» */
           var declaraN = extra && !anexo && temaNum(T[k]) != null;
           var li = '<li' + (extra ? ' class="temas-extra"' : '') + ga + '><button type="button" data-igo="teoria" data-iarg="' + esc(k) + '">' +
-            (T[k].sigla ? '<span class="temas-n">' + esc(T[k].sigla) + '</span>' : typeof n === "number" && !anexo && !declaraN ? '<span class="temas-n">' + esc(t("tema", { n: n })) + '</span>' : '') + '<span class="temas-t">' + esc(anexo ? strip(T[k].title).replace(/^[^\s-]+ - /, "") : strip(T[k].title)) + (subject === "hf" && typeof n === "number" && !anexo && !T[k].sigla && typeof impBadge === "function" ? ' ' + impBadge("tema", n) : '') + '</span>' + (subject === "hf" && PAU_TEMAS[n] ? '<span class="temas-pau">' + esc(t("pauBadge")) + '</span>' : '') + (anexo && T[k].clase ? '<span class="temas-anexo">En clase</span>' : '') + '</button></li>';
+            (T[k].sigla ? '<span class="temas-n">' + esc(T[k].sigla) + '</span>' : typeof n === "number" && !anexo && !declaraN ? '<span class="temas-n">' + esc(t("tema", { n: n })) + '</span>' : '') + '<span class="temas-t">' + esc(anexo ? strip(T[k].title).replace(/^[^\s-]+ - /, "") : strip(T[k].title)) + (subject === "hf" && !anexo && typeof impBadge === "function" ? ' ' + impBadge("tema", typeof n === "number" && !T[k].sigla ? n : k) : '') + '</span>' + (subject === "hf" && PAU_TEMAS[n] ? '<span class="temas-pau">' + esc(t("pauBadge")) + '</span>' : '') + (anexo && T[k].clase ? '<span class="temas-anexo">En clase</span>' : '') + '</button></li>';
           if (anexo) exp.push(li);
           else { if (!extra) flush(); out += li; }
         });
