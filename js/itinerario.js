@@ -339,22 +339,30 @@
     ],
     "fil-t2": [
       { k: "hf-antropologia", n: 7, tit: "La antropología clásica: Sócrates, Platón y Aristóteles", txt: "En 1.º viste el alma en el problema mente-cuerpo, con Platón y Aristóteles; en 2.º leerás el giro de Sócrates y las tres concepciones de la psique: alma, virtud y vida buena." },
-      { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el dualismo de Descartes y el materialismo de Hobbes; en 2.º verás ese debate moderno completo, con el monismo de Spinoza y el giro empirista de Locke." }
+      { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el dualismo de Descartes y el materialismo de Hobbes; en 2.º verás ese debate moderno completo, con el monismo de Spinoza y el giro empirista de Locke." },
+      { k: "hf-sospecha", n: 21, tit: "Los filósofos de la sospecha: Marx, Nietzsche y Freud", txt: "En 1.º viste a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; en 2.º los verás juntos como los «maestros de la sospecha», que ponen en crisis la idea de un sujeto dueño de sí mismo." }
     ],
     "fil-t3": [
       { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el racionalismo y el empirismo como dos fuentes enfrentadas del conocimiento; en 2.º leerás a Descartes y Hume por dentro: la duda metódica, el cogito y la crítica de la causalidad." },
-      { k: "hf-kant", n: 19, tit: "La filosofía crítica de Kant y el problema de la metafísica", txt: "En 1.º viste el criticismo de Kant unir razón y experiencia; en 2.º verás cómo el espacio, el tiempo y las categorías ordenan la experiencia y por qué no conocemos las cosas «en sí»." }
+      { k: "hf-kant", n: 19, tit: "La filosofía crítica de Kant y el problema de la metafísica", txt: "En 1.º viste el criticismo de Kant unir razón y experiencia; en 2.º verás cómo el espacio, el tiempo y las categorías ordenan la experiencia y por qué no conocemos las cosas «en sí»." },
+      { k: "hf-sofistas", n: 5, tit: "La Ilustración griega: sofistas, Sócrates y Aspasia", txt: "En 1.º viste el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; en 2.º verás a los sofistas y el giro antropológico de la Ilustración griega, con Sócrates y Aspasia." },
+      { k: "hf-platon", n: 6, tit: "Platón: la teoría de las Ideas y la República", txt: "En 1.º viste la distinción de Platón entre opinión (doxa) y ciencia (episteme) y su idealismo de las Ideas; en 2.º leerás su teoría de las Ideas completa y la ciudad justa de la República." },
+      { k: "hf-modernidad", n: 13, tit: "El nacimiento de la modernidad: Renacimiento, protestantismo y revolución científica", txt: "En 1.º viste la revolución científica de Galileo y el método hipotético-deductivo, y cómo cambió la idea de ciencia y de cosmos; en 2.º verás esa revolución dentro del nacimiento de la modernidad, con el Renacimiento y la Reforma." }
     ],
     "fil-t5": [
       { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste la virtud como término medio y el intelectualismo de Sócrates; en 2.º leerás la ética clásica entera: la areté, la eudaimonía y las respuestas de Sócrates, Platón y Aristóteles." },
       { k: "hf-helenismo", n: 10, tit: "El helenismo: cinismo, estoicismo, epicureísmo y escepticismo", txt: "En 1.º viste el hedonismo de Epicuro como una ética de la felicidad; en 2.º verás el helenismo completo: cinismo, estoicismo, epicureísmo y escepticismo respondiendo a cómo vivir en un mundo incierto." },
-      { k: "hf-etica-deber", n: 20, tit: "Éticas de la felicidad y éticas del deber: Kant frente al utilitarismo", txt: "En 1.º viste la ética formal de Kant y el utilitarismo de Bentham y Mill; en 2.º leerás ese choque a fondo: las éticas del deber frente a las de la felicidad." }
+      { k: "hf-etica-deber", n: 20, tit: "Éticas de la felicidad y éticas del deber: Kant frente al utilitarismo", txt: "En 1.º viste la ética formal de Kant y el utilitarismo de Bentham y Mill; en 2.º leerás ese choque a fondo: las éticas del deber frente a las de la felicidad." },
+      { k: "hf-sofistas", n: 5, tit: "La Ilustración griega: sofistas, Sócrates y Aspasia", txt: "En 1.º viste el intelectualismo moral de Sócrates, para quien nadie obra mal a sabiendas; en 2.º lo verás en su contexto histórico: la Atenas democrática de los sofistas, Sócrates y Aspasia." }
     ],
     "fil-t6": [
       { k: "hf-contrato", n: 16, tit: "El origen de la sociedad y el poder: Maquiavelo y el contrato social", txt: "En 1.º viste el contrato social de Hobbes, Locke y Rousseau como origen del Estado; en 2.º leerás además a Maquiavelo y la idea de Montesquieu de limitar el poder." },
       { k: "hf-utilitarismo", n: 17, tit: "Utilitarismo y liberalismo: las bases del capitalismo", txt: "En 1.º viste el liberalismo político de Locke y el contrato social; en 2.º verás las bases del liberalismo económico: el utilitarismo de Bentham y Mill y el mercado de Adam Smith." },
       { k: "hf-capitalismo", n: 22, tit: "La crítica del capitalismo: de Marx a Rawls", txt: "En 1.º viste la crítica de Marx al capitalismo: lucha de clases, plusvalía y alienación; en 2.º leerás cómo sigue en Gramsci, la Escuela de Fráncfort, Habermas y Rawls." },
-      { k: "hf-beauvoir", n: 26, tit: "El feminismo contemporáneo: Simone de Beauvoir", txt: "En 1.º viste a Beauvoir en las olas del feminismo y su «No se nace mujer: se llega a serlo»; en 2.º leerás su existencialismo a fondo y a Butler, Fraser y Nussbaum." }
+      { k: "hf-beauvoir", n: 26, tit: "El feminismo contemporáneo: Simone de Beauvoir", txt: "En 1.º viste a Beauvoir en las olas del feminismo y su «No se nace mujer: se llega a serlo»; en 2.º leerás su existencialismo a fondo y a Butler, Fraser y Nussbaum." },
+      { k: "hf-platon", n: 6, tit: "Platón: la teoría de las Ideas y la República", txt: "En 1.º viste la República de Platón como la primera gran utopía, la ciudad justa de los filósofos-reyes; en 2.º la leerás a fondo, unida a su teoría del alma y de las Ideas." },
+      { k: "hf-politica", n: 9, tit: "La política clásica: Platón y Aristóteles", txt: "En 1.º viste a Aristóteles definir al ser humano como animal político y la ciudad justa de la República; en 2.º compararás a fondo los dos grandes modelos políticos de Platón y Aristóteles." },
+      { k: "hf-ilustracion", n: 18, tit: "El proyecto ilustrado: potencia y límites de la razón", txt: "En 1.º viste los derechos humanos, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; en 2.º verás el proyecto ilustrado del que nacen esos derechos y esa crítica: la confianza en la razón y sus límites." }
     ],
     "hf-antropologia": [
       { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el alma en el problema mente-cuerpo, con el dualismo de Platón y el alma-forma de Aristóteles; aquí has leído el giro de Sócrates y las tres concepciones de la psique." }
@@ -380,6 +388,9 @@
     "hf-helenismo": [
       { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el hedonismo de Epicuro y su ataraxia; aquí has leído el helenismo completo: cuatro escuelas que responden a cómo vivir bien en un mundo incierto." }
     ],
+    "hf-ilustracion": [
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º los derechos humanos, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; aquí has estudiado el proyecto ilustrado del que nacen esos derechos y esa crítica." }
+    ],
     "hf-kant": [
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el criticismo de Kant como síntesis de racionalismo y empirismo; aquí has leído su filosofía crítica a fondo: fenómeno, noúmeno y los límites de la razón." }
     ],
@@ -390,14 +401,31 @@
       { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el problema mente-cuerpo con el dualismo de Descartes y el materialismo de Hobbes; aquí has leído ese debate moderno completo, con el monismo de Spinoza y el giro de Locke." },
       { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º el monismo, el dualismo y el materialismo como posturas sobre la sustancia; aquí has leído ese debate en la modernidad, con Descartes, Hobbes, Spinoza y Locke." }
     ],
+    "hf-modernidad": [
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º la revolución científica y el método hipotético-deductivo de Galileo, y cómo cambiaron la idea de ciencia y de cosmos; aquí has recorrido el Renacimiento y esa revolución como nacimiento de la modernidad." }
+    ],
     "hf-mito": [
       { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el paso del mito al logos y los rasgos del pensamiento mítico; aquí has leído el nacimiento de la filosofía en Jonia, explicando la naturaleza sin lo sobrenatural." }
+    ],
+    "hf-platon": [
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º la distinción de Platón entre opinión (doxa) y ciencia (episteme) y su idealismo de las Ideas; aquí has estudiado la teoría de las Ideas completa y el camino del conocimiento hacia el Bien." },
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º la República de Platón como la primera gran utopía, la ciudad justa gobernada por filósofos; aquí la has leído a fondo, unida a su teoría del alma y de las Ideas." }
+    ],
+    "hf-politica": [
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º a Aristóteles definir al ser humano como animal político y la República de Platón como ciudad justa; aquí has comparado a fondo sus dos modelos de la mejor comunidad." }
     ],
     "hf-preso": [
       { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el arché de Tales como primer paso del logos; aquí has recorrido las respuestas de los presocráticos a la pregunta por la realidad y por el principio de todo." }
     ],
     "hf-racionalismo": [
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo en la tabla de fuentes del conocimiento; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." }
+    ],
+    "hf-sofistas": [
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; aquí lo has situado en su mundo: la Ilustración griega y el giro de los sofistas hacia el ser humano y la polis." },
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el intelectualismo moral de Sócrates, para quien nadie obra mal a sabiendas; aquí has conocido al Sócrates que lo defendió, frente a los sofistas, en la Atenas democrática." }
+    ],
+    "hf-sospecha": [
+      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; aquí los has leído juntos como los maestros de la sospecha." }
     ],
     "hf-utilitarismo": [
       { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º el liberalismo político de Locke y el contrato social; aquí has leído las bases del liberalismo económico: el utilitarismo de Bentham y Mill y el mercado de Adam Smith." }
@@ -662,5 +690,5 @@
     if (G("quizKey") != null) renderQuiz(G("quizKey"));
   } catch (e){}
 
-  window.Itinerario = { itinerario: itinerario, temaOf: temaOf, go: go, epocaFicha: epocaFicha, gloTema: gloTema, temasDe: temasDe, esAnexo: esAnexo };
+  window.Itinerario = { itinerario: itinerario, temaOf: temaOf, go: go, epocaFicha: epocaFicha, gloTema: gloTema, temasDe: temasDe, esAnexo: esAnexo, PUENTES: PUENTES };
 })();
