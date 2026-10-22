@@ -4,12 +4,12 @@
    (Schopenhauer, h. 1830), explicadas muy fácil y con su nombre técnico de falacia. Los ejemplos no usan nombres
    de persona inventados (docs/23_nombres_genericos_ipc.md).
    Cada estratagema: n = su número en el libro; dialogo = un ejemplo de instituto en orden (k: "zorro" = quien hace
-   trampa, "buho" = la otra persona); img/obra/pie = la ilustración: grabados, litografías y cuadros de dominio público
+   trampa, "buho" = la otra persona); img/obra/pie = la ilustración (opcional: sin img, la tarjeta sale sin cuadro): grabados, litografías y cuadros de dominio público
    (Daumier, Goya, Hogarth, Gillray; Wikimedia Commons), con su pie original traducido. */
 
 const JUEGO_SUCIO = {
   intro: "Arthur Schopenhauer (1788-1860) fue un filósofo alemán con fama de gruñón: mírale el pelo. Hacia 1830 escribió un librito, <em>El arte de tener razón</em>, con 38 «estratagemas»: trucos para ganar una discusión aunque no tengas razón. No lo escribió para que hiciéramos trampas: decía que hay que conocerlas para que no nos las hagan. Aquí tienes 25.",
-  pista: "Las ilustraciones son caricaturas y cuadros antiguos de dominio público, sobre todo de Honoré Daumier, que se burló de los abogados de su época: muchos de sus dibujos son, literalmente, estratagemas de Schopenhauer. Fíjate siempre en lo que busca quien hace trampa: no quiere saber quién tiene razón, quiere ganar.",
+  pista: "Las ilustraciones son caricaturas y cuadros antiguos de dominio público, sobre todo de Honoré Daumier, que se burló de los abogados de su época. En muchas, el chiste está en lo que dicen los personajes: lee el pie. Fíjate siempre en lo que busca quien hace trampa: no quiere saber quién tiene razón, quiere ganar.",
   retrato: "Arthur Schopenhauer, fotografiado por Johann Schäfer en 1859.",
   estratagemas: [
     { id: "exagerar", n: 1,
@@ -55,7 +55,7 @@ const JUEGO_SUCIO = {
       dialogo: [{ k: "zorro", t: "Uy, qué rojo te pones. ¿Te molesta que te lleven la contraria?" }, { k: "buho", t: "¡Que no me molesta, que…!" }],
       img: "media/juegosucio/enfadar.jpg", w: 900, h: 1200,
       obra: "Honoré Daumier, <em>Les Gens de justice</em>, lámina 9 (1845-1848).",
-      pie: "«—¡Me ha injuriado usted en su alegato, pero sabré obligarle a darme explicaciones!… —Sepa, caballero, que no le temo…» Dos abogados se han picado: ya no discuten el caso, discuten entre ellos.",
+      pie: "«—¡Me ha injuriado usted en su alegato, pero sabré obligarle a darme explicaciones!… —Sepa, caballero, que no le temo… ¡y que tengo el valor cívico de no responder jamás a una provocación!» Un señor de la calle le pone el dedo bajo la barbilla al abogado para picarle. El abogado no entra al trapo: así se para esta treta.",
       defensa: "Respira y vuelve al tema: que te enfades no hace verdad lo que dice el otro." },
     { id: "generalizar", n: 11,
       titulo: "Saca la regla de unos pocos casos",
@@ -127,7 +127,7 @@ const JUEGO_SUCIO = {
       dialogo: [{ k: "buho", t: "Me gustaría volver a casa a las diez." }, { k: "zorro", t: "Hoy a las diez, mañana a las doce… ¡y en un mes vivirás en la calle!" }],
       img: "media/juegosucio/pendiente.jpg", w: 900, h: 796,
       obra: "William Hogarth, <em>La carrera del libertino</em>, lámina 4 (1735).",
-      pie: "Hogarth contó en ocho grabados la caída de un joven que hereda una fortuna: fiestas, deudas, cárcel y manicomio. En esta lámina lo detienen por deudas. La pendiente resbaladiza cuenta así cualquier primer paso: como si llevara sin remedio al último.",
+      pie: "Hogarth contó en ocho grabados la caída de un joven que hereda una fortuna: fiestas, deudas, cárcel y manicomio. Esta es la cuarta lámina: lo detienen por deudas (a la derecha, junto a la silla de manos). La pendiente resbaladiza cuenta así cualquier primer paso: como si llevara sin remedio al último.",
       defensa: "Pregunta por cada paso: «¿Por qué tendría que pasar eso?»." },
     { id: "contraejemplo", n: 25,
       titulo: "Busca un solo caso en contra",
@@ -154,7 +154,7 @@ const JUEGO_SUCIO = {
       dialogo: [{ k: "buho", t: "Las abejas son importantísimas para nuestra comida." }, { k: "zorro", t: "¡Ja! ¿Y ahora te vas a casar con una abeja?" }],
       img: "media/juegosucio/publico.jpg", w: 900, h: 1006,
       obra: "William Hogarth, <em>El público que ríe</em> (1733). National Gallery of Art, Washington.",
-      pie: "El público de un teatro se desternilla de risa; solo los músicos de la orquesta, delante, siguen serios. Cuando la gente se ríe, parece que el chiste ha ganado la discusión.",
+      pie: "El público de un teatro se desternilla de risa; solo los músicos de la orquesta, en la fila de abajo, siguen serios. Cuando la gente se ríe, parece que el chiste ha ganado la discusión.",
       defensa: "Espera a que pasen las risas y vuelve a tu argumento: una broma no es una razón." },
     { id: "cambiartema", n: 29,
       titulo: "Cambia de tema cuando vas perdiendo",
@@ -163,7 +163,7 @@ const JUEGO_SUCIO = {
       dialogo: [{ k: "buho", t: "Has llegado tarde tres veces esta semana." }, { k: "zorro", t: "¿Y habéis visto qué zapatillas lleva hoy el profe?" }],
       img: "media/juegosucio/cambiartema.jpg", w: 900, h: 683,
       obra: "Honoré Daumier, <em>Les Gens de justice</em>, lámina 30 (1845-1848).",
-      pie: "«El abogado que se desmaya: último recurso cuando la causa está muy enferma.» Si todo el mundo mira al desmayado, nadie mira las pruebas.",
+      pie: "«El abogado que se desmaya: último recurso cuando la causa está muy enferma.» Todos se agolpan alrededor del desmayado, tanto que ni se le ve. Si todo el mundo mira al desmayado, nadie mira las pruebas.",
       defensa: "«Luego hablamos de eso. Ahora estábamos hablando de…»" },
     { id: "autoridad", n: 30,
       titulo: "Tira de autoridad",
@@ -188,9 +188,8 @@ const JUEGO_SUCIO = {
       tecnico: "Culpa por asociación",
       que: "Mete lo que dice el otro en una categoría que suena mal, y ya no hace falta discutirlo.",
       dialogo: [{ k: "buho", t: "A mí me gusta escuchar la radio." }, { k: "zorro", t: "¡Eso es de abuelos!" }],
-      img: "media/juegosucio/etiqueta.jpg", w: 900, h: 1100,
-      obra: "Honoré Daumier, <em>Les Bas-bleus</em> (1844).",
-      pie: "«<em>Bas-bleu</em>» («marisabidilla») era la etiqueta con la que se ridiculizaba a las mujeres que escribían, y Daumier le dedicó una serie entera. Con una etiqueta así ya no hace falta escuchar lo que alguien dice.",
+      /* (22-10) sin ilustración: el profesor retira «Les Bas-bleus» de Daumier (reproducía el estereotipo sin que se viera
+         la crítica). El fichero media/juegosucio/etiqueta.jpg se conserva (regla 9.1) hasta que exista el dibujo de la baraja. */
       defensa: "La etiqueta no es una razón: «¿Y qué tiene de malo?»." },
     { id: "teoria", n: 33,
       titulo: "«En teoría sí, en la práctica no»",
@@ -199,7 +198,7 @@ const JUEGO_SUCIO = {
       dialogo: [{ k: "buho", t: "Si estudias un poco cada día, el examen te sale mejor." }, { k: "zorro", t: "Eso en teoría está muy bien, pero en la práctica no funciona." }],
       img: "media/juegosucio/teoria.jpg", w: 900, h: 1114,
       obra: "Honoré Daumier, <em>Búsqueda infructuosa del planeta Leverrier</em> (1846). National Gallery of Art, Washington.",
-      pie: "En 1846, el astrónomo Le Verrier calculó sobre el papel dónde tenía que estar un planeta nuevo, Neptuno, y se encontró enseguida. Este matrimonio no lo ve con su catalejo: en teoría estará, pero en la práctica, nada.",
+      pie: "En 1846, el astrónomo Le Verrier calculó sobre el papel dónde tenía que estar un planeta nuevo, Neptuno, y con un telescopio se encontró enseguida. Este matrimonio lo busca a simple vista, paraguas en mano, y no ve nada: «en teoría estará, pero en la práctica, nada». La teoría acertaba; lo que fallaba era su manera de mirar.",
       defensa: "Pregunta qué falla exactamente en la práctica: o hay un fallo concreto, o es una excusa." },
     { id: "interes", n: 35,
       titulo: "Toca el bolsillo, no la cabeza",
