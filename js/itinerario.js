@@ -205,7 +205,8 @@
     if (hereIdx < 0 && here.go) pasos.forEach(function(p, i){ if (hereIdx < 0 && p.id === here.go) hereIdx = i; });
     return hereIdx;
   }
-  function btn(x, cls){ return '<button class="' + (cls || "itin-lnk") + '" type="button" data-igo="' + esc(x.go) + '" data-iarg="' + esc(x.arg) + '">' + esc(x.label) + (x.size ? ' <i>' + esc(x.size) + '</i>' : '') + '</button>'; }
+  function btn(x, cls){ if (x.href) return '<a class="' + (cls || "itin-lnk") + '" href="' + esc(x.href) + '">' + esc(x.label) + '</a>';   /* (22-10) enlace profundo (#vista/arg) */
+    return '<button class="' + (cls || "itin-lnk") + '" type="button" data-igo="' + esc(x.go) + '" data-iarg="' + esc(x.arg) + '">' + esc(x.label) + (x.size ? ' <i>' + esc(x.size) + '</i>' : '') + '</button>'; }
   /* Tira de UNA línea «De este tema» (Tarjetas, Cuestionarios, Clases): un enlace por paso o por tipo de repaso. */
   function stripHtml(pasos, here, extra){
     var hereIdx = hereIndex(pasos, here), out = [];
@@ -306,7 +307,14 @@
   }
   /* rótulo de una sección tal como lo pone el menú (ya traducido); si no está en el menú, el de TXT */
   function navLabel(v, k){ var b = document.querySelector('#tabs [data-view="' + v + '"]'); return b ? strip(b.textContent) : t(k || v); }
-  function logicaDe(subject, tema){ return subject === "fil" && tema === 4 && view("logica") ? [{ go: "logica", arg: "portada", label: navLabel("logica", "logica") }] : []; }
+  /* (22-10, curar_webs lote 2) en HF el Rincón de lógica no está en el menú (opción A del profesor, docs/36): solo lo enlazan
+     los temas que lo necesitan, y a la mesa o pestaña concreta (enlace profundo): los juicios de Kant (T19) y los silogismos (AA). */
+  var LOGICA_HF = { "hf-kant": ["kant", "Juicios de Kant"], "hf-aa": ["silogismos", "Silogismos"] };
+  function logicaDe(subject, tema, key){
+    if (!view("logica")) return [];
+    if (subject === "fil") return tema === 4 ? [{ go: "logica", arg: "portada", label: navLabel("logica", "logica") }] : [];
+    var l = LOGICA_HF[key]; return l ? [{ href: "#logica/" + l[0], label: l[1] }] : [];
+  }
   /* polémicas, comunidades y perseguidos declaran sus temas (claves de THEORY) en «temas» */
   function porTemas(name, go_, teoriaKeys, label){
     var A = G(name); if (!Array.isArray(A) || !view(go_) || !teoriaKeys.length) return [];
@@ -331,7 +339,8 @@
     "fil-metafisica": [
       { k: "hf-medieval", n: 11, tit: "La filosofía medieval: etapas, métodos y el problema de los universales", txt: "En 1.º viste los argumentos medievales sobre Dios, de Anselmo y Tomás; en 2.º verás la Edad Media entera: la relación fe-razón, sus etapas y el problema de los universales." },
       { k: "hf-fe-razon", n: 12, tit: "Fe y razón: la asimilación de la filosofía griega y la existencia de Dios", txt: "En 1.º viste las cinco vías de Tomás y la distinción esencia-existencia; en 2.º verás cómo el cristianismo asimiló la filosofía griega, con Agustín, Tomás, Avicena y Ockham." },
-      { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el monismo, el dualismo y el materialismo como respuestas sobre la sustancia; en 2.º verás ese debate en la modernidad, con Descartes, Hobbes, Spinoza y Locke." }
+      { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el monismo, el dualismo y el materialismo como respuestas sobre la sustancia; en 2.º verás ese debate en la modernidad, con Descartes, Hobbes, Spinoza y Locke." },
+      { k: "hf-aa", n: "AA", tit: "Aristóteles: el sistema completo", txt: "En 1.º viste la sustancia de Aristóteles, la esencia y el paso de la potencia al acto como su respuesta a Parménides; en 2.º verás su sistema completo: las categorías, las cuatro causas y la teleología." }
     ],
     "fil-t1": [
       { k: "hf-mito", n: 3, tit: "El surgimiento de la filosofía: del mito al logos", txt: "En 1.º viste el paso del mito al logos como nacimiento de la filosofía; en 2.º leerás a los primeros filósofos de Mileto explicando la realidad por la razón, sin dioses." },
@@ -340,29 +349,43 @@
     "fil-t2": [
       { k: "hf-antropologia", n: 7, tit: "La antropología clásica: Sócrates, Platón y Aristóteles", txt: "En 1.º viste el alma en el problema mente-cuerpo, con Platón y Aristóteles; en 2.º leerás el giro de Sócrates y las tres concepciones de la psique: alma, virtud y vida buena." },
       { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el dualismo de Descartes y el materialismo de Hobbes; en 2.º verás ese debate moderno completo, con el monismo de Spinoza y el giro empirista de Locke." },
-      { k: "hf-sospecha", n: 21, tit: "Los filósofos de la sospecha: Marx, Nietzsche y Freud", txt: "En 1.º viste a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; en 2.º los verás juntos como los «maestros de la sospecha», que ponen en crisis la idea de un sujeto dueño de sí mismo." }
+      { k: "hf-sospecha", n: 21, tit: "Los filósofos de la sospecha: Marx, Nietzsche y Freud", txt: "En 1.º viste a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; en 2.º los verás juntos como los «maestros de la sospecha», que ponen en crisis la idea de un sujeto dueño de sí mismo." },
+      { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste el existencialismo de Sartre y Beauvoir: «la existencia precede a la esencia»; en 2.º lo estudiarás con Kierkegaard, Heidegger y Camus, y con Unamuno, Ortega y María Zambrano." }
     ],
     "fil-t3": [
       { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el racionalismo y el empirismo como dos fuentes enfrentadas del conocimiento; en 2.º leerás a Descartes y Hume por dentro: la duda metódica, el cogito y la crítica de la causalidad." },
       { k: "hf-kant", n: 19, tit: "La filosofía crítica de Kant y el problema de la metafísica", txt: "En 1.º viste el criticismo de Kant unir razón y experiencia; en 2.º verás cómo el espacio, el tiempo y las categorías ordenan la experiencia y por qué no conocemos las cosas «en sí»." },
       { k: "hf-sofistas", n: 5, tit: "La Ilustración griega: sofistas, Sócrates y Aspasia", txt: "En 1.º viste el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; en 2.º verás a los sofistas y el giro antropológico de la Ilustración griega, con Sócrates y Aspasia." },
       { k: "hf-platon", n: 6, tit: "Platón: la teoría de las Ideas y la República", txt: "En 1.º viste la distinción de Platón entre opinión (doxa) y ciencia (episteme) y su idealismo de las Ideas; en 2.º leerás su teoría de las Ideas completa y la ciudad justa de la República." },
-      { k: "hf-modernidad", n: 13, tit: "El nacimiento de la modernidad: Renacimiento, protestantismo y revolución científica", txt: "En 1.º viste la revolución científica de Galileo y el método hipotético-deductivo, y cómo cambió la idea de ciencia y de cosmos; en 2.º verás esa revolución dentro del nacimiento de la modernidad, con el Renacimiento y la Reforma." }
+      { k: "hf-modernidad", n: 13, tit: "El nacimiento de la modernidad: Renacimiento, protestantismo y revolución científica", txt: "En 1.º aprendiste el método hipotético-deductivo y viste cómo la revolución científica cambió la idea de ciencia y de cosmos; en 2.º verás de dónde sale ese método: Galileo une razón y experiencia y lee la naturaleza en lenguaje matemático, un giro que abre la modernidad y prepara el racionalismo de Descartes (tema 14)." },
+      { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste el perspectivismo de Ortega y Gasset: «yo soy yo y mi circunstancia»; en 2.º lo verás junto a los existencialistas, con Unamuno y María Zambrano." }
+    ],
+    "fil-t4": [
+      { k: "hf-analitica", n: 24, tit: "La filosofía analítica: Wittgenstein y el giro lingüístico", txt: "En 1.º viste la lógica simbólica de Frege y de Russell, que traduce el lenguaje a fórmulas; en 2.º verás cómo Russell y el primer Wittgenstein usan ese análisis lógico para buscar un lenguaje perfecto: es el giro lingüístico de la filosofía analítica." }
     ],
     "fil-t5": [
       { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste la virtud como término medio y el intelectualismo de Sócrates; en 2.º leerás la ética clásica entera: la areté, la eudaimonía y las respuestas de Sócrates, Platón y Aristóteles." },
       { k: "hf-helenismo", n: 10, tit: "El helenismo: cinismo, estoicismo, epicureísmo y escepticismo", txt: "En 1.º viste el hedonismo de Epicuro como una ética de la felicidad; en 2.º verás el helenismo completo: cinismo, estoicismo, epicureísmo y escepticismo respondiendo a cómo vivir en un mundo incierto." },
       { k: "hf-etica-deber", n: 20, tit: "Éticas de la felicidad y éticas del deber: Kant frente al utilitarismo", txt: "En 1.º viste la ética formal de Kant y el utilitarismo de Bentham y Mill; en 2.º leerás ese choque a fondo: las éticas del deber frente a las de la felicidad." },
-      { k: "hf-sofistas", n: 5, tit: "La Ilustración griega: sofistas, Sócrates y Aspasia", txt: "En 1.º viste el intelectualismo moral de Sócrates, para quien nadie obra mal a sabiendas; en 2.º lo verás en su contexto histórico: la Atenas democrática de los sofistas, Sócrates y Aspasia." }
+      { k: "hf-sospecha", n: 21, tit: "Los filósofos de la sospecha: Marx, Nietzsche y Freud", txt: "En 1.º viste la genealogía de la moral de Nietzsche: señores y esclavos, el resentimiento y la transvaloración de los valores; en 2.º lo leerás a fondo junto a Marx y Freud, con su texto de la PAU, Ecce homo." },
+      { k: "hf-utilitarismo", n: 17, tit: "Utilitarismo y liberalismo: las bases del capitalismo", txt: "En 1.º viste el utilitarismo de Bentham y Mill como ética: la mayor felicidad para el mayor número y los placeres superiores; en 2.º lo verás como base del liberalismo, con el principio del daño de Mill y el mercado de Adam Smith." }
     ],
     "fil-t6": [
       { k: "hf-contrato", n: 16, tit: "El origen de la sociedad y el poder: Maquiavelo y el contrato social", txt: "En 1.º viste el contrato social de Hobbes, Locke y Rousseau como origen del Estado; en 2.º leerás además a Maquiavelo y la idea de Montesquieu de limitar el poder." },
-      { k: "hf-utilitarismo", n: 17, tit: "Utilitarismo y liberalismo: las bases del capitalismo", txt: "En 1.º viste el liberalismo político de Locke y el contrato social; en 2.º verás las bases del liberalismo económico: el utilitarismo de Bentham y Mill y el mercado de Adam Smith." },
       { k: "hf-capitalismo", n: 22, tit: "La crítica del capitalismo: de Marx a Rawls", txt: "En 1.º viste la crítica de Marx al capitalismo: lucha de clases, plusvalía y alienación; en 2.º leerás cómo sigue en Gramsci, la Escuela de Fráncfort, Habermas y Rawls." },
       { k: "hf-beauvoir", n: 26, tit: "El feminismo contemporáneo: Simone de Beauvoir", txt: "En 1.º viste a Beauvoir en las olas del feminismo y su «No se nace mujer: se llega a serlo»; en 2.º leerás su existencialismo a fondo y a Butler, Fraser y Nussbaum." },
-      { k: "hf-platon", n: 6, tit: "Platón: la teoría de las Ideas y la República", txt: "En 1.º viste la República de Platón como la primera gran utopía, la ciudad justa de los filósofos-reyes; en 2.º la leerás a fondo, unida a su teoría del alma y de las Ideas." },
-      { k: "hf-politica", n: 9, tit: "La política clásica: Platón y Aristóteles", txt: "En 1.º viste a Aristóteles definir al ser humano como animal político y la ciudad justa de la República; en 2.º compararás a fondo los dos grandes modelos políticos de Platón y Aristóteles." },
+      { k: "hf-politica", n: 9, tit: "La política clásica: Platón y Aristóteles", txt: "En 1.º viste la República de Platón como la primera gran utopía, la ciudad justa de los filósofos-reyes, y a Aristóteles definir al ser humano como animal político; en 2.º leerás la República a fondo (tema 6) y compararás los dos modelos políticos de Platón y Aristóteles." },
       { k: "hf-ilustracion", n: 18, tit: "El proyecto ilustrado: potencia y límites de la razón", txt: "En 1.º viste los derechos humanos, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; en 2.º verás el proyecto ilustrado del que nacen esos derechos y esa crítica: la confianza en la razón y sus límites." }
+    ],
+    "hf-aa": [
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º la sustancia, la esencia y el paso de la potencia al acto; aquí has estudiado el sistema completo de Aristóteles: las categorías, las cuatro causas y la teleología." }
+    ],
+    "hf-analitica": [
+      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º la lógica simbólica de Frege y de Russell; aquí has visto cómo ese análisis lógico del lenguaje da lugar al giro lingüístico de Russell y Wittgenstein." }
+    ],
+    "hf-existencialismo": [
+      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el existencialismo de Sartre y Beauvoir: «la existencia precede a la esencia»; aquí lo has estudiado con Kierkegaard, Heidegger y Camus." },
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el perspectivismo de Ortega y Gasset: «yo soy yo y mi circunstancia»; aquí lo has leído junto a los existencialistas, con Unamuno y María Zambrano." }
     ],
     "hf-antropologia": [
       { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el alma en el problema mente-cuerpo, con el dualismo de Platón y el alma-forma de Aristóteles; aquí has leído el giro de Sócrates y las tres concepciones de la psique." }
@@ -421,14 +444,14 @@
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo en la tabla de fuentes del conocimiento; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." }
     ],
     "hf-sofistas": [
-      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; aquí lo has situado en su mundo: la Ilustración griega y el giro de los sofistas hacia el ser humano y la polis." },
-      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el intelectualismo moral de Sócrates, para quien nadie obra mal a sabiendas; aquí has conocido al Sócrates que lo defendió, frente a los sofistas, en la Atenas democrática." }
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; aquí lo has situado en su mundo: la Ilustración griega y el giro de los sofistas hacia el ser humano y la polis." }
     ],
     "hf-sospecha": [
-      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; aquí los has leído juntos como los maestros de la sospecha." }
+      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; aquí los has leído juntos como los maestros de la sospecha." },
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la genealogía de la moral de Nietzsche: señores y esclavos, el resentimiento y la transvaloración; aquí lo has leído a fondo, con su texto de la PAU." }
     ],
     "hf-utilitarismo": [
-      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º el liberalismo político de Locke y el contrato social; aquí has leído las bases del liberalismo económico: el utilitarismo de Bentham y Mill y el mercado de Adam Smith." }
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el utilitarismo de Bentham y Mill como ética: la mayor felicidad para el mayor número y los placeres superiores; aquí lo has leído como base del liberalismo, con el principio del daño de Mill y el mercado de Adam Smith." }
     ]
   };
   var WEB_REPO = { fil: "aula-de-filosofia-web", hf: "historia-filosofia-web" };
@@ -472,7 +495,7 @@
     P.cronogramas = row(t("cronogramas"), cronosDe(subject, tema));
     P.disertaciones = row(t("disertaciones"), disertDe(subject, tema));
     P.comparativas = row(t("comparativas"), comparativasDe(subject, tema));
-    P.logica = row(t("logica"), logicaDe(subject, tema));
+    P.logica = row(t("logica"), logicaDe(subject, tema, key));
     P.polemicas = rowFold(t("polemicas"), pols);
     P.comunidades = rowFold(t("comunidades"), porTemas("COMUNIDADES", "comunidades", tk, function(c){ return strip(c.nombre); }));
     P.perseguidos = rowFold(t("perseguidos"), porTemas("PERSEGUIDOS", "perseguidos", tk, function(c){ return strip(c.nombre); }));
@@ -481,7 +504,7 @@
     /* (12-10, rediseño Lote 3) la caja del final del tema se ordena en TRES bloques en TODOS los temas */
     var blk = function(titulo, arr){ var inner = arr.filter(Boolean).join(""); return inner ? '<div class="fin-bloque"><h3>' + esc(titulo) + '</h3>' + inner + '</div>' : ""; };
     var amp = function(titulo, arr){ var inner = arr.filter(Boolean).join(""); return inner ? '<details class="fin-bloque fin-amp"><summary>' + esc(titulo) + '</summary>' + inner + '</details>' : ""; };
-    var ampComun = [P.anexos].concat(subject === "hf" ? [P.dilemas, P.pistas] : []).concat([P.polemicas, P.comunidades, P.perseguidos, P.duelo, P.juegos, P.videos]);
+    var ampComun = [P.anexos].concat(subject === "hf" ? [P.dilemas, P.pistas, P.logica] : [])   /* (22-10) en HF, la lógica va en «Ampliar» */.concat([P.polemicas, P.comunidades, P.perseguidos, P.duelo, P.juegos, P.videos]);
     var rowsHtml = puentesHtml(subject, key) + blk(t("blEstudiar"), [P.tarjetas, P.cuestionarios, P.infografias, P.mapas, P.esquemas, P.conceptos, P.epoca, P.cronogramas]) +
       (subject === "hf" ? blk(t("blPau"), [P.lecturas, P.comentario, P.disertaciones, P.comparativas]) : blk(t("blPensar"), [P.lecturas, P.disertaciones, P.dilemas, P.pistas, P.logica])) +
       amp(t("blAmpliar"), ampComun);
