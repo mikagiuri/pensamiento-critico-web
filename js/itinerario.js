@@ -383,7 +383,9 @@
       { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste el perspectivismo de Ortega y Gasset: «yo soy yo y mi circunstancia»; en 2.º lo verás junto a los existencialistas, con Unamuno y María Zambrano." }
     ],
     "fil-t4": [
-      { k: "hf-analitica", n: 24, tit: "La filosofía analítica: Wittgenstein y el giro lingüístico", txt: "En 1.º viste la lógica simbólica de Frege y de Russell, que traduce el lenguaje a fórmulas; en 2.º verás cómo Russell y el primer Wittgenstein usan ese análisis lógico para buscar un lenguaje perfecto: es el giro lingüístico de la filosofía analítica." }
+      { k: "hf-aa", n: "AA", tit: "Aristóteles: el sistema completo", txt: "En 1.º viste los silogismos y el cuadrado de oposición (en el Rincón de lógica); en 2.º verás la lógica dentro del sistema de Aristóteles: el Órganon, la clasificación de las ciencias, las categorías y cómo la teoría del silogismo se enlaza con su metafísica." },
+      { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el álgebra de Boole, que convierte la lógica en un cálculo con 1 y 0; en 2.º verás la mathesis universalis de Descartes, su sueño de una ciencia universal del orden. Leibniz, que en ese tema aparece con las mónadas, lo llevó más lejos: imaginó una lengua en la que razonar fuera calcular." },
+      { k: "hf-analitica", n: 24, tit: "La filosofía analítica: Wittgenstein y el giro lingüístico", txt: "En 1.º viste la lógica de las conectivas y sus tablas de verdad, los cuantificadores y la lógica simbólica de Frege y de Russell; en 2.º verás cómo Russell y el primer Wittgenstein usan ese análisis lógico del lenguaje para buscar un lenguaje perfecto: es el giro lingüístico de la filosofía analítica." }
     ],
     "fil-t5": [
       { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste la virtud como término medio y el intelectualismo de Sócrates; en 2.º leerás la ética clásica entera: la areté, la eudaimonía y las respuestas de Sócrates, Platón y Aristóteles." },
@@ -400,7 +402,8 @@
       { k: "hf-ilustracion", n: 18, tit: "El proyecto ilustrado: potencia y límites de la razón", txt: "En 1.º viste los derechos humanos, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; en 2.º verás el proyecto ilustrado del que nacen esos derechos y esa crítica: la confianza en la razón y sus límites." }
     ],
     "hf-aa": [
-      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º la sustancia, la esencia y el paso de la potencia al acto; aquí has estudiado el sistema completo de Aristóteles: las categorías, las cuatro causas y la teleología." }
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º la sustancia, la esencia y el paso de la potencia al acto; aquí has estudiado el sistema completo de Aristóteles: las categorías, las cuatro causas y la teleología." },
+      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º los silogismos y el cuadrado de oposición (en el Rincón de lógica); aquí has visto esa lógica dentro del sistema de Aristóteles: el Órganon, la clasificación de las ciencias, las categorías y la teoría del silogismo ligada a su metafísica." }
     ],
     "hf-analitica": [
       { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º la lógica simbólica de Frege y de Russell; aquí has visto cómo ese análisis lógico del lenguaje da lugar al giro lingüístico de Russell y Wittgenstein." }
@@ -463,7 +466,8 @@
       { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el arché de Tales como primer paso del logos; aquí has recorrido las respuestas de los presocráticos a la pregunta por la realidad y por el principio de todo." }
     ],
     "hf-racionalismo": [
-      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo en la tabla de fuentes del conocimiento; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." }
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo en la tabla de fuentes del conocimiento; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." },
+      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º el álgebra de Boole y la lógica binaria (1 y 0); aquí has visto la mathesis universalis de Descartes, el sueño de una ciencia universal del orden. Leibniz, que en este tema aparece con las mónadas, lo llevó más lejos: una lengua en la que razonar fuera calcular." }
     ],
     "hf-sofistas": [
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; aquí lo has situado en su mundo: la Ilustración griega y el giro de los sofistas hacia el ser humano y la polis." }
