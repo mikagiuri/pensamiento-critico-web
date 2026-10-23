@@ -20,7 +20,7 @@ const PIS_TXT = {
   comprobacion: "Comprobación", pregunta: "Pregunta", logrado: "Comprensión alcanzada", completado: "Itinerario completado",
   sinAyuda: "Lo has resuelto sin pistas.", usaste: "Pistas usadas: {n}.", repetir: "Recorrerlo de nuevo", siguiente: "Siguiente pregunta:",
   pisN: "Pista {n}", revelar: "Pulsa para revelar", preguntas: "Preguntas",
-  enGlosario: "En el glosario", abrirGlo: "Abrir en el glosario ›",
+  enGlosario: "En el diccionario", abrirGlo: "Abrir en el diccionario ›",
   seguir: "Volver a intentarlo",
   intentoLb: "Antes de ver la explicación", intentoTxt: "Escribe tu respuesta con tus palabras, aunque no estés seguro. Después la compararás con la explicación.",
   intentoGuarda: "Lo que escribas se guarda solo en este navegador.", intentoPal: "{n} palabras (mínimo {m})", intentoVer: "Ver la explicación y comparar",

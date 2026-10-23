@@ -49,7 +49,7 @@
     esquemas: "loadEsq", pau: "loadPau", mapas: "loadMap"
   };
   /* orden de los grupos en los resultados */
-  var ORDER = ["Sección", "Teoría", "Apartado", "Glosario", "Lectura", "Pasaje", "Cita", "Pregunta", "Tarjeta", "Esquema", "Material", "Cuento", "Infografía", "Cuestionario", "Tarjetas", "PAU", "Biografía", "Clase"];
+  var ORDER = ["Sección", "Teoría", "Apartado", "Diccionario", "Lectura", "Pasaje", "Cita", "Pregunta", "Tarjeta", "Esquema", "Material", "Cuento", "Infografía", "Cuestionario", "Tarjetas", "PAU", "Biografía", "Clase"];
 
   var index = null;
   /* entrada: { type, label, meta, go, arg, text (fragmento original donde buscar), hay (fold de label+meta+clave),
@@ -125,7 +125,7 @@
     });
     /* glosario: término + definición (+ raíz) */
     if (typeof GLOSARIO !== "undefined" && GLOSARIO) GLOSARIO.forEach(function(g){
-      add(out, { type: "Glosario", label: g.t, meta: (g.area || "") + (g.tema ? " · " + g.tema : ""), go: "glosario", arg: null, glo: g, text: strip((g.def || "") + (g.et ? " · " + g.et : "")) });
+      add(out, { type: "Diccionario", label: g.t, meta: (g.area || "") + (g.tema ? " · " + g.tema : ""), go: "glosario", arg: null, glo: g, text: strip((g.def || "") + (g.et ? " · " + g.et : "")) });
     });
     /* lecturas: por párrafo (o bloque), agrupando los muy cortos */
     if (LE) Object.keys(LE).forEach(function(k){
@@ -188,7 +188,7 @@
       else if (e.hay.indexOf(nq) >= 0) score -= 30;
       else if (e.body.indexOf(nq) >= 0) score -= 20;   /* la frase entera, en el texto */
       if (e.type === "Sección") score -= 5;
-      if (e.type === "Glosario") score -= 10;
+      if (e.type === "Diccionario") score -= 10;
       score += Math.min(10, Math.floor((e.text || "").length / 400));   /* a igualdad, el fragmento corto */
       res.push({ e: e, score: score });
     });
@@ -264,7 +264,7 @@
     ov.innerHTML =
       '<div class="search-box">' +
         '<input id="searchinput" type="search" autocomplete="off" spellcheck="false" ' +
-          'placeholder="Buscar en todo el aula: teoría, glosario, lecturas, preguntas, citas…" aria-label="Buscar en el aula">' +
+          'placeholder="Buscar en todo el aula: teoría, diccionario, lecturas, preguntas, citas…" aria-label="Buscar en el aula">' +
         '<div class="search-count" id="searchcount"></div>' +
         '<ul id="searchresults" class="search-res" role="listbox" aria-label="Resultados"></ul>' +
         '<div class="search-hint">↑↓ moverse · ↵ abrir · esc cerrar</div>' +
