@@ -1,5 +1,5 @@
 // Generado por tools/build_eso.js — solo Pensamiento crítico (2.º ESO).
-const GLOSARIO = [
+const DICCIONARIO = [
  {
   "subject": "ipc",
   "t": "Pensamiento crítico",
@@ -512,7 +512,7 @@ const GLOSARIO = [
   "def": "Comprar pensando en lo que de verdad necesitas y en el impacto que tiene en las personas y el planeta."
  }
 ];
-const GLOSARIO_TRAMPAS = {
+const DICCIONARIO_TRAMPAS = {
  "ipc": [
   [
    "Opinión",

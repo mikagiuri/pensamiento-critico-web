@@ -4,7 +4,7 @@
    Se construye al cargar a partir del menú (#tabs) tal como lo deja cada build, así que cada web publicada
    (Filosofía 1.º, HF, ESO, y sus traducciones) muestra solo sus secciones, en el orden del menú, con una línea
    de qué hay en cada una y, cuando se puede contar, cuántos elementos tiene. Debajo, los temas de cada materia
-   con sus exploraciones (de Itinerario.temasDe) y, dentro de Ilustres, las fichas de época.
+   con sus exploraciones (de Itinerario.temasDe) y, dentro de Biografías, las fichas de época.
    Los textos van en MAPA_TXT y MAPA_DESC (se traducen con el diccionario de interfaz ui/<lang>.json). */
 const MAPA_TXT = {
   secciones: "Secciones", temas: "Temas de cada materia", tema: "Tema {n}", exploraciones: "Exploraciones",
@@ -24,9 +24,9 @@ const MAPA_DESC = {
   materiales: "Fichas, actividades y documentos para descargar.",
   cuentos: "Cuentos para pensar, con sus preguntas.",
   tarjetas: "Tarjetas de repaso: pregunta por delante, respuesta por detrás.",
-  reto: "Preguntas contrarreloj para repasar jugando.",
+  retos: "Preguntas contrarreloj para repasar jugando.",
   parejas: "Juego de memoria: une cada concepto con su pareja.",
-  glosario: "Los conceptos de cada tema, con su definición y su origen.",
+  diccionario: "Los conceptos de cada tema, con su definición y su origen.",
   biografias: "Biografías de los pensadores y fichas de cada época.",
   citas: "Frases célebres de los filósofos, explicadas.",
   adagios: "Lemas clásicos en latín y griego, y frases célebres de los filósofos: qué quieren decir y cuándo usarlos.",
@@ -53,17 +53,17 @@ const MAPA_DESC = {
   cronogramas: "Líneas de tiempo de autores y épocas.",
   genealogias: "Quién influyó en quién: maestros, discípulos y rivales.",
   esquemas: "Esquemas de las ideas principales de cada tema.",
-  esqautor: "Un resumen por autor, para la PAU.",
+  resumenes: "Un resumen por autor, para la PAU.",
   diapositivas: "Presentaciones de los temas.",
   rescritura: "Aprende a reescribir un texto con tus palabras.",
   pistas: "Problemas con pistas que se van abriendo poco a poco.",
   cuestionarios: "Preguntas tipo test de cada tema, con corrección.",
-  juegosucio: "Las trampas de la discusión, para reconocerlas.",
+  logica_pca: "Las trampas de la discusión, para reconocerlas.",
   unidad: "Todas las preguntas de una unidad, juntas.",
   rubricas: "Cómo se corrigen los trabajos y los exámenes.",
   evidencias: "Evidencias de aprendizaje del curso pasado.",
   recursos: "Enlaces y herramientas externas.",
-  pau: "Cómo es la prueba de acceso a la universidad.",
+  prepara_PAU: "Cómo es la prueba de acceso a la universidad.",
   comentario: "Cómo se hace un comentario de texto, con ejemplos resueltos.",
   disertaciones: "Cómo se escribe una disertación, con modelos.",
   lecturas: "Los textos de los autores para leer y comentar.",
@@ -71,7 +71,7 @@ const MAPA_DESC = {
   signos: "Curso de lengua de signos."
 };
 /* cuántos elementos tiene cada sección (si su colección está cargada en esta web) */
-const MAPA_CUENTA = { tarjetas: "DECKS", cuestionarios: "QUIZZES", glosario: "GLOSARIO", biografias: "BIOGRAFIAS", citas: "CITAS", adagios: "ADAGIOS", polemicas: "POLEMICAS", perseguidos: "PERSEGUIDOS", comunidades: "COMUNIDADES",
+const MAPA_CUENTA = { tarjetas: "DECKS", cuestionarios: "QUIZZES", diccionario: "DICCIONARIO", biografias: "BIOGRAFIAS", citas: "CITAS", adagios: "ADAGIOS", polemicas: "POLEMICAS", perseguidos: "PERSEGUIDOS", comunidades: "COMUNIDADES",
   infografias: "INFOGRAFIAS", mapas: "MAPS", esquemas: "ESQUEMAS", cronogramas: "CRONOGRAMAS", genealogias: "GENEALOGIAS", lecturas: "LECTURAS",
   galeria: "GALERIA", dilemas: "DILEMAS", disertaciones: "DISERTACIONES", nudos: "NUDOS", pistas: "PISTAS", materiales: "MATERIALS" };
 function mapaG(name){ try { return (0, eval)("typeof " + name + " !== 'undefined' ? " + name + " : undefined"); } catch (e){ return undefined; } }
