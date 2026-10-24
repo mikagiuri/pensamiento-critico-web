@@ -267,6 +267,7 @@ function loadClase(k){
     '<div class="cl-pager">' + card(prev, CLASES_TXT.anterior, CLASES_TXT.primera, "") + card(next, CLASES_TXT.siguiente, CLASES_TXT.fin, " cl-next") + '</div>' +
     '<div class="toolrow"><button class="btn ghost" type="button" data-back>' + clEsc(CLASES_TXT.todas) + '</button></div>';
 
+  if (window.DiccEnLinea) window.DiccEnLinea.marcar(document.getElementById("clbody"), "ipc", () => window.Itinerario.claseTema(u.unidad));   // DUA D1.3 (P3, P7)
   clasesKey = key;
   clSave(key);
   window.scrollTo(0, 0);
