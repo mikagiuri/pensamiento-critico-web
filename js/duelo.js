@@ -1081,7 +1081,7 @@ const DUELO_TEMAS = [
     "peso": 2
    },
    {
-    "t": "Según tú, el hombre se salva él solito, con sus fuerzas, y la gracia de Dios sobra.",
+    "t": "Según tú, el ser humano se salva él solito, con sus fuerzas, y la gracia de Dios sobra.",
     "f": "deformar",
     "peso": 3
    },
@@ -1777,7 +1777,7 @@ const DUELO_TEMAS = [
     "peso": 3
    },
    {
-    "t": "O todo es gracia de Dios, o todo es mérito del hombre: no hay término medio.",
+    "t": "O todo es gracia de Dios, o todo es mérito del ser humano: no hay término medio.",
     "f": "dos",
     "peso": 2
    },
@@ -1814,7 +1814,7 @@ const DUELO_TEMAS = [
     "f": "persona"
    },
    {
-    "t": "O el hombre es libre del todo, o es una marioneta de Dios: elige.",
+    "t": "O el ser humano es libre del todo, o es una marioneta de Dios: elige.",
     "f": "dos"
    }
   ]
@@ -1885,7 +1885,7 @@ const DUELO_TEMAS = [
     "str": 3
    },
    {
-    "t": "No hay pecado en el hombre si no hay nada de voluntad propia o de asentimiento, y un recién nacido aún no ha querido nada.",
+    "t": "No hay pecado en el ser humano si no hay nada de voluntad propia o de asentimiento, y un recién nacido aún no ha querido nada.",
     "str": 3
    },
    {
