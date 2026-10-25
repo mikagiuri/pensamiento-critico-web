@@ -28,7 +28,7 @@
     blEstudiar: "Estudiar", blPau: "Preparar la PAU", blPensar: "Pensar y escribir", blAmpliar: "Ampliar", pauBadge: "Lectura PAU",
     cronogramas: "Cronogramas", disertaciones: "Disertaciones", comparativas: "Comparativas", polemicas: "Polémicas", comunidades: "Comunidades",
     puenteFil: "Lo volverás a ver en 2.º", puenteHf: "Ya lo viste en 1.º", hfSig: "HF",
-    perseguidos: "Perseguidos", duelo: "Duelo de razones", juegos: "Juegos", logica: "Rincón de lógica",
+    perseguidos: "Perseguidos", duelo: "Duelo de razones", juegos: "Juegos", logica: "Rincón de lógica", masFondo: "Más a fondo en este tema",
     videosEu: "Vídeos en euskera (Ikusgela)", videoEu: "Vídeo en euskera de Ikusgela", transcripcion: "Transcripción", transcripcionT: "Texto del vídeo: subtítulos de Ikusgela", infografia: "Infografía", mapa: "Mapa", esquema: "Esquema", lectura: "Lectura", dilema: "Dilema", comentario: "Comentario",
     pau: "Itinerario PAU", pauLead: "Prepara la PAU en orden: primero cómo es la prueba, luego cada ejercicio y, al final, la práctica por temas.",
     pau1: "Cómo es la prueba", pau2: "Ejercicio 1 · El comentario de texto", pau3: "Ejercicio 2 · La disertación",
@@ -360,58 +360,64 @@
      En la web completa el enlace abre el tema; en las webs del alumnado, la otra web publicada en la misma lengua. */
   var PUENTES = {
     "fil-metafisica": [
-      { k: "hf-medieval", n: 11, tit: "La filosofía medieval: etapas, métodos y el problema de los universales", txt: "En 1.º viste los argumentos medievales sobre Dios, de Anselmo y Tomás; en 2.º verás la Edad Media entera: la relación fe-razón, sus etapas y el problema de los universales." },
+      { k: "hf-medieval", n: 11, tit: "La filosofía medieval: etapas, métodos y el problema de los universales", txt: "En 1.º viste el problema de los universales —realismo, conceptualismo y nominalismo— y los argumentos sobre Dios de Anselmo y Tomás; en 2.º verás la Edad Media entera: la relación fe-razón, sus etapas y la disputa medieval de los universales." },
       { k: "hf-fe-razon", n: 12, tit: "Fe y razón: la asimilación de la filosofía griega y la existencia de Dios", txt: "En 1.º viste las cinco vías de Tomás y la distinción esencia-existencia; en 2.º verás cómo el cristianismo asimiló la filosofía griega, con Agustín, Tomás, Avicena y Ockham." },
       { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el monismo, el dualismo y el materialismo como respuestas sobre la sustancia; en 2.º verás ese debate en la modernidad, con Descartes, Hobbes, Spinoza y Locke." },
-      { k: "hf-aa", n: "AA", tit: "Aristóteles: el sistema completo", txt: "En 1.º viste la sustancia de Aristóteles, la esencia y el paso de la potencia al acto como su respuesta a Parménides; en 2.º verás su sistema completo: las categorías, las cuatro causas y la teleología." }
+      { k: "hf-aa", n: "AA", tit: "Aristóteles: el sistema completo", txt: "En 1.º viste la sustancia de Aristóteles, la esencia, el paso de la potencia al acto y su realismo moderado ante los universales; en 2.º verás su sistema completo: las categorías, las cuatro causas y la teleología." },
+      { k: "hf-siglo21", n: 27, tit: "La sociedad actual: retos del siglo XXI", txt: "En 1.º viste la inteligencia artificial como objeto de estudio: qué es, la diferencia entre IA estrecha y general, la singularidad y sus riesgos; en 2.º la verás entre los retos del siglo XXI: los datos, los algoritmos y la gobernanza democrática." }
     ],
     "fil-t1": [
-      { k: "hf-mito", n: 3, tit: "El surgimiento de la filosofía: del mito al logos", txt: "En 1.º viste el paso del mito al logos como nacimiento de la filosofía; en 2.º leerás a los primeros filósofos de Mileto explicando la realidad por la razón, sin dioses." },
+      { k: "hf-mito", n: 3, tit: "El surgimiento de la filosofía: del mito al logos", txt: "En 1.º viste el paso del mito al logos y te preguntaste si la filosofía nació solo en Grecia, con el mohismo chino y el debate africano; en 2.º leerás a los primeros filósofos de Mileto y discutirás el «milagro griego»: qué tuvo de nuevo y qué heredó." },
       { k: "hf-preso", n: 4, tit: "El problema de la realidad en los presocráticos", txt: "En 1.º viste a Tales de Mileto buscar el arché como primer principio; en 2.º verás por qué cada presocrático propuso uno distinto y cómo entendían la realidad." }
     ],
     "fil-t2": [
       { k: "hf-antropologia", n: 7, tit: "La antropología clásica: Sócrates, Platón y Aristóteles", txt: "En 1.º viste el alma en el problema mente-cuerpo, con Platón y Aristóteles; en 2.º leerás el giro de Sócrates y las tres concepciones de la psique: alma, virtud y vida buena." },
       { k: "hf-metafisica", n: 15, tit: "El debate metafísico moderno: dualismo y materialismo", txt: "En 1.º viste el dualismo de Descartes y el materialismo de Hobbes; en 2.º verás ese debate moderno completo, con el monismo de Spinoza y el giro empirista de Locke." },
       { k: "hf-sospecha", n: 21, tit: "Los filósofos de la sospecha: Marx, Nietzsche y Freud", txt: "En 1.º viste a Marx, Nietzsche y Freud entre las concepciones del ser humano —el trabajo, el superhombre y un yo que «no es dueño en su propia casa»—; en 2.º los verás juntos como los «maestros de la sospecha», que ponen en crisis la idea de un sujeto dueño de sí mismo." },
-      { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste el existencialismo de Sartre y Beauvoir: «la existencia precede a la esencia»; en 2.º lo estudiarás con Kierkegaard, Heidegger y Camus, y con Unamuno, Ortega y María Zambrano." }
+      { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste el existencialismo de Sartre y Beauvoir: «la existencia precede a la esencia»; en 2.º lo estudiarás con Kierkegaard, Heidegger y Camus, y con Unamuno, Ortega y María Zambrano." },
+      { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste las emociones y el deseo, la debilidad de la voluntad (la akrasía) y la idea de Aristóteles de que se aprende a sentir cuando se debe y en la medida justa; en 2.º leerás su ética de las virtudes por dentro, frente al intelectualismo de Sócrates." }
     ],
     "fil-t3": [
-      { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el racionalismo y el empirismo como dos fuentes enfrentadas del conocimiento; en 2.º leerás a Descartes y Hume por dentro: la duda metódica, el cogito y la crítica de la causalidad." },
+      { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el racionalismo y el empirismo como fuentes enfrentadas del conocimiento, y el problema de la inducción de Hume; en 2.º leerás a Descartes y Hume por dentro: la duda metódica, el cogito y la crítica de la causalidad." },
       { k: "hf-kant", n: 19, tit: "La filosofía crítica de Kant y el problema de la metafísica", txt: "En 1.º viste el criticismo de Kant unir razón y experiencia; en 2.º verás cómo el espacio, el tiempo y las categorías ordenan la experiencia y por qué no conocemos las cosas «en sí»." },
       { k: "hf-sofistas", n: 5, tit: "La Ilustración griega: sofistas, Sócrates y Aspasia", txt: "En 1.º viste el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; en 2.º verás a los sofistas y el giro antropológico de la Ilustración griega, con Sócrates y Aspasia." },
       { k: "hf-platon", n: 6, tit: "Platón: la teoría de las Ideas y la República", txt: "En 1.º viste la distinción de Platón entre opinión (doxa) y ciencia (episteme) y su idealismo de las Ideas; en 2.º leerás su teoría de las Ideas completa y la ciudad justa de la República." },
       { k: "hf-modernidad", n: 13, tit: "El nacimiento de la modernidad: Renacimiento, protestantismo y revolución científica", txt: "En 1.º aprendiste el método hipotético-deductivo y viste cómo la revolución científica cambió la idea de ciencia y de cosmos; en 2.º verás de dónde sale ese método: Galileo une razón y experiencia y lee la naturaleza en lenguaje matemático, un giro que abre la modernidad y prepara el racionalismo de Descartes (tema 14)." },
-      { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste el perspectivismo de Ortega y Gasset: «yo soy yo y mi circunstancia»; en 2.º lo verás junto a los existencialistas, con Unamuno y María Zambrano." }
+      { k: "hf-existencialismo", n: 25, tit: "El existencialismo: Heidegger, Sartre y la filosofía española", txt: "En 1.º viste la fenomenología de Husserl y la hermenéutica como maneras de describir y comprender, y el perspectivismo de Ortega: «yo soy yo y mi circunstancia»; en 2.º verás a Heidegger, discípulo de Husserl, y a los existencialistas, con Unamuno, Ortega y María Zambrano." },
+      { k: "hf-analitica", n: 24, tit: "La filosofía analítica: Wittgenstein y el giro lingüístico", txt: "En 1.º viste el método científico, el problema de la inducción, la falsabilidad de Popper y la frontera entre ciencia y pseudociencia; en 2.º verás la filosofía de la ciencia del siglo XX, del Círculo de Viena a Feyerabend." },
+      { k: "hf-capitalismo", n: 22, tit: "La crítica del capitalismo: de Marx a Rawls", txt: "En 1.º viste la posverdad con Hannah Arendt y la idea de Habermas de un mundo de la vida colonizado por el dinero y el poder; en 2.º leerás a Arendt y a Habermas dentro de la tradición crítica, de la Escuela de Fráncfort a Rawls." }
     ],
     "fil-t4": [
       { k: "hf-aa", n: "AA", tit: "Aristóteles: el sistema completo", txt: "En 1.º viste los silogismos y el cuadrado de oposición (en el Rincón de lógica); en 2.º verás la lógica dentro del sistema de Aristóteles: el Órganon, la clasificación de las ciencias, las categorías y cómo la teoría del silogismo se enlaza con su metafísica." },
-      { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el álgebra de Boole, que convierte la lógica en un cálculo con 1 y 0; en 2.º verás la mathesis universalis de Descartes, su sueño de una ciencia universal del orden. Leibniz, que en ese tema aparece con las mónadas, lo llevó más lejos: imaginó una lengua en la que razonar fuera calcular." },
+      { k: "hf-racionalismo", n: 14, tit: "Racionalismo y empirismo: Descartes y Hume", txt: "En 1.º viste el álgebra de Boole, que convierte la lógica en un cálculo con 1 y 0; en 2.º verás la mathesis universalis de Descartes, su sueño de una ciencia universal del orden. Leibniz, que en ese tema aparece con las mónadas, lo llevó más lejos: imaginó una lengua en la que razonar fuera calcular. Y los sesgos cognitivos de 1.º tienen allí un precedente: los ídolos de Bacon, que ya describían el sesgo de confirmación." },
       { k: "hf-analitica", n: 24, tit: "La filosofía analítica: Wittgenstein y el giro lingüístico", txt: "En 1.º viste la lógica de las conectivas y sus tablas de verdad, los cuantificadores y la lógica simbólica de Frege y de Russell; en 2.º verás cómo Russell y el primer Wittgenstein usan ese análisis lógico del lenguaje para buscar un lenguaje perfecto: es el giro lingüístico de la filosofía analítica." }
     ],
     "fil-t5": [
-      { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste la virtud como término medio y el intelectualismo de Sócrates; en 2.º leerás la ética clásica entera: la areté, la eudaimonía y las respuestas de Sócrates, Platón y Aristóteles." },
-      { k: "hf-helenismo", n: 10, tit: "El helenismo: cinismo, estoicismo, epicureísmo y escepticismo", txt: "En 1.º viste el hedonismo de Epicuro como una ética de la felicidad; en 2.º verás el helenismo completo: cinismo, estoicismo, epicureísmo y escepticismo respondiendo a cómo vivir en un mundo incierto." },
-      { k: "hf-etica-deber", n: 20, tit: "Éticas de la felicidad y éticas del deber: Kant frente al utilitarismo", txt: "En 1.º viste la ética formal de Kant y el utilitarismo de Bentham y Mill; en 2.º leerás ese choque a fondo: las éticas del deber frente a las de la felicidad." },
+      { k: "hf-etica", n: 8, tit: "La ética clásica: intelectualismo, virtudes y eudaimonía", txt: "En 1.º viste la virtud como término medio, el intelectualismo de Sócrates y las objeciones que hoy se hacen a la ética de la virtud; en 2.º leerás la ética clásica entera: la areté, la eudaimonía y las respuestas de Sócrates, Platón y Aristóteles." },
+      { k: "hf-helenismo", n: 10, tit: "El helenismo: cinismo, estoicismo, epicureísmo y escepticismo", txt: "En 1.º viste el hedonismo de Epicuro y el estoicismo como ética de la virtud: las cuatro virtudes, las pasiones como juicios y el entrenamiento diario de Séneca y Marco Aurelio; en 2.º verás el helenismo completo: cinismo, estoicismo, epicureísmo y escepticismo." },
+      { k: "hf-etica-deber", n: 20, tit: "Éticas de la felicidad y éticas del deber: Kant frente al utilitarismo", txt: "En 1.º viste la ética formal de Kant, la diferencia entre obrar por deber y conforme al deber, por qué las éticas del deber ponen límites y no metas, y el utilitarismo de Bentham y Mill; en 2.º leerás a fondo el choque entre las éticas del deber y las de la felicidad." },
       { k: "hf-sospecha", n: 21, tit: "Los filósofos de la sospecha: Marx, Nietzsche y Freud", txt: "En 1.º viste la genealogía de la moral de Nietzsche: señores y esclavos, el resentimiento y la transvaloración de los valores; en 2.º lo leerás a fondo junto a Marx y Freud, con su texto de la PAU, Ecce homo." },
-      { k: "hf-utilitarismo", n: 17, tit: "Utilitarismo y liberalismo: las bases del capitalismo", txt: "En 1.º viste el utilitarismo de Bentham y Mill como ética: la mayor felicidad para el mayor número y los placeres superiores; en 2.º lo verás como base del liberalismo, con el principio del daño de Mill y el mercado de Adam Smith." }
+      { k: "hf-utilitarismo", n: 17, tit: "Utilitarismo y liberalismo: las bases del capitalismo", txt: "En 1.º viste el utilitarismo de Bentham y Mill como ética: la mayor felicidad para el mayor número y los placeres superiores; en 2.º lo verás como base del liberalismo, con el principio del daño de Mill y el mercado de Adam Smith." },
+      { k: "hf-siglo21", n: 27, tit: "La sociedad actual: retos del siglo XXI", txt: "En 1.º viste la ética aplicada: la ética medioambiental, los deberes con las generaciones futuras de Hans Jonas y la pobreza lejana de Peter Singer; en 2.º los verás entre los retos del siglo XXI: la justicia climática y las capacidades de Martha Nussbaum." }
     ],
     "fil-t6": [
-      { k: "hf-contrato", n: 16, tit: "El origen de la sociedad y el poder: Maquiavelo y el contrato social", txt: "En 1.º viste el contrato social de Hobbes, Locke y Rousseau como origen del Estado; en 2.º leerás además a Maquiavelo y la idea de Montesquieu de limitar el poder." },
-      { k: "hf-capitalismo", n: 22, tit: "La crítica del capitalismo: de Marx a Rawls", txt: "En 1.º viste la crítica de Marx al capitalismo: lucha de clases, plusvalía y alienación; en 2.º leerás cómo sigue en Gramsci, la Escuela de Fráncfort, Habermas y Rawls." },
+      { k: "hf-contrato", n: 16, tit: "El origen de la sociedad y el poder: Maquiavelo y el contrato social", txt: "En 1.º viste por qué hubo que legitimar el poder, los tipos de legitimidad de Weber, el contrato social de Hobbes, Locke y Rousseau y las críticas que se les hacen; en 2.º leerás además a Maquiavelo y la idea de Montesquieu de limitar el poder." },
+      { k: "hf-capitalismo", n: 22, tit: "La crítica del capitalismo: de Marx a Rawls", txt: "En 1.º viste la crítica de Marx al capitalismo —lucha de clases, plusvalía y alienación— y la justicia de Rawls con sus críticas, de los utilitaristas a Nozick; en 2.º leerás cómo sigue la tradición crítica en Gramsci, la Escuela de Fráncfort, Habermas y Rawls." },
       { k: "hf-beauvoir", n: 26, tit: "El feminismo contemporáneo: Simone de Beauvoir", txt: "En 1.º viste a Beauvoir en las olas del feminismo y su «No se nace mujer: se llega a serlo»; en 2.º leerás su existencialismo a fondo y a Butler, Fraser y Nussbaum." },
       { k: "hf-politica", n: 9, tit: "La política clásica: Platón y Aristóteles", txt: "En 1.º viste la República de Platón como la primera gran utopía, la ciudad justa de los filósofos-reyes, y a Aristóteles definir al ser humano como animal político; en 2.º leerás la República a fondo (tema 6) y compararás los dos modelos políticos de Platón y Aristóteles." },
-      { k: "hf-ilustracion", n: 18, tit: "El proyecto ilustrado: potencia y límites de la razón", txt: "En 1.º viste los derechos humanos, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; en 2.º verás el proyecto ilustrado del que nacen esos derechos y esa crítica: la confianza en la razón y sus límites." }
+      { k: "hf-ilustracion", n: 18, tit: "El proyecto ilustrado: potencia y límites de la razón", txt: "En 1.º viste la Declaración Universal de Derechos Humanos por dentro, el debate sobre si los derechos son universales, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; en 2.º verás el proyecto ilustrado del que nacen esos derechos y esa crítica." }
     ],
     "hf-aa": [
-      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º la sustancia, la esencia y el paso de la potencia al acto; aquí has estudiado el sistema completo de Aristóteles: las categorías, las cuatro causas y la teleología." },
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º la sustancia, la esencia, el paso de la potencia al acto y el realismo moderado ante los universales; aquí has estudiado el sistema completo de Aristóteles: las categorías, las cuatro causas y la teleología." },
       { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º los silogismos y el cuadrado de oposición (en el Rincón de lógica); aquí has visto esa lógica dentro del sistema de Aristóteles: el Órganon, la clasificación de las ciencias, las categorías y la teoría del silogismo ligada a su metafísica." }
     ],
     "hf-analitica": [
-      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º la lógica simbólica de Frege y de Russell; aquí has visto cómo ese análisis lógico del lenguaje da lugar al giro lingüístico de Russell y Wittgenstein." }
+      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º la lógica simbólica de Frege y de Russell; aquí has visto cómo ese análisis lógico del lenguaje da lugar al giro lingüístico de Russell y Wittgenstein." },
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el método científico, el problema de la inducción y la falsabilidad de Popper; aquí has seguido la filosofía de la ciencia del siglo XX, del Círculo de Viena a Kuhn y Feyerabend." }
     ],
     "hf-existencialismo": [
       { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el existencialismo de Sartre y Beauvoir: «la existencia precede a la esencia»; aquí lo has estudiado con Kierkegaard, Heidegger y Camus." },
-      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el perspectivismo de Ortega y Gasset: «yo soy yo y mi circunstancia»; aquí lo has leído junto a los existencialistas, con Unamuno y María Zambrano." }
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º la fenomenología de Husserl, la hermenéutica y el perspectivismo de Ortega: «yo soy yo y mi circunstancia»; aquí has leído a Heidegger y a los existencialistas, con Unamuno y María Zambrano." }
     ],
     "hf-antropologia": [
       { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el alma en el problema mente-cuerpo, con el dualismo de Platón y el alma-forma de Aristóteles; aquí has leído el giro de Sócrates y las tres concepciones de la psique." }
@@ -420,31 +426,33 @@
       { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º a Beauvoir en las olas del feminismo y su «No se nace mujer»; aquí has leído su existencialismo a fondo y a Butler, Fraser y Nussbaum." }
     ],
     "hf-capitalismo": [
-      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º la crítica de Marx al capitalismo: lucha de clases, plusvalía y alienación; aquí has leído su continuación, de Gramsci y la Escuela de Fráncfort a Habermas y Rawls." }
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º la crítica de Marx al capitalismo —lucha de clases, plusvalía y alienación— y la justicia de Rawls con sus críticas; aquí has leído la tradición crítica, de Gramsci y la Escuela de Fráncfort a Habermas y Rawls." },
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º la posverdad con Arendt y el mundo de la vida de Habermas; aquí los has leído dentro de la tradición crítica que va de la Escuela de Fráncfort a Rawls." }
     ],
     "hf-contrato": [
-      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º el contrato social de Hobbes, Locke y Rousseau y el derecho divino; aquí has leído además a Maquiavelo y la separación de poderes de Montesquieu." }
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º por qué hubo que legitimar el poder, los tipos de Weber, el contrato social de Hobbes, Locke y Rousseau y sus críticas; aquí has leído además a Maquiavelo y la separación de poderes de Montesquieu." }
     ],
     "hf-etica": [
-      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la virtud como término medio y el intelectualismo de Sócrates; aquí has leído la ética clásica: qué son la areté y la eudaimonía para Sócrates, Platón y Aristóteles." }
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la virtud como término medio, el intelectualismo de Sócrates y las objeciones actuales a la ética de la virtud; aquí has leído la ética clásica: qué son la areté y la eudaimonía para Sócrates, Platón y Aristóteles." },
+      { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º las emociones, el deseo y la debilidad de la voluntad (akrasía); aquí has visto por qué para Sócrates nadie obra mal a sabiendas y cómo Aristóteles responde con la virtud como hábito." }
     ],
     "hf-etica-deber": [
-      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la ética formal de Kant y el utilitarismo de Bentham y Mill; aquí has leído ese choque a fondo: las éticas del deber frente a las de la felicidad." }
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la ética formal de Kant, la diferencia entre obrar por deber y conforme al deber y el utilitarismo de Bentham y Mill; aquí has leído ese choque a fondo: las éticas del deber frente a las de la felicidad." }
     ],
     "hf-fe-razon": [
       { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º las cinco vías de Tomás y la distinción esencia-existencia; aquí has leído la síntesis de fe y razón, con Agustín, Tomás, Avicena y Ockham." }
     ],
     "hf-helenismo": [
-      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el hedonismo de Epicuro y su ataraxia; aquí has leído el helenismo completo: cuatro escuelas que responden a cómo vivir bien en un mundo incierto." }
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el hedonismo de Epicuro y su ataraxia, y el estoicismo como ética de la virtud, con las pasiones como juicios; aquí has leído el helenismo completo: cuatro escuelas que responden a cómo vivir bien en un mundo incierto." }
     ],
     "hf-ilustracion": [
-      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º los derechos humanos, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; aquí has estudiado el proyecto ilustrado del que nacen esos derechos y esa crítica." }
+      { k: "fil-t6", n: 6, tit: "La vida en sociedad (Filosofía política)", txt: "Ya viste en 1.º la Declaración Universal de Derechos Humanos por dentro, el debate sobre su universalidad, el contrato social y la primera ola feminista de Olympe de Gouges y Wollstonecraft; aquí has estudiado el proyecto ilustrado del que nacen esos derechos y esa crítica." }
     ],
     "hf-kant": [
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el criticismo de Kant como síntesis de racionalismo y empirismo; aquí has leído su filosofía crítica a fondo: fenómeno, noúmeno y los límites de la razón." }
     ],
     "hf-medieval": [
-      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º los argumentos sobre Dios de Anselmo y Tomás; aquí has leído la Edad Media que los enmarca: la relación fe-razón, sus etapas y el problema de los universales." }
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º el problema de los universales y los argumentos sobre Dios de Anselmo y Tomás; aquí has leído la Edad Media que los enmarca: la relación fe-razón, sus etapas y la disputa de los universales." }
     ],
     "hf-metafisica": [
       { k: "fil-t2", n: 2, tit: "¿Qué es el ser humano?", txt: "Ya viste en 1.º el problema mente-cuerpo con el dualismo de Descartes y el materialismo de Hobbes; aquí has leído ese debate moderno completo, con el monismo de Spinoza y el giro de Locke." },
@@ -454,7 +462,7 @@
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º la revolución científica y el método hipotético-deductivo de Galileo, y cómo cambiaron la idea de ciencia y de cosmos; aquí has recorrido el Renacimiento y esa revolución como nacimiento de la modernidad." }
     ],
     "hf-mito": [
-      { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el paso del mito al logos y los rasgos del pensamiento mítico; aquí has leído el nacimiento de la filosofía en Jonia, explicando la naturaleza sin lo sobrenatural." }
+      { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el paso del mito al logos y la pregunta de si la filosofía nació solo en Grecia; aquí has leído el nacimiento de la filosofía en Jonia y has discutido el «milagro griego»." }
     ],
     "hf-platon": [
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º la distinción de Platón entre opinión (doxa) y ciencia (episteme) y su idealismo de las Ideas; aquí has estudiado la teoría de las Ideas completa y el camino del conocimiento hacia el Bien." },
@@ -467,8 +475,8 @@
       { k: "fil-t1", n: 1, tit: "¿Qué es la filosofía?", txt: "Ya viste en 1.º el arché de Tales como primer paso del logos; aquí has recorrido las respuestas de los presocráticos a la pregunta por la realidad y por el principio de todo." }
     ],
     "hf-racionalismo": [
-      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo en la tabla de fuentes del conocimiento; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." },
-      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º el álgebra de Boole y la lógica binaria (1 y 0); aquí has visto la mathesis universalis de Descartes, el sueño de una ciencia universal del orden. Leibniz, que en este tema aparece con las mónadas, lo llevó más lejos: una lengua en la que razonar fuera calcular." }
+      { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el racionalismo y el empirismo, y el problema de la inducción de Hume; aquí has leído a Descartes y Hume por dentro: la duda, el cogito y la crítica de la causalidad." },
+      { k: "fil-t4", n: 4, tit: "Lógica y argumentación", txt: "Ya viste en 1.º el álgebra de Boole y la lógica binaria (1 y 0); aquí has visto la mathesis universalis de Descartes, el sueño de una ciencia universal del orden. Leibniz, que en este tema aparece con las mónadas, lo llevó más lejos: una lengua en la que razonar fuera calcular. Y los ídolos de Bacon que has visto aquí ya asomaban en 1.º, como precedente de los sesgos cognitivos, empezando por el de confirmación." }
     ],
     "hf-sofistas": [
       { k: "fil-t3", n: 3, tit: "¿Qué podemos conocer?", txt: "Ya viste en 1.º el relativismo de Protágoras —«el hombre es la medida de todas las cosas»— entre las posturas ante la verdad; aquí lo has situado en su mundo: la Ilustración griega y el giro de los sofistas hacia el ser humano y la polis." }
@@ -479,6 +487,10 @@
     ],
     "hf-utilitarismo": [
       { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º el utilitarismo de Bentham y Mill como ética: la mayor felicidad para el mayor número y los placeres superiores; aquí lo has leído como base del liberalismo, con el principio del daño de Mill y el mercado de Adam Smith." }
+    ],
+    "hf-siglo21": [
+      { k: "fil-metafisica", n: "M", tit: "La realidad: ¿qué hay y cómo es? (Metafísica)", txt: "Ya viste en 1.º la inteligencia artificial como objeto de estudio filosófico: si entiende, si tiene mente y quién responde de lo que decide; aquí la has visto como infraestructura de la vida cotidiana y como reto para la democracia." },
+      { k: "fil-t5", n: 5, tit: "Las preguntas de la ética", txt: "Ya viste en 1.º la ética medioambiental, los deberes con las generaciones futuras y la pobreza lejana; aquí los has visto como retos del siglo XXI, con la justicia climática y las capacidades de Nussbaum." }
     ]
   };
   var WEB_REPO = { fil: "aula-de-filosofia-web", hf: "historia-filosofia-web" };
@@ -491,6 +503,15 @@
       var a = T && T[x.k] ? btn({ go: "teoria", arg: x.k, label: lab }) : '<a class="itin-lnk" href="' + esc(url + x.k) + '" target="_blank" rel="noopener">' + esc(lab) + ' ↗</a>';
       return '<div class="fin-puente">' + a + '<p>' + esc(x.txt) + '</p></div>'; }).join("") + '</div>';
   }
+  /* (24-10) ampliación de 1.º (actividades_74): enlaces del final del tema a sus apartados nuevos */
+  var AMPLIACION_FIL = {
+    "fil-t2": [["#teoria/fil-t2/4", "Las emociones: el cuerpo que valora"], ["#teoria/fil-t2/3", "De las actitudes a las políticas: cinco modelos de convivencia"]],
+    "fil-t3": [["#teoria/fil-t3/1", "¿Podemos fiarnos de lo que percibimos y recordamos?"], ["#teoria/fil-t3/5", "La posverdad, más a fondo"], ["#teoria/fil-t3/7", "Quién ha podido hacer ciencia: barreras con fecha"], ["#teoria/fil-t3/7", "El efecto Matilda"]],
+    "fil-metafisica": [["#teoria/fil-metafisica/5", "La inteligencia artificial, objeto de estudio filosófico"]],
+    "fil-t4": [["#teoria/fil-t4/12", "Por qué razonamos mal: los sesgos cognitivos"]],
+    "fil-t5": [["#teoria/fil-t5/4", "El estoicismo como ética de la virtud"], ["#teoria/fil-t5/4", "¿Basta con ser buena persona? Objeciones a la ética de la virtud"], ["#teoria/fil-t5/5", "La estructura de la ética del deber"], ["#teoria/fil-t5/11", "Ética medioambiental y otros ámbitos de la ética aplicada"]],
+    "fil-t6": [["#teoria/fil-t6/3", "Estado, nación, país y patria: cuatro palabras que no significan lo mismo"], ["#teoria/fil-t6/5", "Qué distingue a una democracia liberal"], ["#teoria/fil-t6/6", "La Declaración Universal de Derechos Humanos por dentro"], ["#teoria/fil-t6/6", "¿Universales o relativos? El debate sobre el fundamento de los derechos"], ["#teoria/fil-t6/7", "Movimientos sociales y desobediencia civil"]]
+  };
   function finHtml(subject, tema, key){
     var T = coll("THEORY"), teoria = items("teoria", subject, tema);
     var row = function(label, arr){ return arr.length ? '<div class="fin-row"><span class="fin-l">' + esc(label) + '</span><div class="fin-links">' + arr.map(function(x){ return btn(x); }).join("") + '</div></div>' : ""; };
@@ -523,6 +544,7 @@
     P.disertaciones = row(t("disertaciones"), disertDe(subject, tema));
     P.comparativas = row(t("comparativas"), comparativasDe(subject, tema));
     P.logica = row(t("logica"), logicaDe(subject, tema, key));
+    P.masFondo = row(t("masFondo"), (AMPLIACION_FIL[key] || []).map(function(x){ return { href: x[0], label: x[1] }; }));
     P.polemicas = rowFold(t("polemicas"), pols);
     P.comunidades = rowFold(t("comunidades"), porTemas("COMUNIDADES", "comunidades", tk, function(c){ return strip(c.nombre); }));
     P.perseguidos = rowFold(t("perseguidos"), porTemas("PERSEGUIDOS", "perseguidos", tk, function(c){ return strip(c.nombre); }));
@@ -532,7 +554,7 @@
     var blk = function(titulo, arr){ var inner = arr.filter(Boolean).join(""); return inner ? '<div class="fin-bloque"><h3>' + esc(titulo) + '</h3>' + inner + '</div>' : ""; };
     var amp = function(titulo, arr){ var inner = arr.filter(Boolean).join(""); return inner ? '<details class="fin-bloque fin-amp"><summary>' + esc(titulo) + '</summary>' + inner + '</details>' : ""; };
     var ampComun = [P.anexos].concat(subject === "hf" ? [P.dilemas, P.pistas, P.logica] : [])   /* (22-10) en HF, la lógica va en «Ampliar» */.concat([P.polemicas, P.comunidades, P.perseguidos, P.duelo, P.juegos, P.videos]);
-    var rowsHtml = puentesHtml(subject, key) + blk(t("blEstudiar"), [P.tarjetas, P.cuestionarios, P.infografias, P.mapas, P.esquemas, P.conceptos, P.epoca, P.cronogramas]) +
+    var rowsHtml = puentesHtml(subject, key) + blk(t("blEstudiar"), [P.masFondo, P.tarjetas, P.cuestionarios, P.infografias, P.mapas, P.esquemas, P.conceptos, P.epoca, P.cronogramas]) +
       (subject === "hf" ? blk(t("blPau"), [P.lecturas, P.comentario, P.disertaciones, P.comparativas]) : blk(t("blPensar"), [P.lecturas, P.disertaciones, P.dilemas, P.pistas, P.logica])) +
       amp(t("blAmpliar"), ampComun);
     /* tema anterior / siguiente, en el orden de la materia; desde un anexo, solo «Volver al tema» */
