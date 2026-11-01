@@ -336,7 +336,7 @@ const INFOGRAFIAS = {
       "h": "¿Necesidad o deseo?",
       "rows": [
        {
-        "t": "Necesidad",
+        "t": "Necesidad básica",
         "p": "Lo que hace falta para <b>vivir</b>: comer, abrigo, salud, afecto."
        },
        {

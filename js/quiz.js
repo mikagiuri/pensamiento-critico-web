@@ -16,7 +16,7 @@ let quizReviewing = false;  // true si repasamos solo los fallos (no toca la mej
 
 function quizShuffle(a){ a = a.slice(); for (let i = a.length - 1; i > 0; i--){ const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; }
 
-const QUIZ_SUBJECTS = { fil: "Filosofía 1.º", hf: "Historia de la Filosofía", ipc: "Pensamiento crítico" };
+const QUIZ_SUBJECTS = { fil: "Filosofía 1.º", hf: "Historia de la Filosofía", ipc: "Pensamiento crítico", mat: "Matemáticas I", bio: "Biología" };   // (01-11) mat y bio: Refuerzos
 const QUIZ_EPOCAS = { ant: "Antigua", med: "Medieval", mod: "Moderna", ilu: "Ilustración", con: "Contemporánea" };
 /* (12-10) criterio del profesor: en 1.º la fila «Tema» nombra el ÁMBITO filosófico; el código T1… va al tooltip
    y la cabecera de grupo. En HF y en la web local, como antes. */
@@ -30,6 +30,9 @@ const QUIZ_TEMAS = {
   hf: { T1: "Historicidad y universalidad", T2: "Los métodos de la filosofía", T3: "Del mito al logos", T4: "Los presocráticos", T5: "Sofistas, Sócrates y Aspasia", T6: "Platón: Ideas y República", T7: "Antropología clásica", T8: "Ética clásica", T9: "Política clásica", T10: "El helenismo",
     T11: "Filosofía medieval y universales", T12: "Fe y razón", T13: "Renacimiento y revolución científica", T14: "Racionalismo y empirismo", T15: "Dualismo y materialismo", T16: "Sociedad y poder: el contrato social", T17: "Utilitarismo y liberalismo",
     T18: "La Ilustración", T19: "Kant: crítica y metafísica", T20: "Éticas de la felicidad y del deber", T21: "Los filósofos de la sospecha", T22: "Crítica del capitalismo: de Marx a Rawls", T23: "Nietzsche y la posmodernidad", T24: "Filosofía analítica", T25: "El existencialismo", T26: "El feminismo", T27: "Retos del siglo XXI" },
+  /* (01-11) Refuerzos: los temas del Decreto 76/2023. Un cuestionario «mat-tN…» o «bio-tN…» va solo a su tema (quizTemaDe) */
+  mat: { T1: "Números reales", T2: "Números complejos", T3: "Técnicas de conteo", T4: "Ecuaciones, inecuaciones y sistemas", T5: "Trigonometría", T6: "Vectores en el plano", T7: "Geometría analítica del plano", T8: "Funciones", T9: "Límites y continuidad", T10: "Derivadas", T11: "Estadística bidimensional", T12: "Probabilidad" },
+  bio: { T1: "El proyecto científico", T2: "Historia de la Tierra y de la vida", T3: "La dinámica y la composición de la Tierra", T4: "Ecología y sostenibilidad", T5: "Fisiología e histología vegetal", T6: "Fisiología e histología animal", T7: "Los microorganismos" },
   ipc: { pensar: "Pensar por uno mismo", argumentar: "Argumentar bien", falacias: "Falacias y bulos", sesgos: "Sesgos", dialogo: "Dialogar", medios: "Medios y publicidad", grupo: "El grupo", huella: "Mi huella en el planeta" }
 };
 const QUIZ_TEMA = {
@@ -137,7 +140,8 @@ function lexMontar(){
     if (gr.tema !== "otros") QUIZ_TEMA[k] = gr.tema;
   });
 }
-function quizTemaDe(k){ const m = QUIZ_TEMAS[QUIZZES[k].subject] || {}; return m[QUIZ_TEMA[k]] ? QUIZ_TEMA[k] : "otros"; }
+function quizTemaDe(k){ const m = QUIZ_TEMAS[QUIZZES[k].subject] || {}, r = /^(?:mat|bio)-t(\d+)/.exec(k), t = QUIZ_TEMA[k] || (r ? "T" + r[1] : null);   // (01-11) Refuerzos: el tema sale de la clave
+  return m[t] ? t : "otros"; }
 function quizEnFiltro(k, q, conTema){
   if (quizSubject !== "all" && q.subject !== quizSubject) return false;
   if (quizSubject === "hf" && quizBlock !== "all" && window.Epocas && window.Epocas.epocaDe("cuestionarios", k, q) !== quizBlock) return false;
@@ -157,7 +161,7 @@ const quizTemaNum = t => /^T\d+$/.test(t);
 
 function renderQuizFilter(){
   const box = document.getElementById("quizfilter");
-  const subjBtns = ["all", "fil", "hf", "ipc"].map(s =>
+  const subjBtns = ["all", "fil", "hf", "ipc"].concat(["mat", "bio"].filter(s => Object.values(QUIZZES).some(x => x && x.subject === s))).map(s =>   // (01-11) mat y bio: solo si hay (maestra y Refuerzos)
     '<button class="fbtn" data-subj="' + s + '" aria-pressed="' + (s === quizSubject) + '">' +
     (s === "all" ? "Todas" : QUIZ_SUBJECTS[s]) + '</button>'
   ).join("");

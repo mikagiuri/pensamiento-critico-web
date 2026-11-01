@@ -308,6 +308,33 @@ const DICCIONARIO = [
  },
  {
   "subject": "ipc",
+  "t": "Necesidad básica",
+  "id": "g-ipc-necesidad-basica",
+  "area": "Medios y redes",
+  "tema": "Pensamiento crítico · Medios y redes",
+  "def": "Algo que nos hace falta para vivir bien (comer, abrigarnos, aprender…).",
+  "k": "medios"
+ },
+ {
+  "subject": "ipc",
+  "t": "Deseo superfluo",
+  "id": "g-ipc-deseo-superfluo",
+  "area": "Medios y redes",
+  "tema": "Pensamiento crítico · Medios y redes",
+  "def": "Algo que queremos, pero sin lo que podríamos vivir igual de bien.",
+  "k": "medios"
+ },
+ {
+  "subject": "ipc",
+  "t": "Efecto Diderot",
+  "id": "g-ipc-efecto-diderot",
+  "area": "Medios y redes",
+  "tema": "Pensamiento crítico · Medios y redes",
+  "def": "Cuando una compra nueva nos lleva a desear otras que «peguen» con ella, una detrás de otra.",
+  "k": "medios"
+ },
+ {
+  "subject": "ipc",
   "t": "Verificar (contrastar)",
   "id": "g-ipc-verificar",
   "area": "Medios y redes",

@@ -11252,8 +11252,8 @@ const CURSO = [
       "diapositivas": [
        {
         "tipo": "concepto",
-        "titulo": "Necesidad",
-        "texto": "Una **necesidad** es algo que nos hace falta para vivir bien.",
+        "titulo": "Necesidad básica",
+        "texto": "Una **necesidad básica** es algo que nos hace falta para vivir bien.",
         "puntos": [
          "Comer, dormir, abrigarse, tener una casa",
          "Aprender, tener amigos, sentirse seguro",
