@@ -105,7 +105,7 @@ function clUnidadCard(u, ultima){
       '<span class="cl-n">' + s.n + '</span><span class="cl-t">' + clMd(s.titulo) +
       (s.examen ? ' <span class="cl-badge">' + clEsc(CLASES_TXT.examenBadge) + '</span>' : '') + '</span></button>' +
       '<a class="cl-play" href="' + clEsc(clUrl("diapositivas/" + key + ".html")) + '" target="_blank" rel="noopener" aria-label="' + clEsc(clTxt("ariaProyectar", { n: s.n })) + '" title="' + clEsc(CLASES_TXT.proyectarT) + '">▶</a>' +
-      '<a class="cl-play cl-pdf" href="' + clEsc(clUrl("fotocopias/" + key + ".pdf")) + '" target="_blank" rel="noopener" aria-label="' + clEsc(CLASES_TXT.fotocopiasT) + '" title="' + clEsc(CLASES_TXT.fotocopiasT) + '">PDF</a></li>';
+      '<a class="cl-play cl-pdf" href="' + clEsc(clUrl("fotocopias/" + key + ".pdf")) + '" target="_blank" rel="noopener" aria-label="PDF · ' + clEsc(CLASES_TXT.fotocopiasT) + '" title="' + clEsc(CLASES_TXT.fotocopiasT) + '">PDF</a></li>';
   }).join("");
   return '<article class="course cl-unidad" style="--c:var(--ipc)">' +
     '<span class="kick">' + clEsc(CLASES_TXT.unidad + " " + u.unidad) + '</span><h3>' + clMd(u.titulo) + '</h3>' +
