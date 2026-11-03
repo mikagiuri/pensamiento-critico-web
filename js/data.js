@@ -98,7 +98,7 @@ const SUBJECTS = {
 };
 const DECKS = {
  "ipc-conceptos": {
-  "name": "Pensamiento crítico · Conceptos básicos",
+  "name": "Conceptos básicos",
   "subject": "ipc",
   "cards": [
    [
@@ -159,7 +159,7 @@ const DECKS = {
   ]
  },
  "ipc-falacias": {
-  "name": "Pensamiento crítico · Falacias",
+  "name": "Falacias",
   "subject": "ipc",
   "cards": [
    [
@@ -215,7 +215,7 @@ const DECKS = {
   ]
  },
  "ipc-sesgos": {
-  "name": "Pensamiento crítico · Sesgos cognitivos",
+  "name": "Sesgos cognitivos",
   "subject": "ipc",
   "cards": [
    [
@@ -256,7 +256,7 @@ const DECKS = {
   ]
  },
  "ipc-publicidad": {
-  "name": "Pensamiento crítico · Publicidad y medios",
+  "name": "Publicidad y medios",
   "subject": "ipc",
   "cards": [
    [
@@ -302,7 +302,7 @@ const DECKS = {
   ]
  },
  "ipc-huella": {
-  "name": "Pensamiento crítico · Mi huella en el planeta",
+  "name": "Mi huella en el planeta",
   "subject": "ipc",
   "cards": [
    [
@@ -348,7 +348,7 @@ const DECKS = {
   ]
  },
  "ipc-prejuicios": {
-  "name": "Pensamiento crítico · Prejuicios y estereotipos",
+  "name": "Prejuicios y estereotipos",
   "subject": "ipc",
   "cards": [
    [
@@ -414,7 +414,7 @@ const DECKS = {
   ]
  },
  "ipc-moda": {
-  "name": "Pensamiento crítico · Moda rápida (documental)",
+  "name": "Moda rápida (documental)",
   "subject": "ipc",
   "cards": [
    [
@@ -1503,7 +1503,7 @@ const QUIZZES = {
   ]
  },
  "ipc-pensar-banco": {
-  "name": "Pensar por uno mismo (banco ampliado)",
+  "name": "Pensar por uno mismo",
   "subject": "ipc",
   "items": [
    {
@@ -1784,7 +1784,7 @@ const QUIZZES = {
   ]
  },
  "ipc-argumentar-banco": {
-  "name": "Argumentar bien (banco ampliado)",
+  "name": "Argumentar bien",
   "subject": "ipc",
   "items": [
    {
@@ -2098,7 +2098,7 @@ const QUIZZES = {
   ]
  },
  "ipc-falacias-banco": {
-  "name": "Las falacias: trucos del mal razonamiento (banco ampliado)",
+  "name": "Las falacias: trucos del mal razonamiento",
   "subject": "ipc",
   "items": [
    {
@@ -2434,7 +2434,7 @@ const QUIZZES = {
   ]
  },
  "ipc-sesgos-banco": {
-  "name": "Las trampas de la mente: los sesgos (banco ampliado)",
+  "name": "Las trampas de la mente: los sesgos",
   "subject": "ipc",
   "items": [
    {
@@ -2770,7 +2770,7 @@ const QUIZZES = {
   ]
  },
  "ipc-dialogo-banco": {
-  "name": "El arte de dialogar (banco ampliado)",
+  "name": "El arte de dialogar",
   "subject": "ipc",
   "items": [
    {
@@ -2985,7 +2985,7 @@ const QUIZZES = {
   ]
  },
  "ipc-medios-banco": {
-  "name": "Mira los medios con lupa (banco ampliado)",
+  "name": "Mira los medios con lupa",
   "subject": "ipc",
   "items": [
    {
@@ -3299,7 +3299,7 @@ const QUIZZES = {
   ]
  },
  "ipc-grupo-banco": {
-  "name": "¿Somos un grupo o un montón? La cohesión (banco ampliado)",
+  "name": "¿Somos un grupo o un montón? La cohesión",
   "subject": "ipc",
   "items": [
    {
